@@ -1,0 +1,438 @@
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Doradztwo AI - Quantica. Strategia wdrożeń AI, ocena gotowości, zarządzanie danymi dla średnich polskich firm.">
+    <title>Doradztwo AI - Quantica</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Raleway:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            --primary-color: #1a1a2e;
+            --secondary-color: #16213e;
+            --accent-color: #0f4c75;
+            --highlight-color: #3282b8;
+            --text-color: #000000;
+            --light-bg: #f8f9fa;
+            --white: #ffffff;
+            --black: #000000;
+        }
+
+        body {
+            font-family: 'Raleway', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+            line-height: 1.6;
+            color: var(--text-color);
+            overflow-x: hidden;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        /* Header & Navigation */
+        header {
+            background: var(--white);
+            box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+        }
+
+        nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 1.5rem 0;
+        }
+
+        .logo {
+            font-size: 1.8rem;
+            font-weight: 700;
+            color: var(--primary-color);
+            text-decoration: none;
+        }
+
+        .nav-links {
+            display: flex;
+            list-style: none;
+            gap: 2rem;
+            align-items: center;
+        }
+
+        .nav-links a {
+            color: var(--text-color);
+            text-decoration: none;
+            font-weight: 500;
+            transition: color 0.3s ease;
+        }
+
+        .nav-links a:hover {
+            color: var(--highlight-color);
+        }
+
+        /* Dropdown Menu */
+        .dropdown {
+            position: relative;
+        }
+
+        .dropdown-toggle {
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            gap: 0.3rem;
+        }
+
+        .dropdown-toggle::after {
+            content: "▼";
+            font-size: 0.7rem;
+        }
+
+        .dropdown-menu {
+            display: none;
+            position: absolute;
+            top: 100%;
+            left: -1rem;
+            background: var(--white);
+            box-shadow: 0 5px 20px rgba(0,0,0,0.1);
+            border-radius: 5px;
+            padding: 1.5rem 0 0.5rem 0;
+            min-width: 180px;
+            margin-top: -0.5rem;
+        }
+
+        .dropdown:hover .dropdown-menu {
+            display: block;
+        }
+
+        .dropdown-menu a {
+            display: block;
+            padding: 0.8rem 1.5rem;
+            color: var(--text-color);
+            text-decoration: none;
+            transition: background 0.3s ease;
+            white-space: nowrap;
+        }
+
+        .dropdown-menu a:hover {
+            background: var(--light-bg);
+            color: var(--highlight-color);
+        }
+
+        /* Hero Section */
+        .hero {
+            background: var(--primary-color);
+            color: var(--white);
+            padding: 6rem 0 4rem;
+            text-align: center;
+            border-bottom: 3px solid var(--text-color);
+        }
+
+        .hero h1 {
+            font-size: 3rem;
+            margin-bottom: 1.5rem;
+            font-weight: 700;
+        }
+
+        .hero p {
+            font-size: 1.2rem;
+            max-width: 700px;
+            margin: 0 auto 2rem;
+            opacity: 0.95;
+            line-height: 1.8;
+        }
+
+        /* Services Section */
+        .services {
+            padding: 6rem 0;
+            background: var(--light-bg);
+        }
+
+        .section-title {
+            font-size: 2.5rem;
+            margin-bottom: 3rem;
+            color: var(--primary-color);
+            text-align: center;
+        }
+
+        .service-detail {
+            background: var(--white);
+            padding: 2.5rem;
+            border-radius: 0;
+            border: 2px solid var(--text-color);
+            margin-bottom: 2.5rem;
+            transition: all 0.3s ease;
+        }
+
+        .service-detail:hover {
+            background: var(--light-bg);
+        }
+
+        .service-detail h4 {
+            font-size: 1.6rem;
+            color: var(--primary-color);
+            margin-bottom: 0.8rem;
+        }
+
+        .service-meta {
+            color: var(--text-color);
+            font-size: 0.95rem;
+            margin-bottom: 1.2rem;
+            font-weight: 500;
+        }
+
+        .service-detail p {
+            color: var(--text-color);
+            line-height: 1.8;
+            margin-bottom: 1.2rem;
+        }
+
+        .service-detail h5 {
+            font-size: 1.2rem;
+            color: var(--accent-color);
+            margin-top: 1.5rem;
+            margin-bottom: 0.8rem;
+        }
+
+        .service-detail ul {
+            list-style: none;
+            margin-left: 0;
+        }
+
+        .service-detail li {
+            padding: 0.5rem 0;
+            color: var(--text-color);
+            position: relative;
+            padding-left: 1.8rem;
+        }
+
+        .service-detail li::before {
+            content: "•";
+            position: absolute;
+            left: 0;
+            color: var(--highlight-color);
+            font-weight: bold;
+            font-size: 1.3rem;
+        }
+
+        .service-detail strong {
+            color: var(--primary-color);
+        }
+
+        /* CTA Section */
+        .cta-section {
+            padding: 4rem 0;
+            background: var(--white);
+            text-align: center;
+        }
+
+        .cta-section h3 {
+            font-size: 2rem;
+            color: var(--primary-color);
+            margin-bottom: 1rem;
+        }
+
+        .cta-section p {
+            font-size: 1.1rem;
+            color: var(--text-color);
+            margin-bottom: 2rem;
+        }
+
+        .cta-button {
+            display: inline-block;
+            background: transparent;
+            color: var(--text-color);
+            padding: 1rem 2.5rem;
+            text-decoration: none;
+            border: 2px solid var(--text-color);
+            border-radius: 0;
+            font-weight: 600;
+            transition: all 0.3s ease;
+        }
+
+        .cta-button:hover {
+            background: var(--text-color);
+            color: var(--white);
+        }
+
+        /* Footer */
+        footer {
+            background: var(--primary-color);
+            color: var(--white);
+            padding: 1.5rem 0;
+            text-align: center;
+        }
+
+        footer p {
+            opacity: 0.9;
+            font-size: 0.9rem;
+        }
+
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            .nav-links {
+                gap: 1rem;
+                flex-wrap: wrap;
+            }
+
+            .hero h1 {
+                font-size: 2rem;
+            }
+
+            .section-title {
+                font-size: 2rem;
+            }
+        }
+
+        /* Smooth Scroll */
+        html {
+            scroll-behavior: smooth;
+        }
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <header>
+        <nav class="container">
+            <a href="index.html" class="logo">Quantica</a>
+            <ul class="nav-links">
+                <li class="dropdown">
+                    <span class="dropdown-toggle">Oferta</span>
+                    <div class="dropdown-menu">
+                        <a href="szkolenia.html">Szkolenia AI</a>
+                        <a href="doradztwo.html">Doradztwo AI</a>
+                        <a href="wdrozenia.html">Wdrożenia AI</a>
+                    </div>
+                </li>
+                <li><a href="index.html#target">Dla kogo</a></li>
+                <li><a href="index.html#contact">Kontakt</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="container">
+            <h1>Doradztwo AI</h1>
+            <p>Strategiczne doradztwo, które przekłada AI na konkretne działania biznesowe. Nie tworzymy dokumentów do szuflady – dostarczamy praktyczne plany z priorytetami i realnym ROI.</p>
+        </div>
+    </section>
+
+    <!-- Consulting Services -->
+    <section class="services">
+        <div class="container">
+            <div class="service-detail">
+                <h4>Strategia wdrożeń – roadmapa transformacji AI</h4>
+                <div class="service-meta">Czas realizacji: 4-6 tygodni</div>
+                <p>Kompleksowy proces tworzenia strategii AI dla Twojej organizacji. Nie tworzymy dokumentów do szuflady – dostarczamy praktyczny plan działania z priorytetami, timelinami i oszacowanymi kosztami.</p>
+
+                <h5>Proces doradztwa:</h5>
+                <p><strong>Faza 1: Discovery (1-2 tygodnie)</strong></p>
+                <ul>
+                    <li>Audyt procesów biznesowych i identyfikacja obszarów do automatyzacji</li>
+                    <li>Wywiady z kluczowymi stakeholderami we wszystkich działach</li>
+                    <li>Ocena infrastruktury IT i gotowości organizacyjnej</li>
+                    <li>Analiza danych: co masz, jakość, dostępność, governance</li>
+                </ul>
+
+                <p><strong>Faza 2: Projektowanie (2-3 tygodnie)</strong></p>
+                <ul>
+                    <li>Identyfikacja quick wins – projektów z szybkim ROI</li>
+                    <li>Roadmapa wdrożeń AI na 12-24 miesiące</li>
+                    <li>Analiza make or buy dla każdego projektu</li>
+                    <li>Oszacowanie kosztów i zasobów (ludzie, budżet, czas)</li>
+                    <li>Plan zarządzania zmianą i budowania kompetencji AI</li>
+                </ul>
+
+                <p><strong>Faza 3: Prezentacja i warsztaty (1 tydzień)</strong></p>
+                <ul>
+                    <li>Prezentacja strategii dla zarządu</li>
+                    <li>Warsztaty z zespołem odpowiedzialnym za wdrożenie</li>
+                    <li>Dokumentacja strategii z konkretnym planem działania</li>
+                    <li>Miesięczny follow-up i wsparcie w pierwszych krokach</li>
+                </ul>
+
+                <h5>Co dostajesz:</h5>
+                <ul>
+                    <li>Dokument strategiczny z priorytetami i roadmapą</li>
+                    <li>Business case dla każdego zidentyfikowanego projektu AI</li>
+                    <li>Lista rekomendowanych rozwiązań i dostawców</li>
+                    <li>Framework do oceny i priorytetyzacji przyszłych projektów AI</li>
+                    <li>Miesiąc wsparcia przy rozpoczęciu wdrożeń</li>
+                </ul>
+            </div>
+
+            <div class="service-detail">
+                <h4>Ocena gotowości AI (AI Readiness Assessment)</h4>
+                <div class="service-meta">Czas realizacji: 1-2 tygodnie</div>
+                <p>Szybka ocena, czy Twoja firma jest gotowa na wdrożenie AI i co należy najpierw poprawić. Idealne rozwiązanie przed rozpoczęciem większych projektów AI lub jako punkt wyjścia do strategii.</p>
+
+                <h5>Co oceniamy:</h5>
+                <ul>
+                    <li><strong>Dane:</strong> jakość, dostępność, governance, infrastruktura</li>
+                    <li><strong>Ludzie:</strong> kompetencje, kultura organizacyjna, gotowość na zmiany</li>
+                    <li><strong>Procesy:</strong> dojrzałość procesowa, dokumentacja, potencjał automatyzacji</li>
+                    <li><strong>Technologia:</strong> infrastruktura IT, systemy, integracje, bezpieczeństwo</li>
+                    <li><strong>Strategia:</strong> wizja, cele biznesowe, budżet, champions AI</li>
+                </ul>
+
+                <h5>Deliverable:</h5>
+                <ul>
+                    <li>Raport z oceną gotowości (skala 1-5) w każdym obszarze</li>
+                    <li>Gap analysis – co należy poprawić przed wdrożeniami AI</li>
+                    <li>Quick wins – co można zrobić już teraz, nawet z obecnym poziomem gotowości</li>
+                    <li>Plan działania na najbliższe 3-6 miesięcy</li>
+                </ul>
+            </div>
+
+            <div class="service-detail">
+                <h4>Zarządzanie danymi – fundament projektów AI</h4>
+                <div class="service-meta">Czas realizacji: 2-4 tygodnie</div>
+                <p>AI jest tak dobre, jak dane, na których się uczy. Pomagamy uporządkować chaos danych i przygotować organizację do projektów AI.</p>
+
+                <h5>Co robimy:</h5>
+                <ul>
+                    <li>Audyt źródeł danych i ich jakości</li>
+                    <li>Projekt architektury danych pod projekty AI</li>
+                    <li>Wdrożenie data governance: polityki, role, odpowiedzialności</li>
+                    <li>Przygotowanie pipeline'ów danych dla konkretnych projektów AI</li>
+                    <li>Szkolenie zespołu z data governance i data quality</li>
+                </ul>
+
+                <h5>Rezultaty:</h5>
+                <ul>
+                    <li>Data catalog – przegląd wszystkich źródeł danych w organizacji</li>
+                    <li>Data quality framework – jak mierzyć i utrzymywać jakość danych</li>
+                    <li>Data governance policies – kto, co i jak może robić z danymi</li>
+                    <li>Pipeline dla pierwszego projektu AI (ready to use)</li>
+                </ul>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA Section -->
+    <section class="cta-section">
+        <div class="container">
+            <h3>Potrzebujesz strategii AI?</h3>
+            <p>Porozmawiajmy o wyzwaniach Twojej firmy i stwórzmy razem plan wdrożenia AI, który rzeczywiście zadziała.</p>
+            <a href="index.html#contact" class="cta-button">Skontaktuj się z nami</a>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <p>&copy; 2024 Quantica - AI dla Biznesu</p>
+        </div>
+    </footer>
+</body>
+</html>

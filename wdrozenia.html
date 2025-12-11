@@ -1,0 +1,456 @@
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Wdrożenia AI - Quantica. Systemy RAG, automatyzacja procesów, asystenci AI i analityka predykcyjna dla polskich firm.">
+    <title>Wdrożenia AI - Quantica</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Raleway:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            --primary-color: #1a1a2e;
+            --secondary-color: #16213e;
+            --accent-color: #0f4c75;
+            --highlight-color: #3282b8;
+            --text-color: #000000;
+            --light-bg: #f8f9fa;
+            --white: #ffffff;
+            --black: #000000;
+        }
+
+        body {
+            font-family: 'Raleway', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+            line-height: 1.6;
+            color: var(--text-color);
+            overflow-x: hidden;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        /* Header & Navigation */
+        header {
+            background: var(--white);
+            box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+        }
+
+        nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 1.5rem 0;
+        }
+
+        .logo {
+            font-size: 1.8rem;
+            font-weight: 700;
+            color: var(--primary-color);
+            text-decoration: none;
+        }
+
+        .nav-links {
+            display: flex;
+            list-style: none;
+            gap: 2rem;
+            align-items: center;
+        }
+
+        .nav-links a {
+            color: var(--text-color);
+            text-decoration: none;
+            font-weight: 500;
+            transition: color 0.3s ease;
+        }
+
+        .nav-links a:hover {
+            color: var(--highlight-color);
+        }
+
+        /* Dropdown Menu */
+        .dropdown {
+            position: relative;
+        }
+
+        .dropdown-toggle {
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            gap: 0.3rem;
+        }
+
+        .dropdown-toggle::after {
+            content: "▼";
+            font-size: 0.7rem;
+        }
+
+        .dropdown-menu {
+            display: none;
+            position: absolute;
+            top: 100%;
+            left: -1rem;
+            background: var(--white);
+            box-shadow: 0 5px 20px rgba(0,0,0,0.1);
+            border-radius: 5px;
+            padding: 1.5rem 0 0.5rem 0;
+            min-width: 180px;
+            margin-top: -0.5rem;
+        }
+
+        .dropdown:hover .dropdown-menu {
+            display: block;
+        }
+
+        .dropdown-menu a {
+            display: block;
+            padding: 0.8rem 1.5rem;
+            color: var(--text-color);
+            text-decoration: none;
+            transition: background 0.3s ease;
+            white-space: nowrap;
+        }
+
+        .dropdown-menu a:hover {
+            background: var(--light-bg);
+            color: var(--highlight-color);
+        }
+
+        /* Hero Section */
+        .hero {
+            background: var(--primary-color);
+            color: var(--white);
+            padding: 6rem 0 4rem;
+            text-align: center;
+            border-bottom: 3px solid var(--text-color);
+        }
+
+        .hero h1 {
+            font-size: 3rem;
+            margin-bottom: 1.5rem;
+            font-weight: 700;
+        }
+
+        .hero p {
+            font-size: 1.2rem;
+            max-width: 800px;
+            margin: 0 auto 2rem;
+            opacity: 0.95;
+            line-height: 1.8;
+        }
+
+        /* Services Section */
+        .services {
+            padding: 6rem 0;
+            background: var(--light-bg);
+        }
+
+        .section-title {
+            font-size: 2.5rem;
+            margin-bottom: 3rem;
+            color: var(--primary-color);
+            text-align: center;
+        }
+
+        .intro-text {
+            font-size: 1.1rem;
+            color: var(--text-color);
+            margin-bottom: 3rem;
+            line-height: 1.8;
+            text-align: center;
+            max-width: 900px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .service-detail {
+            background: var(--white);
+            padding: 2.5rem;
+            border-radius: 0;
+            border: 2px solid var(--text-color);
+            margin-bottom: 2.5rem;
+            transition: all 0.3s ease;
+        }
+
+        .service-detail:hover {
+            background: var(--light-bg);
+        }
+
+        .service-detail h4 {
+            font-size: 1.6rem;
+            color: var(--primary-color);
+            margin-bottom: 0.8rem;
+        }
+
+        .service-meta {
+            color: var(--text-color);
+            font-size: 0.95rem;
+            margin-bottom: 1.2rem;
+            font-weight: 500;
+        }
+
+        .service-detail p {
+            color: var(--text-color);
+            line-height: 1.8;
+            margin-bottom: 1.2rem;
+        }
+
+        .service-detail h5 {
+            font-size: 1.2rem;
+            color: var(--accent-color);
+            margin-top: 1.5rem;
+            margin-bottom: 0.8rem;
+        }
+
+        .service-detail ul {
+            list-style: none;
+            margin-left: 0;
+        }
+
+        .service-detail li {
+            padding: 0.5rem 0;
+            color: var(--text-color);
+            position: relative;
+            padding-left: 1.8rem;
+        }
+
+        .service-detail li::before {
+            content: "•";
+            position: absolute;
+            left: 0;
+            color: var(--highlight-color);
+            font-weight: bold;
+            font-size: 1.3rem;
+        }
+
+        .service-detail strong {
+            color: var(--primary-color);
+        }
+
+        /* CTA Section */
+        .cta-section {
+            padding: 4rem 0;
+            background: var(--white);
+            text-align: center;
+        }
+
+        .cta-section h3 {
+            font-size: 2rem;
+            color: var(--primary-color);
+            margin-bottom: 1rem;
+        }
+
+        .cta-section p {
+            font-size: 1.1rem;
+            color: var(--text-color);
+            margin-bottom: 2rem;
+        }
+
+        .cta-button {
+            display: inline-block;
+            background: transparent;
+            color: var(--text-color);
+            padding: 1rem 2.5rem;
+            text-decoration: none;
+            border: 2px solid var(--text-color);
+            border-radius: 0;
+            font-weight: 600;
+            transition: all 0.3s ease;
+        }
+
+        .cta-button:hover {
+            background: var(--text-color);
+            color: var(--white);
+        }
+
+        /* Footer */
+        footer {
+            background: var(--primary-color);
+            color: var(--white);
+            padding: 1.5rem 0;
+            text-align: center;
+        }
+
+        footer p {
+            opacity: 0.9;
+            font-size: 0.9rem;
+        }
+
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            .nav-links {
+                gap: 1rem;
+                flex-wrap: wrap;
+            }
+
+            .hero h1 {
+                font-size: 2rem;
+            }
+
+            .section-title {
+                font-size: 2rem;
+            }
+        }
+
+        /* Smooth Scroll */
+        html {
+            scroll-behavior: smooth;
+        }
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <header>
+        <nav class="container">
+            <a href="index.html" class="logo">Quantica</a>
+            <ul class="nav-links">
+                <li class="dropdown">
+                    <span class="dropdown-toggle">Oferta</span>
+                    <div class="dropdown-menu">
+                        <a href="szkolenia.html">Szkolenia AI</a>
+                        <a href="doradztwo.html">Doradztwo AI</a>
+                        <a href="wdrozenia.html">Wdrożenia AI</a>
+                    </div>
+                </li>
+                <li><a href="index.html#target">Dla kogo</a></li>
+                <li><a href="index.html#contact">Kontakt</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="container">
+            <h1>Wdrożenia systemów AI</h1>
+            <p>Koncentrujemy się na <strong>rozwiązaniach departamentowych i horyzontalnych</strong> – takich, które można szybko wdrożyć i szybko zobaczyć efekty. Nie obiecujemy rewolucji – dostarczamy konkretne narzędzia, które rozwiązują realne problemy biznesowe.</p>
+        </div>
+    </section>
+
+    <!-- Implementation Services -->
+    <section class="services">
+        <div class="container">
+            <div class="service-detail">
+                <h4>Systemy RAG (Retrieval-Augmented Generation)</h4>
+                <p><strong>Dla kogo:</strong> firmy z dużą bazą wiedzy (dokumentacja, procedury, FAQ, bazy wiedzy)</p>
+
+                <h5>Co to daje:</h5>
+                <ul>
+                    <li>Pracownicy i klienci otrzymują precyzyjne odpowiedzi na pytania w sekundach</li>
+                    <li>Redukcja czasu szukania informacji o 70-80%</li>
+                    <li>Onboarding nowych pracowników 3x szybszy</li>
+                    <li>Redukcja obciążenia helpdesku / działu obsługi klienta</li>
+                </ul>
+
+                <h5>Przykłady zastosowań:</h5>
+                <ul>
+                    <li><strong>Asystent wiedzy produktowej</strong> – dla zespołów sprzedaży i obsługi klienta</li>
+                    <li><strong>Internal knowledge base</strong> – szybki dostęp do procedur, polityk, dokumentacji</li>
+                    <li><strong>Chatbot obsługi klienta</strong> – odpowiedzi na FAQ z kontekstem</li>
+                    <li><strong>Asystent compliance</strong> – pomoc w nawigacji po regulacjach i standardach</li>
+                </ul>
+
+                <h5>Proces wdrożenia (6-10 tygodni):</h5>
+                <ul>
+                    <li><strong>Discovery (1 tydzień):</strong> analiza potrzeb, identyfikacja źródeł wiedzy</li>
+                    <li><strong>Proof of Concept (2-3 tygodnie):</strong> działający prototyp na wybranym zbiorze danych</li>
+                    <li><strong>Integracja i customizacja (2-4 tygodnie):</strong> połączenie z systemami, dostosowanie UI/UX</li>
+                    <li><strong>Testy i szkolenia (1-2 tygodnie):</strong> pilotaż z grupą użytkowników, szkolenia</li>
+                    <li><strong>Wdrożenie produkcyjne:</strong> rollout, monitoring, optymalizacja</li>
+                </ul>
+            </div>
+
+            <div class="service-detail">
+                <h4>Automatyzacja procesów z AI</h4>
+                <p><strong>Dla kogo:</strong> firmy z powtarzalnymi procesami opartymi na wiedzy</p>
+
+                <h5>Co automatyzujemy:</h5>
+                <ul>
+                    <li><strong>Przetwarzanie dokumentów:</strong> ekstrakcja danych z faktur, umów, CV, dokumentacji</li>
+                    <li><strong>Klasyfikacja i routing:</strong> automatyczne kategoryzowanie emaili, zgłoszeń, dokumentów</li>
+                    <li><strong>Analiza sentymentu:</strong> monitoring opinii klientów, social media, recenzji</li>
+                    <li><strong>Content generation:</strong> raporty, streszczenia, komunikacja z klientami</li>
+                    <li><strong>Data enrichment:</strong> uzupełnianie brakujących informacji, walidacja danych</li>
+                </ul>
+
+                <h5>Przykładowy case – automatyzacja procesów HR:</h5>
+                <ul>
+                    <li>Automatyczne przetwarzanie CV i dopasowywanie do ofert (oszczędność 70% czasu rekrutera)</li>
+                    <li>Generowanie spersonalizowanych odpowiedzi dla kandydatów</li>
+                    <li>Automatyczne scheduling rozmów na podstawie dostępności</li>
+                    <li>Analiza wywiadów i rekomendacje dla rekruterów</li>
+                    <li><strong>Efekt:</strong> czas rekrutacji skrócony o 40%, lepsze dopasowanie kandydatów</li>
+                </ul>
+            </div>
+
+            <div class="service-detail">
+                <h4>Asystenci AI dla zespołów</h4>
+                <p><strong>Dla kogo:</strong> zespoły, które chcą zwiększyć produktywność w codziennej pracy</p>
+
+                <h5>Co tworzymy:</h5>
+                <ul>
+                    <li><strong>Custom GPTs / Claude Projects</strong> – asystenci dostosowani do specyfiki Twojego biznesu</li>
+                    <li><strong>AI workflows</strong> – zautomatyzowane sekwencje zadań łączące AI z innymi narzędziami</li>
+                    <li><strong>Integracje z narzędziami:</strong> Slack, Teams, CRM, systemy ticketowe, bazy danych</li>
+                </ul>
+
+                <h5>Przykłady:</h5>
+                <ul>
+                    <li><strong>Asystent sprzedaży:</strong> analiza potrzeb klienta z CRM, generowanie spersonalizowanych ofert</li>
+                    <li><strong>Asystent contentowy:</strong> tworzenie postów social media zgodnych z brandbook</li>
+                    <li><strong>Asystent analityczny:</strong> automatyczne dashboardy i insights z danych biznesowych</li>
+                    <li><strong>Asystent projektowy:</strong> tracking zadań, generowanie raportów statusu, sugestie optymalizacji</li>
+                </ul>
+            </div>
+
+            <div class="service-detail">
+                <h4>Analityka predykcyjna i modele ML</h4>
+                <p><strong>Dla kogo:</strong> firmy z dużą ilością danych historycznych, które chcą lepiej przewidywać przyszłość</p>
+
+                <h5>Co oferujemy:</h5>
+                <ul>
+                    <li><strong>Forecasting:</strong> przewidywanie sprzedaży, popytu, churn rate</li>
+                    <li><strong>Anomaly detection:</strong> wykrywanie nietypowych wzorców, fraud detection</li>
+                    <li><strong>Recommendation systems:</strong> personalizacja oferty, cross-sell, up-sell</li>
+                    <li><strong>Customer segmentation:</strong> zaawansowana segmentacja oparta na machine learning</li>
+                </ul>
+
+                <h5>Proces:</h5>
+                <ul>
+                    <li>Proof of Value (4-6 tygodni) – weryfikujemy, czy dane pozwalają na budowę modelu</li>
+                    <li>Model development (6-10 tygodni) – budowa, trening, walidacja</li>
+                    <li>Integration (4-6 tygodni) – wdrożenie modelu do systemów produkcyjnych</li>
+                    <li>Monitoring i optymalizacja (ongoing) – śledzenie performance, retraining</li>
+                </ul>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA Section -->
+    <section class="cta-section">
+        <div class="container">
+            <h3>Gotowy na wdrożenie AI?</h3>
+            <p>Omówmy Twoje potrzeby i zaprojektujmy rozwiązanie, które rzeczywiście usprawni procesy w Twojej firmie.</p>
+            <a href="index.html#contact" class="cta-button">Skontaktuj się z nami</a>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <p>&copy; 2024 Quantica - AI dla Biznesu</p>
+        </div>
+    </footer>
+</body>
+</html>

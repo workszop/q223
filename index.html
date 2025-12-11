@@ -1,0 +1,736 @@
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Quantica - AI dla Biznesu. Butikowa firma doradcza pomagająca średnim polskim przedsiębiorstwom wejść w erę sztucznej inteligencji.">
+    <title>Quantica - AI dla Biznesu</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Raleway:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            --primary-color: #1a1a2e;
+            --secondary-color: #16213e;
+            --accent-color: #0f4c75;
+            --highlight-color: #3282b8;
+            --text-color: #000000;
+            --light-bg: #f8f9fa;
+            --white: #ffffff;
+            --black: #000000;
+        }
+
+        body {
+            font-family: 'Raleway', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+            line-height: 1.6;
+            color: var(--text-color);
+            overflow-x: hidden;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        /* Header & Navigation */
+        header {
+            background: var(--white);
+            box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+        }
+
+        nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 1.5rem 0;
+        }
+
+        .logo {
+            font-size: 1.8rem;
+            font-weight: 700;
+            color: var(--primary-color);
+            text-decoration: none;
+        }
+
+        .nav-links {
+            display: flex;
+            list-style: none;
+            gap: 2rem;
+        }
+
+        .nav-links a {
+            color: var(--text-color);
+            text-decoration: none;
+            font-weight: 500;
+            transition: color 0.3s ease;
+        }
+
+        .nav-links a:hover {
+            color: var(--highlight-color);
+        }
+
+        /* Dropdown Menu */
+        .dropdown {
+            position: relative;
+        }
+
+        .dropdown-toggle {
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            gap: 0.3rem;
+        }
+
+        .dropdown-toggle::after {
+            content: "▼";
+            font-size: 0.7rem;
+        }
+
+        .dropdown-menu {
+            display: none;
+            position: absolute;
+            top: 100%;
+            left: -1rem;
+            background: var(--white);
+            box-shadow: 0 5px 20px rgba(0,0,0,0.1);
+            border-radius: 5px;
+            padding: 1.5rem 0 0.5rem 0;
+            min-width: 180px;
+            margin-top: -0.5rem;
+        }
+
+        .dropdown:hover .dropdown-menu {
+            display: block;
+        }
+
+        .dropdown-menu a {
+            display: block;
+            padding: 0.8rem 1.5rem;
+            color: var(--text-color);
+            text-decoration: none;
+            transition: background 0.3s ease;
+            white-space: nowrap;
+        }
+
+        .dropdown-menu a:hover {
+            background: var(--light-bg);
+            color: var(--highlight-color);
+        }
+
+        /* Hero Section */
+        .hero {
+            background: var(--primary-color);
+            color: var(--white);
+            padding: 6rem 0 5rem;
+            text-align: center;
+            border-bottom: 3px solid var(--text-color);
+        }
+
+        .hero h1 {
+            font-size: 3.5rem;
+            margin-bottom: 1.5rem;
+            font-weight: 700;
+        }
+
+        .hero p {
+            font-size: 1.15rem;
+            max-width: 900px;
+            margin: 0 auto 1rem;
+            opacity: 0.95;
+            line-height: 1.8;
+        }
+
+        .cta-button {
+            display: inline-block;
+            background: transparent;
+            color: var(--white);
+            padding: 1rem 2.5rem;
+            text-decoration: none;
+            border: 2px solid var(--white);
+            border-radius: 0;
+            font-weight: 600;
+            transition: all 0.3s ease;
+            margin-top: 1rem;
+        }
+
+        .cta-button:hover {
+            background: var(--white);
+            color: var(--primary-color);
+        }
+
+        /* Services Section */
+        .services {
+            padding: 6rem 0;
+            background: var(--light-bg);
+        }
+
+        .section-title {
+            font-size: 2.5rem;
+            margin-bottom: 3rem;
+            color: var(--primary-color);
+            text-align: center;
+        }
+
+        .services-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+            gap: 2.5rem;
+            margin-top: 3rem;
+        }
+
+        .service-card {
+            background: var(--white);
+            padding: 2.5rem;
+            border-radius: 0;
+            border: 2px solid var(--text-color);
+            transition: all 0.3s ease;
+        }
+
+        .service-card:hover {
+            background: var(--text-color);
+            color: var(--white);
+        }
+
+        .service-card:hover h3,
+        .service-card:hover strong,
+        .service-card:hover a {
+            color: var(--white);
+        }
+
+        .service-icon {
+            width: 80px;
+            height: 80px;
+            margin: 0 auto 1.5rem;
+            stroke: var(--text-color);
+            stroke-width: 2;
+            fill: none;
+        }
+
+        .service-card:hover .service-icon {
+            stroke: var(--white);
+        }
+
+        .service-card h3 {
+            font-size: 1.5rem;
+            margin-bottom: 1rem;
+            color: var(--primary-color);
+        }
+
+        .service-card ul {
+            list-style: none;
+            margin-top: 1rem;
+        }
+
+        .service-card li {
+            padding: 0.5rem 0;
+            color: var(--text-color);
+            position: relative;
+            padding-left: 1.5rem;
+        }
+
+        .service-card li::before {
+            content: "→";
+            position: absolute;
+            left: 0;
+            color: var(--highlight-color);
+            font-weight: bold;
+        }
+
+        /* Target Section */
+        .target {
+            padding: 6rem 0;
+            background: var(--white);
+        }
+
+        .target-content {
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .target h2 {
+            font-size: 2.5rem;
+            margin-bottom: 2rem;
+            color: var(--primary-color);
+            text-align: center;
+        }
+
+        .target p {
+            font-size: 1.2rem;
+            margin-bottom: 2rem;
+            text-align: center;
+            color: var(--text-color);
+        }
+
+        .target-list {
+            list-style: none;
+            margin-top: 2rem;
+        }
+
+        .target-list li {
+            padding: 1rem 0;
+            font-size: 1.1rem;
+            color: var(--text-color);
+            padding-left: 2rem;
+            position: relative;
+        }
+
+        .target-list li::before {
+            content: "✓";
+            position: absolute;
+            left: 0;
+            color: var(--highlight-color);
+            font-weight: bold;
+            font-size: 1.3rem;
+        }
+
+        /* Footer */
+        footer {
+            background: var(--primary-color);
+            color: var(--white);
+            padding: 1.5rem 0;
+            text-align: center;
+        }
+
+        footer p {
+            opacity: 0.9;
+            font-size: 0.9rem;
+        }
+
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            .nav-links {
+                gap: 1rem;
+                flex-wrap: wrap;
+            }
+
+            .hero h1 {
+                font-size: 2.5rem;
+            }
+
+            .hero p {
+                font-size: 1.1rem;
+            }
+
+            .section-title {
+                font-size: 2rem;
+            }
+
+            .services-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .hero h1 {
+                font-size: 2rem;
+            }
+
+            .logo {
+                font-size: 1.5rem;
+            }
+
+            .nav-links {
+                font-size: 0.9rem;
+            }
+        }
+
+        /* Smooth Scroll */
+        html {
+            scroll-behavior: smooth;
+        }
+
+        /* Detailed Service Sections */
+        .service-detail {
+            background: var(--white);
+            padding: 2.5rem;
+            border-radius: 10px;
+            box-shadow: 0 5px 20px rgba(0,0,0,0.08);
+            margin-bottom: 2.5rem;
+        }
+
+        .service-detail h4 {
+            font-size: 1.6rem;
+            color: var(--primary-color);
+            margin-bottom: 0.8rem;
+        }
+
+        .service-meta {
+            color: var(--text-color);
+            font-size: 0.95rem;
+            margin-bottom: 1.2rem;
+            font-weight: 500;
+        }
+
+        .service-detail p {
+            color: var(--text-color);
+            line-height: 1.8;
+            margin-bottom: 1.2rem;
+        }
+
+        .service-detail h5 {
+            font-size: 1.2rem;
+            color: var(--accent-color);
+            margin-top: 1.5rem;
+            margin-bottom: 0.8rem;
+        }
+
+        .service-detail ul {
+            list-style: none;
+            margin-left: 0;
+        }
+
+        .service-detail li {
+            padding: 0.5rem 0;
+            color: var(--text-color);
+            position: relative;
+            padding-left: 1.8rem;
+        }
+
+        .service-detail li::before {
+            content: "•";
+            position: absolute;
+            left: 0;
+            color: var(--highlight-color);
+            font-weight: bold;
+            font-size: 1.3rem;
+        }
+
+        .service-detail strong {
+            color: var(--primary-color);
+        }
+
+        .divider {
+            border: none;
+            border-top: 2px solid #e9ecef;
+            margin: 3rem 0;
+        }
+
+        /* Why Section */
+        .why {
+            padding: 6rem 0;
+            background: var(--light-bg);
+        }
+
+        .why-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 2rem;
+            margin-top: 3rem;
+        }
+
+        .why-item {
+            background: var(--white);
+            padding: 2rem;
+            border-radius: 0;
+            border: 2px solid var(--text-color);
+            transition: all 0.3s ease;
+        }
+
+        .why-item:hover {
+            background: var(--text-color);
+            color: var(--white);
+        }
+
+        .why-item:hover h4,
+        .why-item:hover p {
+            color: var(--white);
+        }
+
+        .why-item h4 {
+            font-size: 1.3rem;
+            color: var(--primary-color);
+            margin-bottom: 1rem;
+        }
+
+        .why-item p {
+            color: var(--text-color);
+            line-height: 1.7;
+        }
+
+        /* First Steps Section */
+        .first-steps {
+            padding: 6rem 0;
+            background: var(--white);
+            text-align: center;
+        }
+
+        .first-steps h2 {
+            font-size: 2.5rem;
+            margin-bottom: 1.5rem;
+            color: var(--primary-color);
+        }
+
+        .first-steps h3 {
+            font-size: 1.8rem;
+            margin-bottom: 1rem;
+            color: var(--accent-color);
+        }
+
+        .first-steps p {
+            font-size: 1.1rem;
+            max-width: 700px;
+            margin: 0 auto 2rem;
+            color: var(--text-color);
+            line-height: 1.8;
+        }
+
+        .contact-info {
+            margin-top: 2.5rem;
+            font-size: 1.15rem;
+            max-width: 500px;
+            margin-left: auto;
+            margin-right: auto;
+            padding: 2rem;
+            border: 2px solid var(--text-color);
+            background: var(--white);
+        }
+
+        .contact-info p {
+            margin: 1rem 0;
+        }
+
+        .contact-info strong {
+            color: var(--primary-color);
+            font-size: 1.3rem;
+            display: block;
+            margin-bottom: 1.5rem;
+        }
+
+        /* Industry tags */
+        .industries {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 1rem;
+            justify-content: center;
+            margin-top: 2rem;
+        }
+
+        .industry-tag {
+            background: transparent;
+            color: var(--text-color);
+            padding: 0.5rem 1.2rem;
+            border: 2px solid var(--text-color);
+            border-radius: 0;
+            font-size: 0.95rem;
+            font-weight: 500;
+            transition: all 0.3s ease;
+        }
+
+        .industry-tag:hover {
+            background: var(--text-color);
+            color: var(--white);
+        }
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <header>
+        <nav class="container">
+            <a href="#" class="logo">Quantica</a>
+            <ul class="nav-links">
+                <li class="dropdown">
+                    <span class="dropdown-toggle">Oferta</span>
+                    <div class="dropdown-menu">
+                        <a href="szkolenia.html">Szkolenia AI</a>
+                        <a href="doradztwo.html">Doradztwo AI</a>
+                        <a href="wdrozenia.html">Wdrożenia AI</a>
+                    </div>
+                </li>
+                <li><a href="#target">Dla kogo</a></li>
+                <li><a href="#contact">Kontakt</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="container">
+            <h1>AI dla Biznesu</h1>
+            <p>Quantica to butikowa firma doradcza, która pomaga średnim polskim przedsiębiorstwom wejść w erę sztucznej inteligencji. Jesteśmy praktykami, którzy rozumieją realia polskiego biznesu i potrzebę konkretnych rezultatów.</p>
+            <p style="margin-top: 1.5rem;">Nasz zespół łączy doświadczenie w obszarach AI/ML, transformacji cyfrowej i zarządzania projektami. Nie wierzymy w uniwersalne rozwiązania – każda organizacja jest inna, a my dostosowujemy nasze podejście do specyfiki Twojej firmy, kultury organizacyjnej i poziomu dojrzałości cyfrowej.</p>
+            <a href="#contact" class="cta-button">Skontaktuj się z nami</a>
+        </div>
+    </section>
+
+    <!-- Services Section -->
+    <section id="services" class="services">
+        <div class="container">
+            <h2 class="section-title">Co oferujemy</h2>
+            <div class="services-grid">
+                <!-- Training -->
+                <div class="service-card">
+                    <svg class="service-icon" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
+                        <!-- Book -->
+                        <rect x="20" y="30" width="60" height="45" stroke-width="2"/>
+                        <line x1="50" y1="30" x2="50" y2="75" stroke-width="2"/>
+                        <line x1="20" y1="40" x2="50" y2="40" stroke-width="1.5"/>
+                        <line x1="50" y1="40" x2="80" y2="40" stroke-width="1.5"/>
+                        <line x1="20" y1="50" x2="50" y2="50" stroke-width="1.5"/>
+                        <line x1="50" y1="50" x2="80" y2="50" stroke-width="1.5"/>
+                        <!-- Star -->
+                        <polygon points="70,15 73,23 82,24 76,30 78,39 70,34 62,39 64,30 58,24 67,23" stroke-width="2"/>
+                    </svg>
+                    <h3>Szkolenia AI</h3>
+                    <p style="margin: 1rem 0;">Praktyczne szkolenia, które budują kompetencje AI w Twojej organizacji.</p>
+                    <ul>
+                        <li><strong>AI Literacy</strong> – podstawy dla całej organizacji</li>
+                        <li><strong>AI dla decydentów</strong> – strategia i ROI</li>
+                        <li><strong>Narzędzia AI w praktyce</strong> – produktywność na nowym poziomie</li>
+                    </ul>
+                    <a href="szkolenia.html" style="display: inline-block; margin-top: 1.5rem; color: var(--highlight-color); font-weight: 600; text-decoration: none;">Dowiedz się więcej →</a>
+                </div>
+
+                <!-- Consulting -->
+                <div class="service-card">
+                    <svg class="service-icon" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
+                        <!-- Lightbulb -->
+                        <circle cx="50" cy="40" r="18" stroke-width="2"/>
+                        <line x1="50" y1="58" x2="50" y2="70" stroke-width="2"/>
+                        <rect x="45" y="70" width="10" height="8" stroke-width="2"/>
+                        <line x1="45" y1="78" x2="55" y2="78" stroke-width="2"/>
+                        <!-- Graph inside -->
+                        <polyline points="38,45 42,40 46,42 50,35 54,38 58,32" stroke-width="1.5"/>
+                        <!-- Lines radiating -->
+                        <line x1="35" y1="25" x2="30" y2="20" stroke-width="2"/>
+                        <line x1="65" y1="25" x2="70" y2="20" stroke-width="2"/>
+                        <line x1="27" y1="40" x2="20" y2="40" stroke-width="2"/>
+                        <line x1="73" y1="40" x2="80" y2="40" stroke-width="2"/>
+                    </svg>
+                    <h3>Doradztwo AI</h3>
+                    <p style="margin: 1rem 0;">Strategiczne doradztwo, które przekłada AI na konkretne działania biznesowe.</p>
+                    <ul>
+                        <li><strong>Strategia wdrożeń</strong> – roadmapa transformacji AI</li>
+                        <li><strong>Ocena gotowości AI</strong> – czy jesteś gotowy na AI</li>
+                        <li><strong>Zarządzanie danymi</strong> – fundament projektów AI</li>
+                    </ul>
+                    <a href="doradztwo.html" style="display: inline-block; margin-top: 1.5rem; color: var(--highlight-color); font-weight: 600; text-decoration: none;">Dowiedz się więcej →</a>
+                </div>
+
+                <!-- Implementation -->
+                <div class="service-card">
+                    <svg class="service-icon" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
+                        <!-- Rocket body -->
+                        <ellipse cx="50" cy="45" rx="12" ry="25" stroke-width="2"/>
+                        <!-- Rocket top -->
+                        <path d="M 38 20 L 50 10 L 62 20" stroke-width="2" fill="none"/>
+                        <!-- Window -->
+                        <circle cx="50" cy="35" r="4" stroke-width="1.5"/>
+                        <!-- Wings -->
+                        <path d="M 38 55 L 28 70 L 38 65 Z" stroke-width="2"/>
+                        <path d="M 62 55 L 72 70 L 62 65 Z" stroke-width="2"/>
+                        <!-- Flames -->
+                        <path d="M 44 70 L 42 80 L 44 75 L 46 82 L 48 75" stroke-width="1.5" fill="none"/>
+                        <path d="M 52 75 L 54 82 L 56 75 L 58 80 L 56 70" stroke-width="1.5" fill="none"/>
+                        <!-- Stars -->
+                        <circle cx="25" cy="25" r="1.5" stroke-width="1.5"/>
+                        <circle cx="75" cy="30" r="1.5" stroke-width="1.5"/>
+                        <circle cx="80" cy="50" r="1.5" stroke-width="1.5"/>
+                    </svg>
+                    <h3>Wdrożenia systemów AI</h3>
+                    <p style="margin: 1rem 0;">Konkretne rozwiązania AI, które rozwiązują realne problemy biznesowe.</p>
+                    <ul>
+                        <li><strong>Systemy RAG</strong> – inteligentne bazy wiedzy</li>
+                        <li><strong>Automatyzacja procesów</strong> – AI w codziennej pracy</li>
+                        <li><strong>Asystenci AI</strong> – narzędzia dla zespołów</li>
+                        <li><strong>Analityka predykcyjna</strong> – przewidywanie przyszłości</li>
+                    </ul>
+                    <a href="wdrozenia.html" style="display: inline-block; margin-top: 1.5rem; color: var(--highlight-color); font-weight: 600; text-decoration: none;">Dowiedz się więcej →</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Target Audience Section -->
+    <section id="target" class="target">
+        <div class="container">
+            <div class="target-content">
+                <h2>Dla kogo</h2>
+                <p>Jesteśmy idealnym partnerem dla <strong>średnich polskich firm (50-500 pracowników)</strong>, które:</p>
+                <ul class="target-list">
+                    <li><strong>Wiedzą, że AI to przyszłość, ale nie wiedzą od czego zacząć</strong> – pomagamy określić priorytety i stworzyć plan działania dostosowany do Twoich możliwości</li>
+                    <li><strong>Potrzebują konkretnych rozwiązań, nie teoretycznych wykładów</strong> – każde szkolenie to 80% praktyki, każde doradztwo kończy się konkretnym planem działania</li>
+                    <li><strong>Szukają partnera, nie dostawcy</strong> – wspieramy nie tylko we wdrożeniu, ale też w budowaniu wewnętrznych kompetencji</li>
+                    <li><strong>Chcą budować kompetencje AI wewnątrz organizacji</strong> – uczymy łowić ryby, nie tylko je dostarczamy</li>
+                    <li><strong>Mają ograniczony budżet i potrzebują realnego ROI</strong> – koncentrujemy się na quick wins i rozwiązaniach, które się zwracają</li>
+                    <li><strong>Potrzebują wsparcia w języku polskim</strong> – rozumiemy specyfikę polskiego rynku, regulacji i wyzwań</li>
+                </ul>
+
+                <h3 style="font-size: 1.8rem; color: var(--accent-color); margin-top: 3rem; margin-bottom: 1.5rem; text-align: center;">Branże, w których mamy doświadczenie</h3>
+                <div class="industries">
+                    <span class="industry-tag">Produkcja i przemysł</span>
+                    <span class="industry-tag">Handel detaliczny i e-commerce</span>
+                    <span class="industry-tag">Usługi profesjonalne</span>
+                    <span class="industry-tag">Logistyka i transport</span>
+                    <span class="industry-tag">Edukacja i szkolenia</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Why Quantica Section -->
+    <section class="why">
+        <div class="container">
+            <h2 class="section-title">Dlaczego Quantica</h2>
+            <div class="why-grid">
+                <div class="why-item">
+                    <h4>Praktyczne podejście</h4>
+                    <p>Nie tylko mówimy o AI, pokazujemy AI w działaniu. Każde szkolenie jest uzupełnione o część praktyczną, każde doradztwo kończy się działającym rozwiązaniem lub konkretnym planem.</p>
+                </div>
+                <div class="why-item">
+                    <h4>Zrozumienie biznesu</h4>
+                    <p>Rozumiemy, że nie chodzi o technologię, tylko o rozwiązanie problemu biznesowego.</p>
+                </div>
+                <div class="why-item">
+                    <h4>Dostosowanie do realiów</h4>
+                    <p>Nie narzucamy rozwiązań. Tworzymy rozwiązania, które działają w polskich firmach, z polskimi budżetami i polskimi zasobami.</p>
+                </div>
+                <div class="why-item">
+                    <h4>Przygotowanie przed wdrożeniem</h4>
+                    <p>Pomagamy ocenić dojrzałość organizacji do AI - od jakości danych, przez procesy biznesowe, po kulturę organizacyjną.</p>
+                </div>
+                <div class="why-item">
+                    <h4>Transfer wiedzy</h4>
+                    <p>Naszym celem jest wyposażenie Twojego zespołu w umiejętności, żeby mogli samodzielnie rozwijać projekty AI.</p>
+                </div>
+                <div class="why-item">
+                    <h4>Transparentność</h4>
+                    <p>Mówimy otwarcie zarówno możliwościach i potencjale AI, jak i o ograniczeniach, ryzykach i kosztach.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- First Steps Section -->
+    <section class="first-steps">
+        <div class="container">
+            <h2>Pierwsze kroki</h2>
+            <h3>30-minutowa konsultacja (bezpłatnie)</h3>
+            <p>Porozmawiajmy o Twoich wyzwaniach i pomysłach na AI. Bez zobowiązań, bez agresywnej sprzedaży – tylko konkretna rozmowa o tym, czy i jak AI może pomóc w Twoim biznesie.</p>
+
+            <div class="contact-info">
+                <p><strong>Kontakt:</strong></p>
+                <p>📧 kontakt@quantica.pl</p>
+                <p>📞 +48 XXX XXX XXX</p>
+                <p>🌐 www.quantica.pl</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <footer id="contact">
+        <div class="container">
+            <p>&copy; 2024 Quantica - AI dla Biznesu</p>
+        </div>
+    </footer>
+</body>
+</html>
