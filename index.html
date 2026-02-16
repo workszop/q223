@@ -14,7 +14,9 @@
     <!-- Header -->
     <header>
         <nav class="container">
-            <a href="#" class="logo">Quantica Lab</a>
+            <a href="#" class="logo">
+                <img src="Quantica_logo_color.png" alt="QuanticaLab">
+            </a>
             <ul class="nav-links">
                 <li class="dropdown">
                     <span class="dropdown-toggle">Oferta</span>
@@ -24,7 +26,7 @@
                         <a href="szkolenia.html">Szkolenia AI</a>
                     </div>
                 </li>
-                <li><a href="#contact" class="contact-btn">Kontakt</a></li>
+                <li><a href="#contact">Kontakt</a></li>
             </ul>
         </nav>
     </header>
@@ -32,18 +34,10 @@
     <!-- Hero Section -->
     <section class="hero">
         <div class="container">
-            <div class="hero-container">
-                <div class="hero-content">
-                    <h1>AI dla Biznesu</h1>
-                    <p>QuanticaLab to liderzy projektów badawczo-rozwojowych, współtwórcy polskich modeli językowych oraz specjaliści w zakresie budowy systemów sztucznej inteligencji, łączący zaplecze naukowe z ponad 15-letnią praktyką we wdrożeniach technologii w dużych organizacjach.</p>
-                    <p>Prowadzimy organizacje przez każdy etap transformacji AI: od strategii, przez diagnozę gotowości technologicznej i kompetencyjnej, aż po wdrożenia i aktywne wsparcie w realizacji projektów.</p>
-                    <a href="#contact" class="hero-btn">Skontaktuj się z nami</a>
-                </div>
-                <div class="hero-graphic">
-                    <div class="hero-graphic-bg"></div>
-                    <div class="hero-graphic-shape"></div>
-                </div>
-            </div>
+            <h1>AI dla organizacji</h1>
+            <p>QuanticaLab to liderzy projektów badawczo-rozwojowych, współtwórcy polskich modeli językowych oraz specjaliści w zakresie budowy systemów sztucznej inteligencji, łączący zaplecze naukowe z ponad 15-letnią praktyką we wdrożeniach technologii w dużych organizacjach.</p>
+            <p style="margin-top: 1.5rem;">Prowadzimy organizacje przez każdy etap transformacji AI: od strategii, przez diagnozę gotowości technologicznej i kompetencyjnej, aż po wdrożenia i aktywne wsparcie w realizacji projektów.</p>
+            <a href="#contact" class="cta-button">Skontaktuj się z nami</a>
         </div>
     </section>
 
@@ -52,66 +46,91 @@
         <div class="container">
             <h2 class="section-title">Co oferujemy</h2>
             <div class="services-grid">
-                <!-- Szkolenia AI -->
+                <!-- AI dla firm i administracji publicznej -->
                 <div class="service-card">
-                    <div class="service-icon-wrapper">
-                        <svg class="service-icon" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
-                            <rect x="20" y="30" width="60" height="45" stroke-width="2" rx="3"/>
-                            <line x1="20" y1="45" x2="80" y2="45" stroke-width="2"/>
-                            <circle cx="35" cy="58" r="3" fill="white"/>
-                            <circle cx="50" cy="58" r="3" fill="white"/>
-                            <circle cx="65" cy="58" r="3" fill="white"/>
-                        </svg>
-                    </div>
-                    <h3>Szkolenia AI</h3>
-                    <p>Praktyczne warsztaty i szkolenia z zakresu sztucznej inteligencji dla zespołów biznesowych i technicznych.</p>
-                    <ul>
-                        <li>Podstawy AI dla biznesu</li>
-                        <li>Praktyczne wykorzystanie AI</li>
-                        <li>Warsztaty dla menadżerów</li>
-                        <li>Custom workshops dla zespołów</li>
-                    </ul>
-                </div>
+                    <svg class="service-icon" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
+                        <!-- Lightbulb -->
+                        <circle cx="50" cy="40" r="18" stroke-width="2"/>
+                        <line x1="50" y1="58" x2="50" y2="70" stroke-width="2"/>
+                        <rect x="45" y="70" width="10" height="8" stroke-width="2"/>
+                        <line x1="45" y1="78" x2="55" y2="78" stroke-width="2"/>
+                        <!-- Graph inside -->
+                        <polyline points="38,45 42,40 46,42 50,35 54,38 58,32" stroke-width="1.5"/>
+                        <!-- Lines radiating -->
+                        <line x1="35" y1="25" x2="30" y2="20" stroke-width="2"/>
+                        <line x1="65" y1="25" x2="70" y2="20" stroke-width="2"/>
+                        <line x1="27" y1="40" x2="20" y2="40" stroke-width="2"/>
+                        <line x1="73" y1="40" x2="80" y2="40" stroke-width="2"/>
+                    </svg>
+                    <h3>AI dla firm i administracji publicznej</h3>
+                    <p style="margin-top: 1rem; margin-bottom: 1.5rem;">Oferujemy zestaw narzędzi pozwalających na sprawne wprowadzenie AI do organizacji w sposób przemyślany, zgodny z dobrymi praktykami i odpowiadający na rzeczywiste potrzeby – od oceny gotowości, przez budowę autorskich produktów wykorzystujących rozwiązania AI, po rozwój kompetencji zespołów.</p>
 
-                <!-- Doradztwo AI -->
-                <div class="service-card">
-                    <span class="service-badge">M</span>
-                    <div class="service-icon-wrapper">
-                        <svg class="service-icon" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
-                            <circle cx="50" cy="40" r="18" stroke-width="2"/>
-                            <line x1="50" y1="58" x2="50" y2="70" stroke-width="2"/>
-                            <rect x="45" y="70" width="10" height="8" stroke-width="2"/>
-                            <polyline points="38,45 42,40 46,42 50,35 54,38 58,32" stroke-width="1.5"/>
-                        </svg>
-                    </div>
-                    <h3>Doradztwo AI</h3>
-                    <p>Strategiczne doradztwo i ocena gotowości organizacji do wdrożenia rozwiązań AI.</p>
+                    <h4 style="font-size: 1.2rem; margin-top: 1.5rem; margin-bottom: 0.8rem; font-weight: 600;">Doradztwo technologiczne</h4>
                     <ul>
-                        <li>Analiza potrzeb i możliwości</li>
+                        <li>Analiza potrzeb</li>
                         <li>Ocena gotowości na AI</li>
                         <li>Plan i harmonogram wdrożenia</li>
-                        <li>Prowadzenie przez proces transformacji</li>
+                        <li>Prowadzenie przez proces wdrożeniowy</li>
+                    </ul>
+
+                    <h4 style="font-size: 1.2rem; margin-top: 1.5rem; margin-bottom: 0.8rem; font-weight: 600;">Rozwiązania AI</h4>
+                    <ul>
+                        <li>RAG</li>
+                        <li>Agenty AI</li>
+                        <li>Dostrajanie modeli językowych</li>
+                    </ul>
+
+                    <h4 style="font-size: 1.2rem; margin-top: 1.5rem; margin-bottom: 0.8rem; font-weight: 600;">Szkolenia</h4>
+                    <ul>
+                        <li>Podstawy AI</li>
+                        <li>Praktyczne wykorzystanie AI</li>
+                        <li>Warsztaty dla menadżerów</li>
                     </ul>
                 </div>
 
-                <!-- Wdrożenia AI -->
+                <!-- Transformacja cyfrowa przedsiębiorstw -->
                 <div class="service-card">
-                    <div class="service-icon-wrapper">
-                        <svg class="service-icon" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
-                            <rect x="25" y="25" width="50" height="50" stroke-width="2" rx="3"/>
-                            <line x1="40" y1="35" x2="60" y2="35" stroke-width="2"/>
-                            <line x1="40" y1="45" x2="60" y2="45" stroke-width="2"/>
-                            <line x1="40" y1="55" x2="55" y2="55" stroke-width="2"/>
-                            <polyline points="52,60 58,66 70,50" stroke-width="2"/>
-                        </svg>
-                    </div>
-                    <h3>Wdrożenia systemów AI</h3>
-                    <p>Kompleksowe wdrożenia rozwiązań AI – od proof of concept do produkcji i skalowania.</p>
+                    <svg class="service-icon" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
+                        <!-- Rocket body -->
+                        <ellipse cx="50" cy="45" rx="12" ry="25" stroke-width="2"/>
+                        <!-- Rocket top -->
+                        <path d="M 38 20 L 50 10 L 62 20" stroke-width="2" fill="none"/>
+                        <!-- Window -->
+                        <circle cx="50" cy="35" r="4" stroke-width="1.5"/>
+                        <!-- Wings -->
+                        <path d="M 38 55 L 28 70 L 38 65 Z" stroke-width="2"/>
+                        <path d="M 62 55 L 72 70 L 62 65 Z" stroke-width="2"/>
+                        <!-- Flames -->
+                        <path d="M 44 70 L 42 80 L 44 75 L 46 82 L 48 75" stroke-width="1.5" fill="none"/>
+                        <path d="M 52 75 L 54 82 L 56 75 L 58 80 L 56 70" stroke-width="1.5" fill="none"/>
+                        <!-- Stars -->
+                        <circle cx="25" cy="25" r="1.5" stroke-width="1.5"/>
+                        <circle cx="75" cy="30" r="1.5" stroke-width="1.5"/>
+                        <circle cx="80" cy="50" r="1.5" stroke-width="1.5"/>
+                    </svg>
+                    <h3>Transformacja cyfrowa przedsiębiorstw</h3>
+                    <p style="margin-top: 1rem; margin-bottom: 1.5rem;">Prowadzimy przedsiębiorstwa przez cały proces transformacji – od wypracowania strategii, przez przygotowanie operacyjne i technologiczne, po wdrożenie i skalowanie rozwiązań AI. Opracowujemy architekturę danych i systemów, budujemy rozwiązania technologiczne i wspieramy ich implementację.</p>
+
+                    <h4 style="font-size: 1.2rem; margin-top: 1.5rem; margin-bottom: 0.8rem; font-weight: 600;">Opracowanie strategii</h4>
                     <ul>
-                        <li>Systemy RAG i agenty AI</li>
-                        <li>Dostrajanie modeli językowych</li>
-                        <li>Integracja z systemami biznesowymi</li>
-                        <li>Monitoring i optymalizacja</li>
+                        <li>AI</li>
+                        <li>Dane</li>
+                        <li>Cyberbezpieczeństwo</li>
+                        <li>Infrastruktura</li>
+                    </ul>
+
+                    <h4 style="font-size: 1.2rem; margin-top: 1.5rem; margin-bottom: 0.8rem; font-weight: 600;">Konsulting</h4>
+                    <ul>
+                        <li>Architektura danych</li>
+                        <li>Architektura rozwiązań AI</li>
+                        <li>Scenariusze użycia</li>
+                    </ul>
+
+                    <h4 style="font-size: 1.2rem; margin-top: 1.5rem; margin-bottom: 0.8rem; font-weight: 600;">Wdrożenia AI</h4>
+                    <ul>
+                        <li>Ewaluacja</li>
+                        <li>Integracja</li>
+                        <li>Skalowanie</li>
                     </ul>
                 </div>
             </div>
