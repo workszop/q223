@@ -7,15 +7,15 @@
 }
 
 :root {
-    --primary-color: #E65100;
-    --secondary-color: #BF360C;
+    --primary-color: #FF6F00;
+    --secondary-color: #F57C00;
     --accent-color: #FF6F00;
     --highlight-color: #FF9100;
     --text-color: #000000;
     --light-bg: #f8f9fa;
     --white: #ffffff;
     --black: #000000;
-    --gradient-start: #E65100;
+    --gradient-start: #FF8F00;
     --gradient-end: #FF6F00;
 }
 
@@ -53,6 +53,7 @@ nav {
     align-items: center;
     gap: 0.8rem;
     text-decoration: none;
+    padding: 0.5rem 1rem;
 }
 
 .logo img {
