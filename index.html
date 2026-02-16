@@ -3,8 +3,8 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="Quantica - AI dla Biznesu. Butikowa firma doradcza pomagająca średnim polskim przedsiębiorstwom wejść w erę sztucznej inteligencji.">
-    <title>Quantica - AI dla Biznesu</title>
+    <meta name="description" content="QuanticaLab - AI dla organizacji. Liderzy projektów badawczo-rozwojowych i współtwórcy polskich modeli językowych. Specjaliści w zakresie transformacji AI dla firm i administracji publicznej.">
+    <title>QuanticaLab - AI dla organizacji</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Raleway:wght@400;500;600;700&display=swap" rel="stylesheet">
@@ -16,14 +16,16 @@
         }
 
         :root {
-            --primary-color: #1a1a2e;
-            --secondary-color: #16213e;
-            --accent-color: #0f4c75;
-            --highlight-color: #3282b8;
+            --primary-color: #C2185B;
+            --secondary-color: #9C1449;
+            --accent-color: #FF6F00;
+            --highlight-color: #FF8F00;
             --text-color: #000000;
             --light-bg: #f8f9fa;
             --white: #ffffff;
             --black: #000000;
+            --gradient-start: #C2185B;
+            --gradient-end: #FF6F00;
         }
 
         body {
@@ -56,10 +58,14 @@
         }
 
         .logo {
-            font-size: 1.8rem;
-            font-weight: 700;
-            color: var(--primary-color);
+            display: flex;
+            align-items: center;
             text-decoration: none;
+        }
+
+        .logo img {
+            height: 40px;
+            width: auto;
         }
 
         .nav-links {
@@ -129,11 +135,25 @@
 
         /* Hero Section */
         .hero {
-            background: var(--primary-color);
+            background: linear-gradient(135deg, var(--gradient-start) 0%, var(--gradient-end) 100%);
             color: var(--white);
             padding: 6rem 0 5rem;
             text-align: center;
-            border-bottom: 3px solid var(--text-color);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .hero::before {
+            content: '';
+            position: absolute;
+            right: -100px;
+            bottom: -100px;
+            width: 400px;
+            height: 400px;
+            background: url('Quantica_kotek_white.png') no-repeat center;
+            background-size: contain;
+            opacity: 0.1;
+            pointer-events: none;
         }
 
         .hero h1 {
@@ -152,20 +172,23 @@
 
         .cta-button {
             display: inline-block;
-            background: transparent;
-            color: var(--white);
+            background: var(--white);
+            color: var(--primary-color);
             padding: 1rem 2.5rem;
             text-decoration: none;
             border: 2px solid var(--white);
-            border-radius: 0;
+            border-radius: 5px;
             font-weight: 600;
             transition: all 0.3s ease;
             margin-top: 1rem;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.2);
         }
 
         .cta-button:hover {
-            background: var(--white);
-            color: var(--primary-color);
+            background: transparent;
+            color: var(--white);
+            transform: translateY(-2px);
+            box-shadow: 0 6px 20px rgba(0,0,0,0.3);
         }
 
         /* Services Section */
@@ -191,17 +214,22 @@
         .service-card {
             background: var(--white);
             padding: 2.5rem;
-            border-radius: 0;
-            border: 2px solid var(--text-color);
+            border-radius: 10px;
+            border: 2px solid var(--primary-color);
             transition: all 0.3s ease;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.05);
         }
 
         .service-card:hover {
-            background: var(--text-color);
+            background: linear-gradient(135deg, var(--gradient-start) 0%, var(--gradient-end) 100%);
             color: var(--white);
+            transform: translateY(-5px);
+            box-shadow: 0 10px 30px rgba(194, 24, 91, 0.3);
+            border-color: transparent;
         }
 
         .service-card:hover h3,
+        .service-card:hover h4,
         .service-card:hover strong,
         .service-card:hover a {
             color: var(--white);
@@ -211,7 +239,7 @@
             width: 80px;
             height: 80px;
             margin: 0 auto 1.5rem;
-            stroke: var(--text-color);
+            stroke: var(--primary-color);
             stroke-width: 2;
             fill: none;
         }
@@ -242,8 +270,12 @@
             content: "→";
             position: absolute;
             left: 0;
-            color: var(--highlight-color);
+            color: var(--accent-color);
             font-weight: bold;
+        }
+
+        .service-card:hover li::before {
+            color: var(--white);
         }
 
         /* Target Section */
@@ -288,22 +320,34 @@
             content: "✓";
             position: absolute;
             left: 0;
-            color: var(--highlight-color);
+            color: var(--accent-color);
             font-weight: bold;
             font-size: 1.3rem;
         }
 
         /* Footer */
         footer {
-            background: var(--primary-color);
+            background: linear-gradient(135deg, var(--gradient-start) 0%, var(--gradient-end) 100%);
             color: var(--white);
-            padding: 1.5rem 0;
+            padding: 3rem 0 1.5rem;
             text-align: center;
+            position: relative;
         }
 
         footer p {
             opacity: 0.9;
             font-size: 0.9rem;
+        }
+
+        .footer-mascot {
+            max-width: 150px;
+            margin: 0 auto 1rem;
+            opacity: 0.9;
+        }
+
+        .footer-mascot img {
+            width: 100%;
+            height: auto;
         }
 
         /* Responsive Design */
@@ -431,14 +475,18 @@
         .why-item {
             background: var(--white);
             padding: 2rem;
-            border-radius: 0;
-            border: 2px solid var(--text-color);
+            border-radius: 10px;
+            border: 2px solid var(--primary-color);
             transition: all 0.3s ease;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.05);
         }
 
         .why-item:hover {
-            background: var(--text-color);
+            background: linear-gradient(135deg, var(--gradient-start) 0%, var(--gradient-end) 100%);
             color: var(--white);
+            transform: translateY(-5px);
+            box-shadow: 0 10px 30px rgba(194, 24, 91, 0.3);
+            border-color: transparent;
         }
 
         .why-item:hover h4,
@@ -491,8 +539,10 @@
             margin-left: auto;
             margin-right: auto;
             padding: 2rem;
-            border: 2px solid var(--text-color);
+            border: 2px solid var(--primary-color);
             background: var(--white);
+            border-radius: 10px;
+            box-shadow: 0 5px 20px rgba(194, 24, 91, 0.15);
         }
 
         .contact-info p {
@@ -517,18 +567,19 @@
 
         .industry-tag {
             background: transparent;
-            color: var(--text-color);
+            color: var(--primary-color);
             padding: 0.5rem 1.2rem;
-            border: 2px solid var(--text-color);
-            border-radius: 0;
+            border: 2px solid var(--primary-color);
+            border-radius: 25px;
             font-size: 0.95rem;
             font-weight: 500;
             transition: all 0.3s ease;
         }
 
         .industry-tag:hover {
-            background: var(--text-color);
+            background: linear-gradient(135deg, var(--gradient-start) 0%, var(--gradient-end) 100%);
             color: var(--white);
+            border-color: transparent;
         }
     </style>
 </head>
@@ -536,7 +587,9 @@
     <!-- Header -->
     <header>
         <nav class="container">
-            <a href="#" class="logo">Quantica</a>
+            <a href="#" class="logo">
+                <img src="Quantica_logo_color.png" alt="QuanticaLab">
+            </a>
             <ul class="nav-links">
                 <li class="dropdown">
                     <span class="dropdown-toggle">Oferta</span>
@@ -555,9 +608,9 @@
     <!-- Hero Section -->
     <section class="hero">
         <div class="container">
-            <h1>AI dla Biznesu</h1>
-            <p>Quantica to butikowa firma doradcza, która pomaga średnim polskim przedsiębiorstwom wejść w erę sztucznej inteligencji. Jesteśmy praktykami, którzy rozumieją realia polskiego biznesu i potrzebę konkretnych rezultatów.</p>
-            <p style="margin-top: 1.5rem;">Nasz zespół łączy doświadczenie w obszarach AI/ML, transformacji cyfrowej i zarządzania projektami. Nie wierzymy w uniwersalne rozwiązania – każda organizacja jest inna, a my dostosowujemy nasze podejście do specyfiki Twojej firmy, kultury organizacyjnej i poziomu dojrzałości cyfrowej.</p>
+            <h1>AI dla organizacji</h1>
+            <p>QuanticaLab to liderzy projektów badawczo-rozwojowych, współtwórcy polskich modeli językowych oraz specjaliści w zakresie budowy systemów sztucznej inteligencji, łączący zaplecze naukowe z ponad 15-letnią praktyką we wdrożeniach technologii w dużych organizacjach.</p>
+            <p style="margin-top: 1.5rem;">Prowadzimy organizacje przez każdy etap transformacji AI: od strategii, przez diagnozę gotowości technologicznej i kompetencyjnej, aż po wdrożenia i aktywne wsparcie w realizacji projektów.</p>
             <a href="#contact" class="cta-button">Skontaktuj się z nami</a>
         </div>
     </section>
@@ -567,30 +620,7 @@
         <div class="container">
             <h2 class="section-title">Co oferujemy</h2>
             <div class="services-grid">
-                <!-- Training -->
-                <div class="service-card">
-                    <svg class="service-icon" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
-                        <!-- Book -->
-                        <rect x="20" y="30" width="60" height="45" stroke-width="2"/>
-                        <line x1="50" y1="30" x2="50" y2="75" stroke-width="2"/>
-                        <line x1="20" y1="40" x2="50" y2="40" stroke-width="1.5"/>
-                        <line x1="50" y1="40" x2="80" y2="40" stroke-width="1.5"/>
-                        <line x1="20" y1="50" x2="50" y2="50" stroke-width="1.5"/>
-                        <line x1="50" y1="50" x2="80" y2="50" stroke-width="1.5"/>
-                        <!-- Star -->
-                        <polygon points="70,15 73,23 82,24 76,30 78,39 70,34 62,39 64,30 58,24 67,23" stroke-width="2"/>
-                    </svg>
-                    <h3>Szkolenia AI</h3>
-                    <p style="margin: 1rem 0;">Praktyczne szkolenia, które budują kompetencje AI w Twojej organizacji.</p>
-                    <ul>
-                        <li><strong>AI Literacy</strong> – podstawy dla całej organizacji</li>
-                        <li><strong>AI dla decydentów</strong> – strategia i ROI</li>
-                        <li><strong>Narzędzia AI w praktyce</strong> – produktywność na nowym poziomie</li>
-                    </ul>
-                    <a href="szkolenia.html" style="display: inline-block; margin-top: 1.5rem; color: var(--highlight-color); font-weight: 600; text-decoration: none;">Dowiedz się więcej →</a>
-                </div>
-
-                <!-- Consulting -->
+                <!-- AI dla firm i administracji publicznej -->
                 <div class="service-card">
                     <svg class="service-icon" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
                         <!-- Lightbulb -->
@@ -606,17 +636,26 @@
                         <line x1="27" y1="40" x2="20" y2="40" stroke-width="2"/>
                         <line x1="73" y1="40" x2="80" y2="40" stroke-width="2"/>
                     </svg>
-                    <h3>Doradztwo AI</h3>
-                    <p style="margin: 1rem 0;">Strategiczne doradztwo, które przekłada AI na konkretne działania biznesowe.</p>
+                    <h3>AI dla firm i administracji publicznej</h3>
+
+                    <h4 style="font-size: 1.2rem; margin-top: 1.5rem; margin-bottom: 0.8rem; font-weight: 600;">Doradztwo technologiczne</h4>
                     <ul>
-                        <li><strong>Strategia wdrożeń</strong> – roadmapa transformacji AI</li>
-                        <li><strong>Ocena gotowości AI</strong> – czy jesteś gotowy na AI</li>
-                        <li><strong>Zarządzanie danymi</strong> – fundament projektów AI</li>
+                        <li><strong>Analiza potrzeb</strong> – ocena realnego zapotrzebowania na zastosowanie AI i wybór obszarów o największym wpływie na działanie organizacji</li>
+                        <li><strong>Ocena gotowości</strong> – przegląd technologii, danych, kompetencji i kultury organizacyjnej</li>
+                        <li><strong>Koncepcja wdrożenia</strong> – praktyczny plan dopasowany do celów, budżetu i harmonogramu</li>
+                        <li><strong>Wsparcie w realizacji</strong> – prowadzenie organizacji przez proces wdrażania AI</li>
                     </ul>
-                    <a href="doradztwo.html" style="display: inline-block; margin-top: 1.5rem; color: var(--highlight-color); font-weight: 600; text-decoration: none;">Dowiedz się więcej →</a>
+
+                    <h4 style="font-size: 1.2rem; margin-top: 1.5rem; margin-bottom: 0.8rem; font-weight: 600;">Rozwiązania AI</h4>
+                    <ul>
+                        <li>RAG</li>
+                        <li>Agenty AI</li>
+                        <li>Dostrajanie modeli językowych</li>
+                        <li>Szkolenia</li>
+                    </ul>
                 </div>
 
-                <!-- Implementation -->
+                <!-- Transformacja cyfrowa przedsiębiorstw -->
                 <div class="service-card">
                     <svg class="service-icon" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
                         <!-- Rocket body -->
@@ -636,15 +675,28 @@
                         <circle cx="75" cy="30" r="1.5" stroke-width="1.5"/>
                         <circle cx="80" cy="50" r="1.5" stroke-width="1.5"/>
                     </svg>
-                    <h3>Wdrożenia systemów AI</h3>
-                    <p style="margin: 1rem 0;">Konkretne rozwiązania AI, które rozwiązują realne problemy biznesowe.</p>
+                    <h3>Transformacja cyfrowa przedsiębiorstw</h3>
+
+                    <h4 style="font-size: 1.2rem; margin-top: 1.5rem; margin-bottom: 0.8rem; font-weight: 600;">Opracowanie strategii</h4>
                     <ul>
-                        <li><strong>Systemy RAG</strong> – inteligentne bazy wiedzy</li>
-                        <li><strong>Automatyzacja procesów</strong> – AI w codziennej pracy</li>
-                        <li><strong>Asystenci AI</strong> – narzędzia dla zespołów</li>
-                        <li><strong>Analityka predykcyjna</strong> – przewidywanie przyszłości</li>
+                        <li>AI</li>
+                        <li>Dane</li>
+                        <li>Cyberbezpieczeństwo</li>
+                        <li>Infrastruktura</li>
                     </ul>
-                    <a href="wdrozenia.html" style="display: inline-block; margin-top: 1.5rem; color: var(--highlight-color); font-weight: 600; text-decoration: none;">Dowiedz się więcej →</a>
+
+                    <h4 style="font-size: 1.2rem; margin-top: 1.5rem; margin-bottom: 0.8rem; font-weight: 600;">Konsulting</h4>
+                    <ul>
+                        <li>Architektura danych</li>
+                        <li>Architektura rozwiązań AI</li>
+                        <li>Scenariusze użycia</li>
+                    </ul>
+
+                    <h4 style="font-size: 1.2rem; margin-top: 1.5rem; margin-bottom: 0.8rem; font-weight: 600;">Wdrożenia AI</h4>
+                    <ul>
+                        <li>Integracja</li>
+                        <li>Skalowalność</li>
+                    </ul>
                 </div>
             </div>
         </div>
@@ -729,7 +781,10 @@
     <!-- Contact Section -->
     <footer id="contact">
         <div class="container">
-            <p>&copy; 2024 Quantica - AI dla Biznesu</p>
+            <div class="footer-mascot">
+                <img src="Quantica_kotek_white.png" alt="QuanticaLab Mascot">
+            </div>
+            <p>&copy; 2024 QuanticaLab - AI dla organizacji</p>
         </div>
     </footer>
 </body>
