@@ -141,8 +141,8 @@ nav {
 
 /* Hero Section */
 .hero {
-    background: linear-gradient(135deg, var(--gradient-start) 0%, var(--gradient-end) 100%);
-    color: var(--white);
+    background: var(--white);
+    color: var(--text-color);
     padding: 6rem 0 5rem;
     text-align: center;
     position: relative;
@@ -158,7 +158,7 @@ nav {
     height: 450px;
     background: url('Quantica_kotek_white.png') no-repeat center;
     background-size: contain;
-    opacity: 0.25;
+    opacity: 0.05;
     pointer-events: none;
 }
 
@@ -166,35 +166,37 @@ nav {
     font-size: 3.5rem;
     margin-bottom: 1.5rem;
     font-weight: 700;
+    color: var(--primary-color);
 }
 
 .hero p {
     font-size: 1.15rem;
     max-width: 900px;
     margin: 0 auto 1rem;
-    opacity: 0.95;
+    color: var(--text-color);
     line-height: 1.8;
 }
 
 .cta-button {
     display: inline-block;
-    background: var(--white);
-    color: var(--primary-color);
+    background: linear-gradient(135deg, var(--gradient-start) 0%, var(--gradient-end) 100%);
+    color: var(--white);
     padding: 1rem 2.5rem;
     text-decoration: none;
-    border: 2px solid var(--white);
+    border: 2px solid var(--primary-color);
     border-radius: 5px;
     font-weight: 600;
     transition: all 0.3s ease;
     margin-top: 1rem;
-    box-shadow: 0 4px 15px rgba(0,0,0,0.2);
+    box-shadow: 0 4px 15px rgba(255, 111, 0, 0.3);
 }
 
 .cta-button:hover {
-    background: transparent;
-    color: var(--white);
+    background: var(--white);
+    color: var(--primary-color);
+    border-color: var(--primary-color);
     transform: translateY(-2px);
-    box-shadow: 0 6px 20px rgba(0,0,0,0.3);
+    box-shadow: 0 6px 20px rgba(255, 111, 0, 0.4);
 }
 
 /* Services Section */
@@ -212,7 +214,7 @@ nav {
 
 .intro-text {
     font-size: 1.1rem;
-    color: var(--text-color);
+    color: var(--black);
     margin-bottom: 3rem;
     line-height: 1.8;
     text-align: center;
@@ -235,6 +237,7 @@ nav {
     border: 2px solid var(--primary-color);
     transition: all 0.3s ease;
     box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+    color: var(--black);
 }
 
 .service-card:hover {
@@ -276,9 +279,13 @@ nav {
     margin-top: 1rem;
 }
 
+.service-card p {
+    color: var(--black);
+}
+
 .service-card li {
     padding: 0.5rem 0;
-    color: var(--text-color);
+    color: var(--black);
     position: relative;
     padding-left: 1.5rem;
 }
@@ -304,6 +311,7 @@ nav {
     margin-bottom: 2.5rem;
     transition: all 0.3s ease;
     box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+    color: var(--black);
 }
 
 .service-detail:hover {
@@ -318,14 +326,14 @@ nav {
 }
 
 .service-meta {
-    color: var(--text-color);
+    color: var(--black);
     font-size: 0.95rem;
     margin-bottom: 1.2rem;
     font-weight: 500;
 }
 
 .service-detail p {
-    color: var(--text-color);
+    color: var(--black);
     line-height: 1.8;
     margin-bottom: 1.2rem;
 }
@@ -344,7 +352,7 @@ nav {
 
 .service-detail li {
     padding: 0.5rem 0;
-    color: var(--text-color);
+    color: var(--black);
     position: relative;
     padding-left: 1.8rem;
 }
@@ -384,7 +392,7 @@ nav {
     font-size: 1.2rem;
     margin-bottom: 2rem;
     text-align: center;
-    color: var(--text-color);
+    color: var(--black);
 }
 
 .target-list {
@@ -395,7 +403,7 @@ nav {
 .target-list li {
     padding: 1rem 0;
     font-size: 1.1rem;
-    color: var(--text-color);
+    color: var(--black);
     padding-left: 2rem;
     position: relative;
 }
@@ -456,6 +464,7 @@ nav {
     transition: all 0.3s ease;
     box-shadow: 0 2px 10px rgba(0,0,0,0.05);
     position: relative;
+    color: var(--black);
 }
 
 .target-card:hover {
@@ -490,7 +499,7 @@ nav {
 
 .target-intro {
     font-weight: 600;
-    color: var(--text-color);
+    color: var(--black);
     margin-bottom: 0.8rem;
     margin-top: 1rem;
 }
@@ -502,7 +511,7 @@ nav {
 
 .target-card li {
     padding: 0.5rem 0;
-    color: var(--text-color);
+    color: var(--black);
     position: relative;
     padding-left: 1.8rem;
     line-height: 1.6;
@@ -520,7 +529,7 @@ nav {
     margin-top: 1.5rem;
     padding-top: 1.5rem;
     border-top: 1px solid var(--light-bg);
-    color: var(--text-color);
+    color: var(--black);
     font-weight: 500;
     line-height: 1.7;
 }
@@ -545,6 +554,7 @@ nav {
     border: 2px solid var(--primary-color);
     transition: all 0.3s ease;
     box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+    color: var(--black);
 }
 
 .why-item:hover {
@@ -567,7 +577,7 @@ nav {
 }
 
 .why-item p {
-    color: var(--text-color);
+    color: var(--black);
     line-height: 1.7;
 }
 
@@ -594,7 +604,7 @@ nav {
     font-size: 1.1rem;
     max-width: 700px;
     margin: 0 auto 2rem;
-    color: var(--text-color);
+    color: var(--black);
     line-height: 1.8;
 }
 
@@ -609,6 +619,7 @@ nav {
     background: var(--white);
     border-radius: 10px;
     box-shadow: 0 5px 20px rgba(194, 24, 91, 0.15);
+    color: var(--black);
 }
 
 .contact-info p {
@@ -637,7 +648,7 @@ nav {
 
 .cta-section p {
     font-size: 1.1rem;
-    color: var(--text-color);
+    color: var(--black);
     margin-bottom: 2rem;
 }
 
