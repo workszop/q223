@@ -156,9 +156,9 @@ nav {
     bottom: -50px;
     width: 450px;
     height: 450px;
-    background: url('Quantica_kotek_white.png') no-repeat center;
+    background: url('Quantica_kotek_black.png') no-repeat center;
     background-size: contain;
-    opacity: 0.05;
+    opacity: 0.03;
     pointer-events: none;
 }
 
