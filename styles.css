@@ -65,6 +65,12 @@ nav {
     display: flex;
     list-style: none;
     gap: 2rem;
+    align-items: center;
+}
+
+.nav-links li {
+    display: flex;
+    align-items: center;
 }
 
 .nav-links a {
@@ -88,6 +94,13 @@ nav {
     display: flex;
     align-items: center;
     gap: 0.3rem;
+    color: var(--text-color);
+    font-weight: 500;
+    transition: color 0.3s ease;
+}
+
+.dropdown-toggle:hover {
+    color: var(--highlight-color);
 }
 
 .dropdown-toggle::after {
