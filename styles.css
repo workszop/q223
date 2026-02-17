@@ -339,14 +339,19 @@ nav {
 }
 
 .service-detail h5 {
-    font-size: 1.2rem;
-    color: var(--accent-color);
-    margin-top: 1.5rem;
+    font-size: 0.85rem;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    color: var(--black);
+    font-weight: 700;
+    margin-top: 2rem;
     margin-bottom: 0.8rem;
+    padding-bottom: 0.4rem;
+    border-bottom: 2px solid var(--highlight-color);
 }
 
 .service-detail h6 {
-    font-size: 1rem;
+    font-size: 1.1rem;
     color: var(--primary-color);
     font-weight: 600;
     margin-top: 1.2rem;
