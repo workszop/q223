@@ -511,6 +511,10 @@ header nav {
     gap: 1.5rem;
 }
 
+.blog-grid {
+    grid-template-columns: repeat(3, 1fr);
+}
+
 /* --- Cards (Dark, industrial) --- */
 .service-card {
     background: var(--surface-card);
@@ -1288,7 +1292,8 @@ footer p {
     .services-grid,
     .target-grid,
     .partner-grid,
-    .process-steps {
+    .process-steps,
+    .blog-grid {
         grid-template-columns: 1fr;
     }
 
