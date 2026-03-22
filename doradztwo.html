@@ -3,11 +3,11 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="Doradztwo AI - Quantica. Strategia wdrożeń AI, ocena gotowości, zarządzanie danymi dla średnich polskich firm.">
-    <title>Doradztwo AI - Quantica</title>
+    <meta name="description" content="Doradztwo i strategia AI – Quantica Lab. Roadmapa transformacji AI, strategia wdrożeń, doradztwo technologiczne dla organizacji.">
+    <title>Doradztwo i strategia AI – Quantica Lab</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Raleway:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Raleway:wght@400;500;600;700;800&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="styles.css">
 </head>
 <body>
@@ -15,21 +15,25 @@
     <header>
         <nav class="container">
             <a href="index.html" class="logo">
-                <img src="Quantica_logo_black.png" alt="QuanticaLab">
+                <img src="Quantica_logo_black.png" alt="Quantica Lab">
             </a>
+            <button class="menu-toggle" onclick="document.querySelector('.nav-links').classList.toggle('active')" aria-label="Menu">
+                <span></span><span></span><span></span>
+            </button>
             <ul class="nav-links">
                 <li class="dropdown">
                     <span class="dropdown-toggle">Oferta</span>
                     <div class="dropdown-menu">
-                        <a href="doradztwo.html">Doradztwo AI</a>
+                        <a href="doradztwo.html">Doradztwo i strategia</a>
                         <a href="wdrozenia.html">Rozwiązania AI</a>
                         <a href="szkolenia.html">Szkolenia AI</a>
                         <hr>
                         <a href="warsztat.html">Start z AI</a>
                     </div>
                 </li>
+                <li><a href="rag-wielka-wies.html">Case study</a></li>
                 <li><a href="blog.html">Blog</a></li>
-                <li><a href="index.html#contact">Kontakt</a></li>
+                <li><a href="index.html#contact" class="cta-button" style="padding:0.5rem 1.2rem; font-size:0.88rem;">Kontakt</a></li>
             </ul>
         </nav>
     </header>
@@ -37,46 +41,61 @@
     <!-- Hero Section -->
     <section class="hero">
         <div class="container">
-            <h1>Doradztwo AI</h1>
-            <p>Strategiczne doradztwo, które przekłada AI na konkretne działania biznesowe. Nie tworzymy dokumentów do szuflady – dostarczamy praktyczne plany z priorytetami i realnym ROI.</p>
+            <div class="hero-badge">Doradztwo i strategia</div>
+            <h1>Strategia wdrożeń <span>AI</span></h1>
+            <p>Roadmapa transformacji AI – kompleksowy proces tworzenia strategii AI dla Twojej organizacji. Dostarczamy praktyczny plan działania z priorytetami i oszacowanymi kosztami.</p>
         </div>
     </section>
 
-    <!-- Consulting Services -->
+    <!-- Process Steps -->
     <section class="services">
         <div class="container">
-            <div class="service-detail">
-                <h4>Strategia wdrożeń – roadmapa transformacji AI</h4>
-                <div class="service-meta">Czas realizacji: 4-6 tygodni</div>
-                <p>Kompleksowy proces tworzenia strategii AI dla Twojej organizacji. Nie tworzymy dokumentów do szuflady – dostarczamy praktyczny plan działania z priorytetami, timelinami i oszacowanymi kosztami.</p>
+            <div class="section-header">
+                <h2 class="section-title">Proces <span>doradztwa</span></h2>
+            </div>
 
-                <h5>Proces doradztwa:</h5>
-                <p><strong>Faza 1: Discovery (1-2 tygodnie)</strong></p>
-                <ul>
-                    <li>Audyt procesów biznesowych i identyfikacja obszarów do automatyzacji</li>
-                    <li>Wywiady z kluczowymi stakeholderami we wszystkich działach</li>
-                    <li>Ocena infrastruktury IT i gotowości organizacyjnej</li>
-                    <li>Analiza danych: co masz, jakość, dostępność, governance</li>
-                </ul>
+            <div class="process-steps">
+                <div class="process-step">
+                    <div class="process-step-number">1</div>
+                    <h4>Discovery</h4>
+                    <div class="step-meta">1–2 tygodnie</div>
+                    <ul>
+                        <li>Audyt procesów biznesowych i identyfikacja obszarów do automatyzacji</li>
+                        <li>Wywiady z kluczowymi stakeholderami we wszystkich działach</li>
+                        <li>Ocena infrastruktury IT i gotowości organizacyjnej</li>
+                        <li>Analiza danych: co masz, jakość, dostępność, governance</li>
+                    </ul>
+                </div>
 
-                <p><strong>Faza 2: Projektowanie (2-3 tygodnie)</strong></p>
-                <ul>
-                    <li>Identyfikacja quick wins – projektów z szybkim ROI</li>
-                    <li>Roadmapa wdrożeń AI na 12-24 miesiące</li>
-                    <li>Analiza make or buy dla każdego projektu</li>
-                    <li>Oszacowanie kosztów i zasobów (ludzie, budżet, czas)</li>
-                    <li>Plan zarządzania zmianą i budowania kompetencji AI</li>
-                </ul>
+                <div class="process-step">
+                    <div class="process-step-number">2</div>
+                    <h4>Projektowanie</h4>
+                    <div class="step-meta">2–3 tygodnie</div>
+                    <ul>
+                        <li>Identyfikacja quick wins – projektów z szybkim ROI</li>
+                        <li>Roadmapa wdrożeń AI na 12–24 miesiące</li>
+                        <li>Analiza make or buy dla każdego projektu</li>
+                        <li>Oszacowanie kosztów i zasobów (ludzie, budżet, czas)</li>
+                        <li>Plan zarządzania zmianą i budowania kompetencji AI</li>
+                    </ul>
+                </div>
 
-                <p><strong>Faza 3: Prezentacja i warsztaty (1 tydzień)</strong></p>
-                <ul>
-                    <li>Prezentacja strategii dla zarządu</li>
-                    <li>Warsztaty z zespołem odpowiedzialnym za wdrożenie</li>
-                    <li>Dokumentacja strategii z konkretnym planem działania</li>
-                    <li>Miesięczny follow-up i wsparcie w pierwszych krokach</li>
-                </ul>
+                <div class="process-step">
+                    <div class="process-step-number">3</div>
+                    <h4>Prezentacja i warsztaty</h4>
+                    <div class="step-meta">1 tydzień</div>
+                    <ul>
+                        <li>Prezentacja strategii dla zarządu</li>
+                        <li>Warsztaty z zespołem odpowiedzialnym za wdrożenie</li>
+                        <li>Dokumentacja strategii z konkretnym planem działania</li>
+                        <li>Miesięczny follow-up i wsparcie w pierwszych krokach</li>
+                    </ul>
+                </div>
+            </div>
 
-                <h5>Co dostajesz:</h5>
+            <!-- Deliverables -->
+            <div class="deliverables">
+                <h3>Co dostajesz</h3>
                 <ul>
                     <li>Dokument strategiczny z priorytetami i roadmapą</li>
                     <li>Business case dla każdego zidentyfikowanego projektu AI</li>
@@ -85,51 +104,41 @@
                     <li>Miesiąc wsparcia przy rozpoczęciu wdrożeń</li>
                 </ul>
             </div>
+        </div>
+    </section>
 
-            <div class="service-detail">
-                <h4>Ocena gotowości AI (AI Readiness Assessment)</h4>
-                <div class="service-meta">Czas realizacji: 1-2 tygodnie</div>
-                <p>Szybka ocena, czy Twoja firma jest gotowa na wdrożenie AI i co należy najpierw poprawić. Idealne rozwiązanie przed rozpoczęciem większych projektów AI lub jako punkt wyjścia do strategii.</p>
-
-                <h5>Co oceniamy:</h5>
-                <ul>
-                    <li><strong>Dane:</strong> jakość, dostępność, governance, infrastruktura</li>
-                    <li><strong>Ludzie:</strong> kompetencje, kultura organizacyjna, gotowość na zmiany</li>
-                    <li><strong>Procesy:</strong> dojrzałość procesowa, dokumentacja, potencjał automatyzacji</li>
-                    <li><strong>Technologia:</strong> infrastruktura IT, systemy, integracje, bezpieczeństwo</li>
-                    <li><strong>Strategia:</strong> wizja, cele biznesowe, budżet, champions AI</li>
-                </ul>
-
-                <h5>Deliverable:</h5>
-                <ul>
-                    <li>Raport z oceną gotowości (skala 1-5) w każdym obszarze</li>
-                    <li>Gap analysis – co należy poprawić przed wdrożeniami AI</li>
-                    <li>Quick wins – co można zrobić już teraz, nawet z obecnym poziomem gotowości</li>
-                    <li>Plan działania na najbliższe 3-6 miesięcy</li>
-                </ul>
+    <!-- Approach Section -->
+    <section class="for-whom">
+        <div class="container">
+            <div class="section-header">
+                <h2 class="section-title">Nasze <span>podejście</span></h2>
+                <p class="section-subtitle">Kompleksowe wsparcie na każdym etapie transformacji AI.</p>
             </div>
 
-            <div class="service-detail">
-                <h4>Zarządzanie danymi – fundament projektów AI</h4>
-                <div class="service-meta">Czas realizacji: 2-4 tygodnie</div>
-                <p>AI jest tak dobre, jak dane, na których się uczy. Pomagamy uporządkować chaos danych i przygotować organizację do projektów AI.</p>
+            <div class="target-grid">
+                <div class="target-card">
+                    <div class="target-number">1</div>
+                    <h3>Analiza potrzeb</h3>
+                    <p class="target-summary">Ocena realnego zapotrzebowania na zastosowanie AI i wybór obszarów o największym wpływie na działanie organizacji.</p>
+                </div>
 
-                <h5>Co robimy:</h5>
-                <ul>
-                    <li>Audyt źródeł danych i ich jakości</li>
-                    <li>Projekt architektury danych pod projekty AI</li>
-                    <li>Wdrożenie data governance: polityki, role, odpowiedzialności</li>
-                    <li>Przygotowanie pipeline'ów danych dla konkretnych projektów AI</li>
-                    <li>Szkolenie zespołu z data governance i data quality</li>
-                </ul>
+                <div class="target-card">
+                    <div class="target-number">2</div>
+                    <h3>Ocena gotowości</h3>
+                    <p class="target-summary">Przegląd technologii, danych, kompetencji i kultury organizacyjnej.</p>
+                </div>
 
-                <h5>Rezultaty:</h5>
-                <ul>
-                    <li>Data catalog – przegląd wszystkich źródeł danych w organizacji</li>
-                    <li>Data quality framework – jak mierzyć i utrzymywać jakość danych</li>
-                    <li>Data governance policies – kto, co i jak może robić z danymi</li>
-                    <li>Pipeline dla pierwszego projektu AI (ready to use)</li>
-                </ul>
+                <div class="target-card">
+                    <div class="target-number">3</div>
+                    <h3>Koncepcja wdrożenia</h3>
+                    <p class="target-summary">Praktyczny plan dopasowany do celów, budżetu i harmonogramu.</p>
+                </div>
+
+                <div class="target-card">
+                    <div class="target-number">4</div>
+                    <h3>Wsparcie w realizacji</h3>
+                    <p class="target-summary">Prowadzenie organizacji przez proces wdrażania AI.</p>
+                </div>
             </div>
         </div>
     </section>
@@ -138,7 +147,7 @@
     <section class="cta-section">
         <div class="container">
             <h3>Potrzebujesz strategii AI?</h3>
-            <p>Porozmawiajmy o wyzwaniach Twojej firmy i stwórzmy razem plan wdrożenia AI, który rzeczywiście zadziała.</p>
+            <p>Porozmawiajmy o wyzwaniach Twojej organizacji i stwórzmy razem plan wdrożenia AI, który rzeczywiście zadziała.</p>
             <a href="index.html#contact" class="cta-button">Skontaktuj się z nami</a>
         </div>
     </section>
@@ -147,9 +156,9 @@
     <footer id="contact">
         <div class="container">
             <div class="footer-mascot">
-                <img src="Quantica_kotek_white.png" alt="QuanticaLab Mascot">
+                <img src="Quantica_kotek_white.png" alt="Quantica Lab Mascot">
             </div>
-            <p>&copy; 2024 QuanticaLab - AI dla organizacji</p>
+            <p>&copy; 2025 Quantica Lab sp. z o.o. – AI dla organizacji</p>
         </div>
     </footer>
 </body>

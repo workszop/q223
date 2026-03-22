@@ -3,11 +3,11 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="Blog - QuanticaLab. Artykuły o sztucznej inteligencji, wdrożeniach AI i transformacji cyfrowej organizacji.">
-    <title>Blog - QuanticaLab</title>
+    <meta name="description" content="Blog – Quantica Lab. Artykuły o sztucznej inteligencji, wdrożeniach AI i transformacji cyfrowej organizacji.">
+    <title>Blog – Quantica Lab</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Raleway:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Raleway:wght@400;500;600;700;800&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="styles.css">
 </head>
 <body>
@@ -15,21 +15,25 @@
     <header>
         <nav class="container">
             <a href="index.html" class="logo">
-                <img src="Quantica_logo_black.png" alt="QuanticaLab">
+                <img src="Quantica_logo_black.png" alt="Quantica Lab">
             </a>
+            <button class="menu-toggle" onclick="document.querySelector('.nav-links').classList.toggle('active')" aria-label="Menu">
+                <span></span><span></span><span></span>
+            </button>
             <ul class="nav-links">
                 <li class="dropdown">
                     <span class="dropdown-toggle">Oferta</span>
                     <div class="dropdown-menu">
-                        <a href="doradztwo.html">Doradztwo AI</a>
+                        <a href="doradztwo.html">Doradztwo i strategia</a>
                         <a href="wdrozenia.html">Rozwiązania AI</a>
                         <a href="szkolenia.html">Szkolenia AI</a>
                         <hr>
                         <a href="warsztat.html">Start z AI</a>
                     </div>
                 </li>
+                <li><a href="rag-wielka-wies.html">Case study</a></li>
                 <li><a href="blog.html">Blog</a></li>
-                <li><a href="index.html#contact">Kontakt</a></li>
+                <li><a href="index.html#contact" class="cta-button" style="padding:0.5rem 1.2rem; font-size:0.88rem;">Kontakt</a></li>
             </ul>
         </nav>
     </header>
@@ -37,15 +41,16 @@
     <!-- Hero Section -->
     <section class="hero">
         <div class="container">
-            <h1>Blog</h1>
+            <div class="hero-badge">Blog</div>
+            <h1><span>Blog</span></h1>
             <p>Artykuły, analizy i praktyczne wskazówki dotyczące sztucznej inteligencji i transformacji cyfrowej organizacji.</p>
         </div>
     </section>
 
     <!-- Blog Section -->
-    <section class="services">
-        <div class="container">
-            <p>Wkrótce pojawią się tu artykuły naszych ekspertów.</p>
+    <section class="services" style="min-height: 300px;">
+        <div class="container" style="text-align: center;">
+            <p style="font-size: 1.1rem; color: var(--text-muted); padding: 3rem 0;">Wkrótce pojawią się tu artykuły naszych ekspertów.</p>
         </div>
     </section>
 
@@ -53,9 +58,9 @@
     <footer id="contact">
         <div class="container">
             <div class="footer-mascot">
-                <img src="Quantica_kotek_white.png" alt="QuanticaLab Mascot">
+                <img src="Quantica_kotek_white.png" alt="Quantica Lab Mascot">
             </div>
-            <p>&copy; 2024 QuanticaLab - AI dla organizacji</p>
+            <p>&copy; 2025 Quantica Lab sp. z o.o. – AI dla organizacji</p>
         </div>
     </footer>
 </body>
