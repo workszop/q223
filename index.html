@@ -7,13 +7,17 @@
     <title>Quantica Lab – AI dla organizacji</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:ital,wght@0,400;0,500;0,600;0,700;0,800;0,900;1,700;1,800;1,900&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Archivo+Black&family=Space+Grotesk:wght@400;500;600;700&family=IBM+Plex+Mono:wght@400;500;600&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="styles.css">
 </head>
 <body>
+    <!-- Interactive Grid Background -->
+    <div class="grid-bg" aria-hidden="true"></div>
+    <div class="grid-glow" id="gridGlow" aria-hidden="true"></div>
+
     <!-- Header -->
     <header>
-        <nav class="container">
+        <nav>
             <a href="index.html" class="logo">
                 <img src="Quantica_logo_black.png" alt="Quantica Lab">
             </a>
@@ -33,7 +37,7 @@
                 </li>
                 <li><a href="rag-wielka-wies.html">Case study</a></li>
                 <li><a href="blog.html">Blog</a></li>
-                <li><a href="#contact" class="cta-button" style="padding:0.5rem 1.2rem; font-size:0.88rem;">Kontakt</a></li>
+                <li><a href="#contact" class="cta-button">Kontakt</a></li>
             </ul>
         </nav>
     </header>
@@ -41,6 +45,8 @@
     <!-- Hero Section -->
     <section class="hero">
         <div class="watermark" aria-hidden="true">AI</div>
+        <div class="glow-blob glow-blob--1" aria-hidden="true"></div>
+        <div class="glow-blob glow-blob--2" aria-hidden="true"></div>
         <div class="container">
             <div class="hero-badge">Quantica Lab sp. z o.o.</div>
             <h1>AI <span>dla organizacji</span></h1>
@@ -53,6 +59,28 @@
             </div>
         </div>
     </section>
+
+    <!-- Marquee Strip -->
+    <div class="marquee-strip" aria-hidden="true">
+        <div class="marquee-track">
+            <span>Empowering Business Through AI</span>
+            <span class="filled">•</span>
+            <span>Data Driven</span>
+            <span class="filled">•</span>
+            <span>Quantica Lab</span>
+            <span class="filled">•</span>
+            <span>Transformacja Cyfrowa</span>
+            <span class="filled">•</span>
+            <span>Empowering Business Through AI</span>
+            <span class="filled">•</span>
+            <span>Data Driven</span>
+            <span class="filled">•</span>
+            <span>Quantica Lab</span>
+            <span class="filled">•</span>
+            <span>Transformacja Cyfrowa</span>
+            <span class="filled">•</span>
+        </div>
+    </div>
 
     <!-- Services Section -->
     <section id="services" class="services">
@@ -148,6 +176,32 @@
             </div>
         </div>
     </section>
+
+    <!-- Marquee Strip 2 -->
+    <div class="marquee-strip" aria-hidden="true">
+        <div class="marquee-track" style="animation-direction: reverse;">
+            <span>RAG</span>
+            <span class="filled">•</span>
+            <span>LLM Fine-Tuning</span>
+            <span class="filled">•</span>
+            <span>AI Agents</span>
+            <span class="filled">•</span>
+            <span>Data Architecture</span>
+            <span class="filled">•</span>
+            <span>AI Governance</span>
+            <span class="filled">•</span>
+            <span>RAG</span>
+            <span class="filled">•</span>
+            <span>LLM Fine-Tuning</span>
+            <span class="filled">•</span>
+            <span>AI Agents</span>
+            <span class="filled">•</span>
+            <span>Data Architecture</span>
+            <span class="filled">•</span>
+            <span>AI Governance</span>
+            <span class="filled">•</span>
+        </div>
+    </div>
 
     <!-- Why Quantica Section -->
     <section class="why">
@@ -249,7 +303,7 @@
         <div class="watermark" aria-hidden="true">QUANTICA</div>
         <div class="container">
             <div class="section-header">
-                <h2 class="section-title" style="color: var(--white);">Idealny partner <span>dla Twojej organizacji</span></h2>
+                <h2 class="section-title">Idealny partner <span>dla Twojej organizacji</span></h2>
             </div>
             <div class="partner-grid">
                 <div class="partner-item">
@@ -322,5 +376,7 @@
             <p>&copy; 2025 Quantica Lab sp. z o.o. – AI dla organizacji</p>
         </div>
     </footer>
+
+    <script src="app.js"></script>
 </body>
 </html>
