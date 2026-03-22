@@ -46,6 +46,7 @@ body {
     line-height: 1.7;
     font-weight: 400;
     overflow-x: hidden;
+    zoom: 1.1;
 }
 
 .container {
@@ -786,14 +787,16 @@ header nav {
 /* Watermark */
 .partner-section .watermark {
     position: absolute;
-    bottom: -30px;
-    right: -20px;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
     font-family: var(--font-display);
     font-size: clamp(120px, 18vw, 300px);
     text-transform: uppercase;
     letter-spacing: -0.04em;
     color: transparent;
     -webkit-text-stroke: 1.5px rgba(255,255,255,0.10);
+    white-space: nowrap;
     pointer-events: none;
     user-select: none;
 }
@@ -1180,16 +1183,18 @@ footer p {
 .demo-hero .watermark {
     position: absolute;
     top: 50%;
-    right: -5%;
-    transform: translateY(-50%);
+    left: 50%;
+    transform: translate(-50%, -50%);
     font-family: var(--font-display);
     font-size: clamp(200px, 30vw, 500px);
     text-transform: uppercase;
     letter-spacing: -0.04em;
     color: transparent;
     -webkit-text-stroke: 1.5px rgba(255,255,255,0.10);
+    white-space: nowrap;
     pointer-events: none;
     user-select: none;
+    z-index: 0;
 }
 
 .demo-hero .glow-blob {
