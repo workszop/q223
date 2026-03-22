@@ -169,7 +169,11 @@ header nav {
 }
 
 /* Dropdown */
-.dropdown { position: relative; }
+.dropdown {
+    position: relative;
+    padding: 1.5rem 0;
+    margin: -1.5rem 0;
+}
 .dropdown-menu {
     display: none;
     position: absolute;
@@ -180,18 +184,8 @@ header nav {
     backdrop-filter: blur(16px);
     border: 1px solid rgba(255,255,255,0.1);
     padding: 0.6rem 0;
-    padding-top: 1rem;
     min-width: 220px;
     z-index: 100;
-}
-/* Invisible bridge to prevent gap */
-.dropdown-menu::before {
-    content: '';
-    position: absolute;
-    top: -10px;
-    left: 0;
-    right: 0;
-    height: 10px;
 }
 .dropdown:hover .dropdown-menu { display: block; }
 .dropdown-menu a {
@@ -325,8 +319,8 @@ header nav {
 .hero h1 {
     font-family: var(--font-display);
     font-size: clamp(60px, 10vw, 130px);
-    font-weight: 400; /* Archivo Black only has 400 */
-    font-style: normal;
+    font-weight: 400;
+    font-style: italic;
     text-transform: uppercase;
     letter-spacing: -0.03em;
     line-height: 0.92;
@@ -338,7 +332,6 @@ header nav {
 .hero h1 span {
     color: var(--orange);
     display: block;
-    font-style: italic;
 }
 
 .hero p {
@@ -461,6 +454,7 @@ header nav {
     font-family: var(--font-display);
     font-size: clamp(36px, 5.5vw, 68px);
     font-weight: 400;
+    font-style: italic;
     text-transform: uppercase;
     letter-spacing: -0.02em;
     line-height: 1;
@@ -470,7 +464,6 @@ header nav {
 
 .section-title span {
     color: var(--orange);
-    font-style: italic;
 }
 
 .section-subtitle {
@@ -874,6 +867,7 @@ header nav {
 .cta-section h3 {
     font-family: var(--font-display);
     font-size: clamp(28px, 4vw, 52px);
+    font-style: italic;
     text-transform: uppercase;
     letter-spacing: -0.02em;
     color: var(--white);
@@ -911,6 +905,7 @@ header nav {
 .first-steps h2 {
     font-family: var(--font-display);
     font-size: clamp(36px, 5.5vw, 68px);
+    font-style: italic;
     text-transform: uppercase;
     letter-spacing: -0.02em;
     color: var(--white);
@@ -949,7 +944,7 @@ header nav {
    ============================================ */
 footer {
     background: var(--deep-space);
-    padding: 4.5rem 0;
+    padding: 2rem 0;
     text-align: center;
     border-top: 1px solid var(--border);
 }
@@ -957,7 +952,7 @@ footer {
 .footer-mascot img {
     height: 64px;
     width: auto;
-    margin-bottom: 1.5rem;
+    margin-bottom: 0.8rem;
     opacity: 0.8;
 }
 
@@ -1225,6 +1220,7 @@ footer p {
 .demo-hero h1 {
     font-family: var(--font-display);
     font-size: clamp(48px, 9vw, 110px);
+    font-style: italic;
     text-transform: uppercase;
     letter-spacing: -0.03em;
     line-height: 0.92;
