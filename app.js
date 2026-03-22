@@ -18,9 +18,7 @@
         watermarks.forEach(function(el) {
             var rect = el.parentElement.getBoundingClientRect();
             var offset = (rect.top + rect.height / 2) * 0.08;
-            // Determine base transform based on parent class
             if (el.parentElement.classList.contains('partner-section')) {
-                // partner watermark: bottom-right positioned
                 return;
             }
             if (el.parentElement.classList.contains('demo-hero')) {
@@ -30,4 +28,22 @@
             }
         });
     }, { passive: true });
+})();
+
+// Theme toggle (dark/light)
+(function(){
+    var btn = document.getElementById('themeToggle');
+    if (!btn) return;
+
+    // Restore saved preference
+    var saved = localStorage.getItem('ql-theme');
+    if (saved === 'light') {
+        document.body.classList.add('light');
+    }
+
+    btn.addEventListener('click', function() {
+        document.body.classList.toggle('light');
+        var isLight = document.body.classList.contains('light');
+        localStorage.setItem('ql-theme', isLight ? 'light' : 'dark');
+    });
 })();

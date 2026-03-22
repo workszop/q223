@@ -1366,3 +1366,252 @@ footer p {
         min-height: auto;
     }
 }
+
+/* ============================================
+   LIGHT THEME
+   ============================================ */
+body.light {
+    --deep-space: #FFFFFF;
+    --surface: #F5F5F5;
+    --surface-card: #FFFFFF;
+    --surface-elevated: #FAFAFA;
+    --border: rgba(0, 0, 0, 0.1);
+    --border-hover: rgba(249, 115, 22, 0.5);
+    --text-primary: #1A1A1A;
+    --text-secondary: #555555;
+    --text-muted: #999999;
+    --white: #1A1A1A;
+}
+
+/* Header in light mode */
+body.light header {
+    background: rgba(255, 255, 255, 0.85);
+    border-color: rgba(0, 0, 0, 0.1);
+}
+
+body.light .logo img {
+    filter: none;
+}
+
+body.light .menu-toggle span {
+    background: var(--text-primary);
+}
+
+body.light .nav-links a,
+body.light .nav-links .dropdown-toggle {
+    color: #555;
+}
+
+body.light .nav-links a:hover,
+body.light .nav-links .dropdown-toggle:hover {
+    color: #1A1A1A;
+}
+
+body.light .dropdown-menu {
+    background: rgba(255, 255, 255, 0.97);
+    border-color: rgba(0, 0, 0, 0.1);
+}
+
+body.light .dropdown-menu a {
+    color: #555;
+}
+body.light .dropdown-menu a:hover {
+    color: #1A1A1A;
+    background: rgba(249, 115, 22, 0.06);
+}
+
+/* Hero in light mode */
+body.light .hero,
+body.light .demo-hero {
+    background: #F0F0F0;
+}
+
+body.light .hero h1,
+body.light .demo-hero h1 {
+    color: #1A1A1A;
+}
+
+body.light .hero h1 span {
+    color: var(--orange);
+}
+
+body.light .hero p,
+body.light .demo-hero p {
+    color: #555;
+}
+
+body.light .hero p strong {
+    color: #1A1A1A;
+}
+
+body.light .hero .watermark,
+body.light .demo-hero .watermark {
+    -webkit-text-stroke-color: rgba(0, 0, 0, 0.05);
+}
+
+body.light .hero .glow-blob,
+body.light .demo-hero .glow-blob {
+    background: radial-gradient(circle, rgba(249,115,22,0.06) 0%, transparent 60%);
+}
+
+body.light .hero-badge,
+body.light .demo-hero .hero-badge {
+    border-color: rgba(249, 115, 22, 0.25);
+}
+
+/* CTA outline on light */
+body.light .cta-button-outline {
+    color: #1A1A1A;
+    border-color: rgba(0, 0, 0, 0.2);
+}
+body.light .cta-button-outline:hover {
+    color: var(--orange);
+    border-color: var(--orange);
+}
+
+/* Grid bg in light mode */
+body.light .grid-bg {
+    background-image:
+        linear-gradient(rgba(0,0,0,0.04) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(0,0,0,0.04) 1px, transparent 1px);
+}
+
+body.light .grid-glow {
+    background: radial-gradient(circle, rgba(249,115,22,0.04) 0%, transparent 70%);
+}
+
+/* Marquee in light mode */
+body.light .marquee-strip {
+    background: var(--deep-space);
+    border-color: var(--border);
+}
+
+body.light .marquee-track span {
+    -webkit-text-stroke-color: rgba(0, 0, 0, 0.1);
+}
+
+/* Section titles */
+body.light .section-title {
+    color: #1A1A1A;
+}
+
+/* Cards in light mode */
+body.light .service-card,
+body.light .target-card,
+body.light .process-step,
+body.light .demo-info-card,
+body.light .deliverables {
+    background: #FFFFFF;
+    border-color: rgba(0, 0, 0, 0.08);
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.04);
+}
+
+body.light .service-card:hover,
+body.light .target-card:hover,
+body.light .process-step:hover {
+    box-shadow: 0 8px 30px rgba(249, 115, 22, 0.08);
+}
+
+/* Partner section in light mode */
+body.light .partner-section {
+    background: #1A1A1A;
+}
+
+body.light .partner-section .section-title {
+    color: #F1F1F1;
+}
+
+body.light .partner-item h4 {
+    color: #F1F1F1;
+}
+
+body.light .partner-item p {
+    color: #A0A0A0;
+}
+
+body.light .partner-section .watermark {
+    -webkit-text-stroke-color: rgba(255, 255, 255, 0.03);
+}
+
+/* CTA section in light mode */
+body.light .cta-section {
+    background: #1A1A1A;
+}
+
+body.light .cta-section h3 {
+    color: #F1F1F1;
+}
+
+body.light .cta-section p {
+    color: #A0A0A0;
+}
+
+/* Footer in light mode */
+body.light footer {
+    background: #1A1A1A;
+}
+
+body.light footer p {
+    color: #F1F1F1;
+}
+
+/* First steps in light mode */
+body.light .first-steps {
+    background: var(--deep-space);
+}
+
+/* Mobile nav in light mode */
+@media (max-width: 768px) {
+    body.light .nav-links {
+        background: rgba(255, 255, 255, 0.97);
+        border-color: rgba(0, 0, 0, 0.1);
+    }
+
+    body.light header {
+        border-bottom-color: rgba(0, 0, 0, 0.1);
+    }
+}
+
+/* ============================================
+   THEME TOGGLE BUTTON
+   ============================================ */
+.theme-toggle {
+    position: fixed;
+    bottom: 24px;
+    right: 24px;
+    z-index: 999;
+    width: 48px;
+    height: 48px;
+    border: 1px solid rgba(255, 255, 255, 0.12);
+    border-radius: 0;
+    background: rgba(20, 20, 20, 0.8);
+    backdrop-filter: blur(12px);
+    color: var(--orange);
+    font-size: 1.2rem;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: background 0.3s, border-color 0.3s;
+}
+
+.theme-toggle:hover {
+    border-color: var(--orange);
+    background: rgba(249, 115, 22, 0.1);
+}
+
+body.light .theme-toggle {
+    background: rgba(255, 255, 255, 0.9);
+    border-color: rgba(0, 0, 0, 0.12);
+}
+
+body.light .theme-toggle:hover {
+    border-color: var(--orange);
+    background: rgba(249, 115, 22, 0.08);
+}
+
+/* Icon swap */
+.theme-toggle .icon-moon,
+body.light .theme-toggle .icon-sun { display: none; }
+body.light .theme-toggle .icon-moon { display: block; }
+.theme-toggle .icon-sun { display: block; }
