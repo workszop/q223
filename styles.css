@@ -970,6 +970,17 @@ footer p {
     letter-spacing: 0.02em;
 }
 
+.llms-link {
+    color: var(--text-muted);
+    font-family: var(--font-mono);
+    font-size: 0.75rem;
+    text-decoration: none;
+    transition: color 0.2s;
+}
+.llms-link:hover {
+    color: var(--orange);
+}
+
 /* ============================================
    SERVICE DETAIL (Sub-pages)
    ============================================ */
