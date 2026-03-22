@@ -270,7 +270,7 @@ header nav {
     text-transform: uppercase;
     letter-spacing: -0.04em;
     color: transparent;
-    -webkit-text-stroke: 1px rgba(255,255,255,0.04);
+    -webkit-text-stroke: 1.5px rgba(255,255,255,0.10);
     white-space: nowrap;
     pointer-events: none;
     user-select: none;
@@ -793,7 +793,7 @@ header nav {
     text-transform: uppercase;
     letter-spacing: -0.04em;
     color: transparent;
-    -webkit-text-stroke: 1px rgba(255,255,255,0.03);
+    -webkit-text-stroke: 1.5px rgba(255,255,255,0.10);
     pointer-events: none;
     user-select: none;
 }
@@ -1187,7 +1187,7 @@ footer p {
     text-transform: uppercase;
     letter-spacing: -0.04em;
     color: transparent;
-    -webkit-text-stroke: 1px rgba(255,255,255,0.04);
+    -webkit-text-stroke: 1.5px rgba(255,255,255,0.10);
     pointer-events: none;
     user-select: none;
 }
@@ -1442,7 +1442,7 @@ body.light .hero p strong {
 
 body.light .hero .watermark,
 body.light .demo-hero .watermark {
-    -webkit-text-stroke-color: rgba(0, 0, 0, 0.05);
+    -webkit-text-stroke-color: rgba(0, 0, 0, 0.08);
 }
 
 body.light .hero .glow-blob,
@@ -1526,7 +1526,7 @@ body.light .partner-item p {
 }
 
 body.light .partner-section .watermark {
-    -webkit-text-stroke-color: rgba(255, 255, 255, 0.03);
+    -webkit-text-stroke-color: rgba(0, 0, 0, 0.08);
 }
 
 /* CTA section in light mode */
