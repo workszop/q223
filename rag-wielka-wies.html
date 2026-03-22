@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="RAG Wielka Wieś – Quantica Lab. Wirtualny asystent gminy oparty na technologii RAG, opracowany przez Quantica Lab na bazie Intel AI.">
+    <title>RAG Wielka Wieś – Quantica Lab</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Raleway:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <!-- Header -->
+    <header>
+        <nav class="container">
+            <a href="index.html" class="logo">
+                <img src="Quantica_logo_black.png" alt="Quantica Lab">
+            </a>
+            <button class="menu-toggle" onclick="document.querySelector('.nav-links').classList.toggle('active')" aria-label="Menu">
+                <span></span><span></span><span></span>
+            </button>
+            <ul class="nav-links">
+                <li class="dropdown">
+                    <span class="dropdown-toggle">Oferta</span>
+                    <div class="dropdown-menu">
+                        <a href="doradztwo.html">Doradztwo i strategia</a>
+                        <a href="wdrozenia.html">Rozwiązania AI</a>
+                        <a href="szkolenia.html">Szkolenia AI</a>
+                        <hr>
+                        <a href="warsztat.html">Start z AI</a>
+                    </div>
+                </li>
+                <li><a href="rag-wielka-wies.html">Case study</a></li>
+                <li><a href="blog.html">Blog</a></li>
+                <li><a href="index.html#contact" class="cta-button" style="padding:0.5rem 1.2rem; font-size:0.88rem;">Kontakt</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="demo-hero">
+        <div class="container">
+            <div class="hero-badge">Case study</div>
+            <h1>RAG <span style="color: var(--primary);">Wielka Wieś</span></h1>
+            <p>Wirtualny asystent gminy, który pomaga w sprawach lokalnych. Odpowiedzi przygotowywane są na podstawie informacji z Biuletynu Informacji Publicznej oraz innych publicznie dostępnych materiałów gminy.</p>
+        </div>
+    </section>
+
+    <!-- Info Section -->
+    <section class="demo-info">
+        <div class="container">
+            <div class="service-detail" style="margin-bottom: 2rem;">
+                <h4>O rozwiązaniu</h4>
+                <p>Jestem wirtualnym asystentem gminy i chętnie pomogę w sprawach lokalnych. Odpowiedzi przygotowuję na podstawie informacji z Biuletynu Informacji Publicznej oraz innych publicznie dostępnych materiałów gminy. Korzystam z technologii AI, która może sporadycznie się mylić. Jeśli potrzebujesz oficjalnej interpretacji lub masz niestandardowe pytanie, skontaktuj się z urzędem – pracownicy udzielą wiążącej odpowiedzi.</p>
+
+                <h5>Technologia</h5>
+                <p>System wykorzystuje mechanizm Retrieval-Augmented Generation (RAG), łącząc wyszukiwanie w dokumentach urzędowych z generowaniem odpowiedzi w języku naturalnym. Został opracowany przez Quantica Lab na bazie Intel® AI for Enterprise RAG i dostosowany do potrzeb urzędu. Odpowiedzi generowane są na podstawie publicznie dostępnych materiałów gminy.</p>
+
+                <h5>Kluczowe cechy</h5>
+                <ul>
+                    <li>Wyszukiwanie kontekstowe w dokumentach urzędowych gminy</li>
+                    <li>Generowanie odpowiedzi w języku naturalnym</li>
+                    <li>Oparcie na zweryfikowanych, publicznie dostępnych źródłach</li>
+                    <li>Obsługa zapytań mieszkańców dotyczących usług publicznych</li>
+                    <li>Dostosowanie do specyfiki administracji publicznej</li>
+                </ul>
+            </div>
+
+            <div class="demo-info-grid">
+                <div class="demo-info-card">
+                    <h3>Informacje o rozwiązaniach</h3>
+                    <p>Więcej informacji o rozwiązaniach Quantica Lab znajdziesz na naszej stronie.</p>
+                    <p style="margin-top: 0.8rem;"><a href="index.html">quanticalab.ai</a></p>
+                </div>
+                <div class="demo-info-card">
+                    <h3>Kontakt w sprawach technicznych</h3>
+                    <p>W sprawach technicznych dotyczących rozwiązania prosimy o kontakt.</p>
+                    <p style="margin-top: 0.8rem;"><a href="mailto:kontakt@quanticalab.ai">kontakt@quanticalab.ai</a></p>
+                </div>
+            </div>
+
+            <div class="powered-by" style="margin-top: 2rem;">
+                <p><strong>Quantica Lab</strong> powered by <strong>Intel® AI</strong></p>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA Section -->
+    <section class="cta-section">
+        <div class="container">
+            <h3>Chcesz wdrożyć podobne rozwiązanie?</h3>
+            <p>Skontaktuj się z nami, aby omówić możliwości wdrożenia systemu RAG w Twojej organizacji.</p>
+            <a href="index.html#contact" class="cta-button">Skontaktuj się z nami</a>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer id="contact">
+        <div class="container">
+            <div class="footer-mascot">
+                <img src="Quantica_kotek_white.png" alt="Quantica Lab Mascot">
+            </div>
+            <p>&copy; 2025 Quantica Lab sp. z o.o. – AI dla organizacji</p>
+        </div>
+    </footer>
+</body>
+</html>

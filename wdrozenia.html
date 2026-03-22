@@ -3,11 +3,11 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="Wdrożenia AI - Quantica. Systemy RAG, automatyzacja procesów, dostrajanie modeli językowych i modelowanie predykcyjne dla organizacji.">
-    <title>Wdrożenia AI - Quantica</title>
+    <meta name="description" content="Rozwiązania AI – Quantica Lab. Systemy RAG, automatyzacja procesów, dostrajanie modeli językowych, architektura i analityka danych.">
+    <title>Rozwiązania AI – Quantica Lab</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Raleway:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Raleway:wght@400;500;600;700;800&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="styles.css">
 </head>
 <body>
@@ -15,21 +15,25 @@
     <header>
         <nav class="container">
             <a href="index.html" class="logo">
-                <img src="Quantica_logo_black.png" alt="QuanticaLab">
+                <img src="Quantica_logo_black.png" alt="Quantica Lab">
             </a>
+            <button class="menu-toggle" onclick="document.querySelector('.nav-links').classList.toggle('active')" aria-label="Menu">
+                <span></span><span></span><span></span>
+            </button>
             <ul class="nav-links">
                 <li class="dropdown">
                     <span class="dropdown-toggle">Oferta</span>
                     <div class="dropdown-menu">
-                        <a href="doradztwo.html">Doradztwo AI</a>
+                        <a href="doradztwo.html">Doradztwo i strategia</a>
                         <a href="wdrozenia.html">Rozwiązania AI</a>
                         <a href="szkolenia.html">Szkolenia AI</a>
                         <hr>
                         <a href="warsztat.html">Start z AI</a>
                     </div>
                 </li>
+                <li><a href="rag-wielka-wies.html">Case study</a></li>
                 <li><a href="blog.html">Blog</a></li>
-                <li><a href="index.html#contact">Kontakt</a></li>
+                <li><a href="index.html#contact" class="cta-button" style="padding:0.5rem 1.2rem; font-size:0.88rem;">Kontakt</a></li>
             </ul>
         </nav>
     </header>
@@ -37,15 +41,17 @@
     <!-- Hero Section -->
     <section class="hero">
         <div class="container">
-            <h1>Rozwiązania AI</h1>
+            <div class="hero-badge">Rozwiązania AI</div>
+            <h1>Rozwiązania <span>AI</span></h1>
             <p>Koncentrujemy się na rozwiązaniach dostosowanych do specyfiki branży i potrzeb operacyjnych. Nie obiecujemy rewolucji – dostarczamy konkretne narzędzia, które rozwiązują realne problemy biznesowe.</p>
         </div>
     </section>
 
-    <!-- Implementation Services -->
+    <!-- Solutions -->
     <section class="services">
         <div class="container">
 
+            <!-- RAG Systems -->
             <div class="service-detail">
                 <h4>Systemy RAG (Retrieval-Augmented Generation)</h4>
                 <p><strong>Dla kogo:</strong> organizacje posiadające rozbudowane zasoby wiedzy – dokumentację, procedury, regulaminy, akty prawne, FAQ czy archiwa spraw.</p>
@@ -70,7 +76,7 @@
                 <ul>
                     <li><strong>Asystent wiedzy produktowej</strong> – dla zespołów sprzedaży i obsługi klienta</li>
                     <li><strong>Wewnętrzny asystent organizacyjny</strong> – szybki dostęp do procedur, polityk i dokumentacji</li>
-                    <li><strong>Chatbot dla mieszkańców/ obywateli</strong> – odpowiedzi na pytania dotyczące usług publicznych, procedur i formalności</li>
+                    <li><strong>Chatbot dla mieszkańców/obywateli</strong> – odpowiedzi na pytania dotyczące usług publicznych, procedur i formalności</li>
                     <li><strong>Asystent ds. regulacyjnych i standardów wewnętrznych</strong> – pomoc w nawigacji po przepisach i wytycznych</li>
                     <li><strong>Narzędzie dla brokerów informacji</strong> – agregowanie i porządkowanie odpowiedzi z wielu źródeł</li>
                 </ul>
@@ -79,6 +85,7 @@
                 <p>Typowy czas wdrożenia wynosi od 3 do 9 miesięcy, w zależności od złożoności procesów, jakości i dostępności danych, zakresu integracji oraz poziomu gotowości organizacji. W organizacjach o rozbudowanych i silnie powiązanych strukturach informacji wdrażamy także rozwiązania oparte na RAG-u grafowym, które umożliwiają analizę relacji między dokumentami, procesami i decyzjami oraz uwzględnianie kontekstu organizacyjnego w generowanych odpowiedziach.</p>
             </div>
 
+            <!-- Process Automation -->
             <div class="service-detail">
                 <h4>Automatyzacja procesów z wykorzystaniem AI</h4>
                 <p><strong>Dla kogo:</strong> organizacje realizujące powtarzalne procesy oparte na analizie dokumentów, komunikacji i pracy z wiedzą, w szczególności działy operacyjne, HR, obsługi klienta, finansów oraz jednostki administracyjne.</p>
@@ -88,7 +95,7 @@
                     <li>Ograniczenie pracy manualnej w procesach opartych na dokumentach i komunikacji</li>
                     <li>Przyspieszenie obsługi spraw i skrócenie czasu reakcji</li>
                     <li>Zwiększenie spójności decyzji i komunikacji</li>
-                    <li>Lepsza kontrola nad przepływem informacji między działami</li>
+                    <li>Lepszą kontrolę nad przepływem informacji między działami</li>
                     <li>Możliwość skalowania procesów bez proporcjonalnego wzrostu zatrudnienia</li>
                 </ul>
                 <p>Tworzymy również rozwiązania agentowe – systemy AI, które nie tylko analizują dane, ale wykonują określone działania, współpracując z użytkownikami i innymi systemami.</p>
@@ -107,6 +114,7 @@
                 <p>Czas wdrożenia wynosi zazwyczaj od 3 do 12 miesięcy – w zależności od skali organizacji, liczby procesów objętych automatyzacją, stopnia integracji z systemami wewnętrznymi oraz wymagań regulacyjnych i bezpieczeństwa. Pracujemy w modelu umożliwiającym stopniowe uruchamianie kolejnych obszarów, tak aby organizacja mogła osiągać efekty operacyjne już w trakcie realizacji projektu.</p>
             </div>
 
+            <!-- LLM Fine-tuning -->
             <div class="service-detail">
                 <h4>Dostrajanie modeli językowych</h4>
                 <p><strong>Dla kogo:</strong> organizacje, które chcą wykorzystać modele językowe w procesach operacyjnych wymagających wysokiej precyzji, spójności terminologicznej oraz dopasowania do specyfiki branży i wymogów regulacyjnych, a jednocześnie zwiększyć skuteczność systemów AI w realizacji konkretnych zadań.</p>
@@ -131,31 +139,34 @@
                 </ul>
 
                 <h5>Proces realizacji</h5>
-                <p>Czas realizacji projektu wynosi zazwyczaj od 6 do 12 miesięcy i jest uzależniony od zakresu adaptacji, jakości oraz dostępności danych. W bardziej zaawansowanych scenariuszach realizujemy również adaptację domenową modelu, obejmującą kontynuację pretreningu (Continued Pre-Training). Dzięki temu model lepiej rozumie terminologię branżową i kontekst dokumentów oraz generuje treści zgodne ze standardami danej domeny.</p>
+                <p>Czas realizacji projektu wynosi zazwyczaj od 6 do 12 miesięcy i jest uzależniony od zakresu adaptacji, jakości oraz dostępności danych, a także poziomu współpracy przy ich opracowaniu i walidacji. W bardziej zaawansowanych scenariuszach realizujemy również adaptację językową modelu, tj. kontynuację pretreningu (Continued Pre-Training). Dzięki temu model lepiej rozumie terminologię branżową i kontekst dokumentów oraz generuje treści zgodne ze standardami danej domeny.</p>
             </div>
 
+            <!-- Data Architecture & Analytics -->
             <div class="service-detail">
-                <h4>Modelowanie predykcyjne i analityka danych</h4>
-                <p><strong>Dla kogo:</strong> organizacje posiadające duże zbiory danych archiwalnych, które chcą podejmować decyzje w oparciu o prognozy, wzorce i zależności ukryte w danych. Rozwiązanie szczególnie przydatne w środowiskach, gdzie kluczowe znaczenie ma optymalizacja kosztów, planowanie popytu, zarządzanie ryzykiem lub personalizacja oferty.</p>
+                <h4>Architektura i analityka danych</h4>
+                <p><strong>Dla kogo:</strong> organizacje posiadające rozproszone duże zbiory danych (w tym danych archiwalnych), które chcą wdrożyć kompleksowe rozwiązania umożliwiające ich efektywne wykorzystanie w procesach decyzyjnych i analitycznych. Rozwiązanie szczególnie przydatne w środowiskach, gdzie kluczowe znaczenie ma optymalizacja kosztów, planowanie popytu, zarządzanie ryzykiem lub personalizacja oferty.</p>
 
                 <h5>Korzyści</h5>
                 <ul>
-                    <li>Wiarygodne prognozowanie przyszłych zdarzeń i trendów</li>
-                    <li>Wcześniejsze wykrywanie nieprawidłowości i ryzyk</li>
-                    <li>Precyzyjna segmentacja klientów, procesów lub zasobów</li>
-                    <li>Optymalizacja decyzji operacyjnych na bazie danych, a nie intuicji</li>
+                    <li>Eliminacja silosów danych dzięki produktom zorientowanym domenowo</li>
+                    <li>Umożliwienie reakcji biznesowej w czasie rzeczywistym od edge do chmury</li>
+                    <li>Redukcja kosztów infrastruktury dzięki inteligentnej automatyzacji</li>
+                    <li>Zapewnienie zgodności regulacyjnej dzięki federacyjnemu zarządzaniu</li>
+                    <li>Wsparcie dla AI i uczenia maszynowego dzięki inteligencji kontekstowej</li>
+                    <li>Adaptacja do zmieniających się wymagań biznesowych dzięki architekturze kompozycyjnej</li>
                 </ul>
 
                 <h5>Przykłady zastosowań</h5>
                 <ul>
-                    <li><strong>Prognozowanie</strong> – przewidywanie sprzedaży, popytu, obciążenia systemów, zapotrzebowania na zasoby lub wskaźników rezygnacji</li>
+                    <li><strong>Wsparcie procesów planistycznych i sprzedażowych</strong> – przewidywanie sprzedaży, popytu, obciążenia systemów, zapotrzebowania na zasoby, wycena zmian i adaptacji</li>
                     <li><strong>Wykrywanie anomalii</strong> – identyfikacja nietypowych wzorców, nadużyć i potencjalnych nieprawidłowości</li>
-                    <li><strong>Systemy rekomendacyjne</strong> – personalizacja oferty i optymalizacja działań sprzedażowych</li>
-                    <li><strong>Zaawansowana segmentacja</strong> – grupowanie klientów, spraw lub jednostek operacyjnych na podstawie wielowymiarowej analizy danych</li>
+                    <li><strong>Systemy danych</strong> – przygotowanie danych do wykorzystania przez aplikacje i agenty AI</li>
+                    <li><strong>Zarządzanie danymi</strong> – kompleksowa architektura oraz model operacyjny danych, procesy przygotowania i uzdatniania danych, model metadanych, zaawansowana analityka (AI powered), data science i data as a product</li>
                 </ul>
 
                 <h5>Proces realizacji</h5>
-                <p>Czas realizacji projektu wynosi zazwyczaj od 3 do 9 miesięcy i zależy od jakości oraz przygotowania danych, liczby obszarów objętych modelowaniem, a także stopnia integracji z istniejącą architekturą systemową. W zależności od potrzeb projekt może obejmować również budowę warstwy analitycznej opartej na zapytaniach w języku naturalnym, umożliwiającej użytkownikom biznesowym pracę z danymi i wynikami modeli bez konieczności programowania.</p>
+                <p>Czas realizacji projektu wynosi zazwyczaj od 3 do 9 miesięcy i zależy od dojrzałości procesu zarządzania danymi oraz charakterystyce i skomplikowaniu docelowego modelu operacyjnego i stosu technologicznego, a także stopnia integracji z istniejącą architekturą systemową. W zależności od potrzeb projekt może obejmować również budowę warstwy analitycznej opartej na zapytaniach w języku naturalnym, umożliwiającej użytkownikom biznesowym pracę z danymi i wynikami modeli bez konieczności programowania.</p>
             </div>
 
         </div>
@@ -165,7 +176,7 @@
     <section class="cta-section">
         <div class="container">
             <h3>Gotowy na wdrożenie AI?</h3>
-            <p>Omówmy Twoje potrzeby i zaprojektujmy rozwiązanie, które rzeczywiście usprawni procesy w Twojej firmie.</p>
+            <p>Omówmy Twoje potrzeby i zaprojektujmy rozwiązanie, które rzeczywiście usprawni procesy w Twojej organizacji.</p>
             <a href="index.html#contact" class="cta-button">Skontaktuj się z nami</a>
         </div>
     </section>
@@ -174,9 +185,9 @@
     <footer id="contact">
         <div class="container">
             <div class="footer-mascot">
-                <img src="Quantica_kotek_white.png" alt="QuanticaLab Mascot">
+                <img src="Quantica_kotek_white.png" alt="Quantica Lab Mascot">
             </div>
-            <p>&copy; 2024 QuanticaLab - AI dla organizacji</p>
+            <p>&copy; 2025 Quantica Lab sp. z o.o. – AI dla organizacji</p>
         </div>
     </footer>
 </body>
