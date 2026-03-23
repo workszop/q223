@@ -8,16 +8,16 @@
 
 /* --- Variables --- */
 :root {
-    --orange: #F97316;
-    --orange-hover: #EA580C;
-    --orange-glow: rgba(249, 115, 22, 0.15);
-    --orange-dim: rgba(249, 115, 22, 0.06);
+    --orange: #BB2649;
+    --orange-hover: #9A1E3C;
+    --orange-glow: rgba(187, 38, 73, 0.15);
+    --orange-dim: rgba(187, 38, 73, 0.06);
     --deep-space: #0A0A0A;
     --surface: #111111;
     --surface-card: #141414;
     --surface-elevated: #1A1A1A;
     --border: rgba(255, 255, 255, 0.08);
-    --border-hover: rgba(249, 115, 22, 0.4);
+    --border-hover: rgba(187, 38, 73, 0.4);
     --text-primary: #F1F1F1;
     --text-secondary: #A0A0A0;
     --text-muted: #666666;
@@ -85,7 +85,7 @@ ul { list-style: none; }
     width: 300px;
     height: 300px;
     border-radius: 50%;
-    background: radial-gradient(circle, rgba(249,115,22,0.06) 0%, transparent 70%);
+    background: radial-gradient(circle, rgba(187,38,73,0.06) 0%, transparent 70%);
     pointer-events: none;
     z-index: 1;
     transform: translate(-50%, -50%);
@@ -321,7 +321,7 @@ header nav {
     font-family: var(--font-display);
     font-size: clamp(36px, 8vw, 130px);
     font-weight: 400;
-    font-style: italic;
+    font-style: normal;
     text-transform: uppercase;
     letter-spacing: -0.03em;
     line-height: 1;
@@ -454,7 +454,7 @@ header nav {
     font-family: var(--font-display);
     font-size: clamp(24px, 5.5vw, 68px);
     font-weight: 400;
-    font-style: italic;
+    font-style: normal;
     text-transform: uppercase;
     letter-spacing: -0.02em;
     line-height: 1.1;
@@ -873,7 +873,7 @@ header nav {
 .cta-section h3 {
     font-family: var(--font-display);
     font-size: clamp(20px, 4vw, 52px);
-    font-style: italic;
+    font-style: normal;
     text-transform: uppercase;
     letter-spacing: -0.02em;
     color: var(--white);
@@ -911,7 +911,7 @@ header nav {
 .first-steps h2 {
     font-family: var(--font-display);
     font-size: clamp(24px, 5.5vw, 68px);
-    font-style: italic;
+    font-style: normal;
     text-transform: uppercase;
     letter-spacing: -0.02em;
     line-height: 1.1;
@@ -1240,7 +1240,7 @@ footer p {
 .demo-hero h1 {
     font-family: var(--font-display);
     font-size: clamp(28px, 8vw, 110px);
-    font-style: italic;
+    font-style: normal;
     text-transform: uppercase;
     letter-spacing: -0.03em;
     line-height: 1;
