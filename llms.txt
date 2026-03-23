@@ -1,0 +1,255 @@
+# Quantica Lab – AI dla organizacji
+
+> Quantica Lab sp. z o.o. – specjaliści w zakresie budowy i wdrażania systemów sztucznej inteligencji, liderzy projektów B+R, współtwórcy polskich modeli językowych.
+
+## O nas
+
+Quantica Lab to specjaliści w zakresie budowy i wdrażania systemów sztucznej inteligencji, liderzy projektów badawczo-rozwojowych oraz współtwórcy polskich modeli językowych, łączący zaplecze naukowe z ponad 15-letnią praktyką we wdrożeniach technologii w dużych organizacjach.
+
+Jesteśmy częścią BearLake Group – holdingu deep-tech realizującego projekty zaawansowanych technologii i zarządzania strategicznego w sektorach AI, infrastruktury danych, ICT, energii i transportu.
+
+Prowadzimy organizacje przez każdy etap transformacji AI: od strategii, przez diagnozę gotowości technologicznej i kompetencyjnej, aż po wdrożenia i aktywne wsparcie w realizacji projektów.
+
+## Oferta
+
+### Wdrożenia AI
+
+Oferujemy zestaw narzędzi pozwalających na sprawne wprowadzenie AI do organizacji w sposób przemyślany, zgodny z dobrymi praktykami i odpowiadający na rzeczywiste potrzeby – od oceny gotowości, przez budowę autorskich produktów wykorzystujących rozwiązania AI, po rozwój kompetencji zespołów.
+
+**Doradztwo technologiczne:**
+- Analiza potrzeb biznesowych i procesowych
+- Ocena gotowości organizacyjnej i technologicznej
+- Opracowanie koncepcji, planu i harmonogramu wdrożenia
+- Prowadzenie organizacji przez cały proces wdrożeniowy
+
+**Rozwiązania AI:**
+- Systemy wyszukiwania wiedzy (RAG) – integracja z repozytoriami dokumentów i bezpieczne wykorzystanie danych wewnętrznych
+- Agenci AI wspierający pracę zespołów – automatyzacja procesów, analiza dokumentów, wsparcie operacyjne
+- Dostrajanie modeli językowych – adaptacja LLM-ów do specyfiki organizacji, danych i języka branżowego
+
+**Szkolenia:**
+- Programy wprowadzające do AI dla organizacji
+- Praktyczne warsztaty pracy z narzędziami AI
+- Warsztaty strategiczne dla kadry zarządzającej
+
+### Transformacja cyfrowa
+
+Wspieramy organizacje w kompleksowej transformacji cyfrowej z wykorzystaniem AI – od określenia kierunku strategicznego, przez przygotowanie danych i architektury systemowej, po wdrożenie i skalowanie rozwiązań w środowisku produkcyjnym.
+
+**Opracowanie strategii:**
+- Strategie IT i AI powiązane z celami biznesowymi
+- Strategia zarządzania danymi
+- Strategia cyberbezpieczeństwa
+- Model zapewnienia zgodności regulacyjnej
+- Plan rozwoju infrastruktury technologicznej
+- Model zarządzania i nadzoru nad AI (AI governance)
+
+**Konsulting:**
+- Architektura i model operacyjny dla danych
+- Architektura systemów AI
+- Scenariusze użycia
+- Plan zarządzania zmianą organizacyjną
+- Wskaźniki efektywności i jakości
+
+**Wdrożenia AI:**
+- Budowa i testowanie rozwiązań
+- Ewaluacja jakości modeli
+- Integracja z istniejącymi systemami
+
+## Dlaczego Quantica Lab
+
+- **Doświadczenie w projektach B+R** – Liderzy i uczestnicy projektów badawczo-rozwojowych w zakresie AI. Współtwórcy polskich modeli językowych i systemów sztucznej inteligencji.
+- **Praktyka we wdrożeniach** – Ponad 15 lat doświadczenia w realizacji projektów technologicznych w dużych organizacjach – od strategii po skalowanie produkcyjne.
+- **Kompetencje techniczne** – Zespół specjalistów łączących zaplecze naukowe z praktyczną znajomością budowy systemów AI w warunkach produkcyjnych.
+- **Kompleksowe podejście** – Od analizy potrzeb i strategii, przez architekturę i wdrożenie, po szkolenia i transfer kompetencji – całościowe wsparcie transformacji AI.
+- **Znajomość kontekstu biznesowego** – Rozwiązania projektowane pod kątem realnych celów biznesowych, operacyjnych i regulacyjnych wymagań organizacji.
+- **Gotowość organizacyjna** – Diagnoza dojrzałości technologicznej i kompetencyjnej – ocena infrastruktury, danych, procesów i zespołów przed rozpoczęciem wdrożeń.
+
+## Dla kogo
+
+Wspieramy organizacje, które chcą wdrażać AI odpowiedzialnie i skutecznie – niezależnie od tego, czy dopiero porządkują dane i analizują ryzyka, czy są gotowe do skalowania rozwiązań.
+
+- **Dla kierownictwa i liderów transformacji** – organizacje, które chcą wdrożyć AI w sposób strategiczny, potrzebują uporządkowanego planu działania i chcą świadomie zarządzać ryzykiem technologicznym i regulacyjnym.
+- **Dla dużych organizacji pracujących na dokumentach i wiedzy** – firmy i instytucje posiadające rozproszone repozytoria dokumentów, przetwarzające duże wolumeny informacji, chcące automatyzować analizę, klasyfikację i wyszukiwanie wiedzy.
+- **Dla administracji publicznej i infrastruktury krytycznej** – podmioty podlegające rygorystycznym wymogom prawnym i audytowym, potrzebujące pełnej kontroli nad przetwarzaniem informacji i rozwiązań opartych na suwerenności technologicznej.
+- **Dla organizacji budujących kompetencje wewnętrzne** – zespoły, które nie chcą być uzależnione od zewnętrznych dostawców, chcą rozwijać własne kompetencje w obszarze AI i potrzebują praktycznego podejścia do wdrożeń.
+
+## Idealny partner dla Twojej organizacji
+
+- **Od strategii do działania** – Pomagamy określić priorytety i stworzyć plan działania dostosowany do Twoich możliwości.
+- **Konkretne rozwiązania** – Każde szkolenie to 80% praktyki, każde doradztwo kończy się konkretnym planem działania.
+- **Partner, nie dostawca** – Wspieramy nie tylko we wdrożeniu, ale też w budowaniu wewnętrznych kompetencji.
+- **Budowa kompetencji AI** – Uczymy łowić ryby, nie tylko je dostarczamy. Rozwijamy kompetencje wewnątrz organizacji.
+- **Realny ROI** – Koncentrujemy się na quick wins i rozwiązaniach, które się zwracają.
+- **Wsparcie po polsku** – Rozumiemy specyfikę polskiego rynku, regulacji i wyzwań.
+
+## Warsztaty „Start z AI"
+
+Dwugodzinne, intensywne spotkanie robocze, które pozwala szybko ocenić, czy i w jakim zakresie AI ma realny sens w organizacji. Pracujemy na konkretnych procesach i wyzwaniach firmy – bez technicznych wykładów i bez marketingowych obietnic.
+
+Celem warsztatów jest wstępna ocena, czy inwestycja w rozwiązania AI jest na tym etapie uzasadniona biznesowo i organizacyjnie. Jeśli tak, wskazujemy pierwsze, racjonalne kroki prowadzące do świadomego rozpoczęcia inicjatyw AI oraz obszary, w których technologia ta może przynieść wymierny efekt.
+
+**Korzyści:**
+- Wspólna odpowiedź na pytanie o rolę AI w organizacji
+- Wybór 2–3 obszarów o największym potencjale biznesowym
+- Lista konkretnych inicjatyw możliwych do realizacji w krótkim i dłuższym horyzoncie
+- Identyfikacja kluczowych barier organizacyjnych, technologicznych i danych
+- Jasny plan działania na najbliższe tygodnie
+
+**Program:**
+1. Określenie celu – ustalenie głównego powodu wdrażania AI i doprecyzowanie oczekiwanego efektu biznesowego
+2. Identyfikacja obszarów o największym potencjale – analiza kluczowych procesów i punktów wrażliwych w organizacji
+3. Wstępne koncepcje projektów – sformułowanie 2–3 inicjatyw wraz z określeniem celu, zakresu i wymaganych danych
+4. Ocena gotowości organizacji – analiza dostępności danych, kompetencji i modelu decyzyjnego
+5. Następne kroki – ustalenie planu działań na kolejne tygodnie
+
+## Szkolenia AI
+
+Praktyczne szkolenia, które budują kompetencje AI w Twojej organizacji. Od podstaw dla wszystkich pracowników po zaawansowane warsztaty dla kadry zarządzającej.
+
+### Podstawy AI dla całej organizacji
+
+Szkolenie wprowadzające, które buduje wspólny język i zrozumienie AI w ramach organizacji. Uczestnicy zdobywają wiedzę o tym, czym jest AI i jak działa, uczą się rozpoznawać realne możliwości jej zastosowania w codziennej pracy oraz świadomie oceniać jej ograniczenia.
+
+**Korzyści:**
+- Wspólne ramy pracy z AI w organizacji
+- Odpowiedzialne i bezpieczne korzystanie z narzędzi AI przez pracowników
+- Umiejętność odróżniania rzeczywistych możliwości technologii od przekazu marketingowego
+- Świadomość ograniczeń modeli oraz ryzyk związanych z ich wykorzystaniem
+- Gotowość zespołów do udziału w projektach AI
+
+**Zakres:** Wprowadzenie do AI/ML/generatywnej AI, praktyczne zastosowania, bezpieczne korzystanie z AI, regulacje i etyka (AI Act).
+
+### AI dla kadry kierowniczej – strategia
+
+Warsztaty strategiczne dla zarządów, dyrektorów i menedżerów odpowiedzialnych za rozwój organizacji. Celem jest określenie realnej roli AI w modelu biznesowym firmy oraz wypracowanie spójnych zasad podejmowania decyzji w obszarze inwestycji technologicznych.
+
+**Program:** Rola AI w modelu biznesowym, gotowość na AI, kierunek i zasady działania, identyfikacja ryzyk, wstępny plan działań.
+
+### AI dla kadry kierowniczej – projekty
+
+Warsztaty operacyjne, których celem jest przełożenie kierunku działań w obszarze AI na konkretne inicjatywy. Pracujemy na realnych procesach organizacji, identyfikując projekty o największym sensie biznesowym i najwyższej wykonalności.
+
+**Program:** Wybór inicjatyw, ocena wykonalności, priorytetyzacja i plan działań, szacunkowa analiza kosztów i ryzyk, definicja mierników sukcesu.
+
+## Doradztwo i strategia AI
+
+Roadmapa transformacji AI – kompleksowy proces tworzenia strategii AI dla Twojej organizacji. Dostarczamy praktyczny plan działania z priorytetami i oszacowanymi kosztami.
+
+### Proces doradztwa
+
+1. **Discovery** (1–2 tygodnie) – Audyt procesów biznesowych, wywiady ze stakeholderami, ocena infrastruktury IT i gotowości organizacyjnej, analiza danych.
+2. **Projektowanie** (2–3 tygodnie) – Identyfikacja quick wins, roadmapa wdrożeń AI na 12–24 miesiące, analiza make or buy, oszacowanie kosztów i zasobów, plan zarządzania zmianą.
+3. **Prezentacja i warsztaty** (1 tydzień) – Prezentacja strategii dla zarządu, warsztaty z zespołem, dokumentacja strategii, miesięczny follow-up.
+
+### Co dostajesz
+
+- Dokument strategiczny z priorytetami i roadmapą
+- Business case dla każdego zidentyfikowanego projektu AI
+- Lista rekomendowanych rozwiązań i dostawców
+- Framework do oceny i priorytetyzacji przyszłych projektów AI
+- Miesiąc wsparcia przy rozpoczęciu wdrożeń
+
+### Nasze podejście
+
+- **Analiza potrzeb** – Ocena realnego zapotrzebowania na zastosowanie AI i wybór obszarów o największym wpływie.
+- **Ocena gotowości** – Przegląd technologii, danych, kompetencji i kultury organizacyjnej.
+- **Koncepcja wdrożenia** – Praktyczny plan dopasowany do celów, budżetu i harmonogramu.
+- **Wsparcie w realizacji** – Prowadzenie organizacji przez proces wdrażania AI.
+
+## Rozwiązania AI
+
+Koncentrujemy się na rozwiązaniach dostosowanych do specyfiki branży i potrzeb operacyjnych. Nie obiecujemy rewolucji – dostarczamy konkretne narzędzia, które rozwiązują realne problemy biznesowe.
+
+### Systemy RAG (Retrieval-Augmented Generation)
+
+Dla organizacji posiadających rozbudowane zasoby wiedzy – dokumentację, procedury, regulaminy, akty prawne, FAQ czy archiwa spraw. Szczególnie efektywne w dużych przedsiębiorstwach, administracji publicznej, instytucjach regulowanych i u brokerów informacji.
+
+**Korzyści:**
+- Natychmiastowy, kontekstowy dostęp do wiedzy organizacji
+- Precyzyjne odpowiedzi oparte wyłącznie na zweryfikowanych źródłach
+- Szybsze wdrażanie nowych pracowników
+- Odciążenie działów wsparcia i obsługi
+- Zwiększenie spójności oraz jakości udzielanych odpowiedzi
+
+**Przypadki użycia:** Asystent wiedzy produktowej, wewnętrzny asystent organizacyjny, chatbot dla mieszkańców/obywateli, asystent ds. regulacyjnych, narzędzie dla brokerów informacji.
+
+**Czas wdrożenia:** 3–9 miesięcy.
+
+### Automatyzacja procesów z wykorzystaniem AI
+
+Dla organizacji realizujących powtarzalne procesy oparte na analizie dokumentów, komunikacji i pracy z wiedzą.
+
+**Korzyści:**
+- Ograniczenie pracy manualnej w procesach opartych na dokumentach
+- Przyspieszenie obsługi spraw i skrócenie czasu reakcji
+- Zwiększenie spójności decyzji i komunikacji
+- Lepsza kontrola nad przepływem informacji
+- Możliwość skalowania procesów bez proporcjonalnego wzrostu zatrudnienia
+
+**Przypadki użycia:** Przetwarzanie i walidacja dokumentów, automatyzacja obsługi wniosków, obsługa korespondencji e-mail, agentowe wsparcie procesów operacyjnych, analiza zgodności i kontrola regulacyjna, automatyczne tworzenie dokumentacji operacyjnej.
+
+**Czas wdrożenia:** 3–12 miesięcy.
+
+### Dostrajanie modeli językowych
+
+Dla organizacji wymagających wysokiej precyzji, spójności terminologicznej oraz dopasowania do specyfiki branży i wymogów regulacyjnych.
+
+**Korzyści:**
+- Lepsze dopasowanie odpowiedzi do specyfiki organizacji
+- Spójność terminologii i stylu komunikacji
+- Wyższa trafność w zadaniach specjalistycznych
+- Możliwość dostosowania modelu do określonych ról i procesów
+- Większa kontrola nad sposobem działania systemu
+
+**Przypadki użycia:** Specjalistyczna klasyfikacja dokumentów, generowanie odpowiedzi w określonym stylu, analiza dokumentów branżowych, wsparcie procesów regulacyjnych, modele dostosowane do grup użytkowników, adaptacja do języka wewnętrznego organizacji.
+
+**Czas wdrożenia:** 6–12 miesięcy.
+
+### Architektura i analityka danych
+
+Dla organizacji posiadających rozproszone duże zbiory danych, które chcą wdrożyć kompleksowe rozwiązania umożliwiające ich efektywne wykorzystanie w procesach decyzyjnych i analitycznych.
+
+**Korzyści:**
+- Eliminacja silosów danych dzięki produktom zorientowanym domenowo
+- Umożliwienie reakcji biznesowej w czasie rzeczywistym
+- Redukcja kosztów infrastruktury dzięki inteligentnej automatyzacji
+- Zapewnienie zgodności regulacyjnej dzięki federacyjnemu zarządzaniu
+- Wsparcie dla AI i uczenia maszynowego dzięki inteligencji kontekstowej
+
+**Przypadki użycia:** Wsparcie procesów planistycznych i sprzedażowych, wykrywanie anomalii, systemy danych, zarządzanie danymi i zaawansowana analityka.
+
+**Czas wdrożenia:** 3–9 miesięcy.
+
+## Case study: RAG dla gminy Wielka Wieś
+
+Wirtualny asystent gminy, który pomaga w sprawach lokalnych. Odpowiedzi przygotowywane są na podstawie informacji z Biuletynu Informacji Publicznej oraz innych publicznie dostępnych materiałów gminy.
+
+System wykorzystuje mechanizm Retrieval-Augmented Generation (RAG), łącząc wyszukiwanie w dokumentach urzędowych z generowaniem odpowiedzi w języku naturalnym. Został opracowany przez Quantica Lab i dostosowany do potrzeb urzędu.
+
+**Kluczowe cechy:**
+- Wyszukiwanie kontekstowe w dokumentach urzędowych gminy
+- Generowanie odpowiedzi w języku naturalnym
+- Oparcie na zweryfikowanych, publicznie dostępnych źródłach
+- Obsługa zapytań mieszkańców dotyczących usług publicznych
+- Dostosowanie do specyfiki administracji publicznej
+
+## Blog
+
+### Testy jako podstawa wdrożeń AI (12 marca 2026)
+
+Dlaczego automatyczne testy powinny być pierwszym krokiem każdego projektu AI? Omawiamy strategie walidacji modeli, testy regresyjne promptów i frameworki do ewaluacji jakości odpowiedzi LLM w środowisku produkcyjnym. Bez solidnego pipeline'u testowego nawet najlepszy model staje się nieprzewidywalny. Pokazujemy, jak zbudować kulturę testowania AI w organizacji — od unit testów po ewaluacje end-to-end.
+
+### Czy jesteś gotowy na AI? (28 lutego 2026)
+
+Gotowość organizacji do wdrożenia AI to nie tylko kwestia technologii. To ludzie, procesy, dane i kultura organizacyjna. Przedstawiamy nasz autorski framework oceny dojrzałości AI, który pomaga firmom zidentyfikować luki i zaplanować transformację. Przygotowaliśmy checklistę 5 kluczowych obszarów, które decydują o powodzeniu lub porażce projektu AI w dużej organizacji.
+
+### Systemy agentowe w praktyce (15 lutego 2026)
+
+Agenci AI to kolejny krok po chatbotach — autonomiczne systemy zdolne do planowania, korzystania z narzędzi i podejmowania decyzji. Analizujemy architekturę systemów multi-agentowych i pokazujemy realne przypadki zastosowań w biznesie. Od automatyzacji procesów back-office po inteligentne systemy obsługi klienta — agenci AI zmieniają sposób, w jaki organizacje operują na co dzień.
+
+## Kontakt
+
+kontakt@quanticalab.ai
+
+© 2025 Quantica Lab sp. z o.o. – AI dla organizacji

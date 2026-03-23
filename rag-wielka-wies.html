@@ -7,13 +7,16 @@
     <title>RAG dla gminy – Quantica Lab</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Raleway:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Archivo+Black&family=Space+Grotesk:wght@400;500;600;700&family=IBM+Plex+Mono:wght@400;500;600&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="styles.css">
 </head>
 <body>
+    <!-- Interactive Grid Background -->
+    <div class="grid-bg" aria-hidden="true"></div>
+    <div class="grid-glow" id="gridGlow" aria-hidden="true"></div>
     <!-- Header -->
     <header>
-        <nav class="container">
+        <nav>
             <a href="index.html" class="logo">
                 <img src="Quantica_logo_black.png" alt="Quantica Lab">
             </a>
@@ -33,16 +36,19 @@
                 </li>
                 <li><a href="rag-wielka-wies.html">Case study</a></li>
                 <li><a href="blog.html">Blog</a></li>
-                <li><a href="index.html#contact" class="cta-button" style="padding:0.5rem 1.2rem; font-size:0.88rem;">Kontakt</a></li>
+                <li><a href="index.html#contact" class="cta-button">Kontakt</a></li>
             </ul>
         </nav>
     </header>
 
     <!-- Hero Section -->
     <section class="demo-hero">
+        <div class="watermark" aria-hidden="true">RAG dla gminy</div>
+        <div class="glow-blob glow-blob--1" aria-hidden="true"></div>
+        <div class="glow-blob glow-blob--2" aria-hidden="true"></div>
         <div class="container">
             <div class="hero-badge">Case study</div>
-            <h1>RAG <span style="color: var(--primary);">dla gminy</span></h1>
+            <h1>RAG <span style="color: var(--orange);">dla gminy</span></h1>
             <p>Wirtualny asystent gminy, który pomaga w sprawach lokalnych. Odpowiedzi przygotowywane są na podstawie informacji z Biuletynu Informacji Publicznej oraz innych publicznie dostępnych materiałów gminy.</p>
         </div>
     </section>
@@ -101,8 +107,13 @@
             <div class="footer-mascot">
                 <img src="Quantica_kotek_white.png" alt="Quantica Lab Mascot">
             </div>
-            <p>&copy; 2025 Quantica Lab sp. z o.o. – AI dla organizacji</p>
+            <p>&copy; 2025 Quantica Lab sp. z o.o. – AI dla organizacji · <a href="https://workszop.github.io/q223/llms.txt" class="llms-link">llms.txt</a></p>
         </div>
     </footer>
+    <button class="theme-toggle" id="themeToggle" aria-label="Przełącz motyw">
+        <svg class="icon-sun" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="5"/><line x1="12" y1="1" x2="12" y2="3"/><line x1="12" y1="21" x2="12" y2="23"/><line x1="4.22" y1="4.22" x2="5.64" y2="5.64"/><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"/><line x1="1" y1="12" x2="3" y2="12"/><line x1="21" y1="12" x2="23" y2="12"/><line x1="4.22" y1="19.78" x2="5.64" y2="18.36"/><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"/></svg>
+        <svg class="icon-moon" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg>
+    </button>
+    <script src="app.js"></script>
 </body>
 </html>
