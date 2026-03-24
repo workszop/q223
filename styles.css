@@ -1057,6 +1057,47 @@ footer p {
 }
 
 /* ============================================
+   ACCORDION
+   ============================================ */
+.accordion-trigger {
+    cursor: pointer;
+    display: flex !important;
+    justify-content: space-between;
+    align-items: center;
+    gap: 1rem;
+    user-select: none;
+    margin-bottom: 0 !important;
+}
+.accordion-trigger:hover { opacity: 0.75; }
+.accordion-icon {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 16px;
+    height: 16px;
+    flex-shrink: 0;
+    font-style: normal;
+    font-family: var(--font-mono);
+    font-size: 1em;
+    line-height: 1;
+    transition: transform 0.3s ease;
+}
+.accordion-item.open > .accordion-trigger .accordion-icon {
+    transform: rotate(45deg);
+}
+.accordion-body {
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height 0.4s ease;
+}
+.accordion-item.open > .accordion-body {
+    max-height: 4000px;
+}
+.accordion-item {
+    margin-top: 1.5rem;
+}
+
+/* ============================================
    PROCESS STEPS (Doradztwo)
    ============================================ */
 .process-steps {
