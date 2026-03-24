@@ -349,6 +349,18 @@ header nav {
     font-weight: 600;
 }
 
+.hero-text-block {
+    width: min-content;
+    max-width: 100%;
+}
+.hero-text-block h1 span {
+    white-space: nowrap;
+}
+.hero-text-block p {
+    max-width: 100%;
+    width: 100%;
+}
+
 .hero-actions {
     display: flex;
     gap: 1rem;
