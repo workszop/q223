@@ -1,5 +1,23 @@
 // Quantica Lab – Interactive Effects
 
+// Match hero paragraph width to h1 title width
+(function(){
+    var block = document.querySelector('.hero-text-block');
+    if (!block) return;
+    var span = block.querySelector('h1 span');
+    if (!span) return;
+    function sync() {
+        block.style.maxWidth = '';
+        var prev = span.style.display;
+        span.style.display = 'inline';
+        var w = span.getBoundingClientRect().width;
+        span.style.display = prev;
+        if (w > 0) block.style.maxWidth = Math.ceil(w) + 'px';
+    }
+    sync();
+    window.addEventListener('resize', sync, { passive: true });
+})();
+
 // Grid glow follows cursor
 (function(){
     var glow = document.getElementById('gridGlow');

@@ -350,11 +350,7 @@ header nav {
 }
 
 .hero-text-block {
-    width: min-content;
     max-width: 100%;
-}
-.hero-text-block h1 span {
-    white-space: nowrap;
 }
 .hero-text-block p {
     max-width: 100%;
@@ -1066,6 +1062,38 @@ footer p {
     width: 8px;
     height: 0;
     border-top: 1px solid var(--orange);
+}
+
+/* ============================================
+   INFO GRID (O nas page)
+   ============================================ */
+.info-grid {
+    margin-bottom: 2rem;
+}
+.info-row {
+    display: flex;
+    gap: 2rem;
+    padding: 0.75rem 0;
+    border-bottom: 1px solid rgba(255,255,255,0.06);
+    font-size: 0.9rem;
+}
+.info-row:last-child {
+    border-bottom: none;
+}
+.info-label {
+    font-family: var(--font-mono);
+    font-size: 0.7rem;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    color: var(--orange);
+    min-width: 80px;
+    padding-top: 0.15rem;
+}
+.info-value {
+    color: var(--text-primary);
+}
+body.light .info-row {
+    border-bottom-color: rgba(0,0,0,0.08);
 }
 
 /* ============================================
