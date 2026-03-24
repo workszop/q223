@@ -14,8 +14,22 @@
         span.style.display = prev;
         if (w > 0) block.style.maxWidth = Math.ceil(w) + 'px';
     }
+    var resizeTimer;
     sync();
-    window.addEventListener('resize', sync, { passive: true });
+    window.addEventListener('resize', function() {
+        clearTimeout(resizeTimer);
+        resizeTimer = setTimeout(sync, 100);
+    }, { passive: true });
+})();
+
+// Mobile menu toggle
+(function(){
+    document.querySelectorAll('.menu-toggle').forEach(function(btn) {
+        btn.addEventListener('click', function() {
+            var nav = btn.closest('nav').querySelector('.nav-links');
+            if (nav) nav.classList.toggle('active');
+        });
+    });
 })();
 
 // Grid glow follows cursor
