@@ -611,8 +611,8 @@ header nav {
     left: 0;
     top: 0.7em;
     width: 8px;
-    height: 1px;
-    background: var(--orange);
+    height: 0;
+    border-top: 1px solid var(--orange);
 }
 
 .card-link {
@@ -758,8 +758,8 @@ header nav {
     left: 0;
     top: 0.7em;
     width: 8px;
-    height: 1px;
-    background: var(--orange);
+    height: 0;
+    border-top: 1px solid var(--orange);
 }
 
 .target-summary {
@@ -1052,8 +1052,8 @@ footer p {
     left: 0;
     top: 0.7em;
     width: 8px;
-    height: 1px;
-    background: var(--orange);
+    height: 0;
+    border-top: 1px solid var(--orange);
 }
 
 /* ============================================
@@ -1184,8 +1184,8 @@ footer p {
     left: 0;
     top: 0.7em;
     width: 8px;
-    height: 1px;
-    background: var(--orange);
+    height: 0;
+    border-top: 1px solid var(--orange);
 }
 
 /* Deliverables */
@@ -1219,8 +1219,8 @@ footer p {
     left: 0;
     top: 0.7em;
     width: 8px;
-    height: 1px;
-    background: var(--orange);
+    height: 0;
+    border-top: 1px solid var(--orange);
 }
 
 /* ============================================
