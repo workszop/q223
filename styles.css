@@ -1314,10 +1314,10 @@ body.light .info-row {
    LIGHT THEME
    ============================================ */
 body.light {
-    --deep-space: #FFFFFF;
-    --surface: #F5F5F5;
+    --deep-space: #F2F2F2;
+    --surface: #E8E8E8;
     --surface-card: #FFFFFF;
-    --surface-elevated: #FAFAFA;
+    --surface-elevated: #F0F0F0;
     --border: rgba(0, 0, 0, 0.1);
     --border-hover: rgba(249, 115, 22, 0.5);
     --text-primary: #1A1A1A;
@@ -1366,7 +1366,7 @@ body.light .dropdown-menu a:hover {
 /* Hero in light mode */
 body.light .hero,
 body.light .demo-hero {
-    background: #F0F0F0;
+    background: var(--surface);
 }
 
 body.light .hero h1,
