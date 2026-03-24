@@ -960,7 +960,6 @@ footer p {
    INFO GRID (O nas page)
    ============================================ */
 .info-grid {
-    margin-bottom: 2rem;
     text-align: center;
 }
 .info-row {
@@ -969,6 +968,15 @@ footer p {
     gap: 2rem;
     padding: 0.75rem 0;
     font-size: 0.9rem;
+}
+.info-row--heading {
+    font-family: var(--font-mono);
+    font-size: 0.7rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.14em;
+    color: var(--orange);
+    padding-top: 1.5rem;
 }
 .info-label {
     font-family: var(--font-mono);
