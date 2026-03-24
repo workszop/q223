@@ -30,6 +30,15 @@
     }, { passive: true });
 })();
 
+// Accordion
+(function(){
+    document.querySelectorAll('.accordion-trigger').forEach(function(trigger) {
+        trigger.addEventListener('click', function() {
+            trigger.closest('.accordion-item').classList.toggle('open');
+        });
+    });
+})();
+
 // Theme toggle (dark/light)
 (function(){
     var btn = document.getElementById('themeToggle');
