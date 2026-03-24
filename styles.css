@@ -349,6 +349,18 @@ header nav {
     font-weight: 600;
 }
 
+.hero-text-block {
+    width: min-content;
+    max-width: 100%;
+}
+.hero-text-block h1 span {
+    white-space: nowrap;
+}
+.hero-text-block p {
+    max-width: 100%;
+    width: 100%;
+}
+
 .hero-actions {
     display: flex;
     gap: 1rem;
@@ -611,8 +623,8 @@ header nav {
     left: 0;
     top: 0.7em;
     width: 8px;
-    height: 1px;
-    background: var(--orange);
+    height: 0;
+    border-top: 1px solid var(--orange);
 }
 
 .card-link {
@@ -758,8 +770,8 @@ header nav {
     left: 0;
     top: 0.7em;
     width: 8px;
-    height: 1px;
-    background: var(--orange);
+    height: 0;
+    border-top: 1px solid var(--orange);
 }
 
 .target-summary {
@@ -1052,8 +1064,8 @@ footer p {
     left: 0;
     top: 0.7em;
     width: 8px;
-    height: 1px;
-    background: var(--orange);
+    height: 0;
+    border-top: 1px solid var(--orange);
 }
 
 /* ============================================
@@ -1184,8 +1196,8 @@ footer p {
     left: 0;
     top: 0.7em;
     width: 8px;
-    height: 1px;
-    background: var(--orange);
+    height: 0;
+    border-top: 1px solid var(--orange);
 }
 
 /* Deliverables */
@@ -1219,8 +1231,8 @@ footer p {
     left: 0;
     top: 0.7em;
     width: 8px;
-    height: 1px;
-    background: var(--orange);
+    height: 0;
+    border-top: 1px solid var(--orange);
 }
 
 /* ============================================

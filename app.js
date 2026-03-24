@@ -44,9 +44,9 @@
     var btn = document.getElementById('themeToggle');
     if (!btn) return;
 
-    // Restore saved preference
+    // Restore saved preference, default to light
     var saved = localStorage.getItem('ql-theme');
-    if (saved === 'light') {
+    if (saved !== 'dark') {
         document.body.classList.add('light');
     }
 
