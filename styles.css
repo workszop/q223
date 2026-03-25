@@ -960,17 +960,23 @@ footer p {
    INFO GRID (O nas page)
    ============================================ */
 .info-grid {
-    margin-bottom: 2rem;
+    text-align: center;
 }
 .info-row {
     display: flex;
+    justify-content: center;
     gap: 2rem;
     padding: 0.75rem 0;
-    border-bottom: 1px solid rgba(255,255,255,0.06);
     font-size: 0.9rem;
 }
-.info-row:last-child {
-    border-bottom: none;
+.info-row--heading {
+    font-family: var(--font-mono);
+    font-size: 0.7rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.14em;
+    color: var(--orange);
+    padding-top: 1.5rem;
 }
 .info-label {
     font-family: var(--font-mono);
@@ -983,9 +989,6 @@ footer p {
 }
 .info-value {
     color: var(--text-primary);
-}
-body.light .info-row {
-    border-bottom-color: rgba(0,0,0,0.08);
 }
 
 /* ============================================
