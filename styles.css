@@ -1,5 +1,8 @@
 /* Quantica Lab – Typographic Redesign */
 
+/* Base */
+html, body { overflow-x: hidden; }
+
 /* Fonts */
 h1, h2, h3, h4, h5, h6,
 .font-display {
@@ -9,18 +12,6 @@ body {
     font-family: 'Space Grotesk', sans-serif;
 }
 
-/* Marquee */
-@keyframes marquee {
-    0% { transform: translateX(0%); }
-    100% { transform: translateX(-50%); }
-}
-@keyframes marquee-reverse {
-    0% { transform: translateX(-50%); }
-    100% { transform: translateX(0%); }
-}
-.animate-marquee { animation: marquee linear infinite; }
-.animate-marquee-reverse { animation: marquee-reverse linear infinite; }
-.marquee-content { display: flex; width: max-content; }
 
 /* Scrollbar */
 ::-webkit-scrollbar { width: 8px; }

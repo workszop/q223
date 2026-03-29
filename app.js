@@ -26,19 +26,6 @@
     });
 })();
 
-// Parallax watermark on scroll
-(function(){
-    var watermarks = document.querySelectorAll('.watermark');
-    if (!watermarks.length) return;
-    window.addEventListener('scroll', function() {
-        window.requestAnimationFrame(function() {
-            var scrollY = window.pageYOffset;
-            watermarks.forEach(function(el) {
-                el.style.transform = 'translate(-50%, calc(-50% + ' + (scrollY * 0.12) + 'px))';
-            });
-        });
-    }, { passive: true });
-})();
 
 // Accordion
 (function(){
