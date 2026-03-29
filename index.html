@@ -7,304 +7,328 @@
     <title>Quantica Lab – AI dla organizacji</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Archivo+Black&family=Space+Grotesk:wght@400;500;600;700&family=IBM+Plex+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Archivo+Black&family=Space+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <script src="https://cdn.tailwindcss.com"></script>
     <link rel="stylesheet" href="styles.css">
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    fontFamily: {
+                        'archivo': ['"Archivo Black"', 'sans-serif'],
+                        'grotesk': ['"Space Grotesk"', 'sans-serif'],
+                    }
+                }
+            }
+        }
+    </script>
 </head>
-<body>
-    <!-- Interactive Grid Background -->
-    <div class="grid-bg" aria-hidden="true"></div>
-    <div class="grid-glow" id="gridGlow" aria-hidden="true"></div>
+<body class="bg-[#050505] text-neutral-100 font-grotesk overflow-x-hidden">
 
-    <!-- Header -->
-    <header>
-        <nav>
-            <a href="index.html" class="logo">
-                <img src="Quantica_logo_color.png" alt="Quantica Lab">
-            </a>
-            <button class="menu-toggle" aria-label="Menu">
-                <span></span><span></span><span></span>
-            </button>
-            <ul class="nav-links">
-                <li class="dropdown">
-                    <span class="dropdown-toggle">Oferta</span>
-                    <div class="dropdown-menu">
-                        <a href="doradztwo.html">Doradztwo i strategia</a>
-                        <a href="wdrozenia.html">Rozwiązania AI</a>
-                        <a href="szkolenia.html">Szkolenia AI</a>
-                        <hr>
-                        <a href="warsztat.html">Start z AI</a>
-                    </div>
-                </li>
-                <li><a href="o-nas.html">O nas</a></li>
-                <li><a href="blog.html">Blog</a></li>
-                <li><a href="#contact" class="cta-button">Kontakt</a></li>
-            </ul>
-        </nav>
-    </header>
+    <!-- Nav -->
+    <nav class="fixed top-0 left-0 w-full px-6 md:px-16 py-5 flex justify-between items-center z-50 mix-blend-difference">
+        <a href="index.html" class="text-white font-black text-xl tracking-widest uppercase" style="font-family:'Archivo Black',sans-serif">Quantica<span class="text-white">.</span></a>
+        <button class="menu-toggle md:hidden" aria-label="Menu"><span></span><span></span><span></span></button>
+        <ul class="nav-links hidden md:flex gap-8 text-xs font-bold tracking-widest uppercase text-white items-center">
+            <li class="dropdown">
+                <span class="dropdown-toggle cursor-pointer hover:line-through transition-all">Oferta</span>
+                <div class="dropdown-menu">
+                    <a href="doradztwo.html">Doradztwo i strategia</a>
+                    <a href="wdrozenia.html">Rozwiązania AI</a>
+                    <a href="szkolenia.html">Szkolenia AI</a>
+                    <hr>
+                    <a href="warsztat.html">Start z AI</a>
+                </div>
+            </li>
+            <li><a href="o-nas.html" class="hover:line-through transition-all">O nas</a></li>
+            <li><a href="blog.html" class="hover:line-through transition-all">Blog</a></li>
+            <li><a href="#contact" class="border border-white px-4 py-2 hover:bg-white hover:text-black transition-colors">Kontakt</a></li>
+        </ul>
+    </nav>
 
-    <!-- Hero Section -->
-    <section class="hero">
-        <div class="watermark" aria-hidden="true">Quant</div>
-        <div class="glow-blob glow-blob--1" aria-hidden="true"></div>
-        <div class="glow-blob glow-blob--2" aria-hidden="true"></div>
-        <div class="container">
-            <div class="hero-text-block">
-                <h1>AI <span>dla organizacji</span></h1>
-                <p>Quantica Lab to specjaliści w zakresie budowy i wdrażania systemów sztucznej inteligencji, liderzy projektów badawczo-rozwojowych oraz współtwórcy polskich modeli językowych, łączący zaplecze naukowe z ponad 15-letnią praktyką we wdrożeniach technologii w dużych organizacjach.</p>
-                <p>Jesteśmy częścią <strong>BearLake Group</strong> – holdingu deep-tech realizującego projekty zaawansowanych technologii i zarządzania strategicznego w sektorach AI, infrastruktury danych, ICT, energii i transportu.</p>
-                <p>Prowadzimy organizacje przez każdy etap transformacji AI: od strategii, przez diagnozę gotowości technologicznej i kompetencyjnej, aż po wdrożenia i aktywne wsparcie w realizacji projektów.</p>
+    <!-- Hero -->
+    <section class="min-h-screen bg-[#050505] text-neutral-100 overflow-x-hidden flex flex-col justify-center px-6 md:px-20 relative">
+        <!-- Watermark -->
+        <div class="watermark pointer-events-none select-none text-white font-black leading-none" aria-hidden="true" style="font-family:'Archivo Black',sans-serif; font-size:clamp(15rem,45vw,60rem); position:absolute; top:50%; left:50%; transform:translate(-50%,-50%); opacity:0.04; white-space:nowrap;">AI</div>
+
+        <div class="relative z-10 pt-32">
+            <h1 class="font-black leading-none tracking-tighter uppercase" style="font-family:'Archivo Black',sans-serif; font-size:14vw;">AI<br><span style="color:#f97316">dla</span><br>organizacji<span style="color:#f97316">.</span></h1>
+
+            <div class="mt-10 flex flex-col md:flex-row items-start md:items-center gap-6">
+                <svg xmlns="http://www.w3.org/2000/svg" class="w-8 h-8 text-neutral-500 flex-shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+                    <path stroke-linecap="round" stroke-linejoin="round" d="M17 7l-10 10M17 7H7m10 0v10"/>
+                </svg>
+                <p class="text-xl md:text-2xl font-medium tracking-tight uppercase text-neutral-400 max-w-lg">Specjaliści w budowie i wdrażaniu systemów sztucznej inteligencji dla organizacji.</p>
             </div>
-            <div class="hero-actions">
-                <a href="#contact" class="cta-button">Skontaktuj się z nami</a>
-                <a href="warsztat.html" class="cta-button-outline">Start z AI</a>
+
+            <div class="mt-12 flex flex-wrap gap-8 text-sm font-bold uppercase tracking-widest">
+                <a href="#contact" class="border-b-4 border-white pb-1 hover:text-neutral-400 transition-colors">Skontaktuj się →</a>
+                <a href="warsztat.html" class="border-b-4 border-neutral-600 pb-1 text-neutral-400 hover:text-neutral-100 transition-colors">Start z AI →</a>
             </div>
         </div>
     </section>
+
+    <!-- Marquee 1 -->
+    <div class="relative flex overflow-hidden border-y border-neutral-800 py-4 bg-black text-white">
+        <div class="marquee-content animate-marquee" style="animation-duration: 25s;">
+            <span class="text-4xl md:text-7xl font-black uppercase tracking-tighter mx-8 flex items-center gap-6" style="font-family:'Archivo Black',sans-serif">Strategia <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" class="w-4 h-4 md:w-6 md:h-6"><circle cx="12" cy="12" r="10"/></svg></span>
+            <span class="text-4xl md:text-7xl font-black uppercase tracking-tighter mx-8 flex items-center gap-6" style="font-family:'Archivo Black',sans-serif">Wdrożenia <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" class="w-4 h-4 md:w-6 md:h-6"><circle cx="12" cy="12" r="10"/></svg></span>
+            <span class="text-4xl md:text-7xl font-black uppercase tracking-tighter mx-8 flex items-center gap-6" style="font-family:'Archivo Black',sans-serif">Szkolenia <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" class="w-4 h-4 md:w-6 md:h-6"><circle cx="12" cy="12" r="10"/></svg></span>
+            <span class="text-4xl md:text-7xl font-black uppercase tracking-tighter mx-8 flex items-center gap-6" style="font-family:'Archivo Black',sans-serif">Strategia <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" class="w-4 h-4 md:w-6 md:h-6"><circle cx="12" cy="12" r="10"/></svg></span>
+            <span class="text-4xl md:text-7xl font-black uppercase tracking-tighter mx-8 flex items-center gap-6" style="font-family:'Archivo Black',sans-serif">Wdrożenia <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" class="w-4 h-4 md:w-6 md:h-6"><circle cx="12" cy="12" r="10"/></svg></span>
+            <span class="text-4xl md:text-7xl font-black uppercase tracking-tighter mx-8 flex items-center gap-6" style="font-family:'Archivo Black',sans-serif">Szkolenia <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" class="w-4 h-4 md:w-6 md:h-6"><circle cx="12" cy="12" r="10"/></svg></span>
+            <span class="text-4xl md:text-7xl font-black uppercase tracking-tighter mx-8 flex items-center gap-6" style="font-family:'Archivo Black',sans-serif">Strategia <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" class="w-4 h-4 md:w-6 md:h-6"><circle cx="12" cy="12" r="10"/></svg></span>
+            <span class="text-4xl md:text-7xl font-black uppercase tracking-tighter mx-8 flex items-center gap-6" style="font-family:'Archivo Black',sans-serif">Wdrożenia <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" class="w-4 h-4 md:w-6 md:h-6"><circle cx="12" cy="12" r="10"/></svg></span>
+        </div>
+    </div>
 
     <!-- Services Section -->
-    <section id="services" class="services">
-        <div class="container">
-            <div class="section-header">
-                <h2 class="section-title">Co <span>oferujemy</span></h2>
-            </div>
-            <div class="services-grid">
-                <!-- Wdrożenia AI -->
-                <div class="service-card">
-                    <svg class="service-icon" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
-                        <circle cx="50" cy="40" r="18" stroke-width="2"/>
-                        <line x1="50" y1="58" x2="50" y2="70" stroke-width="2"/>
-                        <rect x="45" y="70" width="10" height="8" stroke-width="2"/>
-                        <polyline points="38,45 42,40 46,42 50,35 54,38 58,32" stroke-width="1.5"/>
-                        <line x1="35" y1="25" x2="30" y2="20" stroke-width="2"/>
-                        <line x1="65" y1="25" x2="70" y2="20" stroke-width="2"/>
-                        <line x1="27" y1="40" x2="20" y2="40" stroke-width="2"/>
-                        <line x1="73" y1="40" x2="80" y2="40" stroke-width="2"/>
-                    </svg>
-                    <h3>Wdrożenia AI</h3>
-                    <p>Oferujemy zestaw narzędzi umożliwiających sprawne wprowadzenie AI do organizacji w sposób przemyślany, zgodny z regulacjami i dobrymi praktykami oraz odpowiadający na rzeczywiste potrzeby. Realizujemy projekty o jasno określonym zakresie, które pozwalają szybko przejść od koncepcji do działania i osiągnąć mierzalne wyniki.</p>
+    <section class="py-32 px-6 md:px-20 bg-[#050505]">
+        <div class="mb-16">
+            <h2 class="font-black tracking-tighter uppercase" style="font-family:'Archivo Black',sans-serif; font-size:clamp(3rem,8vw,7rem);">Co oferujemy<span style="color:#f97316">.</span></h2>
+        </div>
 
-                    <div class="accordion-item">
-                        <h4 class="accordion-trigger">Doradztwo technologiczne <span class="accordion-icon">+</span></h4>
-                        <div class="accordion-body">
-                            <ul>
-                                <li>Analiza potrzeb biznesowych i procesowych</li>
-                                <li>Ocena gotowości organizacyjnej i technologicznej</li>
-                                <li>Opracowanie koncepcji, planu i harmonogramu wdrożenia</li>
-                                <li>Prowadzenie organizacji przez cały proces wdrożeniowy</li>
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-0">
+            <!-- Card 1: Wdrożenia AI -->
+            <div class="border border-neutral-800 p-8 hover:border-neutral-400 transition-colors flex flex-col justify-between min-h-[480px]">
+                <div>
+                    <div class="text-6xl font-black tracking-tighter text-neutral-700 mb-6" style="font-family:'Archivo Black',sans-serif">01<span style="color:#f97316">.</span></div>
+                    <h3 class="text-3xl md:text-4xl font-black uppercase tracking-tighter mb-4" style="font-family:'Archivo Black',sans-serif">Wdrożenia AI</h3>
+                    <p class="text-neutral-400 font-medium leading-relaxed mb-8">Oferujemy zestaw narzędzi umożliwiających sprawne wprowadzenie AI do organizacji w sposób przemyślany, zgodny z regulacjami i dobrymi praktykami oraz odpowiadający na rzeczywiste potrzeby. Realizujemy projekty o jasno określonym zakresie, które pozwalają szybko przejść od koncepcji do działania i osiągnąć mierzalne wyniki.</p>
+
+                    <div class="accordion-item border-t border-neutral-800">
+                        <h4 class="accordion-trigger flex justify-between items-center py-4 text-sm font-bold uppercase tracking-widest cursor-pointer hover:text-white transition-colors text-neutral-300">Doradztwo technologiczne <span class="accordion-icon text-orange-500 text-xl">+</span></h4>
+                        <div class="accordion-body text-neutral-400 text-sm pb-4">
+                            <ul class="space-y-2 list-none pl-0">
+                                <li class="border-l-2 border-orange-500 pl-4">Analiza potrzeb biznesowych i procesowych</li>
+                                <li class="border-l-2 border-orange-500 pl-4">Ocena gotowości organizacyjnej i technologicznej</li>
+                                <li class="border-l-2 border-orange-500 pl-4">Opracowanie koncepcji, planu i harmonogramu wdrożenia</li>
+                                <li class="border-l-2 border-orange-500 pl-4">Prowadzenie organizacji przez cały proces wdrożeniowy</li>
                             </ul>
                         </div>
                     </div>
 
-                    <div class="accordion-item">
-                        <h4 class="accordion-trigger">Rozwiązania AI <span class="accordion-icon">+</span></h4>
-                        <div class="accordion-body">
-                            <ul>
-                                <li>Systemy wyszukiwania wiedzy (RAG) – integracja z repozytoriami dokumentów i bezpieczne wykorzystanie danych wewnętrznych</li>
-                                <li>Agenci AI wspierający pracę zespołów – automatyzacja procesów, analiza dokumentów, wsparcie operacyjne</li>
-                                <li>Dostrajanie modeli językowych – adaptacja LLM-ów do specyfiki organizacji, danych i języka branżowego</li>
+                    <div class="accordion-item border-t border-neutral-800">
+                        <h4 class="accordion-trigger flex justify-between items-center py-4 text-sm font-bold uppercase tracking-widest cursor-pointer hover:text-white transition-colors text-neutral-300">Rozwiązania AI <span class="accordion-icon text-orange-500 text-xl">+</span></h4>
+                        <div class="accordion-body text-neutral-400 text-sm pb-4">
+                            <ul class="space-y-2 list-none pl-0">
+                                <li class="border-l-2 border-orange-500 pl-4">Systemy wyszukiwania wiedzy (RAG) – integracja z repozytoriami dokumentów i bezpieczne wykorzystanie danych wewnętrznych</li>
+                                <li class="border-l-2 border-orange-500 pl-4">Agenci AI wspierający pracę zespołów – automatyzacja procesów, analiza dokumentów, wsparcie operacyjne</li>
+                                <li class="border-l-2 border-orange-500 pl-4">Dostrajanie modeli językowych – adaptacja LLM-ów do specyfiki organizacji, danych i języka branżowego</li>
                             </ul>
                         </div>
                     </div>
 
-                    <div class="accordion-item">
-                        <h4 class="accordion-trigger">Szkolenia <span class="accordion-icon">+</span></h4>
-                        <div class="accordion-body">
-                            <ul>
-                                <li>Programy wprowadzające do AI dla organizacji</li>
-                                <li>Praktyczne warsztaty pracy z narzędziami AI</li>
-                                <li>Warsztaty strategiczne dla kadry zarządzającej</li>
+                    <div class="accordion-item border-t border-neutral-800">
+                        <h4 class="accordion-trigger flex justify-between items-center py-4 text-sm font-bold uppercase tracking-widest cursor-pointer hover:text-white transition-colors text-neutral-300">Szkolenia <span class="accordion-icon text-orange-500 text-xl">+</span></h4>
+                        <div class="accordion-body text-neutral-400 text-sm pb-4">
+                            <ul class="space-y-2 list-none pl-0">
+                                <li class="border-l-2 border-orange-500 pl-4">Programy wprowadzające do AI dla organizacji</li>
+                                <li class="border-l-2 border-orange-500 pl-4">Praktyczne warsztaty pracy z narzędziami AI</li>
+                                <li class="border-l-2 border-orange-500 pl-4">Warsztaty strategiczne dla kadry zarządzającej</li>
                             </ul>
                         </div>
                     </div>
-
-                    <a href="wdrozenia.html" class="card-link">Poznaj rozwiązania</a>
                 </div>
 
-                <!-- Transformacja cyfrowa -->
-                <div class="service-card">
-                    <svg class="service-icon" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
-                        <ellipse cx="50" cy="45" rx="12" ry="25" stroke-width="2"/>
-                        <path d="M 38 20 L 50 10 L 62 20" stroke-width="2" fill="none"/>
-                        <circle cx="50" cy="35" r="4" stroke-width="1.5"/>
-                        <path d="M 38 55 L 28 70 L 38 65 Z" stroke-width="2"/>
-                        <path d="M 62 55 L 72 70 L 62 65 Z" stroke-width="2"/>
-                        <path d="M 44 70 L 42 80 L 44 75 L 46 82 L 48 75" stroke-width="1.5" fill="none"/>
-                        <path d="M 52 75 L 54 82 L 56 75 L 58 80 L 56 70" stroke-width="1.5" fill="none"/>
-                        <circle cx="25" cy="25" r="1.5" stroke-width="1.5"/>
-                        <circle cx="75" cy="30" r="1.5" stroke-width="1.5"/>
-                    </svg>
-                    <h3>Transformacja cyfrowa</h3>
-                    <p>Wspieramy organizacje w kompleksowej transformacji cyfrowej – od określenia kierunku strategicznego, przez przygotowanie danych i architektury systemowej, po wdrożenie i skalowanie rozwiązań w środowisku produkcyjnym. Budujemy spójny model wykorzystania AI, który wzmacnia przewagę konkurencyjną organizacji.</p>
+                <div class="mt-8 border-t border-neutral-800 pt-6">
+                    <a href="wdrozenia.html" class="text-sm font-bold uppercase tracking-widest hover:text-orange-500 transition-colors">Poznaj rozwiązania →</a>
+                </div>
+            </div>
 
-                    <div class="accordion-item">
-                        <h4 class="accordion-trigger">Opracowanie strategii <span class="accordion-icon">+</span></h4>
-                        <div class="accordion-body">
-                            <ul>
-                                <li>Strategie IT i AI powiązane z celami biznesowymi</li>
-                                <li>Strategia zarządzania danymi</li>
-                                <li>Strategia cyberbezpieczeństwa</li>
-                                <li>Model zapewnienia zgodności regulacyjnej</li>
-                                <li>Plan rozwoju infrastruktury technologicznej</li>
-                                <li>Model zarządzania i nadzoru nad AI (AI governance)</li>
+            <!-- Card 2: Transformacja cyfrowa -->
+            <div class="border border-neutral-800 p-8 hover:border-neutral-400 transition-colors flex flex-col justify-between min-h-[480px] border-l-0">
+                <div>
+                    <div class="text-6xl font-black tracking-tighter text-neutral-700 mb-6" style="font-family:'Archivo Black',sans-serif">02<span style="color:#f97316">.</span></div>
+                    <h3 class="text-3xl md:text-4xl font-black uppercase tracking-tighter mb-4" style="font-family:'Archivo Black',sans-serif">Transformacja cyfrowa</h3>
+                    <p class="text-neutral-400 font-medium leading-relaxed mb-8">Wspieramy organizacje w kompleksowej transformacji cyfrowej – od określenia kierunku strategicznego, przez przygotowanie danych i architektury systemowej, po wdrożenie i skalowanie rozwiązań w środowisku produkcyjnym. Budujemy spójny model wykorzystania AI, który wzmacnia przewagę konkurencyjną organizacji.</p>
+
+                    <div class="accordion-item border-t border-neutral-800">
+                        <h4 class="accordion-trigger flex justify-between items-center py-4 text-sm font-bold uppercase tracking-widest cursor-pointer hover:text-white transition-colors text-neutral-300">Opracowanie strategii <span class="accordion-icon text-orange-500 text-xl">+</span></h4>
+                        <div class="accordion-body text-neutral-400 text-sm pb-4">
+                            <ul class="space-y-2 list-none pl-0">
+                                <li class="border-l-2 border-orange-500 pl-4">Strategie IT i AI powiązane z celami biznesowymi</li>
+                                <li class="border-l-2 border-orange-500 pl-4">Strategia zarządzania danymi</li>
+                                <li class="border-l-2 border-orange-500 pl-4">Strategia cyberbezpieczeństwa</li>
+                                <li class="border-l-2 border-orange-500 pl-4">Model zapewnienia zgodności regulacyjnej</li>
+                                <li class="border-l-2 border-orange-500 pl-4">Plan rozwoju infrastruktury technologicznej</li>
+                                <li class="border-l-2 border-orange-500 pl-4">Model zarządzania i nadzoru nad AI (AI governance)</li>
                             </ul>
                         </div>
                     </div>
 
-                    <div class="accordion-item">
-                        <h4 class="accordion-trigger">Konsulting <span class="accordion-icon">+</span></h4>
-                        <div class="accordion-body">
-                            <ul>
-                                <li>Architektura i model operacyjny dla danych</li>
-                                <li>Architektura systemów AI</li>
-                                <li>Scenariusze użycia</li>
-                                <li>Plan zarządzania zmianą organizacyjną</li>
-                                <li>Wskaźniki efektywności i jakości</li>
+                    <div class="accordion-item border-t border-neutral-800">
+                        <h4 class="accordion-trigger flex justify-between items-center py-4 text-sm font-bold uppercase tracking-widest cursor-pointer hover:text-white transition-colors text-neutral-300">Konsulting <span class="accordion-icon text-orange-500 text-xl">+</span></h4>
+                        <div class="accordion-body text-neutral-400 text-sm pb-4">
+                            <ul class="space-y-2 list-none pl-0">
+                                <li class="border-l-2 border-orange-500 pl-4">Architektura i model operacyjny dla danych</li>
+                                <li class="border-l-2 border-orange-500 pl-4">Architektura systemów AI</li>
+                                <li class="border-l-2 border-orange-500 pl-4">Scenariusze użycia</li>
+                                <li class="border-l-2 border-orange-500 pl-4">Plan zarządzania zmianą organizacyjną</li>
+                                <li class="border-l-2 border-orange-500 pl-4">Wskaźniki efektywności i jakości</li>
                             </ul>
                         </div>
                     </div>
 
-                    <div class="accordion-item">
-                        <h4 class="accordion-trigger">Wdrożenia AI <span class="accordion-icon">+</span></h4>
-                        <div class="accordion-body">
-                            <ul>
-                                <li>Budowa i testowanie rozwiązań</li>
-                                <li>Ewaluacja jakości modeli</li>
-                                <li>Integracja z istniejącymi systemami</li>
+                    <div class="accordion-item border-t border-neutral-800">
+                        <h4 class="accordion-trigger flex justify-between items-center py-4 text-sm font-bold uppercase tracking-widest cursor-pointer hover:text-white transition-colors text-neutral-300">Wdrożenia AI <span class="accordion-icon text-orange-500 text-xl">+</span></h4>
+                        <div class="accordion-body text-neutral-400 text-sm pb-4">
+                            <ul class="space-y-2 list-none pl-0">
+                                <li class="border-l-2 border-orange-500 pl-4">Budowa i testowanie rozwiązań</li>
+                                <li class="border-l-2 border-orange-500 pl-4">Ewaluacja jakości modeli</li>
+                                <li class="border-l-2 border-orange-500 pl-4">Integracja z istniejącymi systemami</li>
                             </ul>
                         </div>
                     </div>
+                </div>
 
-                    <a href="doradztwo.html" class="card-link">Poznaj strategię</a>
+                <div class="mt-8 border-t border-neutral-800 pt-6">
+                    <a href="doradztwo.html" class="text-sm font-bold uppercase tracking-widest hover:text-orange-500 transition-colors">Poznaj strategię →</a>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- Why Quantica Section -->
-    <section class="why">
-        <div class="container">
-            <div class="section-header">
-                <h2 class="section-title">Dlaczego <span>Quantica Lab</span></h2>
-            </div>
-            <div class="why-grid">
-                <div class="why-item">
-                    <h4>Praktyka we wdrożeniach</h4>
-                    <p>Ponad 15 lat doświadczenia w realizacji projektów technologicznych w dużych organizacjach – od strategii po skalowanie produkcyjne.</p>
+    <!-- Marquee 2 (reverse) -->
+    <div class="relative flex overflow-hidden border-y border-neutral-800 py-4 bg-black text-white">
+        <div class="marquee-content animate-marquee" style="animation-duration: 33s; animation-direction: reverse;">
+            <span class="text-4xl md:text-7xl font-black uppercase tracking-tighter mx-8 flex items-center gap-6" style="font-family:'Archivo Black',sans-serif">Wdrożenia AI <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" class="w-4 h-4 md:w-6 md:h-6"><circle cx="12" cy="12" r="10"/></svg></span>
+            <span class="text-4xl md:text-7xl font-black uppercase tracking-tighter mx-8 flex items-center gap-6" style="font-family:'Archivo Black',sans-serif">Transformacja <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" class="w-4 h-4 md:w-6 md:h-6"><circle cx="12" cy="12" r="10"/></svg></span>
+            <span class="text-4xl md:text-7xl font-black uppercase tracking-tighter mx-8 flex items-center gap-6" style="font-family:'Archivo Black',sans-serif">RAG <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" class="w-4 h-4 md:w-6 md:h-6"><circle cx="12" cy="12" r="10"/></svg></span>
+            <span class="text-4xl md:text-7xl font-black uppercase tracking-tighter mx-8 flex items-center gap-6" style="font-family:'Archivo Black',sans-serif">Agenci <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" class="w-4 h-4 md:w-6 md:h-6"><circle cx="12" cy="12" r="10"/></svg></span>
+            <span class="text-4xl md:text-7xl font-black uppercase tracking-tighter mx-8 flex items-center gap-6" style="font-family:'Archivo Black',sans-serif">Wdrożenia AI <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" class="w-4 h-4 md:w-6 md:h-6"><circle cx="12" cy="12" r="10"/></svg></span>
+            <span class="text-4xl md:text-7xl font-black uppercase tracking-tighter mx-8 flex items-center gap-6" style="font-family:'Archivo Black',sans-serif">Transformacja <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" class="w-4 h-4 md:w-6 md:h-6"><circle cx="12" cy="12" r="10"/></svg></span>
+            <span class="text-4xl md:text-7xl font-black uppercase tracking-tighter mx-8 flex items-center gap-6" style="font-family:'Archivo Black',sans-serif">RAG <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" class="w-4 h-4 md:w-6 md:h-6"><circle cx="12" cy="12" r="10"/></svg></span>
+            <span class="text-4xl md:text-7xl font-black uppercase tracking-tighter mx-8 flex items-center gap-6" style="font-family:'Archivo Black',sans-serif">Agenci <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" class="w-4 h-4 md:w-6 md:h-6"><circle cx="12" cy="12" r="10"/></svg></span>
+        </div>
+    </div>
+
+    <!-- Why Section (white) -->
+    <section class="py-32 px-6 md:px-20 bg-white text-black relative overflow-hidden">
+        <!-- Giant bg letter -->
+        <div class="pointer-events-none select-none absolute font-black leading-none" aria-hidden="true" style="font-family:'Archivo Black',sans-serif; font-size:clamp(20rem,70vw,90rem); color:#f0f0f0; opacity:0.06; bottom:-10rem; right:-5rem; line-height:1;">W</div>
+
+        <div class="relative z-10">
+            <h2 class="font-black tracking-tighter uppercase mb-16" style="font-family:'Archivo Black',sans-serif; font-size:clamp(2.5rem,5vw,5rem);">Dlaczego <span style="color:#f97316">Quantica Lab</span><span style="color:#f97316">.</span></h2>
+
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-0">
+                <div class="border-2 border-black p-6 hover:bg-black hover:text-white transition-colors group">
+                    <h4 class="text-lg font-black uppercase tracking-tight mb-3" style="font-family:'Archivo Black',sans-serif">Praktyka we wdrożeniach</h4>
+                    <p class="text-sm font-medium leading-relaxed opacity-70 group-hover:opacity-90">Ponad 15 lat doświadczenia w realizacji projektów technologicznych w dużych organizacjach – od strategii po skalowanie produkcyjne.</p>
                 </div>
-                <div class="why-item">
-                    <h4>Kompleksowe podejście</h4>
-                    <p>Od analizy potrzeb i budowy strategii AI i IT, przez architekturę i wdrożenia, utrzymanie i zarządzanie systemami, aż po szkolenia i rozwój kompetencji – całościowe wsparcie transformacji AI.</p>
+                <div class="border-2 border-black p-6 hover:bg-black hover:text-white transition-colors group border-l-0">
+                    <h4 class="text-lg font-black uppercase tracking-tight mb-3" style="font-family:'Archivo Black',sans-serif">Kompleksowe podejście</h4>
+                    <p class="text-sm font-medium leading-relaxed opacity-70 group-hover:opacity-90">Od analizy potrzeb i budowy strategii AI i IT, przez architekturę i wdrożenia, utrzymanie i zarządzanie systemami, aż po szkolenia i rozwój kompetencji – całościowe wsparcie transformacji AI.</p>
                 </div>
-                <div class="why-item">
-                    <h4>Kompetencje techniczne</h4>
-                    <p>Zespół specjalistów posiadających wieloletnie doświadczenie w budowie systemów AI, pracujących z różnymi modelami AI oraz integrujących je z danymi i systemami organizacji – w infrastrukturze hybrydowej i zróżnicowanym środowisku technologii i danych.</p>
+                <div class="border-2 border-black p-6 hover:bg-black hover:text-white transition-colors group border-l-0">
+                    <h4 class="text-lg font-black uppercase tracking-tight mb-3" style="font-family:'Archivo Black',sans-serif">Kompetencje techniczne</h4>
+                    <p class="text-sm font-medium leading-relaxed opacity-70 group-hover:opacity-90">Zespół specjalistów posiadających wieloletnie doświadczenie w budowie systemów AI, pracujących z różnymi modelami AI oraz integrujących je z danymi i systemami organizacji – w infrastrukturze hybrydowej i zróżnicowanym środowisku technologii i danych.</p>
                 </div>
-                <div class="why-item">
-                    <h4>Pragmatyczne podejście</h4>
-                    <p>Rozwiązania projektowane pod kątem realnych celów biznesowych, operacyjnych i regulacyjnych wymagań organizacji.</p>
+                <div class="border-2 border-black p-6 hover:bg-black hover:text-white transition-colors group border-t-0">
+                    <h4 class="text-lg font-black uppercase tracking-tight mb-3" style="font-family:'Archivo Black',sans-serif">Pragmatyczne podejście</h4>
+                    <p class="text-sm font-medium leading-relaxed opacity-70 group-hover:opacity-90">Rozwiązania projektowane pod kątem realnych celów biznesowych, operacyjnych i regulacyjnych wymagań organizacji.</p>
                 </div>
-                <div class="why-item">
-                    <h4>Doświadczenie w projektach B+R</h4>
-                    <p>Liderzy i uczestnicy projektów badawczo-rozwojowych w zakresie AI. Współtwórcy polskich modeli językowych i systemów sztucznej inteligencji.</p>
+                <div class="border-2 border-black p-6 hover:bg-black hover:text-white transition-colors group border-t-0 border-l-0">
+                    <h4 class="text-lg font-black uppercase tracking-tight mb-3" style="font-family:'Archivo Black',sans-serif">Doświadczenie w projektach B+R</h4>
+                    <p class="text-sm font-medium leading-relaxed opacity-70 group-hover:opacity-90">Liderzy i uczestnicy projektów badawczo-rozwojowych w zakresie AI. Współtwórcy polskich modeli językowych i systemów sztucznej inteligencji.</p>
                 </div>
-                <div class="why-item">
-                    <h4>Sprawdzone metodyki projektowe</h4>
-                    <p>Gotowe narzędzia wspierające diagnozę dojrzałości technologicznej i kompetencyjnej, planowanie i monitorowanie transformacji oraz rozwój modelu operacyjnego.</p>
+                <div class="border-2 border-black p-6 hover:bg-black hover:text-white transition-colors group border-t-0 border-l-0">
+                    <h4 class="text-lg font-black uppercase tracking-tight mb-3" style="font-family:'Archivo Black',sans-serif">Sprawdzone metodyki projektowe</h4>
+                    <p class="text-sm font-medium leading-relaxed opacity-70 group-hover:opacity-90">Gotowe narzędzia wspierające diagnozę dojrzałości technologicznej i kompetencyjnej, planowanie i monitorowanie transformacji oraz rozwój modelu operacyjnego.</p>
                 </div>
             </div>
         </div>
     </section>
 
     <!-- For Whom Section -->
-    <section class="for-whom">
-        <div class="container">
-            <div class="section-header">
-                <h2 class="section-title">Dla <span>kogo</span></h2>
-                <p class="section-subtitle">Wspieramy organizacje, które chcą wdrażać AI odpowiedzialnie i skutecznie – niezależnie od tego, czy dopiero porządkują dane i analizują ryzyka, czy są gotowe do skalowania rozwiązań. Pomagamy przejść przez cały proces, od pierwszej decyzji po realne efekty operacyjne.</p>
+    <section class="py-32 px-6 md:px-20 bg-[#050505] text-neutral-100">
+        <div class="mb-16">
+            <h2 class="font-black tracking-tighter uppercase mb-6" style="font-family:'Archivo Black',sans-serif; font-size:clamp(3rem,8vw,7rem);">Dla kogo<span style="color:#f97316">.</span></h2>
+            <p class="text-lg font-medium text-neutral-400 max-w-2xl">Wspieramy organizacje, które chcą wdrażać AI odpowiedzialnie i skutecznie – niezależnie od tego, czy dopiero porządkują dane i analizują ryzyka, czy są gotowe do skalowania rozwiązań. Pomagamy przejść przez cały proces, od pierwszej decyzji po realne efekty operacyjne.</p>
+        </div>
+
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-0">
+            <!-- Card 1 -->
+            <div class="border border-neutral-800 p-8 hover:border-white transition-colors">
+                <div class="text-7xl font-black tracking-tighter text-neutral-700 mb-6 leading-none" style="font-family:'Archivo Black',sans-serif">1</div>
+                <h3 class="text-xl font-black uppercase tracking-tight mb-4" style="font-family:'Archivo Black',sans-serif">Dla kierownictwa i liderów transformacji</h3>
+                <p class="text-sm font-medium text-neutral-500 uppercase tracking-widest mb-3">Dla organizacji, które:</p>
+                <ul class="space-y-2 text-neutral-400 text-sm font-medium mb-6 list-none pl-0">
+                    <li class="border-l-2 border-neutral-700 pl-4">chcą wdrożyć AI w sposób strategiczny, a nie punktowy,</li>
+                    <li class="border-l-2 border-neutral-700 pl-4">potrzebują uporządkowanego planu działania, a nie eksperymentów bez skalowania,</li>
+                    <li class="border-l-2 border-neutral-700 pl-4">chcą świadomie zarządzać ryzykiem technologicznym i regulacyjnym.</li>
+                </ul>
+                <p class="text-sm font-medium text-neutral-300">Wspieramy kierownictwo w podejmowaniu decyzji dotyczących kierunku rozwoju AI, architektury danych oraz modelu wdrożeniowego.</p>
             </div>
 
-            <div class="target-grid">
-                <div class="target-card">
-                    <div class="target-number">1</div>
-                    <h3>Dla kierownictwa i liderów transformacji</h3>
-                    <p class="target-intro">Dla organizacji, które:</p>
-                    <ul>
-                        <li>chcą wdrożyć AI w sposób strategiczny, a nie punktowy,</li>
-                        <li>potrzebują uporządkowanego planu działania, a nie eksperymentów bez skalowania,</li>
-                        <li>chcą świadomie zarządzać ryzykiem technologicznym i regulacyjnym.</li>
-                    </ul>
-                    <p class="target-summary">Wspieramy kierownictwo w podejmowaniu decyzji dotyczących kierunku rozwoju AI, architektury danych oraz modelu wdrożeniowego.</p>
-                </div>
+            <!-- Card 2 -->
+            <div class="border border-neutral-800 p-8 hover:border-white transition-colors border-l-0">
+                <div class="text-7xl font-black tracking-tighter text-neutral-700 mb-6 leading-none" style="font-family:'Archivo Black',sans-serif">2</div>
+                <h3 class="text-xl font-black uppercase tracking-tight mb-4" style="font-family:'Archivo Black',sans-serif">Dla organizacji zarządzających dokumentami i wiedzą</h3>
+                <p class="text-sm font-medium text-neutral-500 uppercase tracking-widest mb-3">Dla firm i instytucji, które:</p>
+                <ul class="space-y-2 text-neutral-400 text-sm font-medium mb-6 list-none pl-0">
+                    <li class="border-l-2 border-neutral-700 pl-4">posiadają rozproszone repozytoria dokumentów,</li>
+                    <li class="border-l-2 border-neutral-700 pl-4">przetwarzają duże wolumeny informacji,</li>
+                    <li class="border-l-2 border-neutral-700 pl-4">chcą automatyzować analizę, klasyfikację i wyszukiwanie wiedzy.</li>
+                </ul>
+                <p class="text-sm font-medium text-neutral-300">Projektujemy systemy AI, które realnie skracają czas pracy z dokumentami i zwiększają efektywność.</p>
+            </div>
 
-                <div class="target-card">
-                    <div class="target-number">2</div>
-                    <h3>Dla organizacji, które chcą sprawniej zarządzać dokumentami i wiedzą</h3>
-                    <p class="target-intro">Dla firm i instytucji, które:</p>
-                    <ul>
-                        <li>posiadają rozproszone repozytoria dokumentów,</li>
-                        <li>przetwarzają duże wolumeny informacji,</li>
-                        <li>chcą automatyzować analizę, klasyfikację i wyszukiwanie wiedzy.</li>
-                    </ul>
-                    <p class="target-summary">Projektujemy systemy AI, które realnie skracają czas pracy z dokumentami i zwiększają efektywność.</p>
-                </div>
+            <!-- Card 3 -->
+            <div class="border border-neutral-800 p-8 hover:border-white transition-colors border-t-0">
+                <div class="text-7xl font-black tracking-tighter text-neutral-700 mb-6 leading-none" style="font-family:'Archivo Black',sans-serif">3</div>
+                <h3 class="text-xl font-black uppercase tracking-tight mb-4" style="font-family:'Archivo Black',sans-serif">Dla administracji publicznej i infrastruktury krytycznej</h3>
+                <p class="text-sm font-medium text-neutral-500 uppercase tracking-widest mb-3">Dla podmiotów, które:</p>
+                <ul class="space-y-2 text-neutral-400 text-sm font-medium mb-6 list-none pl-0">
+                    <li class="border-l-2 border-neutral-700 pl-4">podlegają rygorystycznym wymogom prawnym i audytowym,</li>
+                    <li class="border-l-2 border-neutral-700 pl-4">potrzebują pełnej kontroli nad przetwarzaniem informacji,</li>
+                    <li class="border-l-2 border-neutral-700 pl-4">chcą rozwijać rozwiązania oparte na suwerenności technologicznej.</li>
+                </ul>
+                <p class="text-sm font-medium text-neutral-300">Rozumiemy specyfikę sektora publicznego oraz wyzwania związane z bezpieczeństwem, odpowiedzialnością i skalą działania.</p>
+            </div>
 
-                <div class="target-card">
-                    <div class="target-number">3</div>
-                    <h3>Dla administracji publicznej i infrastruktury krytycznej</h3>
-                    <p class="target-intro">Dla podmiotów, które:</p>
-                    <ul>
-                        <li>podlegają rygorystycznym wymogom prawnym i audytowym,</li>
-                        <li>potrzebują pełnej kontroli nad przetwarzaniem informacji,</li>
-                        <li>chcą rozwijać rozwiązania oparte na suwerenności technologicznej.</li>
-                    </ul>
-                    <p class="target-summary">Rozumiemy specyfikę sektora publicznego oraz wyzwania związane z bezpieczeństwem, odpowiedzialnością i skalą działania.</p>
-                </div>
-
-                <div class="target-card">
-                    <div class="target-number">4</div>
-                    <h3>Dla organizacji, które chcą budować kompetencje wewnętrzne</h3>
-                    <p class="target-intro">Dla zespołów, które:</p>
-                    <ul>
-                        <li>nie chcą być uzależnione wyłącznie od zewnętrznych dostawców,</li>
-                        <li>chcą rozwijać własne kompetencje w obszarze AI,</li>
-                        <li>potrzebują praktycznego, a nie teoretycznego podejścia do wdrożeń.</li>
-                    </ul>
-                    <p class="target-summary">Oferujemy programy rozwojowe, które łączą wiedzę technologiczną z realnymi przypadkami użycia w organizacji.</p>
-                </div>
+            <!-- Card 4 -->
+            <div class="border border-neutral-800 p-8 hover:border-white transition-colors border-t-0 border-l-0">
+                <div class="text-7xl font-black tracking-tighter text-neutral-700 mb-6 leading-none" style="font-family:'Archivo Black',sans-serif">4</div>
+                <h3 class="text-xl font-black uppercase tracking-tight mb-4" style="font-family:'Archivo Black',sans-serif">Dla organizacji budujących kompetencje wewnętrzne</h3>
+                <p class="text-sm font-medium text-neutral-500 uppercase tracking-widest mb-3">Dla zespołów, które:</p>
+                <ul class="space-y-2 text-neutral-400 text-sm font-medium mb-6 list-none pl-0">
+                    <li class="border-l-2 border-neutral-700 pl-4">nie chcą być uzależnione wyłącznie od zewnętrznych dostawców,</li>
+                    <li class="border-l-2 border-neutral-700 pl-4">chcą rozwijać własne kompetencje w obszarze AI,</li>
+                    <li class="border-l-2 border-neutral-700 pl-4">potrzebują praktycznego, a nie teoretycznego podejścia do wdrożeń.</li>
+                </ul>
+                <p class="text-sm font-medium text-neutral-300">Oferujemy programy rozwojowe, które łączą wiedzę technologiczną z realnymi przypadkami użycia w organizacji.</p>
             </div>
         </div>
     </section>
 
-    <!-- First Steps Section -->
-    <section class="first-steps" id="first-steps">
-        <div class="container">
-            <h2>Pierwsze kroki</h2>
-            <p>Porozmawiajmy o Twoich wyzwaniach i pomysłach na AI.</p>
-            <p>Skorzystaj z naszych warsztatów:</p>
-            <a href="warsztat.html" class="cta-button" style="margin-bottom: 2rem;">Start z AI</a>
-
-            <div class="contact-info">
-                <strong>Kontakt</strong>
-                <p>kontakt@quanticalab.ai</p>
-            </div>
-        </div>
+    <!-- CTA / First Steps Section -->
+    <section class="py-32 px-6 md:px-20 bg-black text-white text-center">
+        <h2 class="font-black tracking-tighter uppercase mb-6" style="font-family:'Archivo Black',sans-serif; font-size:clamp(3rem,8vw,7rem);">Pierwsze kroki<span style="color:#f97316">.</span></h2>
+        <p class="text-xl font-medium text-neutral-400 mb-2 max-w-xl mx-auto">Porozmawiajmy o Twoich wyzwaniach i pomysłach na AI.</p>
+        <p class="text-lg font-medium text-neutral-500 mb-8">Skorzystaj z naszych warsztatów:</p>
+        <a href="warsztat.html" class="border border-white px-8 py-4 text-sm font-bold uppercase tracking-widest hover:bg-white hover:text-black transition-colors inline-block mt-6">Start z AI</a>
     </section>
 
     <!-- Footer -->
-    <footer id="contact">
-        <div class="container">
-            <div class="footer-mascot">
-                <img src="Quantica_kotek_white.png" alt="Quantica Lab Mascot">
+    <footer id="contact" class="bg-white text-black py-20 px-6 md:px-20 flex flex-col md:flex-row justify-between items-end relative overflow-hidden">
+        <div class="text-[40vw] font-black leading-none absolute -bottom-20 -right-10 opacity-5 pointer-events-none select-none" style="font-family:'Archivo Black',sans-serif">Q</div>
+        <div class="z-10 mb-10 md:mb-0">
+            <h2 class="text-5xl md:text-8xl font-black tracking-tighter uppercase mb-4" style="font-family:'Archivo Black',sans-serif">Quantica<span style="color:#f97316">.</span></h2>
+            <p class="text-lg font-medium uppercase tracking-widest opacity-60 mb-4">AI dla organizacji.</p>
+            <p class="text-base font-medium opacity-80">kontakt@quanticalab.ai</p>
+        </div>
+        <div class="z-10 flex flex-col items-start md:items-end gap-4">
+            <div class="flex flex-wrap gap-6 text-sm font-bold uppercase tracking-widest">
+                <a href="doradztwo.html" class="hover:underline">Doradztwo</a>
+                <a href="wdrozenia.html" class="hover:underline">Wdrożenia</a>
+                <a href="szkolenia.html" class="hover:underline">Szkolenia</a>
+                <a href="o-nas.html" class="hover:underline">O nas</a>
             </div>
-            <p>&copy; 2025 Quantica Lab sp. z o.o. – AI dla organizacji · <a href="https://workszop.github.io/q223/llms.txt" class="llms-link">llms.txt</a></p>
+            <p class="text-xs opacity-50">© 2025 Quantica Lab sp. z o.o. · <a href="https://workszop.github.io/q223/llms.txt" class="underline">llms.txt</a></p>
         </div>
     </footer>
 
-    <!-- Theme Toggle -->
-    <button class="theme-toggle" id="themeToggle" aria-label="Przełącz motyw">
-        <svg class="icon-sun" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="5"/><line x1="12" y1="1" x2="12" y2="3"/><line x1="12" y1="21" x2="12" y2="23"/><line x1="4.22" y1="4.22" x2="5.64" y2="5.64"/><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"/><line x1="1" y1="12" x2="3" y2="12"/><line x1="21" y1="12" x2="23" y2="12"/><line x1="4.22" y1="19.78" x2="5.64" y2="18.36"/><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"/></svg>
-        <svg class="icon-moon" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg>
-    </button>
     <script src="app.js" defer></script>
 </body>
 </html>

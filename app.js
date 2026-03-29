@@ -1,26 +1,4 @@
-// Quantica Lab – Interactive Effects
-
-// Match hero paragraph width to h1 title width
-(function(){
-    var block = document.querySelector('.hero-text-block');
-    if (!block) return;
-    var span = block.querySelector('h1 span');
-    if (!span) return;
-    function sync() {
-        block.style.maxWidth = '';
-        var prev = span.style.display;
-        span.style.display = 'inline';
-        var w = span.getBoundingClientRect().width;
-        span.style.display = prev;
-        if (w > 0) block.style.maxWidth = Math.ceil(w) + 'px';
-    }
-    var resizeTimer;
-    sync();
-    window.addEventListener('resize', function() {
-        clearTimeout(resizeTimer);
-        resizeTimer = setTimeout(sync, 100);
-    }, { passive: true });
-})();
+// Quantica Lab – Interactive Effects (Typographic Redesign)
 
 // Mobile menu toggle
 (function(){
@@ -32,13 +10,19 @@
     });
 })();
 
-// Grid glow follows cursor
+// Dropdown toggle
 (function(){
-    var glow = document.getElementById('gridGlow');
-    if (!glow) return;
-    document.addEventListener('mousemove', function(e) {
-        glow.style.left = e.clientX + 'px';
-        glow.style.top = e.clientY + 'px';
+    document.querySelectorAll('.dropdown-toggle').forEach(function(toggle) {
+        toggle.addEventListener('click', function(e) {
+            e.stopPropagation();
+            var menu = toggle.parentElement.querySelector('.dropdown-menu');
+            if (menu) menu.classList.toggle('active');
+        });
+    });
+    document.addEventListener('click', function() {
+        document.querySelectorAll('.dropdown-menu.active').forEach(function(m) {
+            m.classList.remove('active');
+        });
     });
 })();
 
@@ -47,17 +31,11 @@
     var watermarks = document.querySelectorAll('.watermark');
     if (!watermarks.length) return;
     window.addEventListener('scroll', function() {
-        watermarks.forEach(function(el) {
-            var rect = el.parentElement.getBoundingClientRect();
-            var offset = (rect.top + rect.height / 2) * 0.08;
-            if (el.parentElement.classList.contains('partner-section')) {
-                return;
-            }
-            if (el.parentElement.classList.contains('demo-hero')) {
-                el.style.transform = 'translateY(calc(-50% + ' + offset + 'px))';
-            } else {
-                el.style.transform = 'translate(-50%, calc(-50% + ' + offset + 'px))';
-            }
+        window.requestAnimationFrame(function() {
+            var scrollY = window.pageYOffset;
+            watermarks.forEach(function(el) {
+                el.style.transform = 'translate(-50%, calc(-50% + ' + (scrollY * 0.12) + 'px))';
+            });
         });
     }, { passive: true });
 })();
@@ -68,23 +46,5 @@
         trigger.addEventListener('click', function() {
             trigger.closest('.accordion-item').classList.toggle('open');
         });
-    });
-})();
-
-// Theme toggle (dark/light)
-(function(){
-    var btn = document.getElementById('themeToggle');
-    if (!btn) return;
-
-    // Restore saved preference, default to light
-    var saved = localStorage.getItem('ql-theme');
-    if (saved !== 'dark') {
-        document.body.classList.add('light');
-    }
-
-    btn.addEventListener('click', function() {
-        document.body.classList.toggle('light');
-        var isLight = document.body.classList.contains('light');
-        localStorage.setItem('ql-theme', isLight ? 'light' : 'dark');
     });
 })();

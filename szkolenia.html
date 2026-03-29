@@ -7,248 +7,343 @@
     <title>Szkolenia AI – Quantica Lab</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Archivo+Black&family=Space+Grotesk:wght@400;500;600;700&family=IBM+Plex+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Archivo+Black&family=Space+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="styles.css">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        body { background-color: #050505; font-family: 'Space Grotesk', sans-serif; }
+        h1, h2, h3, h4, .font-black { font-family: 'Archivo Black', sans-serif; }
+        .nav-dropdown { position: relative; }
+        .nav-dropdown-menu {
+            display: none;
+            position: absolute;
+            top: 100%;
+            left: 0;
+            background: #111;
+            border: 1px solid #222;
+            min-width: 220px;
+            z-index: 100;
+            padding: 8px 0;
+        }
+        .nav-dropdown:hover .nav-dropdown-menu { display: block; }
+        .nav-dropdown-menu a {
+            display: block;
+            padding: 10px 20px;
+            color: #fff;
+            font-size: 11px;
+            font-weight: 700;
+            letter-spacing: 0.1em;
+            text-transform: uppercase;
+            text-decoration: none;
+        }
+        .nav-dropdown-menu a:hover { background: #1a1a1a; }
+        .nav-dropdown-menu hr { border-color: #333; margin: 6px 0; }
+        @keyframes marquee {
+            from { transform: translateX(0); }
+            to { transform: translateX(-50%); }
+        }
+        .marquee-track { animation: marquee 28s linear infinite; }
+        .accordion-body { display: none; }
+        .accordion-item.open .accordion-body { display: block; }
+        .accordion-item.open .accordion-icon { transform: rotate(45deg); }
+        .accordion-icon { display: inline-block; transition: transform 0.2s; }
+        ul.styled-list { list-style: none; padding: 0; margin: 0; }
+        ul.styled-list li {
+            padding-left: 1.2em;
+            position: relative;
+            margin-bottom: 0.4em;
+            color: #d4d4d4;
+            font-size: 0.95rem;
+            line-height: 1.6;
+        }
+        ul.styled-list li::before {
+            content: '–';
+            position: absolute;
+            left: 0;
+            color: #f97316;
+        }
+        h6.sub-heading {
+            font-family: 'Space Grotesk', sans-serif;
+            font-weight: 700;
+            font-size: 0.75rem;
+            letter-spacing: 0.12em;
+            text-transform: uppercase;
+            color: #f97316;
+            margin-top: 1.5rem;
+            margin-bottom: 0.5rem;
+        }
+    </style>
 </head>
-<body>
-    <!-- Interactive Grid Background -->
-    <div class="grid-bg" aria-hidden="true"></div>
-    <div class="grid-glow" id="gridGlow" aria-hidden="true"></div>
-    <!-- Header -->
-    <header>
-        <nav>
-            <a href="index.html" class="logo">
-                <img src="Quantica_logo_color.png" alt="Quantica Lab">
-            </a>
-            <button class="menu-toggle" aria-label="Menu">
-                <span></span><span></span><span></span>
-            </button>
-            <ul class="nav-links">
-                <li class="dropdown">
-                    <span class="dropdown-toggle">Oferta</span>
-                    <div class="dropdown-menu">
-                        <a href="doradztwo.html">Doradztwo i strategia</a>
-                        <a href="wdrozenia.html">Rozwiązania AI</a>
-                        <a href="szkolenia.html">Szkolenia AI</a>
-                        <hr>
-                        <a href="warsztat.html">Start z AI</a>
-                    </div>
-                </li>
-                <li><a href="o-nas.html">O nas</a></li>
-                <li><a href="blog.html">Blog</a></li>
-                <li><a href="index.html#contact" class="cta-button">Kontakt</a></li>
-            </ul>
-        </nav>
-    </header>
+<body class="bg-[#050505] text-neutral-100">
 
-    <!-- Hero Section -->
-    <section class="hero">
-        <div class="watermark" aria-hidden="true">Learn</div>
-        <div class="glow-blob glow-blob--1" aria-hidden="true"></div>
-        <div class="glow-blob glow-blob--2" aria-hidden="true"></div>
-        <div class="container">
-            <div class="hero-badge">Szkolenia AI</div>
-            <h1>Szkolenia <span>AI</span></h1>
-            <p>Praktyczne szkolenia, które budują kompetencje AI w Twojej organizacji. Od podstaw dla wszystkich pracowników po zaawansowane warsztaty dla kadry zarządzającej.</p>
+    <!-- Nav -->
+    <nav class="fixed top-0 left-0 w-full px-6 md:px-16 py-5 flex justify-between items-center z-50 mix-blend-difference">
+        <a href="index.html" class="text-white font-black text-xl tracking-widest uppercase" style="font-family:'Archivo Black',sans-serif;">Quantica<span class="text-white">.</span></a>
+        <button class="menu-toggle md:hidden" aria-label="Menu"><span></span><span></span><span></span></button>
+        <ul class="nav-links hidden md:flex gap-8 text-xs font-bold tracking-widest uppercase text-white items-center">
+            <li class="dropdown nav-dropdown">
+                <span class="dropdown-toggle cursor-pointer hover:line-through transition-all">Oferta</span>
+                <div class="dropdown-menu nav-dropdown-menu">
+                    <a href="doradztwo.html">Doradztwo i strategia</a>
+                    <a href="wdrozenia.html">Rozwiązania AI</a>
+                    <a href="szkolenia.html">Szkolenia AI</a>
+                    <hr>
+                    <a href="warsztat.html">Start z AI</a>
+                </div>
+            </li>
+            <li><a href="o-nas.html" class="hover:line-through transition-all">O nas</a></li>
+            <li><a href="blog.html" class="hover:line-through transition-all">Blog</a></li>
+            <li><a href="index.html#contact" class="border border-white px-4 py-2 hover:bg-white hover:text-black transition-colors">Kontakt</a></li>
+        </ul>
+    </nav>
+
+    <!-- Hero -->
+    <section class="min-h-[70vh] bg-[#050505] text-neutral-100 flex flex-col justify-end pb-16 px-6 md:px-20 relative overflow-hidden">
+        <div aria-hidden="true" class="absolute font-black text-white pointer-events-none select-none" style="font-family:'Archivo Black',sans-serif; font-size:clamp(15rem,45vw,60rem); opacity:0.04; top:50%; left:50%; transform:translate(-50%,-50%); white-space:nowrap; line-height:1;">Learn</div>
+        <div class="relative z-10">
+            <div class="inline-block border border-neutral-700 text-xs font-bold tracking-widest uppercase px-4 py-2 mb-8 text-neutral-400">Szkolenia AI</div>
+            <h1 class="font-black tracking-tighter leading-none uppercase mb-8" style="font-family:'Archivo Black',sans-serif; font-size:clamp(4rem,12vw,14rem);">
+                Szkolenia<br><span style="color:#f97316">AI</span><span style="color:#f97316">.</span>
+            </h1>
+            <p class="text-lg md:text-xl text-neutral-400 max-w-2xl font-medium leading-relaxed">
+                Praktyczne szkolenia, które budują kompetencje AI w Twojej organizacji. Od podstaw dla wszystkich pracowników po zaawansowane warsztaty dla kadry zarządzającej.
+            </p>
         </div>
     </section>
 
-    <!-- Training Programs -->
-    <section class="services">
-        <div class="container">
+    <!-- Programs Section -->
+    <section class="py-32 px-6 md:px-20 bg-[#050505]">
+        <h2 class="font-black tracking-tighter uppercase mb-16 leading-none" style="font-family:'Archivo Black',sans-serif; font-size:clamp(2rem,6vw,6rem);">
+            Programy szkoleniowe<span style="color:#f97316">.</span>
+        </h2>
 
-            <!-- AI Basics -->
-            <div class="service-detail">
-                <h4>Podstawy AI dla całej organizacji</h4>
-                <p>Kluczowe elementy AI literacy dla całej organizacji</p>
+        <!-- Program 1 -->
+        <div class="mb-16 border-t border-neutral-800 pt-16">
+            <h4 class="font-black tracking-tighter uppercase mb-6" style="font-family:'Archivo Black',sans-serif; font-size:clamp(1.8rem,3vw,3rem);">Podstawy AI dla całej organizacji<span style="color:#f97316">.</span></h4>
+            <p class="text-neutral-400 text-base md:text-lg mb-10 max-w-3xl leading-relaxed">Kluczowe elementy AI literacy dla całej organizacji</p>
 
-                <div class="accordion-item">
-                    <h5 class="accordion-trigger">Korzyści <span class="accordion-icon">+</span></h5>
-                    <div class="accordion-body">
-                        <ul>
-                            <li>Wspólne ramy pracy z AI w organizacji</li>
-                            <li>Odpowiedzialne i bezpieczne korzystanie z narzędzi AI przez pracowników</li>
-                            <li>Umiejętność odróżniania rzeczywistych możliwości technologii od przekazu marketingowego</li>
-                            <li>Świadomość ograniczeń modeli oraz ryzyk związanych z ich wykorzystaniem</li>
-                            <li>Gotowość zespołów do udziału w projektach AI</li>
-                        </ul>
-                    </div>
-                </div>
-
-                <div class="accordion-item">
-                    <h5 class="accordion-trigger">Zakres szkolenia <span class="accordion-icon">+</span></h5>
-                    <div class="accordion-body">
-                        <h6>Podstawy AI - demistyfikacja technologii</h6>
-                        <ul>
-                            <li>Czym jest AI, ML, generatywna AI - wyjaśnienie bez żargonu</li>
-                            <li>Jak działają modele językowe (intuicyjnie, bez matematyki)</li>
-                            <li>Możliwości i ograniczenia - co AI potrafi, a czego nie</li>
-                            <li>Praktyczne zastosowania w codziennej pracy (teksty, analiza, automatyzacja)</li>
-                        </ul>
-
-                        <h6>Bezpieczne korzystanie z AI</h6>
-                        <ul>
-                            <li>Zasady bezpieczeństwa danych przy pracy z AI</li>
-                            <li>Co można, a czego nie można wprowadzać do narzędzi AI</li>
-                            <li>Rozpoznawanie halucynacji i weryfikacja wyników</li>
-                            <li>Polityka firmy dotycząca AI - dozwolone narzędzia i praktyki</li>
-                            <li>Ochrona danych osobowych i poufnych informacji biznesowych</li>
-                        </ul>
-
-                        <h6>Regulacje i etyka AI</h6>
-                        <ul>
-                            <li>AI Act - kluczowe wymagania i co oznaczają dla pracowników</li>
-                            <li>Klasyfikacja ryzyka systemów AI</li>
-                            <li>Etyka AI: stronniczość, transparentność, odpowiedzialność</li>
-                            <li>Human-in-the-loop - dlaczego decyzja zawsze należy do człowieka</li>
-                        </ul>
-                    </div>
+            <div class="accordion-item border border-neutral-800 mb-2">
+                <h5 class="accordion-trigger flex justify-between items-center p-6 cursor-pointer hover:bg-neutral-900 transition-colors text-sm font-bold uppercase tracking-widest">
+                    Korzyści <span class="accordion-icon text-2xl font-light">+</span>
+                </h5>
+                <div class="accordion-body px-6 pb-6">
+                    <ul class="styled-list">
+                        <li>Wspólne ramy pracy z AI w organizacji</li>
+                        <li>Odpowiedzialne i bezpieczne korzystanie z narzędzi AI przez pracowników</li>
+                        <li>Umiejętność odróżniania rzeczywistych możliwości technologii od przekazu marketingowego</li>
+                        <li>Świadomość ograniczeń modeli oraz ryzyk związanych z ich wykorzystaniem</li>
+                        <li>Gotowość zespołów do udziału w projektach AI</li>
+                    </ul>
                 </div>
             </div>
 
-            <!-- AI for Executives - Strategy -->
-            <div class="service-detail">
-                <h4>AI dla kadry kierowniczej – strategia</h4>
-                <p>Warsztaty strategiczne dla zarządów, dyrektorów i menedżerów odpowiedzialnych za rozwój organizacji. Celem jest określenie realnej roli AI w modelu biznesowym firmy oraz wypracowanie spójnych zasad podejmowania decyzji w obszarze inwestycji technologicznych. Pracujemy na danych i procesach organizacji, oddzielając rzeczywiste możliwości od marketingowych narracji i krótkoterminowych trendów.</p>
-
-                <div class="accordion-item">
-                    <h5 class="accordion-trigger">Korzyści <span class="accordion-icon">+</span></h5>
-                    <div class="accordion-body">
-                        <ul>
-                            <li>Jasno określony kierunek działań w obszarze AI</li>
-                            <li>Zrozumienie wpływu AI na model biznesowy i pozycję organizacji na rynku</li>
-                            <li>Ustalone zasady odpowiedzialności i nadzoru nad inicjatywami AI</li>
-                            <li>Identyfikacja kluczowych luk w danych, systemach i kompetencjach</li>
-                            <li>Spójna komunikacja priorytetów AI wewnątrz organizacji</li>
-                        </ul>
-                    </div>
+            <div class="accordion-item border border-neutral-800 mb-2">
+                <h5 class="accordion-trigger flex justify-between items-center p-6 cursor-pointer hover:bg-neutral-900 transition-colors text-sm font-bold uppercase tracking-widest">
+                    Zakres szkolenia <span class="accordion-icon text-2xl font-light">+</span>
+                </h5>
+                <div class="accordion-body px-6 pb-6">
+                    <h6 class="sub-heading">Podstawy AI – demistyfikacja technologii</h6>
+                    <ul class="styled-list">
+                        <li>Czym jest AI, ML, generatywna AI – wyjaśnienie bez żargonu</li>
+                        <li>Jak działają modele językowe (intuicyjnie, bez matematyki)</li>
+                        <li>Możliwości i ograniczenia – co AI potrafi, a czego nie</li>
+                        <li>Praktyczne zastosowania w codziennej pracy (teksty, analiza, automatyzacja)</li>
+                    </ul>
+                    <h6 class="sub-heading">Bezpieczne korzystanie z AI</h6>
+                    <ul class="styled-list">
+                        <li>Zasady bezpieczeństwa danych przy pracy z AI</li>
+                        <li>Co można, a czego nie można wprowadzać do narzędzi AI</li>
+                        <li>Rozpoznawanie halucynacji i weryfikacja wyników</li>
+                        <li>Polityka firmy dotycząca AI – dozwolone narzędzia i praktyki</li>
+                        <li>Ochrona danych osobowych i poufnych informacji biznesowych</li>
+                    </ul>
+                    <h6 class="sub-heading">Regulacje i etyka AI</h6>
+                    <ul class="styled-list">
+                        <li>AI Act – kluczowe wymagania i co oznaczają dla pracowników</li>
+                        <li>Klasyfikacja ryzyka systemów AI</li>
+                        <li>Etyka AI: stronniczość, transparentność, odpowiedzialność</li>
+                        <li>Human-in-the-loop – dlaczego decyzja zawsze należy do człowieka</li>
+                    </ul>
                 </div>
+            </div>
+        </div>
 
-                <div class="accordion-item">
-                    <h5 class="accordion-trigger">Program <span class="accordion-icon">+</span></h5>
-                    <div class="accordion-body">
-                        <p><strong>Przygotowanie do szkolenia</strong><br>Dwa 30 minutowe wywiady z pracownikami firmy (zarząd, wybrani pracownicy, lub pracownicy działów wykorzystujących AI dzisiaj) w celu zrozumienia obecnej strategii AI firmy oraz stopnia wykorzystania AI.</p>
+        <!-- Program 2 -->
+        <div class="mb-16 border-t border-neutral-800 pt-16">
+            <h4 class="font-black tracking-tighter uppercase mb-6" style="font-family:'Archivo Black',sans-serif; font-size:clamp(1.8rem,3vw,3rem);">AI dla kadry kierowniczej – strategia<span style="color:#f97316">.</span></h4>
+            <p class="text-neutral-400 text-base md:text-lg mb-10 max-w-3xl leading-relaxed">
+                Warsztaty strategiczne dla zarządów, dyrektorów i menedżerów odpowiedzialnych za rozwój organizacji. Celem jest określenie realnej roli AI w modelu biznesowym firmy oraz wypracowanie spójnych zasad podejmowania decyzji w obszarze inwestycji technologicznych. Pracujemy na danych i procesach organizacji, oddzielając rzeczywiste możliwości od marketingowych narracji i krótkoterminowych trendów.
+            </p>
 
-                        <h6>Moduł 1: Podstawy AI</h6>
-                        <ul>
-                            <li>Czym jest AI, ML, generatywna AI - wyjaśnienie bez żargonu</li>
-                            <li>Jak działają modele językowe (intuicyjnie, bez matematyki)</li>
-                            <li>Przegląd aktualnego stanu technologii AI (generatywna AI, agenci, automatyzacja)</li>
-                            <li>Możliwości i ograniczenia - co AI potrafi, a czego nie</li>
-                            <li>Przykłady wdrożeń AI w różnych branżach</li>
-                            <li>Przedstawienie trendów technologicznych AI</li>
-                        </ul>
-
-                        <h6>Moduł 2: Strategia AI</h6>
-                        <ul>
-                            <li>Warsztat: definiowanie wizji AI dla organizacji</li>
-                            <li>Priorytetyzacja obszarów wdrożenia (matryca wpływ/wykonalność)</li>
-                            <li>Podejście ogólne, bez konkretnych projektów na tym etapie</li>
-                        </ul>
-
-                        <h6>Moduł 3: Analiza procesów pod kątem AI</h6>
-                        <ul>
-                            <li>Kryteria oceny potencjału automatyzacji (powtarzalność, wolumen, złożoność, dane)</li>
-                            <li>Identyfikacja "quick wins" vs. projekty transformacyjne</li>
-                            <li>Definiowanie mierników sukcesu (KPI przed/po)</li>
-                        </ul>
-
-                        <h6>Moduł 4: Przygotowanie do projektów AI</h6>
-                        <ul>
-                            <li>Ocena dostępności danych, jakość, systemy źródłowe</li>
-                            <li>Ocena kompetencji zespołu i luk do uzupełnienia</li>
-                            <li>Dyskusja warsztatowa - strategia firmy i priorytetyzacja projektów AI</li>
-                            <li>Governance AI - struktury decyzyjne i odpowiedzialność</li>
-                            <li>Zarządzanie zmianą - przygotowanie zespołów i organizacji</li>
-                            <li>Budowanie roadmapy: 12-24 miesiące</li>
-                        </ul>
-                    </div>
+            <div class="accordion-item border border-neutral-800 mb-2">
+                <h5 class="accordion-trigger flex justify-between items-center p-6 cursor-pointer hover:bg-neutral-900 transition-colors text-sm font-bold uppercase tracking-widest">
+                    Korzyści <span class="accordion-icon text-2xl font-light">+</span>
+                </h5>
+                <div class="accordion-body px-6 pb-6">
+                    <ul class="styled-list">
+                        <li>Jasno określony kierunek działań w obszarze AI</li>
+                        <li>Zrozumienie wpływu AI na model biznesowy i pozycję organizacji na rynku</li>
+                        <li>Ustalone zasady odpowiedzialności i nadzoru nad inicjatywami AI</li>
+                        <li>Identyfikacja kluczowych luk w danych, systemach i kompetencjach</li>
+                        <li>Spójna komunikacja priorytetów AI wewnątrz organizacji</li>
+                    </ul>
                 </div>
             </div>
 
-            <!-- AI for Executives - Projects -->
-            <div class="service-detail">
-                <h4>AI dla kadry kierowniczej – projekty</h4>
-                <p>Warsztaty operacyjne, których celem jest przełożenie kierunku działań w obszarze AI na konkretne inicjatywy. Pracujemy na realnych procesach organizacji, identyfikując projekty o największym sensie biznesowym i najwyższej wykonalności. Efektem jest uporządkowana lista inicjatyw wraz z oceną ich opłacalności, wymagań w zakresie danych oraz gotowości organizacyjnej.</p>
-
-                <div class="accordion-item">
-                    <h5 class="accordion-trigger">Korzyści <span class="accordion-icon">+</span></h5>
-                    <div class="accordion-body">
-                        <ul>
-                            <li>Lista priorytetowych projektów AI uporządkowanych według wpływu biznesowego i złożoności wdrożenia</li>
-                            <li>Jasne kryteria wyboru inicjatyw do realizacji</li>
-                            <li>Wstępna ocena kosztów, ryzyk i potencjalnych efektów</li>
-                            <li>Plan działań na pierwsze miesiące wdrożeń</li>
-                            <li>Zrozumienie, jakie warunki muszą zostać spełnione przed rozpoczęciem projektu</li>
-                        </ul>
-                    </div>
+            <div class="accordion-item border border-neutral-800 mb-2">
+                <h5 class="accordion-trigger flex justify-between items-center p-6 cursor-pointer hover:bg-neutral-900 transition-colors text-sm font-bold uppercase tracking-widest">
+                    Program <span class="accordion-icon text-2xl font-light">+</span>
+                </h5>
+                <div class="accordion-body px-6 pb-6">
+                    <p class="text-neutral-400 text-sm mb-4 leading-relaxed"><strong class="text-neutral-200">Przygotowanie do szkolenia</strong><br>Dwa 30‑minutowe wywiady z pracownikami firmy (zarząd, wybrani pracownicy, lub pracownicy działów wykorzystujących AI dzisiaj) w celu zrozumienia obecnej strategii AI firmy oraz stopnia wykorzystania AI.</p>
+                    <h6 class="sub-heading">Moduł 1: Podstawy AI</h6>
+                    <ul class="styled-list">
+                        <li>Czym jest AI, ML, generatywna AI – wyjaśnienie bez żargonu</li>
+                        <li>Jak działają modele językowe (intuicyjnie, bez matematyki)</li>
+                        <li>Przegląd aktualnego stanu technologii AI (generatywna AI, agenci, automatyzacja)</li>
+                        <li>Możliwości i ograniczenia – co AI potrafi, a czego nie</li>
+                        <li>Przykłady wdrożeń AI w różnych branżach</li>
+                        <li>Przedstawienie trendów technologicznych AI</li>
+                    </ul>
+                    <h6 class="sub-heading">Moduł 2: Strategia AI</h6>
+                    <ul class="styled-list">
+                        <li>Warsztat: definiowanie wizji AI dla organizacji</li>
+                        <li>Priorytetyzacja obszarów wdrożenia (matryca wpływ/wykonalność)</li>
+                        <li>Podejście ogólne, bez konkretnych projektów na tym etapie</li>
+                    </ul>
+                    <h6 class="sub-heading">Moduł 3: Analiza procesów pod kątem AI</h6>
+                    <ul class="styled-list">
+                        <li>Kryteria oceny potencjału automatyzacji (powtarzalność, wolumen, złożoność, dane)</li>
+                        <li>Identyfikacja „quick wins" vs. projekty transformacyjne</li>
+                        <li>Definiowanie mierników sukcesu (KPI przed/po)</li>
+                    </ul>
+                    <h6 class="sub-heading">Moduł 4: Przygotowanie do projektów AI</h6>
+                    <ul class="styled-list">
+                        <li>Ocena dostępności danych, jakość, systemy źródłowe</li>
+                        <li>Ocena kompetencji zespołu i luk do uzupełnienia</li>
+                        <li>Dyskusja warsztatowa – strategia firmy i priorytetyzacja projektów AI</li>
+                        <li>Governance AI – struktury decyzyjne i odpowiedzialność</li>
+                        <li>Zarządzanie zmianą – przygotowanie zespołów i organizacji</li>
+                        <li>Budowanie roadmapy: 12–24 miesiące</li>
+                    </ul>
                 </div>
+            </div>
+        </div>
 
-                <div class="accordion-item">
-                    <h5 class="accordion-trigger">Program <span class="accordion-icon">+</span></h5>
-                    <div class="accordion-body">
-                        <p><strong>Przygotowanie do szkolenia</strong><br>Dwa 30 minutowe wywiady z pracownikami firmy (kadra managerska, wybrani pracownicy, lub pracownicy działów wykorzystujących AI dzisiaj) w celu zrozumienia obecnej sytuacji firmy oraz stopnia wykorzystania AI.</p>
+        <!-- Program 3 -->
+        <div class="mb-16 border-t border-neutral-800 pt-16">
+            <h4 class="font-black tracking-tighter uppercase mb-6" style="font-family:'Archivo Black',sans-serif; font-size:clamp(1.8rem,3vw,3rem);">AI dla kadry kierowniczej – projekty<span style="color:#f97316">.</span></h4>
+            <p class="text-neutral-400 text-base md:text-lg mb-10 max-w-3xl leading-relaxed">
+                Warsztaty operacyjne, których celem jest przełożenie kierunku działań w obszarze AI na konkretne inicjatywy. Pracujemy na realnych procesach organizacji, identyfikując projekty o największym sensie biznesowym i najwyższej wykonalności. Efektem jest uporządkowana lista inicjatyw wraz z oceną ich opłacalności, wymagań w zakresie danych oraz gotowości organizacyjnej.
+            </p>
 
-                        <h6>Moduł 1: Podstawy AI</h6>
-                        <ul>
-                            <li>Czym jest AI, ML, generatywna AI - wyjaśnienie bez żargonu</li>
-                            <li>Jak działają modele językowe (intuicyjnie, bez matematyki)</li>
-                            <li>Przegląd aktualnego stanu technologii AI (generatywna AI, agenci, automatyzacja)</li>
-                            <li>Możliwości i ograniczenia - co AI potrafi, a czego nie</li>
-                            <li>Przykłady wdrożeń AI w różnych branżach</li>
-                            <li>Przedstawienie trendów technologicznych AI</li>
-                        </ul>
-
-                        <h6>Moduł 2: Analiza procesów pod kątem AI</h6>
-                        <ul>
-                            <li>Kryteria oceny potencjału automatyzacji (powtarzalność, wolumen, złożoność, dane)</li>
-                            <li>Warsztat: mapowanie własnych procesów departamentowych</li>
-                            <li>Identyfikacja "quick wins" vs. projekty transformacyjne</li>
-                        </ul>
-
-                        <h6>Moduł 3: Przygotowanie do projektów AI</h6>
-                        <ul>
-                            <li>Ocena dostępności danych, jakość, systemy źródłowe</li>
-                            <li>Ocena kompetencji zespołu i luk do uzupełnienia</li>
-                            <li>Analiza scenariuszy integracji z istniejącymi narzędziami (ERP, CRM, workflow)</li>
-                            <li>Dyskusja warsztatowa - priorytetyzacja projektów</li>
-                        </ul>
-
-                        <h6>Moduł 4: Planowanie wdrożenia</h6>
-                        <ul>
-                            <li>Definiowanie mierników sukcesu (KPI przed/po)</li>
-                            <li>Tworzenie business case i planu pilotażowego</li>
-                            <li>Zarządzanie zmianą - przygotowanie zespołów</li>
-                        </ul>
-                    </div>
+            <div class="accordion-item border border-neutral-800 mb-2">
+                <h5 class="accordion-trigger flex justify-between items-center p-6 cursor-pointer hover:bg-neutral-900 transition-colors text-sm font-bold uppercase tracking-widest">
+                    Korzyści <span class="accordion-icon text-2xl font-light">+</span>
+                </h5>
+                <div class="accordion-body px-6 pb-6">
+                    <ul class="styled-list">
+                        <li>Lista priorytetowych projektów AI uporządkowanych według wpływu biznesowego i złożoności wdrożenia</li>
+                        <li>Jasne kryteria wyboru inicjatyw do realizacji</li>
+                        <li>Wstępna ocena kosztów, ryzyk i potencjalnych efektów</li>
+                        <li>Plan działań na pierwsze miesiące wdrożeń</li>
+                        <li>Zrozumienie, jakie warunki muszą zostać spełnione przed rozpoczęciem projektu</li>
+                    </ul>
                 </div>
             </div>
 
+            <div class="accordion-item border border-neutral-800 mb-2">
+                <h5 class="accordion-trigger flex justify-between items-center p-6 cursor-pointer hover:bg-neutral-900 transition-colors text-sm font-bold uppercase tracking-widest">
+                    Program <span class="accordion-icon text-2xl font-light">+</span>
+                </h5>
+                <div class="accordion-body px-6 pb-6">
+                    <p class="text-neutral-400 text-sm mb-4 leading-relaxed"><strong class="text-neutral-200">Przygotowanie do szkolenia</strong><br>Dwa 30‑minutowe wywiady z pracownikami firmy (kadra managerska, wybrani pracownicy, lub pracownicy działów wykorzystujących AI dzisiaj) w celu zrozumienia obecnej sytuacji firmy oraz stopnia wykorzystania AI.</p>
+                    <h6 class="sub-heading">Moduł 1: Podstawy AI</h6>
+                    <ul class="styled-list">
+                        <li>Czym jest AI, ML, generatywna AI – wyjaśnienie bez żargonu</li>
+                        <li>Jak działają modele językowe (intuicyjnie, bez matematyki)</li>
+                        <li>Przegląd aktualnego stanu technologii AI (generatywna AI, agenci, automatyzacja)</li>
+                        <li>Możliwości i ograniczenia – co AI potrafi, a czego nie</li>
+                        <li>Przykłady wdrożeń AI w różnych branżach</li>
+                        <li>Przedstawienie trendów technologicznych AI</li>
+                    </ul>
+                    <h6 class="sub-heading">Moduł 2: Analiza procesów pod kątem AI</h6>
+                    <ul class="styled-list">
+                        <li>Kryteria oceny potencjału automatyzacji (powtarzalność, wolumen, złożoność, dane)</li>
+                        <li>Warsztat: mapowanie własnych procesów departamentowych</li>
+                        <li>Identyfikacja „quick wins" vs. projekty transformacyjne</li>
+                    </ul>
+                    <h6 class="sub-heading">Moduł 3: Przygotowanie do projektów AI</h6>
+                    <ul class="styled-list">
+                        <li>Ocena dostępności danych, jakość, systemy źródłowe</li>
+                        <li>Ocena kompetencji zespołu i luk do uzupełnienia</li>
+                        <li>Analiza scenariuszy integracji z istniejącymi narzędziami (ERP, CRM, workflow)</li>
+                        <li>Dyskusja warsztatowa – priorytetyzacja projektów</li>
+                    </ul>
+                    <h6 class="sub-heading">Moduł 4: Planowanie wdrożenia</h6>
+                    <ul class="styled-list">
+                        <li>Definiowanie mierników sukcesu (KPI przed/po)</li>
+                        <li>Tworzenie business case i planu pilotażowego</li>
+                        <li>Zarządzanie zmianą – przygotowanie zespołów</li>
+                    </ul>
+                </div>
+            </div>
         </div>
     </section>
+
+    <!-- Marquee -->
+    <div class="overflow-hidden bg-[#f97316] py-4 select-none" aria-hidden="true">
+        <div class="marquee-track flex whitespace-nowrap">
+            <span class="text-black font-black text-sm tracking-widest uppercase px-8" style="font-family:'Archivo Black',sans-serif;">
+                AI literacy&nbsp;&nbsp;•&nbsp;&nbsp;Strategia AI&nbsp;&nbsp;•&nbsp;&nbsp;Zarządzanie zmianą&nbsp;&nbsp;•&nbsp;&nbsp;Kompetencje&nbsp;&nbsp;•&nbsp;&nbsp;AI literacy&nbsp;&nbsp;•&nbsp;&nbsp;Strategia AI&nbsp;&nbsp;•&nbsp;&nbsp;Zarządzanie zmianą&nbsp;&nbsp;•&nbsp;&nbsp;Kompetencje&nbsp;&nbsp;•&nbsp;&nbsp;AI literacy&nbsp;&nbsp;•&nbsp;&nbsp;Strategia AI&nbsp;&nbsp;•&nbsp;&nbsp;Zarządzanie zmianą&nbsp;&nbsp;•&nbsp;&nbsp;Kompetencje&nbsp;&nbsp;•&nbsp;&nbsp;AI literacy&nbsp;&nbsp;•&nbsp;&nbsp;Strategia AI&nbsp;&nbsp;•&nbsp;&nbsp;Zarządzanie zmianą&nbsp;&nbsp;•&nbsp;&nbsp;Kompetencje&nbsp;&nbsp;•&nbsp;&nbsp;
+            </span>
+            <span class="text-black font-black text-sm tracking-widest uppercase px-8" style="font-family:'Archivo Black',sans-serif;" aria-hidden="true">
+                AI literacy&nbsp;&nbsp;•&nbsp;&nbsp;Strategia AI&nbsp;&nbsp;•&nbsp;&nbsp;Zarządzanie zmianą&nbsp;&nbsp;•&nbsp;&nbsp;Kompetencje&nbsp;&nbsp;•&nbsp;&nbsp;AI literacy&nbsp;&nbsp;•&nbsp;&nbsp;Strategia AI&nbsp;&nbsp;•&nbsp;&nbsp;Zarządzanie zmianą&nbsp;&nbsp;•&nbsp;&nbsp;Kompetencje&nbsp;&nbsp;•&nbsp;&nbsp;AI literacy&nbsp;&nbsp;•&nbsp;&nbsp;Strategia AI&nbsp;&nbsp;•&nbsp;&nbsp;Zarządzanie zmianą&nbsp;&nbsp;•&nbsp;&nbsp;Kompetencje&nbsp;&nbsp;•&nbsp;&nbsp;AI literacy&nbsp;&nbsp;•&nbsp;&nbsp;Strategia AI&nbsp;&nbsp;•&nbsp;&nbsp;Zarządzanie zmianą&nbsp;&nbsp;•&nbsp;&nbsp;Kompetencje&nbsp;&nbsp;•&nbsp;&nbsp;
+            </span>
+        </div>
+    </div>
 
     <!-- CTA Section -->
-    <section class="cta-section">
-        <div class="container">
-            <h3>Zainteresowany szkoleniami AI?</h3>
-            <p>Skontaktuj się z nami, aby omówić szczegóły i dostosować program szkolenia do potrzeb Twojej organizacji.</p>
-            <a href="index.html#contact" class="cta-button">Skontaktuj się z nami</a>
-        </div>
+    <section class="py-24 px-6 md:px-20 bg-white text-black">
+        <h2 class="font-black tracking-tighter uppercase mb-6 leading-none" style="font-family:'Archivo Black',sans-serif; font-size:clamp(2rem,6vw,6rem);">
+            Zainteresowany<br>szkoleniami AI<span style="color:#f97316">?</span>
+        </h2>
+        <p class="text-lg font-medium opacity-70 max-w-xl mb-10 leading-relaxed">
+            Skontaktuj się z nami, aby omówić szczegóły i dostosować program szkolenia do potrzeb Twojej organizacji.
+        </p>
+        <a href="index.html#contact" class="inline-block text-sm font-black uppercase tracking-widest border-b-4 border-black pb-1 hover:border-[#f97316] transition-colors" style="font-family:'Archivo Black',sans-serif;">
+            Skontaktuj się z nami
+        </a>
     </section>
 
     <!-- Footer -->
-    <footer id="contact">
-        <div class="container">
-            <div class="footer-mascot">
-                <img src="Quantica_kotek_white.png" alt="Quantica Lab Mascot">
+    <footer id="contact" class="bg-white text-black py-20 px-6 md:px-20 flex flex-col md:flex-row justify-between items-end relative overflow-hidden">
+        <div class="text-[40vw] font-black leading-none absolute -bottom-20 -right-10 opacity-5 pointer-events-none select-none" style="font-family:'Archivo Black',sans-serif;">Q</div>
+        <div class="z-10 mb-10 md:mb-0">
+            <h2 class="font-black tracking-tighter uppercase mb-4" style="font-family:'Archivo Black',sans-serif; font-size:clamp(2.5rem,8vw,6rem);">Quantica<span style="color:#f97316">.</span></h2>
+            <p class="text-lg font-medium uppercase tracking-widest opacity-60 mb-4">AI dla organizacji.</p>
+            <p class="text-base font-medium opacity-80">kontakt@quanticalab.ai</p>
+        </div>
+        <div class="z-10 flex flex-col items-start md:items-end gap-4">
+            <div class="flex flex-wrap gap-6 text-sm font-bold uppercase tracking-widest">
+                <a href="doradztwo.html" class="hover:underline">Doradztwo</a>
+                <a href="wdrozenia.html" class="hover:underline">Wdrożenia</a>
+                <a href="szkolenia.html" class="hover:underline">Szkolenia</a>
+                <a href="o-nas.html" class="hover:underline">O nas</a>
             </div>
-            <p>&copy; 2025 Quantica Lab sp. z o.o. – AI dla organizacji · <a href="https://workszop.github.io/q223/llms.txt" class="llms-link">llms.txt</a></p>
+            <p class="text-xs opacity-50">© 2025 Quantica Lab sp. z o.o. · <a href="https://workszop.github.io/q223/llms.txt" class="underline">llms.txt</a></p>
         </div>
     </footer>
-    <button class="theme-toggle" id="themeToggle" aria-label="Przełącz motyw">
-        <svg class="icon-sun" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="5"/><line x1="12" y1="1" x2="12" y2="3"/><line x1="12" y1="21" x2="12" y2="23"/><line x1="4.22" y1="4.22" x2="5.64" y2="5.64"/><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"/><line x1="1" y1="12" x2="3" y2="12"/><line x1="21" y1="12" x2="23" y2="12"/><line x1="4.22" y1="19.78" x2="5.64" y2="18.36"/><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"/></svg>
-        <svg class="icon-moon" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg>
-    </button>
+
     <script src="app.js" defer></script>
+    <script>
+        // Accordion
+        document.querySelectorAll('.accordion-trigger').forEach(trigger => {
+            trigger.addEventListener('click', () => {
+                const item = trigger.closest('.accordion-item');
+                item.classList.toggle('open');
+            });
+        });
+    </script>
 </body>
 </html>
