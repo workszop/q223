@@ -23,13 +23,15 @@
         }
     </script>
 </head>
-<body class="bg-[#050505] text-neutral-100 font-grotesk overflow-x-hidden">
+<body class="bg-[#050505] text-neutral-100 font-grotesk overflow-x-hidden" data-theme="dark">
 
     <!-- Nav -->
-    <nav class="fixed top-0 left-0 w-full px-6 md:px-16 py-5 flex justify-between items-center z-50 mix-blend-difference">
-        <a href="index.html" class="text-white font-black text-xl tracking-widest uppercase" style="font-family:'Archivo Black',sans-serif">Quantica<span class="text-white">.</span></a>
+    <nav class="fixed top-0 left-0 w-full px-6 md:px-16 py-5 flex justify-between items-center z-50 nav-bar">
+        <a href="index.html" class="nav-logo">
+            <img src="Quantica_logo_color.png" alt="Quantica" class="h-8">
+        </a>
         <button class="menu-toggle md:hidden" aria-label="Menu"><span></span><span></span><span></span></button>
-        <ul class="nav-links hidden md:flex gap-8 text-xs font-bold tracking-widest uppercase text-white items-center">
+        <ul class="nav-links hidden md:flex gap-8 text-xs font-bold tracking-widest uppercase items-center">
             <li class="dropdown">
                 <span class="dropdown-toggle cursor-pointer hover:line-through transition-all">Oferta</span>
                 <div class="dropdown-menu">
@@ -42,7 +44,11 @@
             </li>
             <li><a href="o-nas.html" class="hover:line-through transition-all">O nas</a></li>
             <li><a href="blog.html" class="hover:line-through transition-all">Blog</a></li>
-            <li><a href="#contact" class="border border-white px-4 py-2 hover:bg-white hover:text-black transition-colors">Kontakt</a></li>
+            <li><a href="#contact" class="nav-contact-btn border px-4 py-2 transition-colors">Kontakt</a></li>
+            <li><button id="theme-toggle" class="theme-toggle" aria-label="Toggle light/dark mode" title="Zmień motyw">
+                <svg class="icon-sun" xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="5"/><path d="M12 1v2M12 21v2M4.22 4.22l1.42 1.42M18.36 18.36l1.42 1.42M1 12h2M21 12h2M4.22 19.78l1.42-1.42M18.36 5.64l1.42-1.42"/></svg>
+                <svg class="icon-moon" xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path d="M21 12.79A9 9 0 1111.21 3 7 7 0 0021 12.79z"/></svg>
+            </button></li>
         </ul>
     </nav>
 
@@ -81,7 +87,10 @@
                 <div>
                     <div class="text-6xl font-black tracking-tighter text-neutral-700 mb-6" style="font-family:'Archivo Black',sans-serif">01<span style="color:#BB2649">.</span></div>
                     <h3 class="text-3xl md:text-4xl font-black uppercase tracking-tighter mb-4" style="font-family:'Archivo Black',sans-serif">Wdrożenia AI</h3>
-                    <p class="text-neutral-400 font-medium leading-relaxed mb-8">Oferujemy zestaw narzędzi umożliwiających sprawne wprowadzenie AI do organizacji w sposób przemyślany, zgodny z regulacjami i dobrymi praktykami oraz odpowiadający na rzeczywiste potrzeby. Realizujemy projekty o jasno określonym zakresie, które pozwalają szybko przejść od koncepcji do działania i osiągnąć mierzalne wyniki.</p>
+                    <div class="diagram-container mb-8">
+                        <img src="Wdro%C5%BCenia_AI_white.png" alt="Wdrożenia AI – schemat" class="diagram-img diagram-dark w-full rounded">
+                        <img src="Wdro%C5%BCenia_AI.png" alt="Wdrożenia AI – schemat" class="diagram-img diagram-light w-full rounded">
+                    </div>
 
                     <div class="accordion-item border-t border-neutral-800">
                         <h4 class="accordion-trigger flex justify-between items-center py-4 text-sm font-bold uppercase tracking-widest cursor-pointer hover:text-white transition-colors text-neutral-300">Doradztwo technologiczne <span class="accordion-icon text-[#BB2649] text-xl">+</span></h4>
@@ -128,7 +137,10 @@
                 <div>
                     <div class="text-6xl font-black tracking-tighter text-neutral-700 mb-6" style="font-family:'Archivo Black',sans-serif">02<span style="color:#BB2649">.</span></div>
                     <h3 class="text-3xl md:text-4xl font-black uppercase tracking-tighter mb-4" style="font-family:'Archivo Black',sans-serif">Transformacja cyfrowa</h3>
-                    <p class="text-neutral-400 font-medium leading-relaxed mb-8">Wspieramy organizacje w kompleksowej transformacji cyfrowej – od określenia kierunku strategicznego, przez przygotowanie danych i architektury systemowej, po wdrożenie i skalowanie rozwiązań w środowisku produkcyjnym. Budujemy spójny model wykorzystania AI, który wzmacnia przewagę konkurencyjną organizacji.</p>
+                    <div class="diagram-container mb-8">
+                        <img src="Transformacja_cyfrowa%20_white.png" alt="Transformacja cyfrowa – schemat" class="diagram-img diagram-dark w-full rounded">
+                        <img src="Transformacja_cyfrowa.png" alt="Transformacja cyfrowa – schemat" class="diagram-img diagram-light w-full rounded">
+                    </div>
 
                     <div class="accordion-item border-t border-neutral-800">
                         <h4 class="accordion-trigger flex justify-between items-center py-4 text-sm font-bold uppercase tracking-widest cursor-pointer hover:text-white transition-colors text-neutral-300">Opracowanie strategii <span class="accordion-icon text-[#BB2649] text-xl">+</span></h4>
