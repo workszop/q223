@@ -7,247 +7,350 @@
     <title>Rozwiązania AI – Quantica Lab</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Archivo+Black&family=Space+Grotesk:wght@400;500;600;700&family=IBM+Plex+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Archivo+Black&family=Space+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="styles.css">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        body { background-color: #050505; font-family: 'Space Grotesk', sans-serif; }
+        h1, h2, h3, h4, .font-black { font-family: 'Archivo Black', sans-serif; }
+        .nav-dropdown { position: relative; }
+        .nav-dropdown-menu {
+            display: none;
+            position: absolute;
+            top: 100%;
+            left: 0;
+            background: #111;
+            border: 1px solid #222;
+            min-width: 220px;
+            z-index: 100;
+            padding: 8px 0;
+        }
+        .nav-dropdown:hover .nav-dropdown-menu { display: block; }
+        .nav-dropdown-menu a {
+            display: block;
+            padding: 10px 20px;
+            color: #fff;
+            font-size: 11px;
+            font-weight: 700;
+            letter-spacing: 0.1em;
+            text-transform: uppercase;
+            text-decoration: none;
+        }
+        .nav-dropdown-menu a:hover { background: #1a1a1a; }
+        .nav-dropdown-menu hr { border-color: #333; margin: 6px 0; }
+            from { transform: translateX(0); }
+            to { transform: translateX(-50%); }
+        }
+        .accordion-body { display: none; }
+        .accordion-item.open .accordion-body { display: block; }
+        .accordion-item.open .accordion-icon { transform: rotate(45deg); }
+        .accordion-icon { display: inline-block; transition: transform 0.2s; }
+        ul.styled-list { list-style: none; padding: 0; margin: 0; }
+        ul.styled-list li {
+            padding-left: 1.2em;
+            position: relative;
+            margin-bottom: 0.5em;
+            color: #d4d4d4;
+            font-size: 0.95rem;
+            line-height: 1.6;
+        }
+        ul.styled-list li::before { content: '–'; position: absolute; left: 0; color: #BB2649; }
+        ul.styled-list li strong { color: #fff; }
+        .intro-list { list-style: none; padding: 0; margin: 0.75rem 0 1.5rem 0; }
+        .intro-list li {
+            padding-left: 1.2em;
+            position: relative;
+            margin-bottom: 0.3em;
+            color: #a3a3a3;
+            font-size: 0.9rem;
+            line-height: 1.6;
+        }
+        .intro-list li::before { content: '·'; position: absolute; left: 0; color: #BB2649; font-size: 1.2em; line-height: 1.2; }
+    </style>
 </head>
-<body>
-    <!-- Interactive Grid Background -->
-    <div class="grid-bg" aria-hidden="true"></div>
-    <div class="grid-glow" id="gridGlow" aria-hidden="true"></div>
-    <!-- Header -->
-    <header>
-        <nav>
-            <a href="index.html" class="logo">
-                <img src="Quantica_logo_color.png" alt="Quantica Lab">
-            </a>
-            <button class="menu-toggle" aria-label="Menu">
-                <span></span><span></span><span></span>
-            </button>
-            <ul class="nav-links">
-                <li class="dropdown">
-                    <span class="dropdown-toggle">Oferta</span>
-                    <div class="dropdown-menu">
-                        <a href="doradztwo.html">Doradztwo i strategia</a>
-                        <a href="wdrozenia.html">Rozwiązania AI</a>
-                        <a href="szkolenia.html">Szkolenia AI</a>
-                        <hr>
-                        <a href="warsztat.html">Start z AI</a>
-                    </div>
-                </li>
-                <li><a href="o-nas.html">O nas</a></li>
-                <li><a href="blog.html">Blog</a></li>
-                <li><a href="index.html#contact" class="cta-button">Kontakt</a></li>
+<body class="bg-[#050505] text-neutral-100">
+
+    <!-- Nav -->
+    <nav class="fixed top-0 left-0 w-full px-6 md:px-16 py-5 flex justify-between items-center z-50 mix-blend-difference">
+        <a href="index.html" class="text-white font-black text-xl tracking-widest uppercase" style="font-family:'Archivo Black',sans-serif;">Quantica<span class="text-white">.</span></a>
+        <button class="menu-toggle md:hidden" aria-label="Menu"><span></span><span></span><span></span></button>
+        <ul class="nav-links hidden md:flex gap-8 text-xs font-bold tracking-widest uppercase text-white items-center">
+            <li class="dropdown nav-dropdown">
+                <span class="dropdown-toggle cursor-pointer hover:line-through transition-all">Oferta</span>
+                <div class="dropdown-menu nav-dropdown-menu">
+                    <a href="doradztwo.html">Doradztwo i strategia</a>
+                    <a href="wdrozenia.html">Rozwiązania AI</a>
+                    <a href="szkolenia.html">Szkolenia AI</a>
+                    <hr>
+                    <a href="warsztat.html">Start z AI</a>
+                </div>
+            </li>
+            <li><a href="o-nas.html" class="hover:line-through transition-all">O nas</a></li>
+            <li><a href="blog.html" class="hover:line-through transition-all">Blog</a></li>
+            <li><a href="index.html#contact" class="border border-white px-4 py-2 hover:bg-white hover:text-black transition-colors">Kontakt</a></li>
+        </ul>
+    </nav>
+
+    <!-- Hero -->
+    <section class="min-h-[70vh] bg-[#050505] text-neutral-100 flex flex-col justify-end pb-16 px-6 md:px-20 relative overflow-hidden">
+        <div aria-hidden="true" class="absolute font-black text-white pointer-events-none select-none" style="font-family:'Archivo Black',sans-serif; font-size:clamp(15rem,45vw,60rem); opacity:0.04; top:50%; left:50%; transform:translate(-50%,-50%); line-height:1;">Build</div>
+        <div class="relative z-10">
+            <div class="inline-block border border-neutral-700 text-xs font-bold tracking-widest uppercase px-4 py-2 mb-8 text-neutral-400">Rozwiązania AI</div>
+            <h1 class="font-black tracking-tighter leading-none uppercase mb-8" style="font-family:'Archivo Black',sans-serif; font-size:clamp(4rem,12vw,14rem);">
+                Rozwiązania<br><span style="color:#BB2649">AI</span><span style="color:#BB2649">.</span>
+            </h1>
+            <p class="text-lg md:text-xl text-neutral-400 max-w-2xl font-medium leading-relaxed">
+                Koncentrujemy się na rozwiązaniach dostosowanych do specyfiki branży i potrzeb operacyjnych. Nie obiecujemy rewolucji – dostarczamy konkretne narzędzia, które rozwiązują realne problemy biznesowe.
+            </p>
+        </div>
+    </section>
+
+    <!-- Solutions Section -->
+    <section class="py-32 px-6 md:px-20 bg-[#050505]">
+        <h2 class="font-black tracking-tighter uppercase mb-16 leading-none" style="font-family:'Archivo Black',sans-serif; font-size:clamp(2rem,6vw,6rem);">
+            Nasze rozwiązania<span style="color:#BB2649">.</span>
+        </h2>
+
+        <!-- RAG Systems -->
+        <div class="mb-16 border-t border-neutral-800 pt-16">
+            <h4 class="font-black tracking-tighter uppercase mb-6" style="font-family:'Archivo Black',sans-serif; font-size:clamp(1.8rem,3vw,3rem);">Systemy RAG<span style="color:#BB2649">.</span></h4>
+            <p class="text-neutral-400 text-base md:text-lg mb-4 max-w-3xl leading-relaxed">
+                <span class="text-neutral-200 font-semibold">Dla kogo:</span> organizacje posiadające rozbudowane zasoby wiedzy – dokumentację, procedury, regulaminy, akty prawne, FAQ czy archiwa spraw.
+            </p>
+            <p class="text-neutral-500 text-sm mb-3">Rozwiązanie szczególnie efektywne w:</p>
+            <ul class="intro-list mb-8 max-w-2xl">
+                <li>dużych przedsiębiorstwach pracujących na dokumentach,</li>
+                <li>administracji publicznej obsługującej zapytania mieszkańców,</li>
+                <li>instytucjach działających w środowisku wysokich wymogów regulacyjnych,</li>
+                <li>jednostkach pełniących funkcję brokerów informacji.</li>
             </ul>
-        </nav>
-    </header>
 
-    <!-- Hero Section -->
-    <section class="hero">
-        <div class="watermark" aria-hidden="true">Build</div>
-        <div class="glow-blob glow-blob--1" aria-hidden="true"></div>
-        <div class="glow-blob glow-blob--2" aria-hidden="true"></div>
-        <div class="container">
-            <div class="hero-badge">Rozwiązania AI</div>
-            <h1>Rozwiązania <span>AI</span></h1>
-            <p>Koncentrujemy się na rozwiązaniach dostosowanych do specyfiki branży i potrzeb operacyjnych. Nie obiecujemy rewolucji – dostarczamy konkretne narzędzia, które rozwiązują realne problemy biznesowe.</p>
+            <div class="accordion-item border border-neutral-800 mb-2">
+                <h5 class="accordion-trigger flex justify-between items-center p-6 cursor-pointer hover:bg-neutral-900 transition-colors text-sm font-bold uppercase tracking-widest">
+                    Korzyści <span class="accordion-icon text-2xl font-light">+</span>
+                </h5>
+                <div class="accordion-body px-6 pb-6">
+                    <ul class="styled-list">
+                        <li>Natychmiastowy, kontekstowy dostęp do wiedzy organizacji</li>
+                        <li>Precyzyjne odpowiedzi oparte wyłącznie na zweryfikowanych źródłach</li>
+                        <li>Szybsze wdrażanie nowych pracowników</li>
+                        <li>Odciążenie działów wsparcia i obsługi</li>
+                        <li>Zwiększenie spójności oraz jakości udzielanych odpowiedzi</li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="accordion-item border border-neutral-800 mb-2">
+                <h5 class="accordion-trigger flex justify-between items-center p-6 cursor-pointer hover:bg-neutral-900 transition-colors text-sm font-bold uppercase tracking-widest">
+                    Przykłady zastosowań <span class="accordion-icon text-2xl font-light">+</span>
+                </h5>
+                <div class="accordion-body px-6 pb-6">
+                    <ul class="styled-list">
+                        <li><strong>Asystent wiedzy produktowej</strong> – dla zespołów sprzedaży i obsługi klienta</li>
+                        <li><strong>Wewnętrzny asystent organizacyjny</strong> – szybki dostęp do procedur, polityk i dokumentacji</li>
+                        <li><strong>Chatbot dla mieszkańców/obywateli</strong> – odpowiedzi na pytania dotyczące usług publicznych, procedur i formalności</li>
+                        <li><strong>Asystent ds. regulacyjnych i standardów wewnętrznych</strong> – pomoc w nawigacji po przepisach i wytycznych</li>
+                        <li><strong>Narzędzie dla brokerów informacji</strong> – agregowanie i porządkowanie odpowiedzi z wielu źródeł</li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="accordion-item border border-neutral-800 mb-2">
+                <h5 class="accordion-trigger flex justify-between items-center p-6 cursor-pointer hover:bg-neutral-900 transition-colors text-sm font-bold uppercase tracking-widest">
+                    Proces realizacji <span class="accordion-icon text-2xl font-light">+</span>
+                </h5>
+                <div class="accordion-body px-6 pb-6">
+                    <p class="text-neutral-400 text-sm leading-relaxed">Typowy czas wdrożenia wynosi od 3 do 9 miesięcy, w zależności od złożoności procesów, jakości i dostępności danych, zakresu integracji oraz poziomu gotowości organizacji. W organizacjach o rozbudowanych i silnie powiązanych strukturach informacji wdrażamy także rozwiązania oparte na RAG-u grafowym, które umożliwiają analizę relacji między dokumentami, procesami i decyzjami oraz uwzględnianie kontekstu organizacyjnego w generowanych odpowiedziach.</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- Process Automation -->
+        <div class="mb-16 border-t border-neutral-800 pt-16">
+            <h4 class="font-black tracking-tighter uppercase mb-6" style="font-family:'Archivo Black',sans-serif; font-size:clamp(1.8rem,3vw,3rem);">Automatyzacja procesów<span style="color:#BB2649">.</span></h4>
+            <p class="text-neutral-400 text-base md:text-lg mb-8 max-w-3xl leading-relaxed">
+                <span class="text-neutral-200 font-semibold">Dla kogo:</span> organizacje realizujące powtarzalne procesy oparte na analizie dokumentów, komunikacji i pracy z wiedzą, w szczególności działy operacyjne, HR, obsługi klienta, finansów oraz jednostki administracyjne.
+            </p>
+
+            <div class="accordion-item border border-neutral-800 mb-2">
+                <h5 class="accordion-trigger flex justify-between items-center p-6 cursor-pointer hover:bg-neutral-900 transition-colors text-sm font-bold uppercase tracking-widest">
+                    Korzyści <span class="accordion-icon text-2xl font-light">+</span>
+                </h5>
+                <div class="accordion-body px-6 pb-6">
+                    <ul class="styled-list">
+                        <li>Ograniczenie pracy manualnej w procesach opartych na dokumentach i komunikacji</li>
+                        <li>Przyspieszenie obsługi spraw i skrócenie czasu reakcji</li>
+                        <li>Zwiększenie spójności decyzji i komunikacji</li>
+                        <li>Lepszą kontrolę nad przepływem informacji między działami</li>
+                        <li>Możliwość skalowania procesów bez proporcjonalnego wzrostu zatrudnienia</li>
+                    </ul>
+                    <p class="text-neutral-400 text-sm leading-relaxed mt-4">Tworzymy również rozwiązania agentowe – systemy AI, które nie tylko analizują dane, ale wykonują określone działania, współpracując z użytkownikami i innymi systemami.</p>
+                </div>
+            </div>
+
+            <div class="accordion-item border border-neutral-800 mb-2">
+                <h5 class="accordion-trigger flex justify-between items-center p-6 cursor-pointer hover:bg-neutral-900 transition-colors text-sm font-bold uppercase tracking-widest">
+                    Przykłady zastosowań <span class="accordion-icon text-2xl font-light">+</span>
+                </h5>
+                <div class="accordion-body px-6 pb-6">
+                    <ul class="styled-list">
+                        <li><strong>Przetwarzanie i walidacja dokumentów</strong> – ekstrakcja danych z faktur, umów, CV, wniosków i dokumentacji wraz z kontrolą kompletności, spójności oraz zgodności formalnej przed dalszym przetwarzaniem</li>
+                        <li><strong>Automatyzacja obsługi wniosków i spraw</strong> – wstępna analiza dokumentów, przypisanie do właściwej ścieżki procesowej oraz przekazanie do odpowiednich jednostek</li>
+                        <li><strong>Obsługa korespondencji e-mail</strong> – analiza treści wiadomości, tworzenie sugerowanych odpowiedzi oraz przekierowywanie bardziej złożonych spraw do właściwych działów</li>
+                        <li><strong>Agentowe wsparcie procesów operacyjnych</strong> – analiza spraw, przygotowanie rekomendacji działań oraz inicjowanie kolejnych kroków zgodnie z przyjętym modelem operacyjnym</li>
+                        <li><strong>Analiza zgodności i kontrola regulacyjna</strong> – weryfikacja dokumentów pod kątem zgodności z przepisami, standardami oraz politykami wewnętrznymi</li>
+                        <li><strong>Automatyczne tworzenie dokumentacji operacyjnej</strong> – generowanie podsumowań, notatek i aktualizacja dokumentacji na podstawie realizowanych działań</li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="accordion-item border border-neutral-800 mb-2">
+                <h5 class="accordion-trigger flex justify-between items-center p-6 cursor-pointer hover:bg-neutral-900 transition-colors text-sm font-bold uppercase tracking-widest">
+                    Proces realizacji <span class="accordion-icon text-2xl font-light">+</span>
+                </h5>
+                <div class="accordion-body px-6 pb-6">
+                    <p class="text-neutral-400 text-sm leading-relaxed">Czas wdrożenia wynosi zazwyczaj od 3 do 12 miesięcy – w zależności od skali organizacji, liczby procesów objętych automatyzacją, stopnia integracji z systemami wewnętrznymi oraz wymagań regulacyjnych i bezpieczeństwa. Pracujemy w modelu umożliwiającym stopniowe uruchamianie kolejnych obszarów, tak aby organizacja mogła osiągać efekty operacyjne już w trakcie realizacji projektu.</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- LLM Fine-tuning -->
+        <div class="mb-16 border-t border-neutral-800 pt-16">
+            <h4 class="font-black tracking-tighter uppercase mb-6" style="font-family:'Archivo Black',sans-serif; font-size:clamp(1.8rem,3vw,3rem);">Dostrajanie modeli językowych<span style="color:#BB2649">.</span></h4>
+            <p class="text-neutral-400 text-base md:text-lg mb-8 max-w-3xl leading-relaxed">
+                <span class="text-neutral-200 font-semibold">Dla kogo:</span> organizacje, które chcą wykorzystać modele językowe w procesach operacyjnych wymagających wysokiej precyzji, spójności terminologicznej oraz dopasowania do specyfiki branży i wymogów regulacyjnych, a jednocześnie zwiększyć skuteczność systemów AI w realizacji konkretnych zadań.
+            </p>
+
+            <div class="accordion-item border border-neutral-800 mb-2">
+                <h5 class="accordion-trigger flex justify-between items-center p-6 cursor-pointer hover:bg-neutral-900 transition-colors text-sm font-bold uppercase tracking-widest">
+                    Korzyści <span class="accordion-icon text-2xl font-light">+</span>
+                </h5>
+                <div class="accordion-body px-6 pb-6">
+                    <ul class="styled-list">
+                        <li>Lepsze dopasowanie odpowiedzi do specyfiki organizacji</li>
+                        <li>Spójność terminologii i stylu komunikacji</li>
+                        <li>Wyższa trafność w zadaniach specjalistycznych</li>
+                        <li>Możliwość dostosowania modelu do określonych ról i procesów</li>
+                        <li>Większa kontrola nad sposobem działania systemu</li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="accordion-item border border-neutral-800 mb-2">
+                <h5 class="accordion-trigger flex justify-between items-center p-6 cursor-pointer hover:bg-neutral-900 transition-colors text-sm font-bold uppercase tracking-widest">
+                    Przykłady zastosowań <span class="accordion-icon text-2xl font-light">+</span>
+                </h5>
+                <div class="accordion-body px-6 pb-6">
+                    <ul class="styled-list">
+                        <li><strong>Specjalistyczna klasyfikacja dokumentów</strong> – dostosowanie modelu do rozróżniania kategorii właściwych dla danej organizacji (np. typy spraw, kategorie wniosków, klasy dokumentów branżowych)</li>
+                        <li><strong>Generowanie odpowiedzi w określonym stylu i tonie</strong> – spójna komunikacja zgodna z przyjętymi standardami językowymi i regulacyjnymi, np. zgodnie z zasadami prostego języka</li>
+                        <li><strong>Analiza dokumentów branżowych</strong> – interpretacja umów, regulaminów, specyfikacji technicznych lub aktów prawnych z uwzględnieniem terminologii charakterystycznej dla danej domeny</li>
+                        <li><strong>Wsparcie procesów regulacyjnych i kontrolnych</strong> – identyfikacja zapisów wymagających weryfikacji oraz wskazywanie potencjalnych niespójności</li>
+                        <li><strong>Modele dostosowane do potrzeb konkretnych grup użytkowników</strong> – np. asystent prawnika, analityka, rekrutera lub pracownika obsługi klienta, dopasowany do specyfiki pracy i danych organizacji</li>
+                        <li><strong>Adaptacja do języka wewnętrznego organizacji</strong> – uwzględnienie specyficznych skrótów, nazw własnych, struktur dokumentów i praktyk komunikacyjnych</li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="accordion-item border border-neutral-800 mb-2">
+                <h5 class="accordion-trigger flex justify-between items-center p-6 cursor-pointer hover:bg-neutral-900 transition-colors text-sm font-bold uppercase tracking-widest">
+                    Proces realizacji <span class="accordion-icon text-2xl font-light">+</span>
+                </h5>
+                <div class="accordion-body px-6 pb-6">
+                    <p class="text-neutral-400 text-sm leading-relaxed">Czas realizacji projektu wynosi zazwyczaj od 6 do 12 miesięcy i jest uzależniony od zakresu adaptacji, jakości oraz dostępności danych, a także poziomu współpracy przy ich opracowaniu i walidacji. W bardziej zaawansowanych scenariuszach realizujemy również adaptację językową modelu, tj. kontynuację pretreningu (Continued Pre-Training). Dzięki temu model lepiej rozumie terminologię branżową i kontekst dokumentów oraz generuje treści zgodne ze standardami danej domeny.</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- Data Architecture -->
+        <div class="mb-16 border-t border-neutral-800 pt-16">
+            <h4 class="font-black tracking-tighter uppercase mb-6" style="font-family:'Archivo Black',sans-serif; font-size:clamp(1.8rem,3vw,3rem);">Architektura i analityka danych<span style="color:#BB2649">.</span></h4>
+            <p class="text-neutral-400 text-base md:text-lg mb-8 max-w-3xl leading-relaxed">
+                <span class="text-neutral-200 font-semibold">Dla kogo:</span> organizacje posiadające rozproszone duże zbiory danych (w tym danych archiwalnych), które chcą wdrożyć kompleksowe rozwiązania umożliwiające ich efektywne wykorzystanie w procesach decyzyjnych i analitycznych. Rozwiązanie szczególnie przydatne w środowiskach, gdzie kluczowe znaczenie ma optymalizacja kosztów, planowanie popytu, zarządzanie ryzykiem lub personalizacja oferty.
+            </p>
+
+            <div class="accordion-item border border-neutral-800 mb-2">
+                <h5 class="accordion-trigger flex justify-between items-center p-6 cursor-pointer hover:bg-neutral-900 transition-colors text-sm font-bold uppercase tracking-widest">
+                    Korzyści <span class="accordion-icon text-2xl font-light">+</span>
+                </h5>
+                <div class="accordion-body px-6 pb-6">
+                    <ul class="styled-list">
+                        <li>Eliminacja silosów danych dzięki produktom zorientowanym domenowo</li>
+                        <li>Umożliwienie reakcji biznesowej w czasie rzeczywistym od edge do chmury</li>
+                        <li>Redukcja kosztów infrastruktury dzięki inteligentnej automatyzacji</li>
+                        <li>Zapewnienie zgodności regulacyjnej dzięki federacyjnemu zarządzaniu</li>
+                        <li>Wsparcie dla AI i uczenia maszynowego dzięki inteligencji kontekstowej</li>
+                        <li>Adaptacja do zmieniających się wymagań biznesowych dzięki architekturze kompozycyjnej</li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="accordion-item border border-neutral-800 mb-2">
+                <h5 class="accordion-trigger flex justify-between items-center p-6 cursor-pointer hover:bg-neutral-900 transition-colors text-sm font-bold uppercase tracking-widest">
+                    Przykłady zastosowań <span class="accordion-icon text-2xl font-light">+</span>
+                </h5>
+                <div class="accordion-body px-6 pb-6">
+                    <ul class="styled-list">
+                        <li><strong>Wsparcie procesów planistycznych i sprzedażowych</strong> – przewidywanie sprzedaży, popytu, obciążenia systemów, zapotrzebowania na zasoby, wycena zmian i adaptacji</li>
+                        <li><strong>Wykrywanie anomalii</strong> – identyfikacja nietypowych wzorców, nadużyć i potencjalnych nieprawidłowości</li>
+                        <li><strong>Systemy danych</strong> – przygotowanie danych do wykorzystania przez aplikacje i agenty AI</li>
+                        <li><strong>Zarządzanie danymi</strong> – kompleksowa architektura oraz model operacyjny danych, procesy przygotowania i uzdatniania danych, model metadanych, zaawansowana analityka (AI powered), data science i data as a product</li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="accordion-item border border-neutral-800 mb-2">
+                <h5 class="accordion-trigger flex justify-between items-center p-6 cursor-pointer hover:bg-neutral-900 transition-colors text-sm font-bold uppercase tracking-widest">
+                    Proces realizacji <span class="accordion-icon text-2xl font-light">+</span>
+                </h5>
+                <div class="accordion-body px-6 pb-6">
+                    <p class="text-neutral-400 text-sm leading-relaxed">Czas realizacji projektu wynosi zazwyczaj od 3 do 9 miesięcy i zależy od dojrzałości procesu zarządzania danymi oraz charakterystyce i skomplikowaniu docelowego modelu operacyjnego i stosu technologicznego, a także stopnia integracji z istniejącą architekturą systemową. W zależności od potrzeb projekt może obejmować również budowę warstwy analitycznej opartej na zapytaniach w języku naturalnym, umożliwiającej użytkownikom biznesowym pracę z danymi i wynikami modeli bez konieczności programowania.</p>
+                </div>
+            </div>
         </div>
     </section>
 
-    <!-- Solutions -->
-    <section class="services">
-        <div class="container">
-
-            <!-- RAG Systems -->
-            <div class="service-detail">
-                <h4>Systemy RAG (Retrieval-Augmented Generation)</h4>
-                <p><strong>Dla kogo:</strong> organizacje posiadające rozbudowane zasoby wiedzy – dokumentację, procedury, regulaminy, akty prawne, FAQ czy archiwa spraw.</p>
-                <p>Rozwiązanie szczególnie efektywne w:</p>
-                <ul>
-                    <li>dużych przedsiębiorstwach pracujących na dokumentach,</li>
-                    <li>administracji publicznej obsługującej zapytania mieszkańców,</li>
-                    <li>instytucjach działających w środowisku wysokich wymogów regulacyjnych,</li>
-                    <li>jednostkach pełniących funkcję brokerów informacji.</li>
-                </ul>
-
-                <div class="accordion-item">
-                    <h5 class="accordion-trigger">Korzyści <span class="accordion-icon">+</span></h5>
-                    <div class="accordion-body">
-                        <ul>
-                            <li>Natychmiastowy, kontekstowy dostęp do wiedzy organizacji</li>
-                            <li>Precyzyjne odpowiedzi oparte wyłącznie na zweryfikowanych źródłach</li>
-                            <li>Szybsze wdrażanie nowych pracowników</li>
-                            <li>Odciążenie działów wsparcia i obsługi</li>
-                            <li>Zwiększenie spójności oraz jakości udzielanych odpowiedzi</li>
-                        </ul>
-                    </div>
-                </div>
-
-                <div class="accordion-item">
-                    <h5 class="accordion-trigger">Przykłady zastosowań <span class="accordion-icon">+</span></h5>
-                    <div class="accordion-body">
-                        <ul>
-                            <li><strong>Asystent wiedzy produktowej</strong> – dla zespołów sprzedaży i obsługi klienta</li>
-                            <li><strong>Wewnętrzny asystent organizacyjny</strong> – szybki dostęp do procedur, polityk i dokumentacji</li>
-                            <li><strong>Chatbot dla mieszkańców/obywateli</strong> – odpowiedzi na pytania dotyczące usług publicznych, procedur i formalności</li>
-                            <li><strong>Asystent ds. regulacyjnych i standardów wewnętrznych</strong> – pomoc w nawigacji po przepisach i wytycznych</li>
-                            <li><strong>Narzędzie dla brokerów informacji</strong> – agregowanie i porządkowanie odpowiedzi z wielu źródeł</li>
-                        </ul>
-                    </div>
-                </div>
-
-                <div class="accordion-item">
-                    <h5 class="accordion-trigger">Proces realizacji <span class="accordion-icon">+</span></h5>
-                    <div class="accordion-body">
-                        <p>Typowy czas wdrożenia wynosi od 3 do 9 miesięcy, w zależności od złożoności procesów, jakości i dostępności danych, zakresu integracji oraz poziomu gotowości organizacji. W organizacjach o rozbudowanych i silnie powiązanych strukturach informacji wdrażamy także rozwiązania oparte na RAG-u grafowym, które umożliwiają analizę relacji między dokumentami, procesami i decyzjami oraz uwzględnianie kontekstu organizacyjnego w generowanych odpowiedziach.</p>
-                    </div>
-                </div>
-            </div>
-
-            <!-- Process Automation -->
-            <div class="service-detail">
-                <h4>Automatyzacja procesów z wykorzystaniem AI</h4>
-                <p><strong>Dla kogo:</strong> organizacje realizujące powtarzalne procesy oparte na analizie dokumentów, komunikacji i pracy z wiedzą, w szczególności działy operacyjne, HR, obsługi klienta, finansów oraz jednostki administracyjne.</p>
-
-                <div class="accordion-item">
-                    <h5 class="accordion-trigger">Korzyści <span class="accordion-icon">+</span></h5>
-                    <div class="accordion-body">
-                        <ul>
-                            <li>Ograniczenie pracy manualnej w procesach opartych na dokumentach i komunikacji</li>
-                            <li>Przyspieszenie obsługi spraw i skrócenie czasu reakcji</li>
-                            <li>Zwiększenie spójności decyzji i komunikacji</li>
-                            <li>Lepszą kontrolę nad przepływem informacji między działami</li>
-                            <li>Możliwość skalowania procesów bez proporcjonalnego wzrostu zatrudnienia</li>
-                        </ul>
-                        <p>Tworzymy również rozwiązania agentowe – systemy AI, które nie tylko analizują dane, ale wykonują określone działania, współpracując z użytkownikami i innymi systemami.</p>
-                    </div>
-                </div>
-
-                <div class="accordion-item">
-                    <h5 class="accordion-trigger">Przykłady zastosowań <span class="accordion-icon">+</span></h5>
-                    <div class="accordion-body">
-                        <ul>
-                            <li><strong>Przetwarzanie i walidacja dokumentów</strong> – ekstrakcja danych z faktur, umów, CV, wniosków i dokumentacji wraz z kontrolą kompletności, spójności oraz zgodności formalnej przed dalszym przetwarzaniem</li>
-                            <li><strong>Automatyzacja obsługi wniosków i spraw</strong> – wstępna analiza dokumentów, przypisanie do właściwej ścieżki procesowej oraz przekazanie do odpowiednich jednostek</li>
-                            <li><strong>Obsługa korespondencji e-mail</strong> – analiza treści wiadomości, tworzenie sugerowanych odpowiedzi oraz przekierowywanie bardziej złożonych spraw do właściwych działów</li>
-                            <li><strong>Agentowe wsparcie procesów operacyjnych</strong> – analiza spraw, przygotowanie rekomendacji działań oraz inicjowanie kolejnych kroków zgodnie z przyjętym modelem operacyjnym</li>
-                            <li><strong>Analiza zgodności i kontrola regulacyjna</strong> – weryfikacja dokumentów pod kątem zgodności z przepisami, standardami oraz politykami wewnętrznymi</li>
-                            <li><strong>Automatyczne tworzenie dokumentacji operacyjnej</strong> – generowanie podsumowań, notatek i aktualizacja dokumentacji na podstawie realizowanych działań</li>
-                        </ul>
-                    </div>
-                </div>
-
-                <div class="accordion-item">
-                    <h5 class="accordion-trigger">Proces realizacji <span class="accordion-icon">+</span></h5>
-                    <div class="accordion-body">
-                        <p>Czas wdrożenia wynosi zazwyczaj od 3 do 12 miesięcy – w zależności od skali organizacji, liczby procesów objętych automatyzacją, stopnia integracji z systemami wewnętrznymi oraz wymagań regulacyjnych i bezpieczeństwa. Pracujemy w modelu umożliwiającym stopniowe uruchamianie kolejnych obszarów, tak aby organizacja mogła osiągać efekty operacyjne już w trakcie realizacji projektu.</p>
-                    </div>
-                </div>
-            </div>
-
-            <!-- LLM Fine-tuning -->
-            <div class="service-detail">
-                <h4>Dostrajanie modeli językowych</h4>
-                <p><strong>Dla kogo:</strong> organizacje, które chcą wykorzystać modele językowe w procesach operacyjnych wymagających wysokiej precyzji, spójności terminologicznej oraz dopasowania do specyfiki branży i wymogów regulacyjnych, a jednocześnie zwiększyć skuteczność systemów AI w realizacji konkretnych zadań.</p>
-
-                <div class="accordion-item">
-                    <h5 class="accordion-trigger">Korzyści <span class="accordion-icon">+</span></h5>
-                    <div class="accordion-body">
-                        <ul>
-                            <li>Lepsze dopasowanie odpowiedzi do specyfiki organizacji</li>
-                            <li>Spójność terminologii i stylu komunikacji</li>
-                            <li>Wyższa trafność w zadaniach specjalistycznych</li>
-                            <li>Możliwość dostosowania modelu do określonych ról i procesów</li>
-                            <li>Większa kontrola nad sposobem działania systemu</li>
-                        </ul>
-                    </div>
-                </div>
-
-                <div class="accordion-item">
-                    <h5 class="accordion-trigger">Przykłady zastosowań <span class="accordion-icon">+</span></h5>
-                    <div class="accordion-body">
-                        <ul>
-                            <li><strong>Specjalistyczna klasyfikacja dokumentów</strong> – dostosowanie modelu do rozróżniania kategorii właściwych dla danej organizacji (np. typy spraw, kategorie wniosków, klasy dokumentów branżowych)</li>
-                            <li><strong>Generowanie odpowiedzi w określonym stylu i tonie</strong> – spójna komunikacja zgodna z przyjętymi standardami językowymi i regulacyjnymi, np. zgodnie z zasadami prostego języka</li>
-                            <li><strong>Analiza dokumentów branżowych</strong> – interpretacja umów, regulaminów, specyfikacji technicznych lub aktów prawnych z uwzględnieniem terminologii charakterystycznej dla danej domeny</li>
-                            <li><strong>Wsparcie procesów regulacyjnych i kontrolnych</strong> – identyfikacja zapisów wymagających weryfikacji oraz wskazywanie potencjalnych niespójności</li>
-                            <li><strong>Modele dostosowane do potrzeb konkretnych grup użytkowników</strong> – np. asystent prawnika, analityka, rekrutera lub pracownika obsługi klienta, dopasowany do specyfiki pracy i danych organizacji</li>
-                            <li><strong>Adaptacja do języka wewnętrznego organizacji</strong> – uwzględnienie specyficznych skrótów, nazw własnych, struktur dokumentów i praktyk komunikacyjnych</li>
-                        </ul>
-                    </div>
-                </div>
-
-                <div class="accordion-item">
-                    <h5 class="accordion-trigger">Proces realizacji <span class="accordion-icon">+</span></h5>
-                    <div class="accordion-body">
-                        <p>Czas realizacji projektu wynosi zazwyczaj od 6 do 12 miesięcy i jest uzależniony od zakresu adaptacji, jakości oraz dostępności danych, a także poziomu współpracy przy ich opracowaniu i walidacji. W bardziej zaawansowanych scenariuszach realizujemy również adaptację językową modelu, tj. kontynuację pretreningu (Continued Pre-Training). Dzięki temu model lepiej rozumie terminologię branżową i kontekst dokumentów oraz generuje treści zgodne ze standardami danej domeny.</p>
-                    </div>
-                </div>
-            </div>
-
-            <!-- Data Architecture & Analytics -->
-            <div class="service-detail">
-                <h4>Architektura i analityka danych</h4>
-                <p><strong>Dla kogo:</strong> organizacje posiadające rozproszone duże zbiory danych (w tym danych archiwalnych), które chcą wdrożyć kompleksowe rozwiązania umożliwiające ich efektywne wykorzystanie w procesach decyzyjnych i analitycznych. Rozwiązanie szczególnie przydatne w środowiskach, gdzie kluczowe znaczenie ma optymalizacja kosztów, planowanie popytu, zarządzanie ryzykiem lub personalizacja oferty.</p>
-
-                <div class="accordion-item">
-                    <h5 class="accordion-trigger">Korzyści <span class="accordion-icon">+</span></h5>
-                    <div class="accordion-body">
-                        <ul>
-                            <li>Eliminacja silosów danych dzięki produktom zorientowanym domenowo</li>
-                            <li>Umożliwienie reakcji biznesowej w czasie rzeczywistym od edge do chmury</li>
-                            <li>Redukcja kosztów infrastruktury dzięki inteligentnej automatyzacji</li>
-                            <li>Zapewnienie zgodności regulacyjnej dzięki federacyjnemu zarządzaniu</li>
-                            <li>Wsparcie dla AI i uczenia maszynowego dzięki inteligencji kontekstowej</li>
-                            <li>Adaptacja do zmieniających się wymagań biznesowych dzięki architekturze kompozycyjnej</li>
-                        </ul>
-                    </div>
-                </div>
-
-                <div class="accordion-item">
-                    <h5 class="accordion-trigger">Przykłady zastosowań <span class="accordion-icon">+</span></h5>
-                    <div class="accordion-body">
-                        <ul>
-                            <li><strong>Wsparcie procesów planistycznych i sprzedażowych</strong> – przewidywanie sprzedaży, popytu, obciążenia systemów, zapotrzebowania na zasoby, wycena zmian i adaptacji</li>
-                            <li><strong>Wykrywanie anomalii</strong> – identyfikacja nietypowych wzorców, nadużyć i potencjalnych nieprawidłowości</li>
-                            <li><strong>Systemy danych</strong> – przygotowanie danych do wykorzystania przez aplikacje i agenty AI</li>
-                            <li><strong>Zarządzanie danymi</strong> – kompleksowa architektura oraz model operacyjny danych, procesy przygotowania i uzdatniania danych, model metadanych, zaawansowana analityka (AI powered), data science i data as a product</li>
-                        </ul>
-                    </div>
-                </div>
-
-                <div class="accordion-item">
-                    <h5 class="accordion-trigger">Proces realizacji <span class="accordion-icon">+</span></h5>
-                    <div class="accordion-body">
-                        <p>Czas realizacji projektu wynosi zazwyczaj od 3 do 9 miesięcy i zależy od dojrzałości procesu zarządzania danymi oraz charakterystyce i skomplikowaniu docelowego modelu operacyjnego i stosu technologicznego, a także stopnia integracji z istniejącą architekturą systemową. W zależności od potrzeb projekt może obejmować również budowę warstwy analitycznej opartej na zapytaniach w języku naturalnym, umożliwiającej użytkownikom biznesowym pracę z danymi i wynikami modeli bez konieczności programowania.</p>
-                    </div>
-                </div>
-            </div>
-
-        </div>
-    </section>
 
     <!-- CTA Section -->
-    <section class="cta-section">
-        <div class="container">
-            <h3>Gotowy na wdrożenie AI?</h3>
-            <p>Omówmy Twoje potrzeby i zaprojektujmy rozwiązanie, które rzeczywiście usprawni procesy w Twojej organizacji.</p>
-            <a href="index.html#contact" class="cta-button">Skontaktuj się z nami</a>
-        </div>
+    <section class="py-24 px-6 md:px-20 bg-white text-black">
+        <h2 class="font-black tracking-tighter uppercase mb-6 leading-none" style="font-family:'Archivo Black',sans-serif; font-size:clamp(2rem,6vw,6rem);">
+            Gotowy na<br>wdrożenie AI<span style="color:#BB2649">?</span>
+        </h2>
+        <p class="text-lg font-medium opacity-70 max-w-xl mb-10 leading-relaxed">
+            Omówmy Twoje potrzeby i zaprojektujmy rozwiązanie, które rzeczywiście usprawni procesy w Twojej organizacji.
+        </p>
+        <a href="index.html#contact" class="inline-block text-sm font-black uppercase tracking-widest border-b-4 border-black pb-1 hover:border-[#BB2649] transition-colors" style="font-family:'Archivo Black',sans-serif;">
+            Skontaktuj się z nami
+        </a>
     </section>
 
     <!-- Footer -->
-    <footer id="contact">
-        <div class="container">
-            <div class="footer-mascot">
-                <img src="Quantica_kotek_white.png" alt="Quantica Lab Mascot">
+    <footer id="contact" class="bg-white text-black py-20 px-6 md:px-20 flex flex-col md:flex-row justify-between items-end relative overflow-hidden">
+        <div class="text-[40vw] font-black leading-none absolute -bottom-20 -right-10 opacity-5 pointer-events-none select-none" style="font-family:'Archivo Black',sans-serif;">Q</div>
+        <div class="z-10 mb-10 md:mb-0">
+            <h2 class="font-black tracking-tighter uppercase mb-4" style="font-family:'Archivo Black',sans-serif; font-size:clamp(2.5rem,8vw,6rem);">Quantica<span style="color:#BB2649">.</span></h2>
+            <p class="text-lg font-medium uppercase tracking-widest opacity-60 mb-4">AI dla organizacji.</p>
+            <p class="text-base font-medium opacity-80">kontakt@quanticalab.ai</p>
+        </div>
+        <div class="z-10 flex flex-col items-start md:items-end gap-4">
+            <div class="flex flex-wrap gap-6 text-sm font-bold uppercase tracking-widest">
+                <a href="doradztwo.html" class="hover:underline">Doradztwo</a>
+                <a href="wdrozenia.html" class="hover:underline">Wdrożenia</a>
+                <a href="szkolenia.html" class="hover:underline">Szkolenia</a>
+                <a href="o-nas.html" class="hover:underline">O nas</a>
             </div>
-            <p>&copy; 2025 Quantica Lab sp. z o.o. – AI dla organizacji · <a href="https://workszop.github.io/q223/llms.txt" class="llms-link">llms.txt</a></p>
+            <p class="text-xs opacity-50">© 2025 Quantica Lab sp. z o.o. · <a href="https://workszop.github.io/q223/llms.txt" class="underline">llms.txt</a></p>
         </div>
     </footer>
-    <button class="theme-toggle" id="themeToggle" aria-label="Przełącz motyw">
-        <svg class="icon-sun" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="5"/><line x1="12" y1="1" x2="12" y2="3"/><line x1="12" y1="21" x2="12" y2="23"/><line x1="4.22" y1="4.22" x2="5.64" y2="5.64"/><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"/><line x1="1" y1="12" x2="3" y2="12"/><line x1="21" y1="12" x2="23" y2="12"/><line x1="4.22" y1="19.78" x2="5.64" y2="18.36"/><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"/></svg>
-        <svg class="icon-moon" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg>
-    </button>
+
     <script src="app.js" defer></script>
+    <script>
+        document.querySelectorAll('.accordion-trigger').forEach(trigger => {
+            trigger.addEventListener('click', () => {
+                const item = trigger.closest('.accordion-item');
+                item.classList.toggle('open');
+            });
+        });
+    </script>
 </body>
 </html>

@@ -7,170 +7,250 @@
     <title>Doradztwo i strategia AI – Quantica Lab</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Archivo+Black&family=Space+Grotesk:wght@400;500;600;700&family=IBM+Plex+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Archivo+Black&family=Space+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <script src="https://cdn.tailwindcss.com"></script>
     <link rel="stylesheet" href="styles.css">
+    <style>
+        body { font-family: 'Space Grotesk', sans-serif; background: #050505; }
+        h1, h2, h3, .font-black { font-family: 'Archivo Black', sans-serif; }
+            0% { transform: translateX(0); }
+            100% { transform: translateX(-50%); }
+        }
+        .dropdown-menu {
+            display: none;
+            position: absolute;
+            top: 100%;
+            left: 0;
+            background: #fff;
+            color: #000;
+            padding: 0.5rem 0;
+            min-width: 220px;
+            z-index: 100;
+            box-shadow: 0 4px 24px rgba(0,0,0,0.15);
+        }
+        .dropdown { position: relative; }
+        .dropdown:hover .dropdown-menu { display: block; }
+        .dropdown-menu a {
+            display: block;
+            padding: 0.5rem 1.25rem;
+            font-size: 0.75rem;
+            font-weight: 700;
+            letter-spacing: 0.1em;
+            text-transform: uppercase;
+            color: #000;
+            text-decoration: none;
+        }
+        .dropdown-menu a:hover { background: #BB2649; color: #fff; }
+        .dropdown-menu hr { border-color: #e5e7eb; margin: 0.25rem 0; }
+        .nav-mobile-open { display: flex !important; flex-direction: column; position: fixed; top: 0; left: 0; width: 100%; height: 100vh; background: #050505; justify-content: center; align-items: center; gap: 2rem; z-index: 40; }
+        .step-card:hover ul { color: #fff; }
+    </style>
 </head>
-<body>
-    <!-- Interactive Grid Background -->
-    <div class="grid-bg" aria-hidden="true"></div>
-    <div class="grid-glow" id="gridGlow" aria-hidden="true"></div>
-    <!-- Header -->
-    <header>
-        <nav>
-            <a href="index.html" class="logo">
-                <img src="Quantica_logo_color.png" alt="Quantica Lab">
-            </a>
-            <button class="menu-toggle" aria-label="Menu">
-                <span></span><span></span><span></span>
-            </button>
-            <ul class="nav-links">
-                <li class="dropdown">
-                    <span class="dropdown-toggle">Oferta</span>
-                    <div class="dropdown-menu">
-                        <a href="doradztwo.html">Doradztwo i strategia</a>
-                        <a href="wdrozenia.html">Rozwiązania AI</a>
-                        <a href="szkolenia.html">Szkolenia AI</a>
-                        <hr>
-                        <a href="warsztat.html">Start z AI</a>
-                    </div>
+<body class="bg-[#050505] text-neutral-100 overflow-x-hidden">
+
+    <!-- NAV -->
+    <nav class="fixed top-0 left-0 w-full px-6 md:px-16 py-5 flex justify-between items-center z-50 mix-blend-difference">
+        <a href="index.html" class="text-white font-black text-xl tracking-widest uppercase" style="font-family:'Archivo Black',sans-serif;">Quantica<span class="text-white">.</span></a>
+        <button class="menu-toggle md:hidden text-white" aria-label="Menu" id="menuToggle">
+            <span class="block w-6 h-0.5 bg-white mb-1"></span>
+            <span class="block w-6 h-0.5 bg-white mb-1"></span>
+            <span class="block w-6 h-0.5 bg-white"></span>
+        </button>
+        <ul class="nav-links hidden md:flex gap-8 text-xs font-bold tracking-widest uppercase text-white items-center" id="navLinks">
+            <li class="dropdown">
+                <span class="dropdown-toggle cursor-pointer hover:line-through transition-all">Oferta</span>
+                <div class="dropdown-menu">
+                    <a href="doradztwo.html">Doradztwo i strategia</a>
+                    <a href="wdrozenia.html">Rozwiązania AI</a>
+                    <a href="szkolenia.html">Szkolenia AI</a>
+                    <hr>
+                    <a href="warsztat.html">Start z AI</a>
+                </div>
+            </li>
+            <li><a href="o-nas.html" class="hover:line-through transition-all">O nas</a></li>
+            <li><a href="blog.html" class="hover:line-through transition-all">Blog</a></li>
+            <li><a href="index.html#contact" class="border border-white px-4 py-2 hover:bg-white hover:text-black transition-colors">Kontakt</a></li>
+        </ul>
+    </nav>
+
+    <!-- HERO -->
+    <section class="min-h-[70vh] bg-[#050505] text-neutral-100 flex flex-col justify-end pb-16 px-6 md:px-20 relative overflow-hidden">
+        <!-- Watermark -->
+        <div aria-hidden="true" class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 font-black leading-none opacity-[0.04] pointer-events-none select-none whitespace-nowrap" style="font-family:'Archivo Black',sans-serif; font-size: clamp(15rem,45vw,60rem); color:#fff;">Know</div>
+
+        <div class="relative z-10 pt-32">
+            <span class="inline-block text-xs font-bold uppercase tracking-widest border border-neutral-700 px-3 py-1 mb-6 text-neutral-400">Doradztwo i strategia</span>
+            <h1 class="leading-none tracking-tighter font-black uppercase mb-6" style="font-family:'Archivo Black',sans-serif; font-size: clamp(3rem,12vw,14rem);">
+                Strategia<br>wdrożeń<br><span style="color:#BB2649">AI</span><span style="color:#BB2649">.</span>
+            </h1>
+            <p class="max-w-2xl text-lg md:text-xl font-medium text-neutral-400 leading-relaxed">
+                Roadmapa transformacji AI – kompleksowy proces tworzenia strategii AI dla Twojej organizacji. Dostarczamy praktyczny plan działania z priorytetami i oszacowanymi kosztami.
+            </p>
+        </div>
+    </section>
+
+    <!-- PROCESS STEPS -->
+    <section class="py-32 px-6 md:px-20 bg-white text-black relative overflow-hidden">
+        <!-- Giant background letter -->
+        <div aria-hidden="true" class="absolute top-1/2 right-0 -translate-y-1/2 font-black leading-none opacity-[0.06] pointer-events-none select-none" style="font-family:'Archivo Black',sans-serif; font-size: clamp(20rem,50vw,70rem); color:#f0f0f0; line-height:1;">P</div>
+
+        <div class="relative z-10">
+            <h2 class="font-black tracking-tighter uppercase mb-16" style="font-family:'Archivo Black',sans-serif; font-size: clamp(2.5rem,6vw,7rem);">Proces doradztwa<span style="color:#BB2649">.</span></h2>
+
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8 mt-16">
+
+                <!-- Step 1 -->
+                <div class="step-card border-2 border-black p-8 hover:bg-black hover:text-white transition-colors duration-300 group">
+                    <div class="font-black tracking-tighter mb-4" style="font-family:'Archivo Black',sans-serif; font-size:4.5rem; line-height:1;">01<span style="color:#BB2649">.</span></div>
+                    <h3 class="text-2xl font-bold uppercase tracking-tight mb-2" style="font-family:'Archivo Black',sans-serif;">Discovery</h3>
+                    <p class="text-sm font-mono uppercase opacity-60 mb-6 tracking-widest">1–2 tygodnie</p>
+                    <ul class="space-y-2 text-sm font-medium leading-relaxed opacity-80">
+                        <li class="flex gap-2"><span class="shrink-0 mt-1" style="color:#BB2649;">—</span>Audyt procesów biznesowych i identyfikacja obszarów do automatyzacji</li>
+                        <li class="flex gap-2"><span class="shrink-0 mt-1" style="color:#BB2649;">—</span>Wywiady z kluczowymi stakeholderami we wszystkich działach</li>
+                        <li class="flex gap-2"><span class="shrink-0 mt-1" style="color:#BB2649;">—</span>Ocena infrastruktury IT i gotowości organizacyjnej</li>
+                        <li class="flex gap-2"><span class="shrink-0 mt-1" style="color:#BB2649;">—</span>Analiza danych: co masz, jakość, dostępność, governance</li>
+                    </ul>
+                </div>
+
+                <!-- Step 2 -->
+                <div class="step-card border-2 border-black p-8 hover:bg-black hover:text-white transition-colors duration-300 group">
+                    <div class="font-black tracking-tighter mb-4" style="font-family:'Archivo Black',sans-serif; font-size:4.5rem; line-height:1;">02<span style="color:#BB2649">.</span></div>
+                    <h3 class="text-2xl font-bold uppercase tracking-tight mb-2" style="font-family:'Archivo Black',sans-serif;">Projektowanie</h3>
+                    <p class="text-sm font-mono uppercase opacity-60 mb-6 tracking-widest">2–3 tygodnie</p>
+                    <ul class="space-y-2 text-sm font-medium leading-relaxed opacity-80">
+                        <li class="flex gap-2"><span class="shrink-0 mt-1" style="color:#BB2649;">—</span>Identyfikacja quick wins – projektów z szybkim ROI</li>
+                        <li class="flex gap-2"><span class="shrink-0 mt-1" style="color:#BB2649;">—</span>Roadmapa wdrożeń AI na 12–24 miesiące</li>
+                        <li class="flex gap-2"><span class="shrink-0 mt-1" style="color:#BB2649;">—</span>Analiza make or buy dla każdego projektu</li>
+                        <li class="flex gap-2"><span class="shrink-0 mt-1" style="color:#BB2649;">—</span>Oszacowanie kosztów i zasobów (ludzie, budżet, czas)</li>
+                        <li class="flex gap-2"><span class="shrink-0 mt-1" style="color:#BB2649;">—</span>Plan zarządzania zmianą i budowania kompetencji AI</li>
+                    </ul>
+                </div>
+
+                <!-- Step 3 -->
+                <div class="step-card border-2 border-black p-8 hover:bg-black hover:text-white transition-colors duration-300 group">
+                    <div class="font-black tracking-tighter mb-4" style="font-family:'Archivo Black',sans-serif; font-size:4.5rem; line-height:1;">03<span style="color:#BB2649">.</span></div>
+                    <h3 class="text-2xl font-bold uppercase tracking-tight mb-2" style="font-family:'Archivo Black',sans-serif;">Prezentacja i warsztaty</h3>
+                    <p class="text-sm font-mono uppercase opacity-60 mb-6 tracking-widest">1 tydzień</p>
+                    <ul class="space-y-2 text-sm font-medium leading-relaxed opacity-80">
+                        <li class="flex gap-2"><span class="shrink-0 mt-1" style="color:#BB2649;">—</span>Prezentacja strategii dla zarządu</li>
+                        <li class="flex gap-2"><span class="shrink-0 mt-1" style="color:#BB2649;">—</span>Warsztaty z zespołem odpowiedzialnym za wdrożenie</li>
+                        <li class="flex gap-2"><span class="shrink-0 mt-1" style="color:#BB2649;">—</span>Dokumentacja strategii z konkretnym planem działania</li>
+                        <li class="flex gap-2"><span class="shrink-0 mt-1" style="color:#BB2649;">—</span>Miesięczny follow-up i wsparcie w pierwszych krokach</li>
+                    </ul>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- DELIVERABLES -->
+    <section class="py-24 px-6 md:px-20 bg-[#050505] text-neutral-100">
+        <div class="max-w-4xl">
+            <h2 class="font-black tracking-tighter uppercase mb-12" style="font-family:'Archivo Black',sans-serif; font-size: clamp(2.5rem,6vw,7rem);">Co dostajesz<span style="color:#BB2649">.</span></h2>
+            <ul class="divide-y divide-neutral-800">
+                <li class="flex items-start gap-4 py-4 border-b border-neutral-800">
+                    <span class="text-[#BB2649] font-black text-2xl shrink-0 leading-tight" style="font-family:'Archivo Black',sans-serif;">→</span>
+                    <span class="text-lg font-medium text-neutral-300">Dokument strategiczny z priorytetami i roadmapą</span>
                 </li>
-                <li><a href="o-nas.html">O nas</a></li>
-                <li><a href="blog.html">Blog</a></li>
-                <li><a href="index.html#contact" class="cta-button">Kontakt</a></li>
+                <li class="flex items-start gap-4 py-4 border-b border-neutral-800">
+                    <span class="text-[#BB2649] font-black text-2xl shrink-0 leading-tight" style="font-family:'Archivo Black',sans-serif;">→</span>
+                    <span class="text-lg font-medium text-neutral-300">Business case dla każdego zidentyfikowanego projektu AI</span>
+                </li>
+                <li class="flex items-start gap-4 py-4 border-b border-neutral-800">
+                    <span class="text-[#BB2649] font-black text-2xl shrink-0 leading-tight" style="font-family:'Archivo Black',sans-serif;">→</span>
+                    <span class="text-lg font-medium text-neutral-300">Lista rekomendowanych rozwiązań i dostawców</span>
+                </li>
+                <li class="flex items-start gap-4 py-4 border-b border-neutral-800">
+                    <span class="text-[#BB2649] font-black text-2xl shrink-0 leading-tight" style="font-family:'Archivo Black',sans-serif;">→</span>
+                    <span class="text-lg font-medium text-neutral-300">Framework do oceny i priorytetyzacji przyszłych projektów AI</span>
+                </li>
+                <li class="flex items-start gap-4 py-4 border-b border-neutral-800">
+                    <span class="text-[#BB2649] font-black text-2xl shrink-0 leading-tight" style="font-family:'Archivo Black',sans-serif;">→</span>
+                    <span class="text-lg font-medium text-neutral-300">Miesiąc wsparcia przy rozpoczęciu wdrożeń</span>
+                </li>
             </ul>
-        </nav>
-    </header>
-
-    <!-- Hero Section -->
-    <section class="hero">
-        <div class="watermark" aria-hidden="true">Know</div>
-        <div class="glow-blob glow-blob--1" aria-hidden="true"></div>
-        <div class="glow-blob glow-blob--2" aria-hidden="true"></div>
-        <div class="container">
-            <div class="hero-badge">Doradztwo i strategia</div>
-            <h1>Strategia wdrożeń <span>AI</span></h1>
-            <p>Roadmapa transformacji AI – kompleksowy proces tworzenia strategii AI dla Twojej organizacji. Dostarczamy praktyczny plan działania z priorytetami i oszacowanymi kosztami.</p>
         </div>
     </section>
 
-    <!-- Process Steps -->
-    <section class="services">
-        <div class="container">
-            <div class="section-header">
-                <h2 class="section-title">Proces <span>doradztwa</span></h2>
-            </div>
+    <!-- MARQUEE -->
 
-            <div class="process-steps">
-                <div class="process-step">
-                    <div class="process-step-number">1</div>
-                    <h4>Discovery</h4>
-                    <div class="step-meta">1–2 tygodnie</div>
-                    <ul>
-                        <li>Audyt procesów biznesowych i identyfikacja obszarów do automatyzacji</li>
-                        <li>Wywiady z kluczowymi stakeholderami we wszystkich działach</li>
-                        <li>Ocena infrastruktury IT i gotowości organizacyjnej</li>
-                        <li>Analiza danych: co masz, jakość, dostępność, governance</li>
-                    </ul>
+    <!-- APPROACH CARDS -->
+    <section class="py-32 px-6 md:px-20 bg-[#050505] text-neutral-100">
+        <div class="max-w-5xl">
+            <h2 class="font-black tracking-tighter uppercase mb-16" style="font-family:'Archivo Black',sans-serif; font-size: clamp(2.5rem,6vw,7rem);">Nasze podejście<span style="color:#BB2649">.</span></h2>
+
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-0">
+
+                <div class="border border-neutral-800 p-8 hover:border-neutral-400 transition-colors">
+                    <div class="text-5xl font-black tracking-tighter mb-4" style="font-family:'Archivo Black',sans-serif; color:#BB2649;">01.</div>
+                    <h3 class="text-2xl font-bold uppercase tracking-tight mb-3" style="font-family:'Archivo Black',sans-serif;">Analiza potrzeb</h3>
+                    <p class="text-neutral-400 font-medium leading-relaxed">Ocena realnego zapotrzebowania na zastosowanie AI i wybór obszarów o największym wpływie na działanie organizacji.</p>
                 </div>
 
-                <div class="process-step">
-                    <div class="process-step-number">2</div>
-                    <h4>Projektowanie</h4>
-                    <div class="step-meta">2–3 tygodnie</div>
-                    <ul>
-                        <li>Identyfikacja quick wins – projektów z szybkim ROI</li>
-                        <li>Roadmapa wdrożeń AI na 12–24 miesiące</li>
-                        <li>Analiza make or buy dla każdego projektu</li>
-                        <li>Oszacowanie kosztów i zasobów (ludzie, budżet, czas)</li>
-                        <li>Plan zarządzania zmianą i budowania kompetencji AI</li>
-                    </ul>
+                <div class="border border-neutral-800 p-8 hover:border-neutral-400 transition-colors">
+                    <div class="text-5xl font-black tracking-tighter mb-4" style="font-family:'Archivo Black',sans-serif; color:#BB2649;">02.</div>
+                    <h3 class="text-2xl font-bold uppercase tracking-tight mb-3" style="font-family:'Archivo Black',sans-serif;">Ocena gotowości</h3>
+                    <p class="text-neutral-400 font-medium leading-relaxed">Przegląd technologii, danych, kompetencji i kultury organizacyjnej.</p>
                 </div>
 
-                <div class="process-step">
-                    <div class="process-step-number">3</div>
-                    <h4>Prezentacja i warsztaty</h4>
-                    <div class="step-meta">1 tydzień</div>
-                    <ul>
-                        <li>Prezentacja strategii dla zarządu</li>
-                        <li>Warsztaty z zespołem odpowiedzialnym za wdrożenie</li>
-                        <li>Dokumentacja strategii z konkretnym planem działania</li>
-                        <li>Miesięczny follow-up i wsparcie w pierwszych krokach</li>
-                    </ul>
+                <div class="border border-neutral-800 p-8 hover:border-neutral-400 transition-colors">
+                    <div class="text-5xl font-black tracking-tighter mb-4" style="font-family:'Archivo Black',sans-serif; color:#BB2649;">03.</div>
+                    <h3 class="text-2xl font-bold uppercase tracking-tight mb-3" style="font-family:'Archivo Black',sans-serif;">Koncepcja wdrożenia</h3>
+                    <p class="text-neutral-400 font-medium leading-relaxed">Praktyczny plan dopasowany do celów, budżetu i harmonogramu.</p>
                 </div>
-            </div>
 
-            <!-- Deliverables -->
-            <div class="deliverables">
-                <h3>Co dostajesz</h3>
-                <ul>
-                    <li>Dokument strategiczny z priorytetami i roadmapą</li>
-                    <li>Business case dla każdego zidentyfikowanego projektu AI</li>
-                    <li>Lista rekomendowanych rozwiązań i dostawców</li>
-                    <li>Framework do oceny i priorytetyzacji przyszłych projektów AI</li>
-                    <li>Miesiąc wsparcia przy rozpoczęciu wdrożeń</li>
-                </ul>
+                <div class="border border-neutral-800 p-8 hover:border-neutral-400 transition-colors">
+                    <div class="text-5xl font-black tracking-tighter mb-4" style="font-family:'Archivo Black',sans-serif; color:#BB2649;">04.</div>
+                    <h3 class="text-2xl font-bold uppercase tracking-tight mb-3" style="font-family:'Archivo Black',sans-serif;">Wsparcie w realizacji</h3>
+                    <p class="text-neutral-400 font-medium leading-relaxed">Prowadzenie organizacji przez proces wdrażania AI.</p>
+                </div>
+
             </div>
         </div>
     </section>
 
-    <!-- Approach Section -->
-    <section class="for-whom">
-        <div class="container">
-            <div class="section-header">
-                <h2 class="section-title">Nasze <span>podejście</span></h2>
-                <p class="section-subtitle">Kompleksowe wsparcie na każdym etapie transformacji AI.</p>
-            </div>
-
-            <div class="target-grid">
-                <div class="target-card">
-                    <div class="target-number">1</div>
-                    <h3>Analiza potrzeb</h3>
-                    <p class="target-summary">Ocena realnego zapotrzebowania na zastosowanie AI i wybór obszarów o największym wpływie na działanie organizacji.</p>
-                </div>
-
-                <div class="target-card">
-                    <div class="target-number">2</div>
-                    <h3>Ocena gotowości</h3>
-                    <p class="target-summary">Przegląd technologii, danych, kompetencji i kultury organizacyjnej.</p>
-                </div>
-
-                <div class="target-card">
-                    <div class="target-number">3</div>
-                    <h3>Koncepcja wdrożenia</h3>
-                    <p class="target-summary">Praktyczny plan dopasowany do celów, budżetu i harmonogramu.</p>
-                </div>
-
-                <div class="target-card">
-                    <div class="target-number">4</div>
-                    <h3>Wsparcie w realizacji</h3>
-                    <p class="target-summary">Prowadzenie organizacji przez proces wdrażania AI.</p>
-                </div>
-            </div>
+    <!-- CTA -->
+    <section class="py-24 px-6 md:px-20 bg-white text-black text-center">
+        <div class="max-w-3xl mx-auto">
+            <h2 class="font-black tracking-tighter uppercase mb-6" style="font-family:'Archivo Black',sans-serif; font-size: clamp(2rem,5vw,5rem);">Potrzebujesz strategii <span style="color:#BB2649">AI</span><span style="color:#BB2649">?</span></h2>
+            <p class="text-lg font-medium opacity-70 mb-12 leading-relaxed">Porozmawiajmy o wyzwaniach Twojej organizacji i stwórzmy razem plan wdrożenia AI, który rzeczywiście zadziała.</p>
+            <a href="index.html#contact" class="border-b-4 border-black pb-2 text-lg font-bold uppercase tracking-widest inline-flex items-center gap-4 hover:text-[#BB2649] hover:border-[#BB2649] transition-colors" style="font-family:'Archivo Black',sans-serif;">
+                Skontaktuj się z nami
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" class="w-5 h-5"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
+            </a>
         </div>
     </section>
 
-    <!-- CTA Section -->
-    <section class="cta-section">
-        <div class="container">
-            <h3>Potrzebujesz strategii AI?</h3>
-            <p>Porozmawiajmy o wyzwaniach Twojej organizacji i stwórzmy razem plan wdrożenia AI, który rzeczywiście zadziała.</p>
-            <a href="index.html#contact" class="cta-button">Skontaktuj się z nami</a>
+    <!-- FOOTER -->
+    <footer id="contact" class="bg-white text-black py-20 px-6 md:px-20 flex flex-col md:flex-row justify-between items-end relative overflow-hidden">
+        <div class="text-[40vw] font-black leading-none absolute -bottom-20 -right-10 opacity-5 pointer-events-none select-none" style="font-family:'Archivo Black',sans-serif;">Q</div>
+        <div class="z-10 mb-10 md:mb-0">
+            <h2 class="font-black tracking-tighter uppercase mb-4" style="font-family:'Archivo Black',sans-serif; font-size: clamp(2.5rem,8vw,6rem);">Quantica<span style="color:#BB2649">.</span></h2>
+            <p class="text-lg font-medium uppercase tracking-widest opacity-60 mb-4">AI dla organizacji.</p>
+            <p class="text-base font-medium opacity-80">kontakt@quanticalab.ai</p>
         </div>
-    </section>
-
-    <!-- Footer -->
-    <footer id="contact">
-        <div class="container">
-            <div class="footer-mascot">
-                <img src="Quantica_kotek_white.png" alt="Quantica Lab Mascot">
+        <div class="z-10 flex flex-col items-start md:items-end gap-4">
+            <div class="flex flex-wrap gap-6 text-sm font-bold uppercase tracking-widest">
+                <a href="doradztwo.html" class="hover:underline">Doradztwo</a>
+                <a href="wdrozenia.html" class="hover:underline">Wdrożenia</a>
+                <a href="szkolenia.html" class="hover:underline">Szkolenia</a>
+                <a href="o-nas.html" class="hover:underline">O nas</a>
             </div>
-            <p>&copy; 2025 Quantica Lab sp. z o.o. – AI dla organizacji · <a href="https://workszop.github.io/q223/llms.txt" class="llms-link">llms.txt</a></p>
+            <p class="text-xs opacity-50">© 2025 Quantica Lab sp. z o.o. · <a href="https://workszop.github.io/q223/llms.txt" class="underline">llms.txt</a></p>
         </div>
     </footer>
-    <button class="theme-toggle" id="themeToggle" aria-label="Przełącz motyw">
-        <svg class="icon-sun" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="5"/><line x1="12" y1="1" x2="12" y2="3"/><line x1="12" y1="21" x2="12" y2="23"/><line x1="4.22" y1="4.22" x2="5.64" y2="5.64"/><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"/><line x1="1" y1="12" x2="3" y2="12"/><line x1="21" y1="12" x2="23" y2="12"/><line x1="4.22" y1="19.78" x2="5.64" y2="18.36"/><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"/></svg>
-        <svg class="icon-moon" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg>
-    </button>
+
     <script src="app.js" defer></script>
+    <script>
+        // Mobile menu toggle
+        const menuToggle = document.getElementById('menuToggle');
+        const navLinks = document.getElementById('navLinks');
+        if (menuToggle && navLinks) {
+            menuToggle.addEventListener('click', () => {
+                navLinks.classList.toggle('hidden');
+                navLinks.classList.toggle('nav-mobile-open');
+            });
+        }
+    </script>
 </body>
 </html>

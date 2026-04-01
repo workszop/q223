@@ -7,64 +7,126 @@
     <title>RAG dla gminy – Quantica Lab</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Archivo+Black&family=Space+Grotesk:wght@400;500;600;700&family=IBM+Plex+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Archivo+Black&family=Space+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="styles.css">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        body { background-color: #050505; font-family: 'Space Grotesk', sans-serif; }
+        h1, h2, h3, h4, .font-black { font-family: 'Archivo Black', sans-serif; }
+        .nav-dropdown { position: relative; }
+        .nav-dropdown-menu {
+            display: none;
+            position: absolute;
+            top: 100%;
+            left: 0;
+            background: #111;
+            border: 1px solid #222;
+            min-width: 220px;
+            z-index: 100;
+            padding: 8px 0;
+        }
+        .nav-dropdown:hover .nav-dropdown-menu { display: block; }
+        .nav-dropdown-menu a {
+            display: block;
+            padding: 10px 20px;
+            color: #fff;
+            font-size: 11px;
+            font-weight: 700;
+            letter-spacing: 0.1em;
+            text-transform: uppercase;
+            text-decoration: none;
+        }
+        .nav-dropdown-menu a:hover { background: #1a1a1a; }
+        .nav-dropdown-menu hr { border-color: #333; margin: 6px 0; }
+        ul.styled-list { list-style: none; padding: 0; margin: 0; }
+        ul.styled-list li {
+            padding-left: 1.2em;
+            position: relative;
+            margin-bottom: 0.5em;
+            color: #d4d4d4;
+            font-size: 0.95rem;
+            line-height: 1.6;
+        }
+        ul.styled-list li::before { content: '–'; position: absolute; left: 0; color: #BB2649; }
+        .info-card {
+            border: 1px solid #1f1f1f;
+            padding: 2rem;
+            background: #0a0a0a;
+        }
+        .info-card h3 {
+            font-family: 'Archivo Black', sans-serif;
+            font-size: 0.85rem;
+            text-transform: uppercase;
+            letter-spacing: 0.1em;
+            color: #BB2649;
+            margin-bottom: 0.75rem;
+        }
+        .info-card p { color: #a3a3a3; font-size: 0.9rem; line-height: 1.6; }
+        .info-card a { color: #e5e5e5; text-decoration: underline; }
+        .info-card a:hover { color: #BB2649; }
+    </style>
 </head>
-<body>
-    <!-- Interactive Grid Background -->
-    <div class="grid-bg" aria-hidden="true"></div>
-    <div class="grid-glow" id="gridGlow" aria-hidden="true"></div>
-    <!-- Header -->
-    <header>
-        <nav>
-            <a href="index.html" class="logo">
-                <img src="Quantica_logo_color.png" alt="Quantica Lab">
-            </a>
-            <button class="menu-toggle" aria-label="Menu">
-                <span></span><span></span><span></span>
-            </button>
-            <ul class="nav-links">
-                <li class="dropdown">
-                    <span class="dropdown-toggle">Oferta</span>
-                    <div class="dropdown-menu">
-                        <a href="doradztwo.html">Doradztwo i strategia</a>
-                        <a href="wdrozenia.html">Rozwiązania AI</a>
-                        <a href="szkolenia.html">Szkolenia AI</a>
-                        <hr>
-                        <a href="warsztat.html">Start z AI</a>
-                    </div>
-                </li>
-                <li><a href="o-nas.html">O nas</a></li>
-                <li><a href="blog.html">Blog</a></li>
-                <li><a href="index.html#contact" class="cta-button">Kontakt</a></li>
-            </ul>
-        </nav>
-    </header>
+<body class="bg-[#050505] text-neutral-100">
 
-    <!-- Hero Section -->
-    <section class="demo-hero">
-        <div class="watermark" aria-hidden="true">RAG dla gminy</div>
-        <div class="glow-blob glow-blob--1" aria-hidden="true"></div>
-        <div class="glow-blob glow-blob--2" aria-hidden="true"></div>
-        <div class="container">
-            <div class="hero-badge">Case study</div>
-            <h1>RAG <span style="color: var(--orange);">dla gminy</span></h1>
-            <p>Wirtualny asystent gminy, który pomaga w sprawach lokalnych. Odpowiedzi przygotowywane są na podstawie informacji z Biuletynu Informacji Publicznej oraz innych publicznie dostępnych materiałów gminy.</p>
+    <!-- Nav -->
+    <nav class="fixed top-0 left-0 w-full px-6 md:px-16 py-5 flex justify-between items-center z-50 mix-blend-difference">
+        <a href="index.html" class="text-white font-black text-xl tracking-widest uppercase" style="font-family:'Archivo Black',sans-serif;">Quantica<span class="text-white">.</span></a>
+        <button class="menu-toggle md:hidden" aria-label="Menu"><span></span><span></span><span></span></button>
+        <ul class="nav-links hidden md:flex gap-8 text-xs font-bold tracking-widest uppercase text-white items-center">
+            <li class="dropdown nav-dropdown">
+                <span class="dropdown-toggle cursor-pointer hover:line-through transition-all">Oferta</span>
+                <div class="dropdown-menu nav-dropdown-menu">
+                    <a href="doradztwo.html">Doradztwo i strategia</a>
+                    <a href="wdrozenia.html">Rozwiązania AI</a>
+                    <a href="szkolenia.html">Szkolenia AI</a>
+                    <hr>
+                    <a href="warsztat.html">Start z AI</a>
+                </div>
+            </li>
+            <li><a href="o-nas.html" class="hover:line-through transition-all">O nas</a></li>
+            <li><a href="blog.html" class="hover:line-through transition-all">Blog</a></li>
+            <li><a href="index.html#contact" class="border border-white px-4 py-2 hover:bg-white hover:text-black transition-colors">Kontakt</a></li>
+        </ul>
+    </nav>
+
+    <!-- Hero -->
+    <section class="min-h-[70vh] bg-[#050505] text-neutral-100 flex flex-col justify-end pb-16 px-6 md:px-20 relative overflow-hidden">
+        <div aria-hidden="true" class="absolute font-black text-white pointer-events-none select-none" style="font-family:'Archivo Black',sans-serif; font-size:clamp(10rem,30vw,45rem); opacity:0.04; top:50%; left:50%; transform:translate(-50%,-50%); line-height:1;">RAG</div>
+        <div class="relative z-10">
+            <div class="inline-block border border-neutral-700 text-xs font-bold tracking-widest uppercase px-4 py-2 mb-8 text-neutral-400">Case study</div>
+            <h1 class="font-black tracking-tighter leading-none uppercase mb-8" style="font-family:'Archivo Black',sans-serif; font-size:clamp(4rem,12vw,14rem);">
+                RAG<br>dla<br><span style="color:#BB2649">gminy</span><span style="color:#BB2649">.</span>
+            </h1>
+            <p class="text-lg md:text-xl text-neutral-400 max-w-2xl font-medium leading-relaxed">
+                Wirtualny asystent gminy, który pomaga w sprawach lokalnych. Odpowiedzi przygotowywane są na podstawie informacji z Biuletynu Informacji Publicznej oraz innych publicznie dostępnych materiałów gminy.
+            </p>
         </div>
     </section>
 
-    <!-- Info Section -->
-    <section class="demo-info">
-        <div class="container">
-            <div class="service-detail" style="margin-bottom: 2rem;">
-                <h4>O rozwiązaniu</h4>
-                <p>Jestem wirtualnym asystentem gminy i chętnie pomogę w sprawach lokalnych. Odpowiedzi przygotowuję na podstawie informacji z Biuletynu Informacji Publicznej oraz innych publicznie dostępnych materiałów gminy. Korzystam z technologii AI, która może sporadycznie się mylić. Jeśli potrzebujesz oficjalnej interpretacji lub masz niestandardowe pytanie, skontaktuj się z urzędem – pracownicy udzielą wiążącej odpowiedzi.</p>
+    <!-- Content Section -->
+    <section class="py-32 px-6 md:px-20 bg-[#050505]">
+        <div class="max-w-4xl">
 
-                <h5>Technologia</h5>
-                <p>System wykorzystuje mechanizm Retrieval-Augmented Generation (RAG), łącząc wyszukiwanie w dokumentach urzędowych z generowaniem odpowiedzi w języku naturalnym. Został opracowany przez Quantica Lab i dostosowany do potrzeb urzędu. Odpowiedzi generowane są na podstawie publicznie dostępnych materiałów gminy.</p>
+            <!-- O rozwiązaniu -->
+            <div class="mb-16 border-t border-neutral-800 pt-16">
+                <h4 class="font-black tracking-tighter uppercase mb-6" style="font-family:'Archivo Black',sans-serif; font-size:clamp(1.8rem,3vw,3rem);">O rozwiązaniu<span style="color:#BB2649">.</span></h4>
+                <p class="text-neutral-400 text-base md:text-lg mb-6 leading-relaxed">
+                    Jestem wirtualnym asystentem gminy i chętnie pomogę w sprawach lokalnych. Odpowiedzi przygotowuję na podstawie informacji z Biuletynu Informacji Publicznej oraz innych publicznie dostępnych materiałów gminy. Korzystam z technologii AI, która może sporadycznie się mylić. Jeśli potrzebujesz oficjalnej interpretacji lub masz niestandardowe pytanie, skontaktuj się z urzędem – pracownicy udzielą wiążącej odpowiedzi.
+                </p>
+            </div>
 
-                <h5>Kluczowe cechy</h5>
-                <ul>
+            <!-- Technologia -->
+            <div class="mb-16 border-t border-neutral-800 pt-16">
+                <h4 class="font-black tracking-tighter uppercase mb-6" style="font-family:'Archivo Black',sans-serif; font-size:clamp(1.5rem,2.5vw,2.5rem);">Technologia<span style="color:#BB2649">.</span></h4>
+                <p class="text-neutral-400 text-base md:text-lg mb-6 leading-relaxed">
+                    System wykorzystuje mechanizm Retrieval-Augmented Generation (RAG), łącząc wyszukiwanie w dokumentach urzędowych z generowaniem odpowiedzi w języku naturalnym. Został opracowany przez Quantica Lab i dostosowany do potrzeb urzędu. Odpowiedzi generowane są na podstawie publicznie dostępnych materiałów gminy.
+                </p>
+            </div>
+
+            <!-- Kluczowe cechy -->
+            <div class="mb-16 border-t border-neutral-800 pt-16">
+                <h4 class="font-black tracking-tighter uppercase mb-8" style="font-family:'Archivo Black',sans-serif; font-size:clamp(1.5rem,2.5vw,2.5rem);">Kluczowe cechy<span style="color:#BB2649">.</span></h4>
+                <ul class="styled-list">
                     <li>Wyszukiwanie kontekstowe w dokumentach urzędowych gminy</li>
                     <li>Generowanie odpowiedzi w języku naturalnym</li>
                     <li>Oparcie na zweryfikowanych, publicznie dostępnych źródłach</li>
@@ -73,47 +135,61 @@
                 </ul>
             </div>
 
-            <div class="demo-info-grid">
-                <div class="demo-info-card">
+            <!-- Info cards -->
+            <div class="border-t border-neutral-800 pt-16 grid grid-cols-1 md:grid-cols-2 gap-4 mb-16">
+                <div class="info-card">
                     <h3>Informacje o rozwiązaniach</h3>
                     <p>Więcej informacji o rozwiązaniach Quantica Lab znajdziesz na naszej stronie.</p>
-                    <p style="margin-top: 0.8rem;"><a href="index.html">quanticalab.ai</a></p>
+                    <p class="mt-3"><a href="index.html">quanticalab.ai</a></p>
                 </div>
-                <div class="demo-info-card">
+                <div class="info-card">
                     <h3>Kontakt w sprawach technicznych</h3>
                     <p>W sprawach technicznych dotyczących rozwiązania prosimy o kontakt.</p>
-                    <p style="margin-top: 0.8rem;"><a href="mailto:kontakt@quanticalab.ai">kontakt@quanticalab.ai</a></p>
+                    <p class="mt-3"><a href="mailto:kontakt@quanticalab.ai">kontakt@quanticalab.ai</a></p>
                 </div>
             </div>
 
-            <div class="powered-by" style="margin-top: 2rem;">
-                <p><strong>Quantica Lab</strong></p>
+            <!-- Powered by -->
+            <div class="border-t border-neutral-800 pt-8">
+                <p class="text-xs font-bold uppercase tracking-widest text-neutral-600">
+                    Rozwiązanie opracowane przez <span class="text-neutral-400">Quantica Lab</span>
+                </p>
             </div>
         </div>
     </section>
 
     <!-- CTA Section -->
-    <section class="cta-section">
-        <div class="container">
-            <h3>Chcesz wdrożyć podobne rozwiązanie?</h3>
-            <p>Skontaktuj się z nami, aby omówić możliwości wdrożenia systemu RAG w Twojej organizacji.</p>
-            <a href="index.html#contact" class="cta-button">Skontaktuj się z nami</a>
-        </div>
+    <section class="py-24 px-6 md:px-20 bg-white text-black">
+        <h2 class="font-black tracking-tighter uppercase mb-6 leading-none" style="font-family:'Archivo Black',sans-serif; font-size:clamp(2rem,6vw,6rem);">
+            Chcesz wdrożyć<br>podobne rozwiązanie<span style="color:#BB2649">?</span>
+        </h2>
+        <p class="text-lg font-medium opacity-70 max-w-xl mb-10 leading-relaxed">
+            Skontaktuj się z nami, aby omówić możliwości wdrożenia systemu RAG w Twojej organizacji.
+        </p>
+        <a href="index.html#contact" class="inline-block text-sm font-black uppercase tracking-widest border-b-4 border-black pb-1 hover:border-[#BB2649] transition-colors" style="font-family:'Archivo Black',sans-serif;">
+            Skontaktuj się z nami
+        </a>
     </section>
 
     <!-- Footer -->
-    <footer id="contact">
-        <div class="container">
-            <div class="footer-mascot">
-                <img src="Quantica_kotek_white.png" alt="Quantica Lab Mascot">
+    <footer id="contact" class="bg-white text-black py-20 px-6 md:px-20 flex flex-col md:flex-row justify-between items-end relative overflow-hidden">
+        <div class="text-[40vw] font-black leading-none absolute -bottom-20 -right-10 opacity-5 pointer-events-none select-none" style="font-family:'Archivo Black',sans-serif;">Q</div>
+        <div class="z-10 mb-10 md:mb-0">
+            <h2 class="font-black tracking-tighter uppercase mb-4" style="font-family:'Archivo Black',sans-serif; font-size:clamp(2.5rem,8vw,6rem);">Quantica<span style="color:#BB2649">.</span></h2>
+            <p class="text-lg font-medium uppercase tracking-widest opacity-60 mb-4">AI dla organizacji.</p>
+            <p class="text-base font-medium opacity-80">kontakt@quanticalab.ai</p>
+        </div>
+        <div class="z-10 flex flex-col items-start md:items-end gap-4">
+            <div class="flex flex-wrap gap-6 text-sm font-bold uppercase tracking-widest">
+                <a href="doradztwo.html" class="hover:underline">Doradztwo</a>
+                <a href="wdrozenia.html" class="hover:underline">Wdrożenia</a>
+                <a href="szkolenia.html" class="hover:underline">Szkolenia</a>
+                <a href="o-nas.html" class="hover:underline">O nas</a>
             </div>
-            <p>&copy; 2025 Quantica Lab sp. z o.o. – AI dla organizacji · <a href="https://workszop.github.io/q223/llms.txt" class="llms-link">llms.txt</a></p>
+            <p class="text-xs opacity-50">© 2025 Quantica Lab sp. z o.o. · <a href="https://workszop.github.io/q223/llms.txt" class="underline">llms.txt</a></p>
         </div>
     </footer>
-    <button class="theme-toggle" id="themeToggle" aria-label="Przełącz motyw">
-        <svg class="icon-sun" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="5"/><line x1="12" y1="1" x2="12" y2="3"/><line x1="12" y1="21" x2="12" y2="23"/><line x1="4.22" y1="4.22" x2="5.64" y2="5.64"/><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"/><line x1="1" y1="12" x2="3" y2="12"/><line x1="21" y1="12" x2="23" y2="12"/><line x1="4.22" y1="19.78" x2="5.64" y2="18.36"/><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"/></svg>
-        <svg class="icon-moon" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg>
-    </button>
+
     <script src="app.js" defer></script>
 </body>
 </html>
