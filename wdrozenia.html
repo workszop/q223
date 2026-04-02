@@ -71,12 +71,12 @@
 <body class="bg-[#050505] text-neutral-100">
 
     <!-- Nav -->
-    <nav class="fixed top-0 left-0 w-full px-6 md:px-16 py-5 flex justify-between items-center z-50 mix-blend-difference">
-        <a href="index.html" class="text-white font-black text-xl tracking-widest uppercase" style="font-family:'Archivo Black',sans-serif;">Quantica<span class="text-white">.</span></a>
+    <nav class="fixed top-0 left-0 w-full px-6 md:px-16 py-5 flex justify-between items-center z-50 nav-bar">
+        <a href="index.html" class="nav-logo"><img src="Quantica_logo_color.png" alt="Quantica" class="h-12"></a>
         <button class="menu-toggle md:hidden" aria-label="Menu"><span></span><span></span><span></span></button>
         <ul class="nav-links hidden md:flex gap-8 text-xs font-bold tracking-widest uppercase text-white items-center">
             <li class="dropdown nav-dropdown">
-                <span class="dropdown-toggle cursor-pointer hover:line-through transition-all">Oferta</span>
+                <span class="dropdown-toggle cursor-pointer hover:text-[#BB2649] transition-all">Oferta</span>
                 <div class="dropdown-menu nav-dropdown-menu">
                     <a href="doradztwo.html">Doradztwo i strategia</a>
                     <a href="wdrozenia.html">Rozwiązania AI</a>
@@ -85,16 +85,16 @@
                     <a href="warsztat.html">Start z AI</a>
                 </div>
             </li>
-            <li><a href="o-nas.html" class="hover:line-through transition-all">O nas</a></li>
-            <li><a href="blog.html" class="hover:line-through transition-all">Blog</a></li>
+            <li><a href="o-nas.html" class="hover:text-[#BB2649] transition-all">O nas</a></li>
+            <li><a href="blog.html" class="hover:text-[#BB2649] transition-all">Blog</a></li>
             <li><a href="index.html#contact" class="border border-white px-4 py-2 hover:bg-white hover:text-black transition-colors">Kontakt</a></li>
         </ul>
     </nav>
 
     <!-- Hero -->
-    <section class="min-h-[70vh] bg-[#050505] text-neutral-100 flex flex-col justify-end pb-16 px-6 md:px-20 relative overflow-hidden">
+    <section class="min-h-screen bg-[#050505] text-neutral-100 flex flex-col justify-end pb-16 px-6 md:px-20 relative overflow-hidden">
         <div aria-hidden="true" class="absolute font-black text-white pointer-events-none select-none" style="font-family:'Archivo Black',sans-serif; font-size:clamp(15rem,45vw,60rem); opacity:0.04; top:50%; left:50%; transform:translate(-50%,-50%); line-height:1;">Build</div>
-        <div class="relative z-10">
+        <div class="relative z-10 pt-32">
             <div class="inline-block border border-neutral-700 text-xs font-bold tracking-widest uppercase px-4 py-2 mb-8 text-neutral-400">Rozwiązania AI</div>
             <h1 class="font-black tracking-tighter leading-none uppercase mb-8" style="font-family:'Archivo Black',sans-serif; font-size:clamp(4rem,12vw,14rem);">
                 Rozwiązania<br><span style="color:#BB2649">AI</span><span style="color:#BB2649">.</span>
@@ -328,8 +328,7 @@
     <footer id="contact" class="bg-white text-black py-20 px-6 md:px-20 flex flex-col md:flex-row justify-between items-end relative overflow-hidden">
         <div class="text-[40vw] font-black leading-none absolute -bottom-20 -right-10 opacity-5 pointer-events-none select-none" style="font-family:'Archivo Black',sans-serif;">Q</div>
         <div class="z-10 mb-10 md:mb-0">
-            <h2 class="font-black tracking-tighter uppercase mb-4" style="font-family:'Archivo Black',sans-serif; font-size:clamp(2.5rem,8vw,6rem);">Quantica<span style="color:#BB2649">.</span></h2>
-            <p class="text-lg font-medium uppercase tracking-widest opacity-60 mb-4">AI dla organizacji.</p>
+            <img src="Quantica_logo_color.png" alt="Quantica" class="h-16 md:h-24 mb-4">
             <p class="text-base font-medium opacity-80">kontakt@quanticalab.ai</p>
         </div>
         <div class="z-10 flex flex-col items-start md:items-end gap-4">
@@ -344,13 +343,5 @@
     </footer>
 
     <script src="app.js" defer></script>
-    <script>
-        document.querySelectorAll('.accordion-trigger').forEach(trigger => {
-            trigger.addEventListener('click', () => {
-                const item = trigger.closest('.accordion-item');
-                item.classList.toggle('open');
-            });
-        });
-    </script>
 </body>
 </html>

@@ -33,7 +33,7 @@
         <button class="menu-toggle md:hidden" aria-label="Menu"><span></span><span></span><span></span></button>
         <ul class="nav-links hidden md:flex gap-8 text-xs font-bold tracking-widest uppercase items-center">
             <li class="dropdown">
-                <span class="dropdown-toggle cursor-pointer hover:line-through transition-all">Oferta</span>
+                <span class="dropdown-toggle cursor-pointer hover:text-[#BB2649] transition-all">Oferta</span>
                 <div class="dropdown-menu">
                     <a href="doradztwo.html">Doradztwo i strategia</a>
                     <a href="wdrozenia.html">Rozwiązania AI</a>
@@ -42,8 +42,8 @@
                     <a href="warsztat.html">Start z AI</a>
                 </div>
             </li>
-            <li><a href="o-nas.html" class="hover:line-through transition-all">O nas</a></li>
-            <li><a href="blog.html" class="hover:line-through transition-all">Blog</a></li>
+            <li><a href="o-nas.html" class="hover:text-[#BB2649] transition-all">O nas</a></li>
+            <li><a href="blog.html" class="hover:text-[#BB2649] transition-all">Blog</a></li>
             <li><a href="#contact" class="nav-contact-btn border px-4 py-2 transition-colors">Kontakt</a></li>
             <li><button id="theme-toggle" class="theme-toggle" aria-label="Toggle light/dark mode" title="Zmień motyw">
                 <svg class="icon-sun" xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="5"/><path d="M12 1v2M12 21v2M4.22 4.22l1.42 1.42M18.36 18.36l1.42 1.42M1 12h2M21 12h2M4.22 19.78l1.42-1.42M18.36 5.64l1.42-1.42"/></svg>
@@ -53,9 +53,10 @@
     </nav>
 
     <!-- Hero -->
-    <section class="min-h-screen bg-[#050505] text-neutral-100 overflow-hidden flex flex-col justify-center px-6 md:px-20 relative">
-        <!-- Watermark -->
-        <div class="watermark pointer-events-none select-none text-white font-black leading-none" aria-hidden="true" style="font-family:'Archivo Black',sans-serif; font-size:clamp(15rem,45vw,60rem); position:absolute; top:50%; left:50%; transform:translate(-50%,-50%); opacity:0.04;">AI</div>
+    <section class="hero-section min-h-screen bg-[#050505] text-neutral-100 overflow-hidden flex flex-col justify-center px-6 md:px-20 relative">
+        <!-- Skyline background -->
+        <div class="hero-skyline pointer-events-none select-none" aria-hidden="true"></div>
+
 
         <div class="relative z-10 pt-32">
             <h1 class="font-black leading-none tracking-tighter uppercase" style="font-family:'Archivo Black',sans-serif; font-size:clamp(3rem,10vw,10rem);">AI<br><span style="color:#BB2649">dla</span><br>organizacji<span style="color:#BB2649">.</span></h1>
@@ -64,7 +65,7 @@
                 <svg xmlns="http://www.w3.org/2000/svg" class="w-8 h-8 text-neutral-500 flex-shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
                     <path stroke-linecap="round" stroke-linejoin="round" d="M17 7l-10 10M17 7H7m10 0v10"/>
                 </svg>
-                <p class="text-xl md:text-2xl font-medium tracking-tight uppercase text-neutral-400 max-w-lg">Specjaliści w budowie i wdrażaniu systemów sztucznej inteligencji dla organizacji.</p>
+                <p class="text-xl md:text-2xl font-medium tracking-tight text-neutral-400 max-w-2xl">Specjalizujemy się w budowie i wdrażaniu systemów sztucznej inteligencji. Prowadzimy organizacje przez każdy etap transformacji AI: od strategii, przez diagnozę gotowości technologicznej i kompetencyjnej, aż po wdrożenia i aktywne wsparcie w realizacji projektów.</p>
             </div>
 
             <div class="mt-12 flex flex-wrap gap-8 text-sm font-bold uppercase tracking-widest">
@@ -191,28 +192,28 @@
         <div class="relative z-10">
             <h2 class="font-black tracking-tighter uppercase mb-16" style="font-family:'Archivo Black',sans-serif; font-size:clamp(2.5rem,5vw,5rem);">Dlaczego <span style="color:#BB2649">Quantica Lab</span><span style="color:#BB2649">.</span></h2>
 
-            <div class="grid grid-cols-1 md:grid-cols-3 gap-0">
-                <div class="border-2 border-black p-6 hover:bg-black hover:text-white transition-colors group">
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                <div class="p-6 hover:bg-black hover:text-white transition-colors group">
                     <h4 class="text-lg font-black uppercase tracking-tight mb-3" style="font-family:'Archivo Black',sans-serif">Praktyka we wdrożeniach</h4>
                     <p class="text-sm font-medium leading-relaxed opacity-70 group-hover:opacity-90">Ponad 15 lat doświadczenia w realizacji projektów technologicznych w dużych organizacjach – od strategii po skalowanie produkcyjne.</p>
                 </div>
-                <div class="border-2 border-black p-6 hover:bg-black hover:text-white transition-colors group border-l-0">
+                <div class="p-6 hover:bg-black hover:text-white transition-colors group">
                     <h4 class="text-lg font-black uppercase tracking-tight mb-3" style="font-family:'Archivo Black',sans-serif">Kompleksowe podejście</h4>
                     <p class="text-sm font-medium leading-relaxed opacity-70 group-hover:opacity-90">Od analizy potrzeb i budowy strategii AI i IT, przez architekturę i wdrożenia, utrzymanie i zarządzanie systemami, aż po szkolenia i rozwój kompetencji – całościowe wsparcie transformacji AI.</p>
                 </div>
-                <div class="border-2 border-black p-6 hover:bg-black hover:text-white transition-colors group border-l-0">
+                <div class="p-6 hover:bg-black hover:text-white transition-colors group">
                     <h4 class="text-lg font-black uppercase tracking-tight mb-3" style="font-family:'Archivo Black',sans-serif">Kompetencje techniczne</h4>
                     <p class="text-sm font-medium leading-relaxed opacity-70 group-hover:opacity-90">Zespół specjalistów posiadających wieloletnie doświadczenie w budowie systemów AI, pracujących z różnymi modelami AI oraz integrujących je z danymi i systemami organizacji – w infrastrukturze hybrydowej i zróżnicowanym środowisku technologii i danych.</p>
                 </div>
-                <div class="border-2 border-black p-6 hover:bg-black hover:text-white transition-colors group border-t-0">
+                <div class="p-6 hover:bg-black hover:text-white transition-colors group">
                     <h4 class="text-lg font-black uppercase tracking-tight mb-3" style="font-family:'Archivo Black',sans-serif">Pragmatyczne podejście</h4>
                     <p class="text-sm font-medium leading-relaxed opacity-70 group-hover:opacity-90">Rozwiązania projektowane pod kątem realnych celów biznesowych, operacyjnych i regulacyjnych wymagań organizacji.</p>
                 </div>
-                <div class="border-2 border-black p-6 hover:bg-black hover:text-white transition-colors group border-t-0 border-l-0">
+                <div class="p-6 hover:bg-black hover:text-white transition-colors group">
                     <h4 class="text-lg font-black uppercase tracking-tight mb-3" style="font-family:'Archivo Black',sans-serif">Doświadczenie w projektach B+R</h4>
                     <p class="text-sm font-medium leading-relaxed opacity-70 group-hover:opacity-90">Liderzy i uczestnicy projektów badawczo-rozwojowych w zakresie AI. Współtwórcy polskich modeli językowych i systemów sztucznej inteligencji.</p>
                 </div>
-                <div class="border-2 border-black p-6 hover:bg-black hover:text-white transition-colors group border-t-0 border-l-0">
+                <div class="p-6 hover:bg-black hover:text-white transition-colors group">
                     <h4 class="text-lg font-black uppercase tracking-tight mb-3" style="font-family:'Archivo Black',sans-serif">Sprawdzone metodyki projektowe</h4>
                     <p class="text-sm font-medium leading-relaxed opacity-70 group-hover:opacity-90">Gotowe narzędzia wspierające diagnozę dojrzałości technologicznej i kompetencyjnej, planowanie i monitorowanie transformacji oraz rozwój modelu operacyjnego.</p>
                 </div>
@@ -227,10 +228,10 @@
             <p class="text-lg font-medium text-neutral-400 max-w-2xl">Wspieramy organizacje, które chcą wdrażać AI odpowiedzialnie i skutecznie – niezależnie od tego, czy dopiero porządkują dane i analizują ryzyka, czy są gotowe do skalowania rozwiązań. Pomagamy przejść przez cały proces, od pierwszej decyzji po realne efekty operacyjne.</p>
         </div>
 
-        <div class="grid grid-cols-1 md:grid-cols-2 gap-0">
+        <div class="dla-kogo-grid grid grid-cols-1 md:grid-cols-2">
             <!-- Card 1 -->
-            <div class="border border-neutral-800 p-8 hover:border-white transition-colors">
-                <div class="text-7xl font-black tracking-tighter text-neutral-700 mb-6 leading-none" style="font-family:'Archivo Black',sans-serif">1</div>
+            <div class="border border-neutral-800 p-8 hover:border-[#BB2649] transition-colors">
+                <div class="text-7xl font-black tracking-tighter mb-6 leading-none" style="font-family:'Archivo Black',sans-serif; color:#BB2649;">1</div>
                 <h3 class="text-xl font-black uppercase tracking-tight mb-4" style="font-family:'Archivo Black',sans-serif">Dla kierownictwa i liderów transformacji</h3>
                 <p class="text-sm font-medium text-neutral-500 uppercase tracking-widest mb-3">Dla organizacji, które:</p>
                 <ul class="space-y-2 text-neutral-400 text-sm font-medium mb-6 list-none pl-0">
@@ -242,8 +243,8 @@
             </div>
 
             <!-- Card 2 -->
-            <div class="border border-neutral-800 p-8 hover:border-white transition-colors border-l-0">
-                <div class="text-7xl font-black tracking-tighter text-neutral-700 mb-6 leading-none" style="font-family:'Archivo Black',sans-serif">2</div>
+            <div class="border border-neutral-800 p-8 hover:border-[#BB2649] transition-colors md:border-l-0">
+                <div class="text-7xl font-black tracking-tighter mb-6 leading-none" style="font-family:'Archivo Black',sans-serif; color:#BB2649;">2</div>
                 <h3 class="text-xl font-black uppercase tracking-tight mb-4" style="font-family:'Archivo Black',sans-serif">Dla organizacji zarządzających dokumentami i wiedzą</h3>
                 <p class="text-sm font-medium text-neutral-500 uppercase tracking-widest mb-3">Dla firm i instytucji, które:</p>
                 <ul class="space-y-2 text-neutral-400 text-sm font-medium mb-6 list-none pl-0">
@@ -255,8 +256,8 @@
             </div>
 
             <!-- Card 3 -->
-            <div class="border border-neutral-800 p-8 hover:border-white transition-colors border-t-0">
-                <div class="text-7xl font-black tracking-tighter text-neutral-700 mb-6 leading-none" style="font-family:'Archivo Black',sans-serif">3</div>
+            <div class="border border-neutral-800 p-8 hover:border-[#BB2649] transition-colors md:border-t-0">
+                <div class="text-7xl font-black tracking-tighter mb-6 leading-none" style="font-family:'Archivo Black',sans-serif; color:#BB2649;">3</div>
                 <h3 class="text-xl font-black uppercase tracking-tight mb-4" style="font-family:'Archivo Black',sans-serif">Dla administracji publicznej i infrastruktury krytycznej</h3>
                 <p class="text-sm font-medium text-neutral-500 uppercase tracking-widest mb-3">Dla podmiotów, które:</p>
                 <ul class="space-y-2 text-neutral-400 text-sm font-medium mb-6 list-none pl-0">
@@ -268,8 +269,8 @@
             </div>
 
             <!-- Card 4 -->
-            <div class="border border-neutral-800 p-8 hover:border-white transition-colors border-t-0 border-l-0">
-                <div class="text-7xl font-black tracking-tighter text-neutral-700 mb-6 leading-none" style="font-family:'Archivo Black',sans-serif">4</div>
+            <div class="border border-neutral-800 p-8 hover:border-[#BB2649] transition-colors md:border-t-0 md:border-l-0">
+                <div class="text-7xl font-black tracking-tighter mb-6 leading-none" style="font-family:'Archivo Black',sans-serif; color:#BB2649;">4</div>
                 <h3 class="text-xl font-black uppercase tracking-tight mb-4" style="font-family:'Archivo Black',sans-serif">Dla organizacji budujących kompetencje wewnętrzne</h3>
                 <p class="text-sm font-medium text-neutral-500 uppercase tracking-widest mb-3">Dla zespołów, które:</p>
                 <ul class="space-y-2 text-neutral-400 text-sm font-medium mb-6 list-none pl-0">
@@ -285,8 +286,7 @@
     <!-- CTA / First Steps Section -->
     <section class="py-32 px-6 md:px-20 bg-black text-white text-center">
         <h2 class="font-black tracking-tighter uppercase mb-6" style="font-family:'Archivo Black',sans-serif; font-size:clamp(3rem,8vw,7rem);">Pierwsze kroki<span style="color:#BB2649">.</span></h2>
-        <p class="text-xl font-medium text-neutral-400 mb-2 max-w-xl mx-auto">Porozmawiajmy o Twoich wyzwaniach i pomysłach na AI.</p>
-        <p class="text-lg font-medium text-neutral-500 mb-8">Skorzystaj z naszych warsztatów:</p>
+        <p class="text-xl font-medium text-neutral-400 mb-8 max-w-xl mx-auto">Skorzystaj z naszych warsztatów.</p>
         <a href="warsztat.html" class="border border-white px-8 py-4 text-sm font-bold uppercase tracking-widest hover:bg-white hover:text-black transition-colors inline-block mt-6">Start z AI</a>
     </section>
 
@@ -295,7 +295,6 @@
         <div class="text-[40vw] font-black leading-none absolute -bottom-20 -right-10 opacity-5 pointer-events-none select-none" style="font-family:'Archivo Black',sans-serif">Q</div>
         <div class="z-10 mb-10 md:mb-0">
             <img src="Quantica_logo_color.png" alt="Quantica" class="h-16 md:h-24 mb-4">
-            <p class="text-lg font-medium uppercase tracking-widest opacity-60 mb-4">AI dla organizacji.</p>
             <p class="text-base font-medium opacity-80">kontakt@quanticalab.ai</p>
         </div>
         <div class="z-10 flex flex-col items-start md:items-end gap-4">
