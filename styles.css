@@ -3,6 +3,10 @@
 /* Base */
 html, body { overflow-x: hidden; }
 
+/* Bump small text sizes globally (not headings, not main body) */
+.text-xs { font-size: 15px !important; line-height: 1.4 !important; }
+.text-sm { font-size: 17px !important; line-height: 1.6 !important; }
+
 /* Fonts */
 h1, h2, h3, h4, h5, h6,
 .font-display {
@@ -112,7 +116,7 @@ body {
     background: transparent;
     transition: background 0.3s, color 0.3s;
 }
-[data-theme="dark"] .nav-bar { color: #fff; }
+[data-theme="dark"] .nav-bar { background: rgba(5,5,5,0.85); backdrop-filter: blur(8px); color: #fff; }
 [data-theme="light"] .nav-bar { background: rgba(255,255,255,0.85); backdrop-filter: blur(8px); color: #111; }
 
 [data-theme="dark"] .nav-links a,
@@ -159,6 +163,18 @@ body {
     color: #111;
 }
 
+/* Hero skyline background */
+.hero-skyline {
+    position: absolute;
+    inset: 0;
+    background: url('six.png') center bottom / 100% auto no-repeat;
+    opacity: 0.4;
+    z-index: 1;
+}
+[data-theme="light"] .hero-skyline {
+    opacity: 0.2;
+}
+
 /* Hero */
 [data-theme="light"] section.min-h-screen {
     background: #fff !important;
@@ -166,7 +182,6 @@ body {
 }
 [data-theme="light"] section.min-h-screen h1 { color: #111; }
 [data-theme="light"] section.min-h-screen p { color: #555; }
-[data-theme="light"] section.min-h-screen .watermark { color: #000; opacity: 0.03; }
 [data-theme="light"] section.min-h-screen a.border-b-4 { color: #111; border-color: #111; }
 [data-theme="light"] section.min-h-screen a.border-b-4.text-neutral-400 { color: #777; border-color: #ccc; }
 [data-theme="light"] section.min-h-screen svg { color: #999; }
@@ -234,6 +249,12 @@ body {
 [data-theme="light"] .dropdown-menu a { color: #333; }
 [data-theme="light"] .dropdown-menu a:hover { background: #f5f5f5; color: #000; }
 [data-theme="light"] .dropdown-menu hr { border-color: #e5e5e5; }
+
+/* Dla kogo – full borders on hover */
+.dla-kogo-grid > div:hover {
+    border-color: #BB2649 !important;
+    border-width: 1px !important;
+}
 
 /* Smooth transition */
 body, section, nav, .border, .accordion-body, .dropdown-menu {
