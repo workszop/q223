@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 334" width="800" height="334">
+
+  <title id="ql-title">Quantica lab</title>
+
+  <defs>
+    <mask id="ql-hole" maskUnits="userSpaceOnUse" x="-20" y="-20" width="260" height="340">
+      <rect x="-20" y="-20" width="260" height="340" fill="#ffffff"/>
+      <polygon id="q-hole-shape" fill="#000000" stroke="#000000"
+               stroke-width="23" stroke-linejoin="round" points="
+        105.50,58.11  159.10,89.05  159.10,150.95
+        105.50,181.89  51.90,150.95  51.90,89.05"/>
+    </mask>
+  </defs>
+
+  <!-- kolor - ewentualnie do zmiany -->
+  <g id="logo" fill="#C10468" stroke="#C10468" stroke-linejoin="round">
+
+    <!-- ZNAK Q -->
+    <g mask="url(#ql-hole)">
+      <polygon id="q-mark" stroke-width="13" points="
+        105.50,7.51   202.92,63.75  202.92,176.25
+        132.96,216.64 193.78,251.75 193.78,283.46
+          8.08,176.25   8.08,63.75"/>
+    </g>
+
+    <!-- Jaką Andrzej czcionkę zastosował? Jak ustalę można zamienić tekst na krzywe. -->
+    <text id="ql-word-1" stroke="none"
+          x="236" y="192.5"
+          font-family="QuanticaBrandSans, 'Trebuchet MS', sans-serif"
+          font-size="133" font-weight="700"
+          textLength="565" lengthAdjust="spacing">uantica</text>
+
+    <text id="ql-word-2" stroke="none"
+          x="236" y="319.5"
+          font-family="QuanticaBrandSans, 'Trebuchet MS', sans-serif"
+          font-size="133" font-weight="700"
+          textLength="237" lengthAdjust="spacing">lab</text>
+
+  </g>
+</svg>
