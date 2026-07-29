@@ -1,313 +1,743 @@
 <!DOCTYPE html>
+<!--
+  QUANTICA LAB – strona firmowa: AI dla organizacji
+  Built from "Strona QL 2026_07_28.pdf" (Strona główna). All marketing copy verbatim
+  from the source document; nav labels and button chrome are UI chrome.
+  Products section links to quantica_produkty.html (alternative products page;
+  index.html remains the untouched master products page).
+  Fonts: local woff2 first (fonts/ beside this file), CDN fallback.
+-->
 <html lang="pl">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="Quantica Lab sp. z o.o. – AI dla organizacji. Specjaliści w zakresie budowy i wdrażania systemów sztucznej inteligencji, liderzy projektów B+R, współtwórcy polskich modeli językowych.">
-    <title>Quantica Lab – AI dla organizacji</title>
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Archivo+Black&family=Space+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet">
-    <script src="https://cdn.tailwindcss.com"></script>
-    <link rel="stylesheet" href="styles.css">
-    <script>
-        tailwind.config = {
-            theme: {
-                extend: {
-                    fontFamily: {
-                        'archivo': ['"Archivo Black"', 'sans-serif'],
-                        'grotesk': ['"Space Grotesk"', 'sans-serif'],
-                    }
-                }
-            }
-        }
-    </script>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="Quantica Lab – AI dla organizacji. Od pierwszych projektów AI do wdrożeń produkcyjnych: produkty AI, eksperci AI i szkolenia.">
+<title>Quantica Lab – AI dla organizacji</title>
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='7' fill='%23d20757'/%3E%3Ctext x='16' y='23' font-family='sans-serif' font-size='20' font-weight='700' fill='%23fff' text-anchor='middle'%3EQ%3C/text%3E%3C/svg%3E">
+
+<link rel="preconnect" href="https://cdn.fontshare.com" crossorigin>
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<style>
+@font-face {
+  font-family: 'Satoshi';
+  font-style: normal;
+  font-weight: 300;
+  font-display: swap;
+  src: url('fonts/satoshi-300.woff2') format('woff2'), url('https://cdn.fontshare.com/wf/D7WD5OXZFWQ5T76HSPWAC7MNKAJXE2YG/LUGNSPO5YC34ABNB2O6K7AFDSOJZT56V/WNDVG7O66ENLOD43GS7FBUCC4KMT5OM2.woff2') format('woff2');
+}
+@font-face {
+  font-family: 'Satoshi';
+  font-style: normal;
+  font-weight: 400;
+  font-display: swap;
+  src: url('fonts/satoshi-400.woff2') format('woff2'), url('https://cdn.fontshare.com/wf/TTX2Z3BF3P6Y5BQT3IV2VNOK6FL22KUT/7QYRJOI3JIMYHGY6CH7SOIFRQLZOLNJ6/KFIAZD4RUMEZIYV6FQ3T3GP5PDBDB6JY.woff2') format('woff2');
+}
+@font-face {
+  font-family: 'Satoshi';
+  font-style: normal;
+  font-weight: 500;
+  font-display: swap;
+  src: url('fonts/satoshi-500.woff2') format('woff2'), url('https://cdn.fontshare.com/wf/P2LQKHE6KA6ZP4AAGN72KDWMHH6ZH3TA/ZC32TK2P7FPS5GFTL46EU6KQJA24ZYDB/7AHDUZ4A7LFLVFUIFSARGIWCRQJHISQP.woff2') format('woff2');
+}
+@font-face {
+  font-family: 'Satoshi';
+  font-style: normal;
+  font-weight: 700;
+  font-display: swap;
+  src: url('fonts/satoshi-700.woff2') format('woff2'), url('https://cdn.fontshare.com/wf/LAFFD4SDUCDVQEXFPDC7C53EQ4ZELWQI/PXCT3G6LO6ICM5I3NTYENYPWJAECAWDD/GHM6WVH6MILNYOOCXHXB5GTSGNTMGXZR.woff2') format('woff2');
+}
+@font-face {
+  font-family: 'Satoshi';
+  font-style: normal;
+  font-weight: 900;
+  font-display: swap;
+  src: url('fonts/satoshi-900.woff2') format('woff2'), url('https://cdn.fontshare.com/wf/NHPGVFYUXYXE33DZ75OIT4JFGHITX5PE/PSUTMASCDJTVPERDYJZPN23BVUFUCQIF/J64QX5IPOHK56I2KYUNBQ5M2XWZEYKYX.woff2') format('woff2');
+}
+@font-face {
+  font-family: 'Geist Mono';
+  font-style: normal;
+  font-weight: 400;
+  font-display: swap;
+  src: url('fonts/geistmono-400-latin-ext.woff2') format('woff2'), url('https://fonts.gstatic.com/s/geistmono/v6/or3nQ6H-1_WfwkMZI_qYFrkdmgPn.woff2') format('woff2');
+  unicode-range: U+0100-02BA, U+02BD-02C5, U+02C7-02CC, U+02CE-02D7, U+02DD-02FF, U+0304, U+0308, U+0329, U+1D00-1DBF, U+1E00-1E9F, U+1EF2-1EFF, U+2020, U+20A0-20AB, U+20AD-20C0, U+2113, U+2C60-2C7F, U+A720-A7FF;
+}
+@font-face {
+  font-family: 'Geist Mono';
+  font-style: normal;
+  font-weight: 400;
+  font-display: swap;
+  src: url('fonts/geistmono-400-latin.woff2') format('woff2'), url('https://fonts.gstatic.com/s/geistmono/v6/or3nQ6H-1_WfwkMZI_qYFrcdmg.woff2') format('woff2');
+  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+}
+@font-face {
+  font-family: 'Geist Mono';
+  font-style: normal;
+  font-weight: 500;
+  font-display: swap;
+  src: url('fonts/geistmono-500-latin-ext.woff2') format('woff2'), url('https://fonts.gstatic.com/s/geistmono/v6/or3nQ6H-1_WfwkMZI_qYFrkdmgPn.woff2') format('woff2');
+  unicode-range: U+0100-02BA, U+02BD-02C5, U+02C7-02CC, U+02CE-02D7, U+02DD-02FF, U+0304, U+0308, U+0329, U+1D00-1DBF, U+1E00-1E9F, U+1EF2-1EFF, U+2020, U+20A0-20AB, U+20AD-20C0, U+2113, U+2C60-2C7F, U+A720-A7FF;
+}
+@font-face {
+  font-family: 'Geist Mono';
+  font-style: normal;
+  font-weight: 500;
+  font-display: swap;
+  src: url('fonts/geistmono-500-latin.woff2') format('woff2'), url('https://fonts.gstatic.com/s/geistmono/v6/or3nQ6H-1_WfwkMZI_qYFrcdmg.woff2') format('woff2');
+  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+}
+@font-face {
+  font-family: 'Geist Mono';
+  font-style: normal;
+  font-weight: 600;
+  font-display: swap;
+  src: url('fonts/geistmono-600-latin-ext.woff2') format('woff2'), url('https://fonts.gstatic.com/s/geistmono/v6/or3nQ6H-1_WfwkMZI_qYFrkdmgPn.woff2') format('woff2');
+  unicode-range: U+0100-02BA, U+02BD-02C5, U+02C7-02CC, U+02CE-02D7, U+02DD-02FF, U+0304, U+0308, U+0329, U+1D00-1DBF, U+1E00-1E9F, U+1EF2-1EFF, U+2020, U+20A0-20AB, U+20AD-20C0, U+2113, U+2C60-2C7F, U+A720-A7FF;
+}
+@font-face {
+  font-family: 'Geist Mono';
+  font-style: normal;
+  font-weight: 600;
+  font-display: swap;
+  src: url('fonts/geistmono-600-latin.woff2') format('woff2'), url('https://fonts.gstatic.com/s/geistmono/v6/or3nQ6H-1_WfwkMZI_qYFrcdmg.woff2') format('woff2');
+  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+}
+</style>
+
+<style>
+  :root {
+    /* ─── Brand tokens (mirror of design-system colors_and_type.css) ─── */
+    --quantica-pink:    #d20757;
+    --rose-pink:        #d20757;
+    --deep-berry:       #8A004C;
+    --magenta-tint:     #FFE6F1;
+
+    --violet-primary:   #7030A0;
+    --violet-deep:      #4F1F75;
+    --ink:              #0A1F2C;
+    --mist:             #F4EEFA;
+
+    --near-black:       #111111;
+    --white:            #FFFFFF;
+
+    --fg-1:             #111111;
+    --fg-2:             #111111;
+    --fg-3:             #4B5563;
+
+    --bg-1:             #FFFFFF;
+    --bg-2:             #F5F6F8;
+
+    --border-1:         #E6E8EC;
+    --border-2:         #D1D5DB;
+
+    --font-display:     "Satoshi", system-ui, -apple-system, sans-serif;
+    --font-sans:        "Satoshi", system-ui, -apple-system, sans-serif;
+    --font-mono:        "Geist Mono", ui-monospace, "SF Mono", Menlo, monospace;
+
+    --radius-sm:        6px;
+    --radius-md:        10px;
+    --radius-lg:        16px;
+
+    --shadow-pink-soft: 0 6px 18px rgba(210, 7, 87, 0.10);
+    --shadow-card:      0 10px 30px -12px rgba(10, 20, 40, 0.12);
+
+    --nav-h: 64px;
+    --content-w: 1120px;
+  }
+
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  html { scroll-behavior: smooth; scroll-padding-top: calc(var(--nav-h) + 12px); }
+  body {
+    font-family: var(--font-sans);
+    color: var(--fg-2);
+    background: var(--bg-1);
+    line-height: 1.6;
+    -webkit-font-smoothing: antialiased;
+    text-rendering: optimizeLegibility;
+  }
+  img { max-width: 100%; }
+  a { color: var(--quantica-pink); }
+
+  .wrap {
+    max-width: var(--content-w);
+    margin: 0 auto;
+    padding: 0 28px;
+  }
+
+  /* ─── Scroll reveal ─── */
+  .reveal { opacity: 0; transform: translateY(22px); transition: opacity 600ms ease, transform 600ms ease; }
+  .reveal.visible { opacity: 1; transform: none; }
+  @media (prefers-reduced-motion: reduce) {
+    html { scroll-behavior: auto; }
+    .reveal { opacity: 1; transform: none; transition: none; }
+    * { transition-duration: 0.01ms !important; animation-duration: 0.01ms !important; }
+  }
+
+  /* ─── NAV ─── */
+  .nav {
+    position: fixed;
+    top: 0; left: 0; right: 0;
+    height: var(--nav-h);
+    z-index: 40;
+    background: rgba(255, 255, 255, 0.88);
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+    border-bottom: 1px solid var(--border-1);
+  }
+  .nav-inner {
+    max-width: var(--content-w);
+    margin: 0 auto;
+    padding: 0 28px;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 20px;
+  }
+  .nav-logo img { height: 30px; width: auto; display: block; }
+  .nav-links { display: flex; align-items: center; gap: 26px; }
+  .nav-links a {
+    font-size: 13.5px;
+    font-weight: 500;
+    color: var(--fg-1);
+    text-decoration: none;
+    letter-spacing: 0.01em;
+  }
+  .nav-links a:hover { color: var(--quantica-pink); }
+  .nav-cta {
+    background: var(--quantica-pink);
+    color: var(--white) !important;
+    font-weight: 700;
+    padding: 9px 20px;
+    border-radius: 999px;
+    box-shadow: var(--shadow-pink-soft);
+    transition: background 200ms;
+  }
+  .nav-cta:hover { background: var(--deep-berry); color: var(--white); }
+
+  /* ─── HERO ─── */
+  .hero {
+    position: relative;
+    min-height: 100svh;
+    display: flex;
+    align-items: center;
+    color: var(--white);
+    padding: calc(var(--nav-h) + 48px) 0 72px;
+    background: var(--ink);
+    overflow: hidden;
+  }
+  #dots {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    pointer-events: none;
+  }
+  .hero-q {
+    position: absolute;
+    right: -6%;
+    top: 50%;
+    transform: translateY(-50%);
+    width: min(46vw, 640px);
+    opacity: 0.16;
+    pointer-events: none;
+  }
+  .hero-q img { width: 100%; display: block; }
+  .hero-inner { position: relative; z-index: 2; }
+  .hero-title {
+    font-family: var(--font-display);
+    font-weight: 700;
+    font-size: clamp(64px, 11vw, 150px);
+    line-height: 0.98;
+    letter-spacing: -0.03em;
+    color: var(--white);
+  }
+  .hero-title em { font-style: normal; color: var(--rose-pink); }
+  .hero-tagline {
+    font-size: clamp(17px, 2vw, 22px);
+    line-height: 1.6;
+    color: rgba(255, 255, 255, 0.92);
+    max-width: 700px;
+    margin-top: 24px;
+    font-weight: 400;
+  }
+  .hero-actions { display: flex; flex-wrap: wrap; gap: 14px; margin-top: 36px; }
+  .pill {
+    font-family: var(--font-sans);
+    font-weight: 700;
+    font-size: 14px;
+    text-decoration: none;
+    padding: 13px 28px;
+    border-radius: 999px;
+    display: inline-flex;
+    align-items: center;
+    gap: 9px;
+    transition: transform 200ms, background 200ms, color 200ms;
+  }
+  .pill:hover { transform: translateY(-1px); }
+  .pill-solid { background: var(--quantica-pink); color: var(--white); box-shadow: var(--shadow-pink-soft); }
+  .pill-solid:hover { background: var(--deep-berry); }
+  .pill-outline { border: 1.5px solid var(--white); color: var(--white); }
+  .pill-outline:hover { background: rgba(255, 255, 255, 0.1); }
+  .pill .icon { width: 17px; height: 17px; }
+  .hero-footer {
+    position: absolute;
+    bottom: 22px;
+    left: 0; right: 0;
+    z-index: 2;
+    display: flex;
+    justify-content: space-between;
+    font-family: var(--font-mono);
+    font-size: 11px;
+    letter-spacing: 0.04em;
+    color: rgba(255, 255, 255, 0.85);
+  }
+
+  /* ─── SECTION SCAFFOLD ─── */
+  .section { padding: 88px 0; }
+  .section-alt { background: var(--bg-2); }
+  .h-section {
+    font-family: var(--font-display);
+    font-weight: 700;
+    font-size: clamp(28px, 4vw, 42px);
+    line-height: 1.08;
+    letter-spacing: -0.025em;
+    color: var(--fg-1);
+    margin-bottom: 22px;
+  }
+  .h-pink { color: var(--quantica-pink); }
+  .h-sub {
+    font-family: var(--font-display);
+    font-weight: 700;
+    font-size: clamp(20px, 2.6vw, 26px);
+    line-height: 1.15;
+    letter-spacing: -0.02em;
+    color: var(--fg-1);
+    margin: 44px 0 14px;
+  }
+  .section p { font-size: 15.5px; line-height: 1.75; margin-bottom: 14px; max-width: 780px; }
+  .section p strong { color: var(--quantica-pink); font-weight: 700; }
+
+  /* ─── ICONS (Lucide) ─── */
+  .icon { width: 18px; height: 18px; stroke-width: 2; }
+
+  /* ─── BENTO GRID (wariant B cells, light adaptation; all rows complete) ─── */
+  .bento { display: grid; grid-template-columns: repeat(6, 1fr); gap: 16px; margin-top: 26px; }
+  .cell {
+    background: var(--bg-1);
+    border: 1px solid var(--border-1);
+    border-radius: 18px;
+    padding: 30px 32px;
+    display: flex;
+    flex-direction: column;
+    box-shadow: var(--shadow-card);
+    transition: border-color 250ms, background 250ms;
+  }
+  .cell:hover { border-color: rgba(210, 7, 87, 0.45); background: rgba(210, 7, 87, 0.03); }
+  .cell-2 { grid-column: span 2; }
+  .cell-3 { grid-column: span 3; }
+  .cell-6 { grid-column: span 6; }
+  .cell-tag {
+    font-family: var(--font-mono);
+    font-weight: 500;
+    font-size: 11px;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: var(--quantica-pink);
+    margin-bottom: 18px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 10px;
+  }
+  .cell-tag .icon { width: 19px; height: 19px; color: var(--quantica-pink); }
+  .cell h3 {
+    font-family: var(--font-display);
+    font-weight: 700;
+    font-size: 20px;
+    letter-spacing: -0.015em;
+    color: var(--fg-1);
+    margin-bottom: 10px;
+  }
+  .cell p { font-size: 14.5px; line-height: 1.7; margin: 0; max-width: none; }
+  .cell-link {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    margin-top: 20px;
+    font-family: var(--font-mono);
+    font-weight: 500;
+    font-size: 12.5px;
+    letter-spacing: 0.02em;
+    color: var(--quantica-pink);
+    text-decoration: none;
+  }
+  .cell-link:hover { color: var(--deep-berry); }
+  .cell-link .icon { width: 15px; height: 15px; }
+  .cell ul { list-style: none; margin: 4px 0 16px; }
+  .cell li {
+    font-size: 14px;
+    line-height: 1.6;
+    padding-left: 24px;
+    position: relative;
+    margin-bottom: 9px;
+    color: var(--fg-1);
+  }
+  .cell li::before {
+    content: "";
+    position: absolute;
+    left: 0; top: 0.5em;
+    width: 7px; height: 7px;
+    border-radius: 50%;
+    background: var(--quantica-pink);
+    box-shadow: 0 0 10px rgba(210, 7, 87, 0.45);
+  }
+  .cell-note {
+    border-top: 1px solid var(--border-1);
+    padding-top: 14px;
+    margin-top: auto;
+    font-size: 14px;
+    line-height: 1.65;
+  }
+
+  /* ─── PIERWSZE KROKI (full-width pink cell; full border, never a left stripe) ─── */
+  .start-cell {
+    border: 1.5px solid var(--quantica-pink);
+    background: rgba(210, 7, 87, 0.04);
+    box-shadow: var(--shadow-pink-soft);
+    flex-direction: row;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: space-between;
+    gap: 26px;
+  }
+  .start-cell:hover { border-color: var(--quantica-pink); background: rgba(210, 7, 87, 0.07); }
+  .start-text { flex: 1 1 420px; }
+  .start-cell h3 { font-size: clamp(22px, 3vw, 28px); margin-bottom: 8px; }
+  .start-cell p { font-size: 15px; }
+
+  /* ─── CONTACT ─── */
+  .contact {
+    background:
+      radial-gradient(ellipse 70% 60% at 80% 50%, rgba(112, 48, 160, 0.28) 0%, transparent 65%),
+      radial-gradient(ellipse 50% 70% at 0% 0%, rgba(210, 7, 87, 0.30) 0%, transparent 65%),
+      linear-gradient(135deg, #0A1F2C 0%, #0d2538 100%);
+    color: var(--white);
+    padding: 52px 56px;
+    border-radius: var(--radius-lg);
+    position: relative;
+    overflow: hidden;
+  }
+  .contact-q {
+    position: absolute;
+    right: -50px;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 280px;
+    opacity: 0.14;
+    pointer-events: none;
+  }
+  .contact-q img { width: 100%; display: block; }
+  .contact h2 {
+    color: var(--white);
+    font-family: var(--font-display);
+    font-size: clamp(26px, 3.4vw, 36px);
+    font-weight: 700;
+    margin-bottom: 14px;
+    letter-spacing: -0.025em;
+    line-height: 1.1;
+  }
+  .contact p { color: rgba(255, 255, 255, 0.92); font-size: 15px; margin-bottom: 26px; max-width: 560px; position: relative; z-index: 1; }
+  .contact-pills { display: flex; flex-wrap: wrap; gap: 12px; margin-bottom: 30px; position: relative; z-index: 1; }
+  .contact .pill-solid { background: var(--white); color: var(--quantica-pink); }
+  .contact .pill-solid:hover { background: var(--magenta-tint); }
+  .contact-label {
+    font-family: var(--font-mono);
+    font-weight: 500;
+    font-size: 11px;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: var(--rose-pink);
+    margin-bottom: 14px;
+    position: relative;
+    z-index: 1;
+  }
+  .contact-info {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 34px;
+    align-items: flex-start;
+    border-top: 1px solid rgba(255, 255, 255, 0.16);
+    padding-top: 22px;
+    position: relative;
+    z-index: 1;
+  }
+  .contact-meta { font-size: 13px; line-height: 1.7; color: var(--white); }
+  .contact-meta strong { font-weight: 600; }
+  .contact-meta a { color: var(--white); }
+  .contact-logo img { height: 40px; width: auto; display: block; }
+
+  /* ─── FOOTER ─── */
+  .footer {
+    padding: 26px 0;
+    border-top: 1px solid var(--border-1);
+    font-family: var(--font-mono);
+    font-size: 11.5px;
+    letter-spacing: 0.04em;
+    color: var(--fg-3);
+  }
+  .footer .wrap { display: flex; justify-content: space-between; flex-wrap: wrap; gap: 10px; }
+
+  /* ─── RESPONSIVE ─── */
+  @media (max-width: 900px) {
+    .cell-2, .cell-3 { grid-column: span 6; }
+  }
+  @media (max-width: 768px) {
+    .nav-links a:not(.nav-cta) { display: none; }
+    .hero { min-height: auto; padding: calc(var(--nav-h) + 56px) 0 96px; }
+    .hero-q { width: 70vw; right: -18%; opacity: 0.12; }
+    .section { padding: 60px 0; }
+    .wrap { padding: 0 20px; }
+    .nav-inner { padding: 0 20px; }
+    .cell { padding: 24px 22px; }
+    .contact { padding: 34px 24px; }
+  }
+</style>
 </head>
-<body class="bg-[#050505] text-neutral-100 font-grotesk overflow-x-hidden" data-theme="dark">
+<body>
 
-    <!-- Nav -->
-    <nav class="fixed top-0 left-0 w-full px-6 md:px-16 py-5 flex justify-between items-center z-50 nav-bar">
-        <a href="index.html" class="nav-logo">
-            <img src="Quantica_logo_color.png" alt="Quantica" class="h-12">
-        </a>
-        <button class="menu-toggle md:hidden" aria-label="Menu"><span></span><span></span><span></span></button>
-        <ul class="nav-links hidden md:flex gap-8 text-xs font-bold tracking-widest uppercase items-center">
-            <li class="dropdown">
-                <span class="dropdown-toggle cursor-pointer hover:text-[#BB2649] transition-all">Oferta</span>
-                <div class="dropdown-menu">
-                    <a href="doradztwo.html">Doradztwo i strategia</a>
-                    <a href="wdrozenia.html">Rozwiązania AI</a>
-                    <a href="szkolenia.html">Szkolenia AI</a>
-                    <hr>
-                    <a href="warsztat.html">Start z AI</a>
-                </div>
-            </li>
-            <li><a href="o-nas.html" class="hover:text-[#BB2649] transition-all">O nas</a></li>
-            <li><a href="blog.html" class="hover:text-[#BB2649] transition-all">Blog</a></li>
-            <li><a href="#contact" class="nav-contact-btn border px-4 py-2 transition-colors">Kontakt</a></li>
-            <li><button id="theme-toggle" class="theme-toggle" aria-label="Toggle light/dark mode" title="Zmień motyw">
-                <svg class="icon-sun" xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="5"/><path d="M12 1v2M12 21v2M4.22 4.22l1.42 1.42M18.36 18.36l1.42 1.42M1 12h2M21 12h2M4.22 19.78l1.42-1.42M18.36 5.64l1.42-1.42"/></svg>
-                <svg class="icon-moon" xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path d="M21 12.79A9 9 0 1111.21 3 7 7 0 0021 12.79z"/></svg>
-            </button></li>
+<!-- ════════════════ NAV ════════════════ -->
+<nav class="nav" aria-label="Nawigacja">
+  <div class="nav-inner">
+    <a class="nav-logo" href="#top" aria-label="Quantica Lab">
+      <img src="quantica-logo-color.png" alt="Quantica Lab">
+    </a>
+    <div class="nav-links">
+      <a href="quantica_produkty.html">Produkty</a>
+      <a href="quantica_eksperci.html">Eksperci</a>
+      <a href="quantica_szkolenia.html">Szkolenia</a>
+      <a href="quantica_wiedza.html">Wiedza</a>
+      <a href="quantica_o_nas.html">O nas</a>
+      <a class="nav-cta" href="quantica_kontakt.html">Kontakt</a>
+    </div>
+  </div>
+</nav>
+
+<!-- ════════════════ HERO ════════════════ -->
+<header class="hero" id="top">
+  <canvas id="dots" aria-hidden="true"></canvas>
+  <div class="hero-q" aria-hidden="true"><img src="quantica-q-mark-white.png" alt=""></div>
+  <div class="wrap hero-inner">
+    <h1 class="hero-title">AI dla <em>organizacji</em></h1>
+    <p class="hero-tagline">Od pierwszych projektów AI do wdrożeń produkcyjnych. Rozwijamy własne produkty i pomagamy organizacjom efektywnie wykorzystywać wiedzę, automatyzować procesy oraz rozwijać kompetencje AI.</p>
+    <div class="hero-actions">
+      <a class="pill pill-solid" href="mailto:kontakt@quanticalab.ai"><i data-lucide="calendar" class="icon"></i>Umów spotkanie</a>
+      <a class="pill pill-outline" href="#oferta"><i data-lucide="arrow-down" class="icon"></i>Nasza oferta</a>
+    </div>
+  </div>
+  <div class="hero-footer wrap">
+    <div>quanticalab.ai</div>
+    <div>AI dla organizacji</div>
+  </div>
+</header>
+
+<main>
+
+<!-- ════════════════ NASZA OFERTA ════════════════ -->
+<section class="section" id="oferta">
+  <div class="wrap">
+    <div class="reveal">
+      <h2 class="h-section">Nasza <span class="h-pink">oferta</span></h2>
+    </div>
+
+    <div class="bento">
+      <div class="cell cell-2 reveal" id="produkty">
+        <div class="cell-tag">Produkty<i data-lucide="package" class="icon"></i></div>
+        <h3>Produkty AI</h3>
+        <p>Rozwijamy i wdrażamy autorskie rozwiązania AI, które rozwiązują realne problemy biznesowe – od inteligentnych asystentów po zaawansowane systemy agentowe.</p>
+        <a class="cell-link" href="quantica_produkty.html">Poznaj nasze produkty<i data-lucide="arrow-right" class="icon"></i></a>
+      </div>
+      <div class="cell cell-2 reveal"None>
+        <div class="cell-tag">Eksperci<i data-lucide="users" class="icon"></i></div>
+        <h3>Eksperci AI</h3>
+        <p>Zapewniamy elastyczny dostęp do ekspertów AI – od strategii i architektury, przez przygotowanie danych i dobór technologii, po wdrożenia i optymalizację rozwiązań.</p>
+        <a class="cell-link" href="quantica_eksperci.html">Sprawdź możliwości współpracy<i data-lucide="arrow-right" class="icon"></i></a>
+      </div>
+      <div class="cell cell-2 reveal"None>
+        <div class="cell-tag">Szkolenia<i data-lucide="graduation-cap" class="icon"></i></div>
+        <h3>Szkolenia</h3>
+        <p>Tworzymy praktyczne programy rozwijające kompetencje AI – od podstaw dla całej organizacji po warsztaty specjalistyczne i strategiczne dla kadry zarządzającej.</p>
+        <a class="cell-link" href="quantica_szkolenia.html">Zobacz programy szkoleń<i data-lucide="arrow-right" class="icon"></i></a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ════════════════ DLACZEGO QUANTICA LAB ════════════════ -->
+<section class="section section-alt" id="dlaczego">
+  <div class="wrap">
+    <div class="reveal">
+      <h2 class="h-section">Dlaczego <span class="h-pink">Quantica Lab?</span></h2>
+    </div>
+
+    <div class="bento">
+      <div class="cell cell-3 reveal"None>
+        <div class="cell-tag">Badania<i data-lucide="flask-conical" class="icon"></i></div>
+        <h3>Od badań do wdrożeń</h3>
+        <p>Wykorzystujemy doświadczenie badawczo-rozwojowe do projektowania i wdrażania rozwiązań AI dla biznesu i administracji publicznej.</p>
+      </div>
+      <div class="cell cell-3 reveal"None>
+        <div class="cell-tag">Modele<i data-lucide="brain-circuit" class="icon"></i></div>
+        <h3>Doświadczenie w budowie modeli AI</h3>
+        <p>Nasi eksperci współtworzyli polskie modele językowe PLLuM, uczestnicząc w ich projektowaniu, trenowaniu, ewaluacji i wdrożeniach.</p>
+      </div>
+      <div class="cell cell-3 reveal"None>
+        <div class="cell-tag">Ocena<i data-lucide="scale" class="icon"></i></div>
+        <h3>Obiektywny dobór technologii</h3>
+        <p>Tworzymy własne narzędzia do oceny AI i rekomendujemy rozwiązania na podstawie ich jakości, bezpieczeństwa i kosztów, a nie deklaracji producentów.</p>
+      </div>
+      <div class="cell cell-3 reveal"None>
+        <div class="cell-tag">Bezpieczeństwo<i data-lucide="shield-check" class="icon"></i></div>
+        <h3>Bezpieczeństwo i kontrola danych</h3>
+        <p>Projektujemy rozwiązania zapewniające pełną kontrolę nad danymi i możliwość wdrożenia zarówno w chmurze, jak i on-premise.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ════════════════ DLA KOGO ════════════════ -->
+<section class="section" id="jak-mozemy-pomoc">
+  <div class="wrap">
+    <div class="reveal">
+      <h2 class="h-section">Jak możemy <span class="h-pink">pomóc?</span></h2>
+    </div>
+
+    <div class="bento">
+      <div class="cell cell-3 reveal">
+        <div class="cell-tag">Wdrożenia<i data-lucide="compass" class="icon"></i></div>
+        <h3>Planujesz wdrożenie AI</h3>
+        <ul>
+          <li>szukasz kierunku rozwoju AI w organizacji</li>
+          <li>chcesz uniknąć kosztownych eksperymentów</li>
+          <li>zależy Ci na bezpiecznym i skalowalnym wdrożeniu</li>
         </ul>
-    </nav>
-
-    <!-- Hero -->
-    <section class="hero-section min-h-screen bg-[#050505] text-neutral-100 overflow-hidden flex flex-col justify-center px-6 md:px-20 relative">
-        <!-- Skyline background -->
-        <div class="hero-skyline pointer-events-none select-none" aria-hidden="true"></div>
-
-
-        <div class="relative z-10 pt-32">
-            <h1 class="font-black leading-none tracking-tighter uppercase" style="font-family:'Archivo Black',sans-serif; font-size:clamp(3rem,10vw,10rem);">AI<br><span style="color:#BB2649">dla</span><br>organizacji<span style="color:#BB2649">.</span></h1>
-
-            <div class="mt-10 flex flex-col md:flex-row items-start md:items-center gap-6">
-                <svg xmlns="http://www.w3.org/2000/svg" class="w-8 h-8 text-neutral-500 flex-shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
-                    <path stroke-linecap="round" stroke-linejoin="round" d="M17 7l-10 10M17 7H7m10 0v10"/>
-                </svg>
-                <p class="text-xl md:text-2xl font-medium tracking-tight text-neutral-400 max-w-2xl">Specjalizujemy się w budowie i wdrażaniu systemów sztucznej inteligencji. Prowadzimy organizacje przez każdy etap transformacji AI: od strategii, przez diagnozę gotowości technologicznej i kompetencyjnej, aż po wdrożenia i aktywne wsparcie w realizacji projektów.</p>
-            </div>
-
-            <div class="mt-12 flex flex-wrap gap-8 text-sm font-bold uppercase tracking-widest">
-                <a href="#contact" class="border-b-4 border-white pb-1 hover:text-neutral-400 transition-colors">Skontaktuj się →</a>
-                <a href="warsztat.html" class="border-b-4 border-neutral-600 pb-1 text-neutral-400 hover:text-neutral-100 transition-colors">Start z AI →</a>
-            </div>
+        <div class="cell-note">Pomożemy zaplanować architekturę, dobrać technologie i przeprowadzić organizację przez cały proces wdrożenia.</div>
+      </div>
+      <div class="cell cell-3 reveal">
+        <div class="cell-tag">Wiedza<i data-lucide="file-text" class="icon"></i></div>
+        <h3>Pracujesz z dokumentami i wiedzą</h3>
+        <ul>
+          <li>pracujesz z dużą liczbą dokumentów</li>
+          <li>wyszukiwanie informacji zajmuje zbyt dużo czasu</li>
+          <li>chcesz zautomatyzować procesy analizy i tworzenia dokumentów</li>
+        </ul>
+        <div class="cell-note">Projektujemy rozwiązania AI, które porządkują wiedzę, automatyzują pracę z dokumentami i ułatwiają dostęp do informacji.</div>
+      </div>
+      <div class="cell cell-3 reveal">
+        <div class="cell-tag">Bezpieczeństwo<i data-lucide="lock" class="icon"></i></div>
+        <h3>Bezpieczeństwo jest priorytetem</h3>
+        <ul>
+          <li>przetwarzasz dane wrażliwe</li>
+          <li>musisz spełniać wymagania regulacyjne</li>
+          <li>zależy Ci na pełnej kontroli nad danymi i infrastrukturą</li>
+        </ul>
+        <div class="cell-note">Projektujemy rozwiązania zgodne z wymaganiami organizacji – od wdrożeń on-premise po bezpieczne środowiska chmurowe.</div>
+      </div>
+      <div class="cell cell-3 reveal">
+        <div class="cell-tag">Kompetencje<i data-lucide="graduation-cap" class="icon"></i></div>
+        <h3>Budujesz kompetencje AI</h3>
+        <ul>
+          <li>przygotowujesz organizację do pracy z AI</li>
+          <li>chcesz rozwijać kompetencje pracowników</li>
+          <li>zależy Ci na praktycznym wykorzystaniu AI</li>
+        </ul>
+        <div class="cell-note">Prowadzimy szkolenia i warsztaty, które łączą wiedzę technologiczną z realnymi przypadkami użycia w organizacji.</div>
+      </div>
+      <div class="cell cell-6 start-cell reveal" id="pierwsze-kroki">
+        <div class="start-text">
+          <h3>Pierwsze kroki</h3>
+          <p>Masz pomysł na wykorzystanie AI, ale nie wiesz, czy jest możliwy do realizacji? Umów się na warsztaty.</p>
         </div>
-    </section>
+        <a class="pill pill-solid" href="mailto:kontakt@quanticalab.ai">Start z AI<i data-lucide="arrow-right" class="icon"></i></a>
+      </div>
+    </div>
+  </div>
+</section>
 
+</main>
 
-    <!-- Services Section -->
-    <section class="py-32 px-6 md:px-20 bg-[#050505]">
-        <div class="mb-16">
-            <h2 class="font-black tracking-tighter uppercase" style="font-family:'Archivo Black',sans-serif; font-size:clamp(3rem,8vw,7rem);">Co oferujemy<span style="color:#BB2649">.</span></h2>
-        </div>
+<footer class="footer">
+  <div class="wrap">
+    <div>quanticalab.ai</div>
+    <div>AI dla organizacji</div>
+  </div>
+</footer>
 
-        <div class="grid grid-cols-1 md:grid-cols-2 gap-0">
-            <!-- Card 1: Wdrożenia AI -->
-            <div class="border border-neutral-800 p-8 hover:border-neutral-400 transition-colors flex flex-col justify-between min-h-[480px]">
-                <div>
-                    <div class="text-6xl font-black tracking-tighter text-neutral-700 mb-6" style="font-family:'Archivo Black',sans-serif">01<span style="color:#BB2649">.</span></div>
-                    <h3 class="text-3xl md:text-4xl font-black uppercase tracking-tighter mb-4" style="font-family:'Archivo Black',sans-serif">Wdrożenia AI</h3>
-                    <p class="text-neutral-400 font-medium leading-relaxed mb-8">Oferujemy zestaw narzędzi umożliwiających sprawne wprowadzenie AI do organizacji w sposób przemyślany, zgodny z regulacjami i dobrymi praktykami oraz odpowiadający na rzeczywiste potrzeby. Realizujemy projekty o jasno określonym zakresie, które pozwalają szybko przejść od koncepcji do działania i osiągnąć mierzalne wyniki.</p>
+<script src="https://unpkg.com/lucide@latest"></script>
+<script>
+(function () {
+  "use strict";
 
-                    <div class="accordion-item border-t border-neutral-800">
-                        <h4 class="accordion-trigger flex justify-between items-center py-4 text-sm font-bold uppercase tracking-widest cursor-pointer hover:text-white transition-colors text-neutral-300">Doradztwo technologiczne <span class="accordion-icon text-[#BB2649] text-xl">+</span></h4>
-                        <div class="accordion-body text-neutral-400 text-sm pb-4">
-                            <ul class="space-y-2 list-none pl-0">
-                                <li class="border-l-2 border-[#BB2649] pl-4">Analiza potrzeb biznesowych i procesowych</li>
-                                <li class="border-l-2 border-[#BB2649] pl-4">Ocena gotowości organizacyjnej i technologicznej</li>
-                                <li class="border-l-2 border-[#BB2649] pl-4">Opracowanie koncepcji, planu i harmonogramu wdrożenia</li>
-                                <li class="border-l-2 border-[#BB2649] pl-4">Prowadzenie organizacji przez cały proces wdrożeniowy</li>
-                            </ul>
-                        </div>
-                    </div>
+  // Floating dot particles in hero (from wariant B)
+  function initDots() {
+    var canvas = document.getElementById("dots");
+    if (!canvas) { return; }
+    var ctx = canvas.getContext("2d");
+    var dots = [];
+    function resize() {
+      canvas.width = canvas.offsetWidth;
+      canvas.height = canvas.offsetHeight;
+    }
+    resize();
+    window.addEventListener("resize", resize);
+    for (var i = 0; i < 70; i++) {
+      dots.push({
+        x: Math.random(), y: Math.random(),
+        r: 1 + Math.random() * 2.2,
+        vx: (Math.random() - 0.5) * 0.0004,
+        vy: (Math.random() - 0.5) * 0.0004,
+        o: 0.12 + Math.random() * 0.5
+      });
+    }
+    var reduced = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+    function frame() {
+      ctx.clearRect(0, 0, canvas.width, canvas.height);
+      dots.forEach(function (d) {
+        d.x = (d.x + d.vx + 1) % 1;
+        d.y = (d.y + d.vy + 1) % 1;
+        ctx.beginPath();
+        ctx.arc(d.x * canvas.width, d.y * canvas.height, d.r, 0, Math.PI * 2);
+        ctx.fillStyle = "rgba(210, 7, 87, " + d.o + ")";
+        ctx.fill();
+      });
+      if (!reduced) { requestAnimationFrame(frame); }
+    }
+    frame();
+  }
 
-                    <div class="accordion-item border-t border-neutral-800">
-                        <h4 class="accordion-trigger flex justify-between items-center py-4 text-sm font-bold uppercase tracking-widest cursor-pointer hover:text-white transition-colors text-neutral-300">Rozwiązania AI <span class="accordion-icon text-[#BB2649] text-xl">+</span></h4>
-                        <div class="accordion-body text-neutral-400 text-sm pb-4">
-                            <ul class="space-y-2 list-none pl-0">
-                                <li class="border-l-2 border-[#BB2649] pl-4">Systemy wyszukiwania wiedzy (RAG) – integracja z repozytoriami dokumentów i bezpieczne wykorzystanie danych wewnętrznych</li>
-                                <li class="border-l-2 border-[#BB2649] pl-4">Agenci AI wspierający pracę zespołów – automatyzacja procesów, analiza dokumentów, wsparcie operacyjne</li>
-                                <li class="border-l-2 border-[#BB2649] pl-4">Dostrajanie modeli językowych – adaptacja LLM-ów do specyfiki organizacji, danych i języka branżowego</li>
-                            </ul>
-                        </div>
-                    </div>
+  // ─── Scroll reveal ───
+  function initReveal() {
+    var revealed = document.querySelectorAll(".reveal");
+    if (!("IntersectionObserver" in window)) {
+      revealed.forEach(function (el) { el.classList.add("visible"); });
+      return;
+    }
+    var observer = new IntersectionObserver(function (entries) {
+      entries.forEach(function (entry) {
+        if (entry.isIntersecting) {
+          entry.target.classList.add("visible");
+          observer.unobserve(entry.target);
+        }
+      });
+    }, { threshold: 0.12 });
+    revealed.forEach(function (el) { observer.observe(el); });
+  }
 
-                    <div class="accordion-item border-t border-neutral-800">
-                        <h4 class="accordion-trigger flex justify-between items-center py-4 text-sm font-bold uppercase tracking-widest cursor-pointer hover:text-white transition-colors text-neutral-300">Szkolenia <span class="accordion-icon text-[#BB2649] text-xl">+</span></h4>
-                        <div class="accordion-body text-neutral-400 text-sm pb-4">
-                            <ul class="space-y-2 list-none pl-0">
-                                <li class="border-l-2 border-[#BB2649] pl-4">Programy wprowadzające do AI dla organizacji</li>
-                                <li class="border-l-2 border-[#BB2649] pl-4">Praktyczne warsztaty pracy z narzędziami AI</li>
-                                <li class="border-l-2 border-[#BB2649] pl-4">Warsztaty strategiczne dla kadry zarządzającej</li>
-                            </ul>
-                        </div>
-                    </div>
-                </div>
+  // ─── Init ───
+  if (window.lucide) { window.lucide.createIcons(); }
+  initDots();
+  initReveal();
+})();
+</script>
 
-                <div class="mt-8 border-t border-neutral-800 pt-6">
-                    <a href="wdrozenia.html" class="text-sm font-bold uppercase tracking-widest hover:text-[#BB2649] transition-colors">Poznaj rozwiązania →</a>
-                </div>
-            </div>
-
-            <!-- Card 2: Transformacja cyfrowa -->
-            <div class="border border-neutral-800 p-8 hover:border-neutral-400 transition-colors flex flex-col justify-between min-h-[480px] border-l-0">
-                <div>
-                    <div class="text-6xl font-black tracking-tighter text-neutral-700 mb-6" style="font-family:'Archivo Black',sans-serif">02<span style="color:#BB2649">.</span></div>
-                    <h3 class="text-3xl md:text-4xl font-black uppercase tracking-tighter mb-4" style="font-family:'Archivo Black',sans-serif">Transformacja cyfrowa</h3>
-                    <p class="text-neutral-400 font-medium leading-relaxed mb-8">Wspieramy organizacje w kompleksowej transformacji cyfrowej – od określenia kierunku strategicznego, przez przygotowanie danych i architektury systemowej, po wdrożenie i skalowanie rozwiązań w środowisku produkcyjnym. Budujemy spójny model wykorzystania AI, który wzmacnia przewagę konkurencyjną organizacji.</p>
-
-                    <div class="accordion-item border-t border-neutral-800">
-                        <h4 class="accordion-trigger flex justify-between items-center py-4 text-sm font-bold uppercase tracking-widest cursor-pointer hover:text-white transition-colors text-neutral-300">Opracowanie strategii <span class="accordion-icon text-[#BB2649] text-xl">+</span></h4>
-                        <div class="accordion-body text-neutral-400 text-sm pb-4">
-                            <ul class="space-y-2 list-none pl-0">
-                                <li class="border-l-2 border-[#BB2649] pl-4">Strategie IT i AI powiązane z celami biznesowymi</li>
-                                <li class="border-l-2 border-[#BB2649] pl-4">Strategia zarządzania danymi</li>
-                                <li class="border-l-2 border-[#BB2649] pl-4">Strategia cyberbezpieczeństwa</li>
-                                <li class="border-l-2 border-[#BB2649] pl-4">Model zapewnienia zgodności regulacyjnej</li>
-                                <li class="border-l-2 border-[#BB2649] pl-4">Plan rozwoju infrastruktury technologicznej</li>
-                                <li class="border-l-2 border-[#BB2649] pl-4">Model zarządzania i nadzoru nad AI (AI governance)</li>
-                            </ul>
-                        </div>
-                    </div>
-
-                    <div class="accordion-item border-t border-neutral-800">
-                        <h4 class="accordion-trigger flex justify-between items-center py-4 text-sm font-bold uppercase tracking-widest cursor-pointer hover:text-white transition-colors text-neutral-300">Konsulting <span class="accordion-icon text-[#BB2649] text-xl">+</span></h4>
-                        <div class="accordion-body text-neutral-400 text-sm pb-4">
-                            <ul class="space-y-2 list-none pl-0">
-                                <li class="border-l-2 border-[#BB2649] pl-4">Architektura i model operacyjny dla danych</li>
-                                <li class="border-l-2 border-[#BB2649] pl-4">Architektura systemów AI</li>
-                                <li class="border-l-2 border-[#BB2649] pl-4">Scenariusze użycia</li>
-                                <li class="border-l-2 border-[#BB2649] pl-4">Plan zarządzania zmianą organizacyjną</li>
-                                <li class="border-l-2 border-[#BB2649] pl-4">Wskaźniki efektywności i jakości</li>
-                            </ul>
-                        </div>
-                    </div>
-
-                    <div class="accordion-item border-t border-neutral-800">
-                        <h4 class="accordion-trigger flex justify-between items-center py-4 text-sm font-bold uppercase tracking-widest cursor-pointer hover:text-white transition-colors text-neutral-300">Wdrożenia AI <span class="accordion-icon text-[#BB2649] text-xl">+</span></h4>
-                        <div class="accordion-body text-neutral-400 text-sm pb-4">
-                            <ul class="space-y-2 list-none pl-0">
-                                <li class="border-l-2 border-[#BB2649] pl-4">Budowa i testowanie rozwiązań</li>
-                                <li class="border-l-2 border-[#BB2649] pl-4">Ewaluacja jakości modeli</li>
-                                <li class="border-l-2 border-[#BB2649] pl-4">Integracja z istniejącymi systemami</li>
-                            </ul>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="mt-8 border-t border-neutral-800 pt-6">
-                    <a href="doradztwo.html" class="text-sm font-bold uppercase tracking-widest hover:text-[#BB2649] transition-colors">Poznaj strategię →</a>
-                </div>
-            </div>
-        </div>
-    </section>
-
-
-    <!-- Why Section (white) -->
-    <section class="py-32 px-6 md:px-20 bg-white text-black relative overflow-hidden">
-        <!-- Giant bg letter -->
-        <div class="pointer-events-none select-none absolute font-black leading-none" aria-hidden="true" style="font-family:'Archivo Black',sans-serif; font-size:clamp(20rem,70vw,90rem); color:#f0f0f0; opacity:0.06; bottom:-10rem; right:-5rem; line-height:1;">W</div>
-
-        <div class="relative z-10">
-            <h2 class="font-black tracking-tighter uppercase mb-16" style="font-family:'Archivo Black',sans-serif; font-size:clamp(2.5rem,5vw,5rem);">Dlaczego <span style="color:#BB2649">Quantica Lab</span><span style="color:#BB2649">.</span></h2>
-
-            <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
-                <div class="p-6 hover:bg-black hover:text-white transition-colors group">
-                    <h4 class="text-lg font-black uppercase tracking-tight mb-3" style="font-family:'Archivo Black',sans-serif">Praktyka we wdrożeniach</h4>
-                    <p class="text-sm font-medium leading-relaxed opacity-70 group-hover:opacity-90">Ponad 15 lat doświadczenia w realizacji projektów technologicznych w dużych organizacjach – od strategii po skalowanie produkcyjne.</p>
-                </div>
-                <div class="p-6 hover:bg-black hover:text-white transition-colors group">
-                    <h4 class="text-lg font-black uppercase tracking-tight mb-3" style="font-family:'Archivo Black',sans-serif">Kompleksowe podejście</h4>
-                    <p class="text-sm font-medium leading-relaxed opacity-70 group-hover:opacity-90">Od analizy potrzeb i budowy strategii AI i IT, przez architekturę i wdrożenia, utrzymanie i zarządzanie systemami, aż po szkolenia i rozwój kompetencji – całościowe wsparcie transformacji AI.</p>
-                </div>
-                <div class="p-6 hover:bg-black hover:text-white transition-colors group">
-                    <h4 class="text-lg font-black uppercase tracking-tight mb-3" style="font-family:'Archivo Black',sans-serif">Kompetencje techniczne</h4>
-                    <p class="text-sm font-medium leading-relaxed opacity-70 group-hover:opacity-90">Zespół specjalistów posiadających wieloletnie doświadczenie w budowie systemów AI, pracujących z różnymi modelami AI oraz integrujących je z danymi i systemami organizacji – w infrastrukturze hybrydowej i zróżnicowanym środowisku technologii i danych.</p>
-                </div>
-                <div class="p-6 hover:bg-black hover:text-white transition-colors group">
-                    <h4 class="text-lg font-black uppercase tracking-tight mb-3" style="font-family:'Archivo Black',sans-serif">Pragmatyczne podejście</h4>
-                    <p class="text-sm font-medium leading-relaxed opacity-70 group-hover:opacity-90">Rozwiązania projektowane pod kątem realnych celów biznesowych, operacyjnych i regulacyjnych wymagań organizacji.</p>
-                </div>
-                <div class="p-6 hover:bg-black hover:text-white transition-colors group">
-                    <h4 class="text-lg font-black uppercase tracking-tight mb-3" style="font-family:'Archivo Black',sans-serif">Doświadczenie w projektach B+R</h4>
-                    <p class="text-sm font-medium leading-relaxed opacity-70 group-hover:opacity-90">Liderzy i uczestnicy projektów badawczo-rozwojowych w zakresie AI. Współtwórcy polskich modeli językowych i systemów sztucznej inteligencji.</p>
-                </div>
-                <div class="p-6 hover:bg-black hover:text-white transition-colors group">
-                    <h4 class="text-lg font-black uppercase tracking-tight mb-3" style="font-family:'Archivo Black',sans-serif">Sprawdzone metodyki projektowe</h4>
-                    <p class="text-sm font-medium leading-relaxed opacity-70 group-hover:opacity-90">Gotowe narzędzia wspierające diagnozę dojrzałości technologicznej i kompetencyjnej, planowanie i monitorowanie transformacji oraz rozwój modelu operacyjnego.</p>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- For Whom Section -->
-    <section class="py-32 px-6 md:px-20 bg-[#050505] text-neutral-100">
-        <div class="mb-16">
-            <h2 class="font-black tracking-tighter uppercase mb-6" style="font-family:'Archivo Black',sans-serif; font-size:clamp(3rem,8vw,7rem);">Dla kogo<span style="color:#BB2649">.</span></h2>
-            <p class="text-lg font-medium text-neutral-400 max-w-2xl">Wspieramy organizacje, które chcą wdrażać AI odpowiedzialnie i skutecznie – niezależnie od tego, czy dopiero porządkują dane i analizują ryzyka, czy są gotowe do skalowania rozwiązań. Pomagamy przejść przez cały proces, od pierwszej decyzji po realne efekty operacyjne.</p>
-        </div>
-
-        <div class="dla-kogo-grid grid grid-cols-1 md:grid-cols-2">
-            <!-- Card 1 -->
-            <div class="border border-neutral-800 p-8 hover:border-[#BB2649] transition-colors">
-                <div class="text-7xl font-black tracking-tighter mb-6 leading-none" style="font-family:'Archivo Black',sans-serif; color:#BB2649;">1</div>
-                <h3 class="text-xl font-black uppercase tracking-tight mb-4" style="font-family:'Archivo Black',sans-serif">Dla kierownictwa i liderów transformacji</h3>
-                <p class="text-sm font-medium text-neutral-500 uppercase tracking-widest mb-3">Dla organizacji, które:</p>
-                <ul class="space-y-2 text-neutral-400 text-sm font-medium mb-6 list-none pl-0">
-                    <li class="border-l-2 border-neutral-700 pl-4">chcą wdrożyć AI w sposób strategiczny, a nie punktowy,</li>
-                    <li class="border-l-2 border-neutral-700 pl-4">potrzebują uporządkowanego planu działania, a nie eksperymentów bez skalowania,</li>
-                    <li class="border-l-2 border-neutral-700 pl-4">chcą świadomie zarządzać ryzykiem technologicznym i regulacyjnym.</li>
-                </ul>
-                <p class="text-sm font-medium text-neutral-300">Wspieramy kierownictwo w podejmowaniu decyzji dotyczących kierunku rozwoju AI, architektury danych oraz modelu wdrożeniowego.</p>
-            </div>
-
-            <!-- Card 2 -->
-            <div class="border border-neutral-800 p-8 hover:border-[#BB2649] transition-colors md:border-l-0">
-                <div class="text-7xl font-black tracking-tighter mb-6 leading-none" style="font-family:'Archivo Black',sans-serif; color:#BB2649;">2</div>
-                <h3 class="text-xl font-black uppercase tracking-tight mb-4" style="font-family:'Archivo Black',sans-serif">Dla organizacji zarządzających dokumentami i wiedzą</h3>
-                <p class="text-sm font-medium text-neutral-500 uppercase tracking-widest mb-3">Dla firm i instytucji, które:</p>
-                <ul class="space-y-2 text-neutral-400 text-sm font-medium mb-6 list-none pl-0">
-                    <li class="border-l-2 border-neutral-700 pl-4">posiadają rozproszone repozytoria dokumentów,</li>
-                    <li class="border-l-2 border-neutral-700 pl-4">przetwarzają duże wolumeny informacji,</li>
-                    <li class="border-l-2 border-neutral-700 pl-4">chcą automatyzować analizę, klasyfikację i wyszukiwanie wiedzy.</li>
-                </ul>
-                <p class="text-sm font-medium text-neutral-300">Projektujemy systemy AI, które realnie skracają czas pracy z dokumentami i zwiększają efektywność.</p>
-            </div>
-
-            <!-- Card 3 -->
-            <div class="border border-neutral-800 p-8 hover:border-[#BB2649] transition-colors md:border-t-0">
-                <div class="text-7xl font-black tracking-tighter mb-6 leading-none" style="font-family:'Archivo Black',sans-serif; color:#BB2649;">3</div>
-                <h3 class="text-xl font-black uppercase tracking-tight mb-4" style="font-family:'Archivo Black',sans-serif">Dla administracji publicznej i infrastruktury krytycznej</h3>
-                <p class="text-sm font-medium text-neutral-500 uppercase tracking-widest mb-3">Dla podmiotów, które:</p>
-                <ul class="space-y-2 text-neutral-400 text-sm font-medium mb-6 list-none pl-0">
-                    <li class="border-l-2 border-neutral-700 pl-4">podlegają rygorystycznym wymogom prawnym i audytowym,</li>
-                    <li class="border-l-2 border-neutral-700 pl-4">potrzebują pełnej kontroli nad przetwarzaniem informacji,</li>
-                    <li class="border-l-2 border-neutral-700 pl-4">chcą rozwijać rozwiązania oparte na suwerenności technologicznej.</li>
-                </ul>
-                <p class="text-sm font-medium text-neutral-300">Rozumiemy specyfikę sektora publicznego oraz wyzwania związane z bezpieczeństwem, odpowiedzialnością i skalą działania.</p>
-            </div>
-
-            <!-- Card 4 -->
-            <div class="border border-neutral-800 p-8 hover:border-[#BB2649] transition-colors md:border-t-0 md:border-l-0">
-                <div class="text-7xl font-black tracking-tighter mb-6 leading-none" style="font-family:'Archivo Black',sans-serif; color:#BB2649;">4</div>
-                <h3 class="text-xl font-black uppercase tracking-tight mb-4" style="font-family:'Archivo Black',sans-serif">Dla organizacji budujących kompetencje wewnętrzne</h3>
-                <p class="text-sm font-medium text-neutral-500 uppercase tracking-widest mb-3">Dla zespołów, które:</p>
-                <ul class="space-y-2 text-neutral-400 text-sm font-medium mb-6 list-none pl-0">
-                    <li class="border-l-2 border-neutral-700 pl-4">nie chcą być uzależnione wyłącznie od zewnętrznych dostawców,</li>
-                    <li class="border-l-2 border-neutral-700 pl-4">chcą rozwijać własne kompetencje w obszarze AI,</li>
-                    <li class="border-l-2 border-neutral-700 pl-4">potrzebują praktycznego, a nie teoretycznego podejścia do wdrożeń.</li>
-                </ul>
-                <p class="text-sm font-medium text-neutral-300">Oferujemy programy rozwojowe, które łączą wiedzę technologiczną z realnymi przypadkami użycia w organizacji.</p>
-            </div>
-        </div>
-    </section>
-
-    <!-- CTA / First Steps Section -->
-    <section class="py-32 px-6 md:px-20 bg-black text-white text-center">
-        <h2 class="font-black tracking-tighter uppercase mb-6" style="font-family:'Archivo Black',sans-serif; font-size:clamp(3rem,8vw,7rem);">Pierwsze kroki<span style="color:#BB2649">.</span></h2>
-        <p class="text-xl font-medium text-neutral-400 mb-8 max-w-xl mx-auto">Skorzystaj z naszych warsztatów.</p>
-        <a href="warsztat.html" class="border border-white px-8 py-4 text-sm font-bold uppercase tracking-widest hover:bg-white hover:text-black transition-colors inline-block mt-6">Start z AI</a>
-    </section>
-
-    <!-- Footer -->
-    <footer id="contact" class="bg-white text-black py-20 px-6 md:px-20 flex flex-col md:flex-row justify-between items-end relative overflow-hidden">
-        <div class="text-[40vw] font-black leading-none absolute -bottom-20 -right-10 opacity-5 pointer-events-none select-none" style="font-family:'Archivo Black',sans-serif">Q</div>
-        <div class="z-10 mb-10 md:mb-0">
-            <img src="Quantica_logo_color.png" alt="Quantica" class="h-16 md:h-24 mb-4">
-            <p class="text-base font-medium opacity-80">kontakt@quanticalab.ai</p>
-        </div>
-        <div class="z-10 flex flex-col items-start md:items-end gap-4">
-            <div class="flex flex-wrap gap-6 text-sm font-bold uppercase tracking-widest">
-                <a href="doradztwo.html" class="hover:underline">Doradztwo</a>
-                <a href="wdrozenia.html" class="hover:underline">Wdrożenia</a>
-                <a href="szkolenia.html" class="hover:underline">Szkolenia</a>
-                <a href="o-nas.html" class="hover:underline">O nas</a>
-            </div>
-            <p class="text-xs opacity-50">© 2025 Quantica Lab sp. z o.o. · <a href="https://workszop.github.io/q223/llms.txt" class="underline">llms.txt</a></p>
-        </div>
-    </footer>
-
-    <script src="app.js" defer></script>
 </body>
 </html>

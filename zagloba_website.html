@@ -1,0 +1,1287 @@
+<!DOCTYPE html>
+<!--
+  QUANTICA LAB – strona produktowa: Zagłoba, inteligentny asystent wiedzy
+  Standalone marketing website built from the zagloba_inteligentny_asystent_wiedzy.html flyer.
+  All marketing copy verbatim from the flyer; simulation labels are UI demo data.
+-->
+<html lang="pl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="Zagłoba: inteligentny asystent wiedzy. Bezpieczny dostęp do wiedzy organizacji, precyzyjne odpowiedzi ze wskazaniem źródeł i integracja z istniejącymi systemami.">
+<title>Zagłoba: inteligentny asystent wiedzy | Quantica Lab</title>
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='7' fill='%23d20757'/%3E%3Ctext x='16' y='23' font-family='sans-serif' font-size='20' font-weight='700' fill='%23fff' text-anchor='middle'%3EZ%3C/text%3E%3C/svg%3E">
+
+<link rel="preconnect" href="https://api.fontshare.com">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://api.fontshare.com/v2/css?f[]=satoshi@300,400,500,700,900&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Geist+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+
+<style>
+  :root {
+    /* ─── Brand tokens (mirror of design-system colors_and_type.css) ─── */
+    --quantica-pink:    #d20757;
+    --rose-pink:        #d20757;
+    --deep-berry:       #8A004C;
+    --magenta-tint:     #FFE6F1;
+
+    --violet-primary:   #7030A0;
+    --violet-deep:      #4F1F75;
+    --ink:              #0A1F2C;
+    --mist:             #F4EEFA;
+
+    --near-black:       #111111;
+    --white:            #FFFFFF;
+
+    --fg-1:             #111111;
+    --fg-2:             #111111;
+    --fg-3:             #4B5563;
+
+    --bg-1:             #FFFFFF;
+    --bg-2:             #F5F6F8;
+
+    --border-1:         #E6E8EC;
+    --border-2:         #D1D5DB;
+
+    --font-display:     "Satoshi", system-ui, -apple-system, sans-serif;
+    --font-sans:        "Satoshi", system-ui, -apple-system, sans-serif;
+    --font-mono:        "Geist Mono", ui-monospace, "SF Mono", Menlo, monospace;
+
+    --radius-sm:        6px;
+    --radius-md:        10px;
+    --radius-lg:        16px;
+
+    --shadow-pink-soft: 0 6px 18px rgba(210, 7, 87, 0.10);
+    --shadow-card:      0 10px 30px -12px rgba(10, 20, 40, 0.12);
+
+    --nav-h: 64px;
+    --content-w: 1120px;
+
+    --diagram-line:     #B9BFC9;
+    --diagram-line-on:  var(--quantica-pink);
+    --diagram-paper:    #FDFCFB;
+  }
+
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  html { scroll-behavior: smooth; scroll-padding-top: calc(var(--nav-h) + 12px); }
+  body {
+    font-family: var(--font-sans);
+    color: var(--fg-2);
+    background: var(--bg-1);
+    line-height: 1.6;
+    -webkit-font-smoothing: antialiased;
+    text-rendering: optimizeLegibility;
+  }
+  img { max-width: 100%; }
+  a { color: var(--quantica-pink); }
+
+  .wrap {
+    max-width: var(--content-w);
+    margin: 0 auto;
+    padding: 0 28px;
+  }
+
+  /* ─── Scroll reveal ─── */
+  .reveal { opacity: 0; transform: translateY(22px); transition: opacity 600ms ease, transform 600ms ease; }
+  .reveal.visible { opacity: 1; transform: none; }
+  @media (prefers-reduced-motion: reduce) {
+    html { scroll-behavior: auto; }
+    .reveal { opacity: 1; transform: none; transition: none; }
+    * { transition-duration: 0.01ms !important; animation-duration: 0.01ms !important; }
+  }
+
+  /* ─── NAV ─── */
+  .nav {
+    position: fixed;
+    top: 0; left: 0; right: 0;
+    height: var(--nav-h);
+    z-index: 40;
+    background: rgba(255, 255, 255, 0.88);
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+    border-bottom: 1px solid var(--border-1);
+  }
+  .nav-inner {
+    max-width: var(--content-w);
+    margin: 0 auto;
+    padding: 0 28px;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 20px;
+  }
+  .nav-logo img { height: 30px; width: auto; display: block; }
+  .nav-links { display: flex; align-items: center; gap: 26px; }
+  .nav-links a {
+    font-size: 13.5px;
+    font-weight: 500;
+    color: var(--fg-1);
+    text-decoration: none;
+    letter-spacing: 0.01em;
+  }
+  .nav-links a:hover { color: var(--quantica-pink); }
+  .nav-cta {
+    background: var(--quantica-pink);
+    color: var(--white) !important;
+    font-weight: 700;
+    padding: 9px 20px;
+    border-radius: 999px;
+    box-shadow: var(--shadow-pink-soft);
+    transition: background 200ms;
+  }
+  .nav-cta:hover { background: var(--deep-berry); color: var(--white); }
+
+  /* ─── HERO ─── */
+  .hero {
+    position: relative;
+    min-height: 100svh;
+    display: flex;
+    align-items: center;
+    color: var(--white);
+    padding: calc(var(--nav-h) + 48px) 0 72px;
+    background: var(--ink);
+    overflow: hidden;
+  }
+  #dots {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    pointer-events: none;
+  }
+  .hero-q {
+    position: absolute;
+    right: -6%;
+    top: 50%;
+    transform: translateY(-50%);
+    width: min(46vw, 640px);
+    opacity: 0.16;
+    pointer-events: none;
+  }
+  .hero-q img { width: 100%; display: block; }
+  .hero-inner { position: relative; z-index: 2; }
+  .hero-title {
+    font-family: var(--font-display);
+    font-weight: 700;
+    font-size: clamp(58px, 9.4vw, 116px);
+    line-height: 0.98;
+    letter-spacing: -0.03em;
+    color: var(--white);
+  }
+  .hero-subtitle {
+    font-family: var(--font-display);
+    font-size: clamp(24px, 3.4vw, 40px);
+    font-weight: 400;
+    color: var(--white);
+    margin-top: 10px;
+    letter-spacing: -0.015em;
+    line-height: 1.15;
+  }
+  .hero-subtitle em { font-style: normal; color: var(--rose-pink); }
+  .hero-tagline {
+    font-size: clamp(15px, 1.6vw, 18px);
+    line-height: 1.6;
+    color: rgba(255, 255, 255, 0.92);
+    max-width: 560px;
+    margin-top: 24px;
+    font-weight: 400;
+  }
+  .hero-actions { display: flex; flex-wrap: wrap; gap: 14px; margin-top: 36px; }
+  .pill {
+    font-family: var(--font-sans);
+    font-weight: 700;
+    font-size: 14px;
+    text-decoration: none;
+    padding: 13px 28px;
+    border-radius: 999px;
+    display: inline-flex;
+    align-items: center;
+    gap: 9px;
+    transition: transform 200ms, background 200ms, color 200ms;
+  }
+  .pill:hover { transform: translateY(-1px); }
+  .pill-solid { background: var(--quantica-pink); color: var(--white); box-shadow: var(--shadow-pink-soft); }
+  .pill-solid:hover { background: var(--deep-berry); }
+  .pill-outline { border: 1.5px solid var(--white); color: var(--white); }
+  .pill-outline:hover { background: rgba(255, 255, 255, 0.1); }
+  .pill .icon { width: 17px; height: 17px; }
+  .hero-footer {
+    position: absolute;
+    bottom: 22px;
+    left: 0; right: 0;
+    z-index: 2;
+    display: flex;
+    justify-content: space-between;
+    font-family: var(--font-mono);
+    font-size: 11px;
+    letter-spacing: 0.04em;
+    color: rgba(255, 255, 255, 0.85);
+  }
+
+  /* ─── SECTION SCAFFOLD ─── */
+  .section { padding: 88px 0; }
+  .section-alt { background: var(--bg-2); }
+  .h-section {
+    font-family: var(--font-display);
+    font-weight: 700;
+    font-size: clamp(28px, 4vw, 42px);
+    line-height: 1.08;
+    letter-spacing: -0.025em;
+    color: var(--fg-1);
+    margin-bottom: 22px;
+  }
+  .h-pink { color: var(--quantica-pink); }
+  .section p { font-size: 15.5px; line-height: 1.75; margin-bottom: 14px; max-width: 780px; }
+  .section p strong { color: var(--quantica-pink); font-weight: 700; }
+
+  /* ─── VIOLET NOTE ─── */
+  .note-violet {
+    background: var(--mist);
+    border: 1.5px solid var(--violet-primary);
+    border-radius: var(--radius-md);
+    padding: 22px 26px;
+    margin: 22px 0;
+    max-width: 860px;
+    display: flex;
+    gap: 18px;
+    align-items: flex-start;
+  }
+  .note-violet p { margin: 0; font-size: 16px; line-height: 1.7; color: var(--fg-1); font-weight: 500; max-width: none; }
+  .note-violet .note-icon {
+    flex: none;
+    width: 46px;
+    height: 46px;
+    border-radius: var(--radius-md);
+    background: rgba(112, 48, 160, 0.12);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  .note-violet .note-icon .icon { width: 23px; height: 23px; color: var(--violet-primary); }
+
+  /* ─── ICON CARDS (paragraphs split into smaller visual parts) ─── */
+  .split-grid { display: flex; flex-wrap: wrap; gap: 18px; margin: 26px 0; }
+  .icon-card {
+    flex: 1 1 280px;
+    min-width: 260px;
+    background: var(--bg-1);
+    border: 1px solid var(--border-1);
+    border-radius: var(--radius-lg);
+    padding: 24px;
+    box-shadow: var(--shadow-card);
+  }
+  .icon-chip {
+    width: 44px;
+    height: 44px;
+    border-radius: var(--radius-md);
+    background: var(--magenta-tint);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 15px;
+  }
+  .icon-chip .icon { width: 22px; height: 22px; color: var(--quantica-pink); }
+  .icon-card p { margin: 0; max-width: none; font-size: 14.5px; line-height: 1.7; }
+
+  /* ─── SIMULATION (diagram) ─── */
+  .fig {
+    background: var(--diagram-paper);
+    border: 1px solid var(--border-1);
+    border-radius: var(--radius-lg);
+    padding: 30px 32px 26px;
+    margin-top: 36px;
+  }
+  .fig-head {
+    display: flex;
+    align-items: baseline;
+    gap: 14px;
+    margin-bottom: 26px;
+    flex-wrap: wrap;
+  }
+  .scn-tabs { margin-left: auto; display: flex; gap: 18px; flex-wrap: wrap; }
+  .scn-tab {
+    font-family: var(--font-mono);
+    font-size: 11px;
+    letter-spacing: 0.06em;
+    color: var(--fg-3);
+    background: none;
+    border: none;
+    border-bottom: 1.5px solid transparent;
+    padding: 0 0 3px;
+    cursor: pointer;
+    display: inline-flex;
+    align-items: center;
+    gap: 7px;
+  }
+  .scn-tab::before { content: attr(data-ix); font-weight: 600; color: var(--diagram-line); }
+  .scn-tab.on { color: var(--fg-1); border-bottom-color: var(--quantica-pink); }
+  .scn-tab.on::before { color: var(--quantica-pink); }
+  .scn-tab:hover { color: var(--fg-1); }
+  .scn-tab:focus-visible { outline: 2px solid var(--quantica-pink); outline-offset: 3px; }
+
+  .flowz {
+    display: grid;
+    grid-template-columns: 1fr 58px 1.15fr 58px 1.15fr;
+    align-items: center;
+  }
+  .flow-node {
+    border: 1.5px solid var(--diagram-line);
+    border-radius: var(--radius-md);
+    padding: 18px 18px 16px;
+    background: var(--white);
+    transition: border-color 400ms, opacity 400ms;
+  }
+  .flow-node .step-no {
+    font-family: var(--font-mono);
+    font-size: 11px;
+    font-weight: 600;
+    letter-spacing: 0.1em;
+    color: var(--fg-3);
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    transition: color 400ms;
+  }
+  .flow-node .step-no::after {
+    content: "";
+    width: 26px;
+    height: 1.5px;
+    background: var(--diagram-line);
+    transition: background 400ms;
+  }
+  .flow-node h3 {
+    font-family: var(--font-display);
+    font-weight: 700;
+    font-size: 15.5px;
+    line-height: 1.25;
+    letter-spacing: -0.01em;
+    color: var(--fg-1);
+    margin: 10px 0 6px;
+    display: flex;
+    align-items: center;
+    gap: 9px;
+  }
+  .flow-node h3 .icon { width: 18px; height: 18px; color: var(--diagram-line); flex: none; transition: color 400ms; }
+  .flow-node.on { border-color: var(--diagram-line-on); }
+  .flow-node.on .step-no { color: var(--quantica-pink); }
+  .flow-node.on .step-no::after { background: var(--quantica-pink); }
+  .flow-node.on h3 .icon { color: var(--quantica-pink); }
+  .flow-node.faded { opacity: 0.38; }
+
+  .flow-query {
+    font-size: 12.5px;
+    line-height: 1.55;
+    color: var(--fg-3);
+    min-height: 4.6em;
+    max-width: none;
+    margin: 0;
+  }
+  .flow-query::before { content: "\201E"; }
+  .flow-query::after { content: "\201D"; }
+
+  .flow-checks { display: flex; flex-direction: column; gap: 7px; margin-top: 4px; }
+  .flow-check {
+    display: flex;
+    align-items: flex-start;
+    gap: 8px;
+    font-family: var(--font-mono);
+    font-size: 10.5px;
+    letter-spacing: 0.02em;
+    line-height: 1.5;
+    color: var(--fg-3);
+    opacity: 0.5;
+    transition: opacity 350ms, color 350ms;
+  }
+  .flow-check .icon { width: 13px; height: 13px; flex: none; margin-top: 1px; color: var(--diagram-line); transition: color 350ms; }
+  .flow-check.on { opacity: 1; color: var(--fg-1); }
+  .flow-check.on .icon { color: var(--quantica-pink); }
+
+  .flow-link { width: 100%; height: 14px; }
+  .flow-link line { stroke: var(--diagram-line); stroke-width: 1.5; stroke-dasharray: 4 5; }
+  .flow-link path { fill: var(--diagram-line); }
+  .flow-link.on line { stroke: var(--diagram-line-on); animation: dashMove 700ms linear infinite; }
+  .flow-link.on path { fill: var(--diagram-line-on); }
+  .flow-link.faded { opacity: 0.35; }
+  @keyframes dashMove { to { stroke-dashoffset: -9; } }
+
+  .branch-links {
+    display: flex;
+    flex-direction: column;
+    align-self: stretch;
+    justify-content: space-around;
+    gap: 18px;
+  }
+  .branch-targets { display: flex; flex-direction: column; gap: 18px; }
+
+  .cite-list { display: flex; flex-direction: column; gap: 6px; margin-top: 10px; min-height: 62px; }
+  .cite {
+    font-family: var(--font-mono);
+    font-size: 10.5px;
+    letter-spacing: 0.02em;
+    color: var(--fg-1);
+    background: var(--bg-2);
+    border: 1px solid var(--border-1);
+    border-radius: var(--radius-sm);
+    padding: 6px 9px;
+    display: flex;
+    align-items: center;
+    gap: 7px;
+    opacity: 0;
+    transition: opacity 350ms;
+  }
+  .cite.show { opacity: 1; }
+  .cite .icon { width: 13px; height: 13px; flex: none; color: var(--quantica-pink); }
+
+  .flow-badge {
+    margin-top: 10px;
+    font-family: var(--font-mono);
+    font-size: 10.5px;
+    letter-spacing: 0.02em;
+    line-height: 1.5;
+    padding: 6px 10px;
+    border-radius: var(--radius-sm);
+    display: inline-flex;
+    align-items: flex-start;
+    gap: 7px;
+    background: var(--magenta-tint);
+    color: var(--deep-berry);
+    opacity: 0;
+    transition: opacity 350ms;
+  }
+  .flow-badge.show { opacity: 1; }
+  .flow-badge .icon { width: 13px; height: 13px; flex: none; margin-top: 1px; }
+
+  .sync-row {
+    display: grid;
+    grid-template-columns: 1fr 58px 1.15fr 58px 1.15fr;
+  }
+  .sync-cell {
+    grid-column: 3;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+  .sync-link { width: 14px; height: 36px; }
+  .sync-link line { stroke: var(--diagram-line); stroke-width: 1.5; stroke-dasharray: 4 5; }
+  .sync-link path { fill: var(--diagram-line); }
+  .sync-box {
+    border: 1.5px dashed var(--diagram-line);
+    border-radius: var(--radius-md);
+    padding: 12px 16px;
+    text-align: center;
+  }
+  .sync-box .sync-tag {
+    font-family: var(--font-mono);
+    font-size: 10px;
+    font-weight: 600;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: var(--fg-3);
+    display: block;
+    margin-bottom: 5px;
+  }
+  .sync-box .sync-src {
+    font-family: var(--font-mono);
+    font-size: 10.5px;
+    letter-spacing: 0.02em;
+    color: var(--fg-1);
+    display: block;
+  }
+  .sync-box .sync-note {
+    font-size: 11.5px;
+    line-height: 1.5;
+    color: var(--fg-3);
+    display: block;
+    margin-top: 4px;
+  }
+
+  .scn-status {
+    margin-top: 22px;
+    padding-top: 14px;
+    border-top: 1px dashed var(--border-2);
+    font-family: var(--font-mono);
+    font-size: 11px;
+    letter-spacing: 0.06em;
+    color: var(--fg-3);
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    flex-wrap: wrap;
+  }
+  .scn-status b { color: var(--quantica-pink); font-weight: 600; }
+
+  .sim-caption {
+    margin-top: 16px;
+    font-size: 12.5px;
+    color: var(--fg-3);
+    max-width: 780px;
+  }
+
+  /* ─── ROUTE CALLOUT (flyer copy block) ─── */
+  .route-callout {
+    background: var(--magenta-tint);
+    color: var(--quantica-pink);
+    font-size: 14.5px;
+    line-height: 1.65;
+    font-weight: 500;
+    padding: 18px 24px 18px 42px;
+    margin: 16px 0 0;
+    border-radius: 0 var(--radius-md) var(--radius-md) 0;
+    clip-path: polygon(0 50%, 20px 0, 100% 0, 100% 100%, 20px 100%);
+    max-width: 860px;
+    display: flex;
+    gap: 14px;
+    align-items: flex-start;
+  }
+  .route-callout .icon { width: 20px; height: 20px; flex: none; margin-top: 2px; }
+
+  /* ─── DIFFERENTIATORS ─── */
+  .diff-list { display: flex; flex-direction: column; gap: 22px; margin-top: 40px; }
+  .diff-block {
+    background: var(--bg-1);
+    border: 1px solid var(--border-1);
+    border-radius: var(--radius-lg);
+    padding: 30px 32px;
+    box-shadow: var(--shadow-card);
+  }
+  .diff-head { display: flex; align-items: center; gap: 16px; margin-bottom: 16px; }
+  .diff-head .icon-chip { margin-bottom: 0; flex: none; }
+  .diff-head h3 {
+    font-family: var(--font-display);
+    font-weight: 700;
+    font-size: 20px;
+    line-height: 1.2;
+    letter-spacing: -0.015em;
+    color: var(--fg-1);
+  }
+  .diff-index {
+    font-family: var(--font-mono);
+    font-size: 11px;
+    letter-spacing: 0.1em;
+    color: var(--fg-3);
+    margin-left: auto;
+    flex: none;
+  }
+  .diff-block p { max-width: none; font-size: 14.5px; line-height: 1.75; }
+  .diff-block p:last-child { margin-bottom: 0; }
+
+  /* ─── CAPABILITIES (flexbox, incomplete rows center) ─── */
+  .cap-grid { display: flex; flex-wrap: wrap; gap: 22px; justify-content: center; margin-top: 40px; }
+  .cap-panel {
+    flex: 1 1 calc(50% - 11px);
+    min-width: 300px;
+    background: var(--bg-1);
+    border: 1px solid var(--border-1);
+    border-radius: var(--radius-lg);
+    padding: 12px;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    box-shadow: var(--shadow-card);
+  }
+  .cap-head {
+    background: var(--violet-primary);
+    color: var(--white);
+    border-radius: var(--radius-md);
+    padding: 15px 18px;
+    font-family: var(--font-display);
+    font-weight: 700;
+    font-size: 16.5px;
+    line-height: 1.25;
+    letter-spacing: -0.01em;
+    display: flex;
+    align-items: center;
+    gap: 12px;
+  }
+  .cap-head .icon { width: 21px; height: 21px; flex: none; }
+  .cap-item {
+    background: var(--bg-2);
+    border-radius: var(--radius-sm);
+    padding: 12px 15px;
+    font-size: 13.5px;
+    line-height: 1.6;
+    color: var(--fg-1);
+    display: flex;
+    gap: 11px;
+    align-items: flex-start;
+  }
+  .cap-item .icon { width: 16px; height: 16px; flex: none; color: var(--quantica-pink); margin-top: 3px; }
+
+  /* ─── BENEFITS ─── */
+  .benefit-grid { display: flex; flex-wrap: wrap; gap: 22px; justify-content: center; margin-top: 40px; }
+  .benefit {
+    flex: 1 1 calc(50% - 11px);
+    min-width: 300px;
+    background: var(--bg-1);
+    border: 1px solid var(--border-1);
+    border-radius: var(--radius-lg);
+    padding: 28px;
+    display: grid;
+    grid-template-columns: 72px 1fr;
+    gap: 20px;
+    align-items: start;
+    box-shadow: var(--shadow-card);
+  }
+  .benefit .digit {
+    font-family: var(--font-display);
+    font-weight: 700;
+    font-size: 64px;
+    line-height: 0.9;
+    color: var(--quantica-pink);
+    letter-spacing: -0.04em;
+  }
+  .benefit h3 {
+    font-family: var(--font-display);
+    font-weight: 700;
+    color: var(--fg-1);
+    font-size: 18px;
+    margin-bottom: 10px;
+    line-height: 1.25;
+    letter-spacing: -0.01em;
+  }
+  .benefit p { font-size: 14px; line-height: 1.7; margin: 0; }
+
+  /* ─── CONTACT ─── */
+  .contact {
+    background:
+      radial-gradient(ellipse 70% 60% at 80% 50%, rgba(112, 48, 160, 0.28) 0%, transparent 65%),
+      radial-gradient(ellipse 50% 70% at 0% 0%, rgba(210, 7, 87, 0.30) 0%, transparent 65%),
+      linear-gradient(135deg, #0A1F2C 0%, #0d2538 100%);
+    color: var(--white);
+    padding: 52px 56px;
+    border-radius: var(--radius-lg);
+    position: relative;
+    overflow: hidden;
+  }
+  .contact-q {
+    position: absolute;
+    right: -50px;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 280px;
+    opacity: 0.14;
+    pointer-events: none;
+  }
+  .contact-q img { width: 100%; display: block; }
+  .contact  .contact  .contact h2 {
+    color: var(--white);
+    font-family: var(--font-display);
+    font-size: clamp(26px, 3.4vw, 36px);
+    font-weight: 700;
+    margin-bottom: 14px;
+    letter-spacing: -0.025em;
+    line-height: 1.1;
+  }
+  .contact p { color: rgba(255, 255, 255, 0.92); font-size: 15px; margin-bottom: 26px; max-width: 560px; position: relative; z-index: 1; }
+  .contact-pills { display: flex; flex-wrap: wrap; gap: 12px; margin-bottom: 30px; position: relative; z-index: 1; }
+  .contact .pill-solid { background: var(--white); color: var(--quantica-pink); }
+  .contact .pill-solid:hover { background: var(--magenta-tint); }
+  .contact-info {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 24px;
+    align-items: center;
+    border-top: 1px solid rgba(255, 255, 255, 0.16);
+    padding-top: 22px;
+    position: relative;
+    z-index: 1;
+  }
+  .contact-meta { font-size: 13px; color: var(--white); }
+  .contact-meta strong { font-weight: 600; }
+  .contact-logo img { height: 40px; width: auto; display: block; }
+
+  /* ─── FOOTER ─── */
+  .footer {
+    padding: 26px 0;
+    border-top: 1px solid var(--border-1);
+    font-family: var(--font-mono);
+    font-size: 11.5px;
+    letter-spacing: 0.04em;
+    color: var(--fg-3);
+  }
+  .footer .wrap { display: flex; justify-content: space-between; flex-wrap: wrap; gap: 10px; }
+
+  /* ─── INTRO: full title width + justified ─── */
+  #jak-dziala .wrap > .reveal > p { max-width: none; text-align: justify; }
+  #jak-dziala .note-violet { max-width: none; }
+  #jak-dziala .note-violet p { text-align: justify; }
+
+  /* ─── BELOW SIMULATION: full title width + justified ─── */
+  #symulacja .sim-caption,
+  #symulacja .route-callout,
+  #symulacja .route-branch,
+  #symulacja .route-cards { max-width: none; }
+  #symulacja .sim-caption,
+  #symulacja .route-callout span,
+  #symulacja .route-card p { text-align: justify; }
+
+  /* ─── RESPONSIVE ─── */
+  @media (max-width: 768px) {
+    .nav-links a:not(.nav-cta) { display: none; }
+    .hero { min-height: auto; padding: calc(var(--nav-h) + 56px) 0 96px; }
+    .hero-q { width: 70vw; right: -18%; opacity: 0.12; }
+    .section { padding: 60px 0; }
+    .wrap { padding: 0 20px; }
+    .nav-inner { padding: 0 20px; }
+    .fig { padding: 22px 18px; }
+    .flowz { grid-template-columns: 1fr; gap: 0; }
+    .flow-link { height: 34px; width: 14px; margin: 0 auto; transform: rotate(90deg); }
+    .branch-links { flex-direction: row; justify-content: center; gap: 60px; }
+    .flow-query { min-height: 0; }
+    .cite-list { min-height: 0; }
+    .scn-tabs { margin-left: 0; }
+    .sync-row { grid-template-columns: 1fr; margin-top: 18px; }
+    .sync-cell { grid-column: 1; }
+    .sync-link { display: none; }
+    .diff-block { padding: 22px; }
+    .diff-head { flex-wrap: wrap; gap: 12px; }
+    .cap-panel, .benefit { flex-basis: 100%; min-width: 0; }
+    .benefit { padding: 22px; grid-template-columns: 54px 1fr; gap: 14px; }
+    .benefit .digit { font-size: 48px; }
+    .contact { padding: 34px 24px; }
+  }
+</style>
+</head>
+<body>
+
+<!-- ════════════════ NAV ════════════════ -->
+<nav class="nav" aria-label="Nawigacja">
+  <div class="nav-inner">
+    <a class="nav-logo" href="#top" aria-label="Quantica Lab">
+      <img src="quantica-logo-color.png" alt="Quantica Lab">
+    </a>
+    <div class="nav-links">
+      <a href="#jak-dziala">Jak działa</a>
+      <a href="#symulacja">Symulacja</a>
+      <a href="#korzysci">Korzyści</a>
+      <a class="nav-cta" href="#kontakt">Kontakt</a>
+    </div>
+  </div>
+</nav>
+
+<!-- ════════════════ HERO ════════════════ -->
+<header class="hero" id="top">
+  <canvas id="dots" aria-hidden="true"></canvas>
+  <div class="hero-q" aria-hidden="true"><img src="quantica-q-mark-white.png" alt=""></div>
+  <div class="wrap hero-inner">
+    <h1 class="hero-title">Zagłoba</h1>
+    <div class="hero-subtitle">inteligentny <em>asystent wiedzy</em></div>
+    <p class="hero-tagline">Bezpieczny dostęp do wiedzy organizacji, precyzyjne odpowiedzi ze wskazaniem źródeł i integracja z istniejącymi systemami oraz bazami danych</p>
+    <div class="hero-actions">
+      <a class="pill pill-solid" href="#kontakt"><i data-lucide="messages-square" class="icon"></i>Porozmawiajmy o wdrożeniu</a>
+      <a class="pill pill-outline" href="#symulacja"><i data-lucide="play" class="icon"></i>Zobacz symulację</a>
+    </div>
+  </div>
+  <div class="hero-footer wrap">
+    <div>quanticalab.ai</div>
+    <div>Zagłoba · inteligentny asystent wiedzy</div>
+  </div>
+</header>
+
+<main>
+
+<!-- ════════════════ JAK DZIAŁA ════════════════ -->
+<section class="section" id="jak-dziala">
+  <div class="wrap">
+    <div class="reveal">
+      <h2 class="h-section">Szybki i bezpieczny <span class="h-pink">dostęp do wiedzy</span> organizacji</h2>
+      </div>
+
+    <div class="reveal">
+      <p>Wiedza potrzebna pracownikom do podejmowania decyzji i realizacji codziennych zadań jest często rozproszona między wieloma dokumentami, repozytoriami i systemami. Odnalezienie właściwej informacji wymaga czasu i przeszukiwania wielu źródeł. Jednocześnie wykorzystanie publicznych modeli językowych do pracy z dokumentami organizacji może wiązać się z ryzykiem ujawnienia danych oraz brakiem kontroli nad sposobem ich przetwarzania.</p>
+    </div>
+
+    <div class="note-violet reveal">
+      <div class="note-icon"><i data-lucide="book-open-check" class="icon"></i></div>
+      <p>Zagłoba to system RAG (Retrieval-Augmented Generation), który zapewnia szybki i bezpieczny dostęp do wiedzy organizacji: użytkownik zadaje pytanie, a system przeszukuje dostępne źródła danych, identyfikuje najbardziej trafne informacje i na ich podstawie przygotowuje odpowiedź.</p>
+    </div>
+
+    <div class="reveal">
+      <p>Rozwiązanie łączy możliwości dużych modeli językowych z aktualną wiedzą organizacji. Odpowiedzi są generowane na podstawie informacji wyszukanych w zdefiniowanych źródłach, co ogranicza ryzyko udzielania odpowiedzi błędnych lub nieaktualnych oraz pozwala zweryfikować informacje w materiałach źródłowych.</p>
+    </div>
+
+    <div class="reveal">
+      <p>Zagłoba nie wymaga przenoszenia dokumentów do kolejnego, odrębnego repozytorium. Integruje się z istniejącymi systemami i źródłami danych organizacji, automatycznie uwzględniając nowe i zmienione dokumenty. Zachowuje przy tym istniejące role i poziomy dostępu – odpowiedzi dla każdego użytkownika są generowane wyłącznie na podstawie informacji, do których ma uprawnienia.</p>
+    </div>
+
+    <div class="reveal">
+      <p>System może działać w pełni lokalnie, bez konieczności przekazywania dokumentów i danych do zewnętrznych dostawców AI. Pozwala to organizacji zachować pełną kontrolę nad miejscem przechowywania i przetwarzania danych oraz uniezależnić koszty działania systemu od liczby zapytań kierowanych do komercyjnych modeli językowych.</p>
+    </div>
+
+    <div class="reveal">
+      <p>Zagłoba został opracowany przez zespół współtworzący polskie modele językowe PLLuM, posiadający doświadczenie we wdrożeniach w administracji publicznej i sektorze prywatnym, m.in. przy budowie Wirtualnego Asystenta w aplikacji mObywatel (ok. 500 tys. zapytań miesięcznie), czatbotów w urzędach oraz systemów AI wspierających pracę organizacji posiadających rozbudowane zasoby wiedzy.</p>
+    </div>
+
+  </div>
+</section>
+
+<!-- ════════════════ SYMULACJA ════════════════ -->
+<section class="section section-alt" id="symulacja">
+  <div class="wrap">
+    <div class="reveal">
+      <h2 class="h-section">Zobacz, jak Zagłoba <span class="h-pink">odpowiada na podstawie źródeł</span></h2>
+      <p>Wybierz przykładowe pytanie i obserwuj, jak system przeszukuje bazę wiedzy organizacji, identyfikuje najbardziej trafne informacje i na ich podstawie przygotowuje odpowiedź ze wskazaniem dokumentów źródłowych.</p>
+    </div>
+
+    <div class="fig reveal" id="simFig">
+      <div class="fig-head">
+        <div class="scn-tabs" role="group" aria-label="Przykładowe pytania">
+          <button class="scn-tab on" type="button" data-scn="0" data-ix="1 ">pytanie o procedurę</button>
+          <button class="scn-tab" type="button" data-scn="1" data-ix="2 ">ograniczony dostęp</button>
+          <button class="scn-tab" type="button" data-scn="2" data-ix="3 ">brak pokrycia w bazie</button>
+        </div>
+      </div>
+
+      <div class="flowz" id="flowz">
+        <div class="flow-node" id="fzQuery">
+          <span class="step-no">01</span>
+          <h3><i data-lucide="message-square-text" class="icon"></i>Pytanie użytkownika</h3>
+          <p class="flow-query" id="fzQueryText">Jaka jest procedura udostępniania informacji publicznej w naszym urzędzie?</p>
+        </div>
+        <svg class="flow-link" id="fzLink1" viewBox="0 0 58 14" preserveAspectRatio="none" aria-hidden="true"><line x1="0" y1="7" x2="47" y2="7"/><path d="M47 2 L57 7 L47 12 Z"/></svg>
+        <div class="flow-node" id="fzSearch">
+          <span class="step-no">02</span>
+          <h3><i data-lucide="scan-search" class="icon"></i>Przeszukiwanie bazy wiedzy</h3>
+          <div class="flow-checks">
+            <div class="flow-check" id="fzCheck0"><i data-lucide="database" class="icon"></i><span id="fzCheck0Text">przeszukiwanie bazy wiedzy organizacji</span></div>
+            <div class="flow-check" id="fzCheck1"><i data-lucide="key-round" class="icon"></i><span id="fzCheck1Text">kontrola uprawnień: użytkownik ma dostęp do wyszukanych dokumentów</span></div>
+            <div class="flow-check" id="fzCheck2"><i data-lucide="list-ordered" class="icon"></i><span id="fzCheck2Text">wyszukiwanie hybrydowe i ponowna ocena trafności wyników</span></div>
+          </div>
+        </div>
+        <div class="branch-links" aria-hidden="true">
+          <svg class="flow-link" id="fzLinkA" viewBox="0 0 58 14" preserveAspectRatio="none"><line x1="0" y1="7" x2="47" y2="7"/><path d="M47 2 L57 7 L47 12 Z"/></svg>
+          <svg class="flow-link" id="fzLinkB" viewBox="0 0 58 14" preserveAspectRatio="none"><line x1="0" y1="7" x2="47" y2="7"/><path d="M47 2 L57 7 L47 12 Z"/></svg>
+        </div>
+        <div class="branch-targets">
+          <div class="flow-node" id="fzAnswer">
+            <span class="step-no">03A</span>
+            <h3><i data-lucide="file-check" class="icon"></i>Odpowiedź ze wskazaniem źródeł</h3>
+            <div class="cite-list" id="fzCites"></div>
+            <span class="flow-badge" id="fzAnswerBadge"><i data-lucide="quote" class="icon"></i><span id="fzAnswerBadgeText"></span></span>
+          </div>
+          <div class="flow-node" id="fzNoData">
+            <span class="step-no">03B</span>
+            <h3><i data-lucide="info" class="icon"></i>Brak informacji w bazie</h3>
+            <span class="flow-badge" id="fzNoDataBadge"><i data-lucide="signpost" class="icon"></i><span id="fzNoDataBadgeText"></span></span>
+          </div>
+        </div>
+      </div>
+
+      <div class="sync-row">
+        <div class="sync-cell">
+          <svg class="sync-link" viewBox="0 0 14 36" aria-hidden="true"><line x1="7" y1="36" x2="7" y2="10"/><path d="M2 11 L7 1 L12 11 Z"/></svg>
+          <div class="sync-box">
+            <span class="sync-tag">Synchronizacja w tle</span>
+            <span class="sync-src">SharePoint · OneDrive · Amazon S3</span>
+            <span class="sync-note">baza wiedzy automatycznie uwzględnia nowe i zmienione dokumenty ze źródeł organizacji</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="scn-status" aria-live="polite"><b id="fzScnNo">SCENARIUSZ 1/3</b><span id="fzStatus">system gotowy - wybierz przykładowe pytanie</span></div>
+    </div>
+    <p class="sim-caption reveal">Symulacja poglądowa. Przykładowe pytania, dokumenty i komunikaty ilustrują sposób działania mechanizmu wyszukiwania informacji i generowania odpowiedzi.</p>
+
+    <div class="route-callout reveal"><i data-lucide="signpost" class="icon"></i><span>W przypadku braku informacji w bazie Zagłoba nie tworzy odpowiedzi spekulatywnych, lecz informuje o braku danych i może skierować użytkownika do odpowiedniego źródła informacji.</span></div>
+  </div>
+</section>
+
+<!-- ════════════════ KORZYŚCI ════════════════ -->
+<section class="section" id="korzysci">
+  <div class="wrap">
+    <div class="reveal">
+      <h2 class="h-section h-pink">Co zyskuje organizacja?</h2>
+    </div>
+
+    <div class="benefit-grid">
+      <div class="benefit reveal">
+        <span class="digit">1</span>
+        <div>
+          <h3>Szybszy dostęp do wiedzy</h3>
+          <p>Pracownicy mogą uzyskiwać potrzebne informacje bez ręcznego przeszukiwania dokumentów, repozytoriów i systemów. Zagłoba skraca czas potrzebny na dotarcie do wiedzy i pozwala skoncentrować się na zadaniach wymagających analizy i podejmowania decyzji.</p>
+        </div>
+      </div>
+      <div class="benefit reveal">
+        <span class="digit">2</span>
+        <div>
+          <h3>Wiarygodne i weryfikowalne odpowiedzi</h3>
+          <p>System odpowiada na podstawie kontrolowanych źródeł wiedzy i wskazuje dokumenty wykorzystane do przygotowania odpowiedzi. Użytkownik może sprawdzić podstawę udzielonej informacji, a organizacja ogranicza ryzyko generowania odpowiedzi niezgodnych z dokumentacją.</p>
+        </div>
+      </div>
+      <div class="benefit reveal">
+        <span class="digit">3</span>
+        <div>
+          <h3>Wykorzystanie istniejących systemów i danych</h3>
+          <p>Zagłoba integruje się z repozytoriami i źródłami danych organizacji, automatycznie uwzględniając nowe i zmienione dokumenty. Organizacja może wykorzystać posiadaną wiedzę bez konieczności ręcznego przenoszenia i aktualizowania dokumentów w kolejnym systemie.</p>
+        </div>
+      </div>
+      <div class="benefit reveal">
+        <span class="digit">4</span>
+        <div>
+          <h3>Bezpieczeństwo i kontrola nad wiedzą organizacji</h3>
+          <p>Możliwość lokalnego wdrożenia, mechanizmy zarządzania dostępem i guardrails pozwalają zachować kontrolę nad danymi, sposobem działania systemu oraz zakresem informacji dostępnym dla poszczególnych użytkowników.</p>
+        </div>
+      </div>
+      <div class="benefit reveal">
+        <span class="digit">5</span>
+        <div>
+          <h3>Rozwiązanie gotowe do rozwoju wraz z organizacją</h3>
+          <p>Architektura klasy enterprise, modułowa budowa i monitoring działania pozwalają rozwijać system wraz ze wzrostem zasobów wiedzy, liczby użytkowników i nowych zastosowań AI w organizacji.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ════════════════ KONTAKT ════════════════ -->
+<section class="section" id="kontakt">
+  <div class="wrap">
+    <div class="contact reveal">
+      <div class="contact-q" aria-hidden="true"><img src="quantica-q-mark-white.png" alt=""></div>
+      <h2>Porozmawiajmy o wdrożeniu</h2>
+      <p>Napisz do nas – pokażemy Zagłobę w działaniu i omówimy scenariusz wdrożenia dopasowany do Twojej organizacji.</p>
+      <div class="contact-pills">
+        <a class="pill pill-solid" href="mailto:kontakt@quanticalab.ai">kontakt@quanticalab.ai</a>
+        <a class="pill pill-outline" href="https://www.quanticalab.ai" target="_blank" rel="noopener">www.quanticalab.ai</a>
+      </div>
+      <div class="contact-info">
+        <div class="contact-logo"><img src="quantica-logo-white.png" alt="Quantica Lab"></div>
+        <div class="contact-meta"><strong>Quanticalab Sp. z o.o.</strong></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+</main>
+
+<footer class="footer">
+  <div class="wrap">
+    <div>quanticalab.ai</div>
+    <div>Zagłoba · inteligentny asystent wiedzy</div>
+  </div>
+</footer>
+
+<script src="https://unpkg.com/lucide@latest"></script>
+<script>
+(function () {
+  "use strict";
+
+  // ─── Constants ───
+  var PHASE_MS = 950;
+  var HOLD_MS = 3200;
+  var REDUCED_MOTION = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+
+  var SCENARIOS = [
+    {
+      name: "SCENARIUSZ 1/3",
+      query: "Jaka jest procedura udostępniania informacji publicznej w naszym urzędzie?",
+      checks: [
+        "przeszukiwanie bazy wiedzy organizacji",
+        "kontrola uprawnień: użytkownik ma dostęp do wyszukanych dokumentów",
+        "wyszukiwanie hybrydowe i ponowna ocena trafności wyników"
+      ],
+      target: "answer",
+      statusRoute: "przygotowanie odpowiedzi na podstawie najbardziej trafnych informacji",
+      statusFinal: "odpowiedź zawiera odwołania do dokumentów źródłowych w formie cytowań",
+      answerBadge: "informacje można zweryfikować w materiałach źródłowych",
+      citations: [
+        "[1] Procedura udostępniania informacji publicznej.pdf",
+        "[2] Instrukcja obiegu dokumentów.docx"
+      ]
+    },
+    {
+      name: "SCENARIUSZ 2/3",
+      query: "Przygotuj podsumowanie ustaleń z dokumentacji projektu wdrożenia",
+      checks: [
+        "przeszukiwanie bazy wiedzy: dokumentacja projektu wdrożenia",
+        "kontrola uprawnień: dokumenty bez uprawnień użytkownika pominięte",
+        "ponowna ocena trafności wyników w dostępnych zasobach"
+      ],
+      target: "answer",
+      statusRoute: "odpowiedź generowana wyłącznie na podstawie informacji, do których użytkownik ma uprawnienia",
+      statusFinal: "zachowane istniejące role i poziomy dostępu",
+      answerBadge: "odpowiedź na podstawie zasobów dostępnych użytkownikowi",
+      citations: [
+        "[1] Notatka ze spotkania projektowego.docx",
+        "[2] Harmonogram wdrożenia.xlsx"
+      ]
+    },
+    {
+      name: "SCENARIUSZ 3/3",
+      query: "Jakie zasady rozliczania delegacji zagranicznych będą obowiązywać w przyszłym roku?",
+      checks: [
+        "przeszukiwanie bazy wiedzy organizacji",
+        "kontrola uprawnień: zakres wyszukiwania zgodny z dostępem użytkownika",
+        "ocena trafności: brak wystarczających informacji w bazie wiedzy"
+      ],
+      target: "nodata",
+      statusRoute: "system nie tworzy odpowiedzi spekulatywnej",
+      statusFinal: "informacja o braku danych i wskazanie odpowiedniego źródła informacji",
+      noDataBadge: "brak danych - wskazanie źródła informacji"
+    }
+  ];
+
+  // ─── State ───
+  var scnIx = 0;
+  var timers = [];
+
+  // ─── DOM refs ───
+  var fzQuery = document.getElementById("fzQuery");
+  var fzQueryText = document.getElementById("fzQueryText");
+  var fzSearch = document.getElementById("fzSearch");
+  var fzAnswer = document.getElementById("fzAnswer");
+  var fzNoData = document.getElementById("fzNoData");
+  var fzLink1 = document.getElementById("fzLink1");
+  var fzLinkA = document.getElementById("fzLinkA");
+  var fzLinkB = document.getElementById("fzLinkB");
+  var fzChecks = [document.getElementById("fzCheck0"), document.getElementById("fzCheck1"), document.getElementById("fzCheck2")];
+  var fzCheckTexts = [document.getElementById("fzCheck0Text"), document.getElementById("fzCheck1Text"), document.getElementById("fzCheck2Text")];
+  var fzCites = document.getElementById("fzCites");
+  var fzAnswerBadge = document.getElementById("fzAnswerBadge");
+  var fzAnswerBadgeText = document.getElementById("fzAnswerBadgeText");
+  var fzNoDataBadge = document.getElementById("fzNoDataBadge");
+  var fzNoDataBadgeText = document.getElementById("fzNoDataBadgeText");
+  var fzScnNo = document.getElementById("fzScnNo");
+  var fzStatus = document.getElementById("fzStatus");
+  var scnTabs = Array.prototype.slice.call(document.querySelectorAll(".scn-tab"));
+  var flowzEl = document.getElementById("flowz");
+
+  // ─── Helpers ───
+  function schedule(fn, delay) {
+    if (REDUCED_MOTION) { delay = Math.min(delay, 50); }
+    timers.push(window.setTimeout(fn, delay));
+  }
+
+  function clearTimers() {
+    timers.forEach(window.clearTimeout);
+    timers = [];
+  }
+
+  function resetFlow() {
+    [fzQuery, fzSearch, fzAnswer, fzNoData].forEach(function (n) { n.classList.remove("on", "faded"); });
+    [fzLink1, fzLinkA, fzLinkB].forEach(function (l) { l.classList.remove("on", "faded"); });
+    fzChecks.forEach(function (c) { c.classList.remove("on"); });
+    fzCites.innerHTML = "";
+    fzAnswerBadge.classList.remove("show");
+    fzNoDataBadge.classList.remove("show");
+  }
+
+  function renderCite(text) {
+    var cite = document.createElement("div");
+    cite.className = "cite";
+    var icon = document.createElement("i");
+    icon.setAttribute("data-lucide", "file-text");
+    icon.className = "icon";
+    var label = document.createElement("span");
+    label.textContent = text;
+    cite.appendChild(icon);
+    cite.appendChild(label);
+    fzCites.appendChild(cite);
+    if (window.lucide) { window.lucide.createIcons(); }
+    window.requestAnimationFrame(function () { cite.classList.add("show"); });
+  }
+
+  // ─── Render (scenario playback) ───
+  function playScenario(ix) {
+    clearTimers();
+    resetFlow();
+    scnIx = ix;
+    var s = SCENARIOS[ix];
+    var i;
+
+    scnTabs.forEach(function (tab, tabIx) { tab.classList.toggle("on", tabIx === ix); });
+    fzScnNo.textContent = s.name;
+    fzQueryText.textContent = s.query;
+    for (i = 0; i < 3; i += 1) { fzCheckTexts[i].textContent = s.checks[i]; }
+
+    fzQuery.classList.add("on");
+    fzStatus.textContent = "odebrano pytanie użytkownika";
+
+    schedule(function () {
+      fzLink1.classList.add("on");
+      fzSearch.classList.add("on");
+    }, PHASE_MS);
+
+    for (i = 0; i < 3; i += 1) {
+      (function (checkIx) {
+        schedule(function () {
+          fzChecks[checkIx].classList.add("on");
+          fzStatus.textContent = s.checks[checkIx];
+        }, PHASE_MS * (1.6 + checkIx * 0.8));
+      }(i));
+    }
+
+    schedule(function () {
+      fzLink1.classList.remove("on");
+      if (s.target === "answer") {
+        fzLinkA.classList.add("on");
+        fzLinkB.classList.add("faded");
+        fzAnswer.classList.add("on");
+        fzNoData.classList.add("faded");
+      } else {
+        fzLinkB.classList.add("on");
+        fzLinkA.classList.add("faded");
+        fzNoData.classList.add("on");
+        fzAnswer.classList.add("faded");
+      }
+      fzStatus.textContent = s.statusRoute;
+    }, PHASE_MS * 4.4);
+
+    schedule(function () {
+      if (s.target === "answer") {
+        s.citations.forEach(renderCite);
+        fzAnswerBadgeText.textContent = s.answerBadge;
+        fzAnswerBadge.classList.add("show");
+      } else {
+        fzNoDataBadgeText.textContent = s.noDataBadge;
+        fzNoDataBadge.classList.add("show");
+      }
+      fzStatus.textContent = s.statusFinal;
+    }, PHASE_MS * 5.4);
+
+    schedule(function () {
+      playScenario((scnIx + 1) % SCENARIOS.length);
+    }, PHASE_MS * 5.4 + HOLD_MS);
+  }
+
+  function renderStaticScenario(ix) {
+    clearTimers();
+    resetFlow();
+    scnIx = ix;
+    var s = SCENARIOS[ix];
+    scnTabs.forEach(function (tab, tabIx) { tab.classList.toggle("on", tabIx === ix); });
+    fzScnNo.textContent = s.name;
+    fzQueryText.textContent = s.query;
+    for (var i = 0; i < 3; i += 1) {
+      fzCheckTexts[i].textContent = s.checks[i];
+      fzChecks[i].classList.add("on");
+    }
+    fzQuery.classList.add("on");
+    fzSearch.classList.add("on");
+    fzLink1.classList.add("on");
+    if (s.target === "answer") {
+      fzLinkA.classList.add("on");
+      fzLinkB.classList.add("faded");
+      fzAnswer.classList.add("on");
+      fzNoData.classList.add("faded");
+      s.citations.forEach(renderCite);
+      fzAnswerBadgeText.textContent = s.answerBadge;
+      fzAnswerBadge.classList.add("show");
+    } else {
+      fzLinkB.classList.add("on");
+      fzLinkA.classList.add("faded");
+      fzNoData.classList.add("on");
+      fzAnswer.classList.add("faded");
+      fzNoDataBadgeText.textContent = s.noDataBadge;
+      fzNoDataBadge.classList.add("show");
+    }
+    fzStatus.textContent = s.statusFinal;
+  }
+
+  function selectScenario(ix) {
+    if (REDUCED_MOTION) { renderStaticScenario(ix); return; }
+    playScenario(ix);
+  }
+
+  // ─── Hero dot particles ───
+  function initDots() {
+    var canvas = document.getElementById("dots");
+    if (!canvas) { return; }
+    var ctx = canvas.getContext("2d");
+    var dots = [];
+    function resize() {
+      canvas.width = canvas.offsetWidth;
+      canvas.height = canvas.offsetHeight;
+    }
+    resize();
+    window.addEventListener("resize", resize);
+    for (var i = 0; i < 70; i++) {
+      dots.push({
+        x: Math.random(), y: Math.random(),
+        r: 1 + Math.random() * 2.2,
+        vx: (Math.random() - 0.5) * 0.0004,
+        vy: (Math.random() - 0.5) * 0.0004,
+        o: 0.12 + Math.random() * 0.5
+      });
+    }
+    var reduced = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+    function frame() {
+      ctx.clearRect(0, 0, canvas.width, canvas.height);
+      dots.forEach(function (d) {
+        d.x = (d.x + d.vx + 1) % 1;
+        d.y = (d.y + d.vy + 1) % 1;
+        ctx.beginPath();
+        ctx.arc(d.x * canvas.width, d.y * canvas.height, d.r, 0, Math.PI * 2);
+        ctx.fillStyle = "rgba(210, 7, 87, " + d.o + ")";
+        ctx.fill();
+      });
+      if (!reduced) { requestAnimationFrame(frame); }
+    }
+    frame();
+  }
+
+  // ─── Scroll reveal ───
+  function initReveal() {
+    var revealed = document.querySelectorAll(".reveal");
+    if (REDUCED_MOTION || !("IntersectionObserver" in window)) {
+      revealed.forEach(function (el) { el.classList.add("visible"); });
+      return;
+    }
+    var observer = new IntersectionObserver(function (entries) {
+      entries.forEach(function (entry) {
+        if (entry.isIntersecting) {
+          entry.target.classList.add("visible");
+          observer.unobserve(entry.target);
+        }
+      });
+    }, { threshold: 0.12 });
+    revealed.forEach(function (el) { observer.observe(el); });
+  }
+
+  // ─── Listeners ───
+  scnTabs.forEach(function (tab) {
+    tab.addEventListener("click", function () {
+      selectScenario(parseInt(tab.getAttribute("data-scn"), 10));
+    });
+  });
+
+  // Keyboard shortcuts 1-3 select scenarios when the simulation is on screen
+  document.addEventListener("keydown", function (event) {
+    if (event.key !== "1" && event.key !== "2" && event.key !== "3") { return; }
+    if (event.target.tagName === "INPUT" || event.target.tagName === "TEXTAREA") { return; }
+    var rect = flowzEl.getBoundingClientRect();
+    if (rect.bottom < 0 || rect.top > window.innerHeight) { return; }
+    selectScenario(parseInt(event.key, 10) - 1);
+  });
+
+  // ─── Init ───
+  if (window.lucide) { window.lucide.createIcons(); }
+  initDots();
+  initReveal();
+
+  // Auto-play the first scenario when the simulation scrolls into view
+  if (REDUCED_MOTION) {
+    renderStaticScenario(0);
+  } else if ("IntersectionObserver" in window) {
+    var autoPlayed = false;
+    var simObserver = new IntersectionObserver(function (entries) {
+      entries.forEach(function (entry) {
+        if (entry.isIntersecting && !autoPlayed) {
+          autoPlayed = true;
+          playScenario(0);
+          simObserver.disconnect();
+        }
+      });
+    }, { threshold: 0.45 });
+    simObserver.observe(document.getElementById("simFig"));
+  } else {
+    playScenario(0);
+  }
+})();
+
+</script>
+
+</body>
+</html>

@@ -1,0 +1,1194 @@
+<!DOCTYPE html>
+<!--
+  QUANTICA LAB – strona produktowa: Ocena modeli i systemów AI
+  Standalone marketing website built from the ocena_modeli_i_systemow_AI.html flyer.
+  All marketing copy verbatim from the flyer; simulation labels are UI demo data.
+-->
+<html lang="pl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="Ocena modeli i systemów AI. Rzetelna ocena i wybór rozwiązania AI najlepiej dopasowanego do potrzeb organizacji.">
+<title>Ocena modeli i systemów AI | Quantica Lab</title>
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='7' fill='%23d20757'/%3E%3Ctext x='16' y='23' font-family='sans-serif' font-size='20' font-weight='700' fill='%23fff' text-anchor='middle'%3EO%3C/text%3E%3C/svg%3E">
+
+<link rel="preconnect" href="https://api.fontshare.com">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://api.fontshare.com/v2/css?f[]=satoshi@300,400,500,700,900&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Geist+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+
+<style>
+  :root {
+    /* ─── Brand tokens (mirror of design-system colors_and_type.css) ─── */
+    --quantica-pink:    #d20757;
+    --rose-pink:        #d20757;
+    --deep-berry:       #8A004C;
+    --magenta-tint:     #FFE6F1;
+
+    --violet-primary:   #7030A0;
+    --violet-deep:      #4F1F75;
+    --ink:              #0A1F2C;
+    --mist:             #F4EEFA;
+
+    --near-black:       #111111;
+    --white:            #FFFFFF;
+
+    --fg-1:             #111111;
+    --fg-2:             #111111;
+    --fg-3:             #4B5563;
+
+    --bg-1:             #FFFFFF;
+    --bg-2:             #F5F6F8;
+
+    --border-1:         #E6E8EC;
+    --border-2:         #D1D5DB;
+
+    --font-display:     "Satoshi", system-ui, -apple-system, sans-serif;
+    --font-sans:        "Satoshi", system-ui, -apple-system, sans-serif;
+    --font-mono:        "Geist Mono", ui-monospace, "SF Mono", Menlo, monospace;
+
+    --radius-sm:        6px;
+    --radius-md:        10px;
+    --radius-lg:        16px;
+
+    --shadow-pink-soft: 0 6px 18px rgba(210, 7, 87, 0.10);
+    --shadow-card:      0 10px 30px -12px rgba(10, 20, 40, 0.12);
+
+    --nav-h: 64px;
+    --content-w: 1120px;
+
+    --diagram-line:     #B9BFC9;
+    --diagram-line-on:  var(--quantica-pink);
+    --diagram-paper:    #FDFCFB;
+  }
+
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  html { scroll-behavior: smooth; scroll-padding-top: calc(var(--nav-h) + 12px); }
+  body {
+    font-family: var(--font-sans);
+    color: var(--fg-2);
+    background: var(--bg-1);
+    line-height: 1.6;
+    -webkit-font-smoothing: antialiased;
+    text-rendering: optimizeLegibility;
+  }
+  img { max-width: 100%; }
+  a { color: var(--quantica-pink); }
+
+  .wrap {
+    max-width: var(--content-w);
+    margin: 0 auto;
+    padding: 0 28px;
+  }
+
+  /* ─── Scroll reveal ─── */
+  .reveal { opacity: 0; transform: translateY(22px); transition: opacity 600ms ease, transform 600ms ease; }
+  .reveal.visible { opacity: 1; transform: none; }
+  @media (prefers-reduced-motion: reduce) {
+    html { scroll-behavior: auto; }
+    .reveal { opacity: 1; transform: none; transition: none; }
+    * { transition-duration: 0.01ms !important; animation-duration: 0.01ms !important; }
+  }
+
+  /* ─── NAV ─── */
+  .nav {
+    position: fixed;
+    top: 0; left: 0; right: 0;
+    height: var(--nav-h);
+    z-index: 40;
+    background: rgba(255, 255, 255, 0.88);
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+    border-bottom: 1px solid var(--border-1);
+  }
+  .nav-inner {
+    max-width: var(--content-w);
+    margin: 0 auto;
+    padding: 0 28px;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 20px;
+  }
+  .nav-logo img { height: 30px; width: auto; display: block; }
+  .nav-links { display: flex; align-items: center; gap: 26px; }
+  .nav-links a {
+    font-size: 13.5px;
+    font-weight: 500;
+    color: var(--fg-1);
+    text-decoration: none;
+    letter-spacing: 0.01em;
+  }
+  .nav-links a:hover { color: var(--quantica-pink); }
+  .nav-cta {
+    background: var(--quantica-pink);
+    color: var(--white) !important;
+    font-weight: 700;
+    padding: 9px 20px;
+    border-radius: 999px;
+    box-shadow: var(--shadow-pink-soft);
+    transition: background 200ms;
+  }
+  .nav-cta:hover { background: var(--deep-berry); color: var(--white); }
+
+  /* ─── HERO ─── */
+  .hero {
+    position: relative;
+    min-height: 100svh;
+    display: flex;
+    align-items: center;
+    color: var(--white);
+    padding: calc(var(--nav-h) + 48px) 0 72px;
+    background: var(--ink);
+    overflow: hidden;
+  }
+  #dots {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    pointer-events: none;
+  }
+  .hero-q {
+    position: absolute;
+    right: -6%;
+    top: 50%;
+    transform: translateY(-50%);
+    width: min(46vw, 640px);
+    opacity: 0.16;
+    pointer-events: none;
+  }
+  .hero-q img { width: 100%; display: block; }
+  .hero-inner { position: relative; z-index: 2; }
+  .hero-title {
+    font-family: var(--font-display);
+    font-weight: 700;
+    font-size: clamp(64px, 10vw, 120px);
+    line-height: 0.98;
+    letter-spacing: -0.03em;
+    color: var(--white);
+  }
+  .hero-subtitle {
+    font-family: var(--font-display);
+    font-size: clamp(24px, 3.4vw, 40px);
+    font-weight: 400;
+    color: var(--white);
+    margin-top: 10px;
+    letter-spacing: -0.015em;
+    line-height: 1.15;
+  }
+  .hero-title em { font-style: normal; color: var(--rose-pink); }
+  .hero-subtitle em { font-style: normal; color: var(--rose-pink); }
+  .hero-tagline {
+    font-size: clamp(15px, 1.6vw, 18px);
+    line-height: 1.6;
+    color: rgba(255, 255, 255, 0.92);
+    max-width: 560px;
+    margin-top: 24px;
+    font-weight: 400;
+  }
+  .hero-actions { display: flex; flex-wrap: wrap; gap: 14px; margin-top: 36px; }
+  .pill {
+    font-family: var(--font-sans);
+    font-weight: 700;
+    font-size: 14px;
+    text-decoration: none;
+    padding: 13px 28px;
+    border-radius: 999px;
+    display: inline-flex;
+    align-items: center;
+    gap: 9px;
+    transition: transform 200ms, background 200ms, color 200ms;
+  }
+  .pill:hover { transform: translateY(-1px); }
+  .pill-solid { background: var(--quantica-pink); color: var(--white); box-shadow: var(--shadow-pink-soft); }
+  .pill-solid:hover { background: var(--deep-berry); }
+  .pill-outline { border: 1.5px solid var(--white); color: var(--white); }
+  .pill-outline:hover { background: rgba(255, 255, 255, 0.1); }
+  .pill .icon { width: 17px; height: 17px; }
+  .hero-footer {
+    position: absolute;
+    bottom: 22px;
+    left: 0; right: 0;
+    z-index: 2;
+    display: flex;
+    justify-content: space-between;
+    font-family: var(--font-mono);
+    font-size: 11px;
+    letter-spacing: 0.04em;
+    color: rgba(255, 255, 255, 0.85);
+  }
+
+  /* ─── SECTION SCAFFOLD ─── */
+  .section { padding: 88px 0; }
+  .section-alt { background: var(--bg-2); }
+  .h-section {
+    font-family: var(--font-display);
+    font-weight: 700;
+    font-size: clamp(28px, 4vw, 42px);
+    line-height: 1.08;
+    letter-spacing: -0.025em;
+    color: var(--fg-1);
+    margin-bottom: 22px;
+  }
+  .h-pink { color: var(--quantica-pink); }
+  .section p { font-size: 15.5px; line-height: 1.75; margin-bottom: 14px; max-width: 780px; }
+  .section p strong { color: var(--quantica-pink); font-weight: 700; }
+
+  /* ─── VIOLET NOTE ─── */
+  .note-violet {
+    background: var(--mist);
+    border: 1.5px solid var(--violet-primary);
+    border-radius: var(--radius-md);
+    padding: 22px 26px;
+    margin: 22px 0;
+    max-width: 860px;
+  }
+  .note-violet p { margin: 0; font-size: 16px; line-height: 1.7; color: var(--fg-1); font-weight: 500; max-width: none; }
+  .note-violet { display: flex; gap: 18px; align-items: flex-start; }
+  .note-violet .note-icon {
+    flex: none;
+    width: 46px;
+    height: 46px;
+    border-radius: var(--radius-md);
+    background: rgba(112, 48, 160, 0.12);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  .note-violet .note-icon .icon { width: 23px; height: 23px; color: var(--violet-primary); }
+
+  /* ─── ICON CARDS (paragraphs split into smaller visual parts) ─── */
+  .split-grid { display: flex; flex-wrap: wrap; gap: 18px; margin: 26px 0; }
+  .icon-card {
+    flex: 1 1 280px;
+    min-width: 260px;
+    background: var(--bg-1);
+    border: 1px solid var(--border-1);
+    border-radius: var(--radius-lg);
+    padding: 24px;
+    box-shadow: var(--shadow-card);
+  }
+  .icon-chip {
+    width: 44px;
+    height: 44px;
+    border-radius: var(--radius-md);
+    background: var(--magenta-tint);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 15px;
+  }
+  .icon-chip .icon { width: 22px; height: 22px; color: var(--quantica-pink); }
+  .icon-card p { margin: 0; max-width: none; font-size: 14.5px; line-height: 1.7; }
+
+  /* ─── SIMULATION (diagram) ─── */
+  .fig {
+    background: var(--diagram-paper);
+    border: 1px solid var(--border-1);
+    border-radius: var(--radius-lg);
+    padding: 30px 32px 26px;
+    margin-top: 36px;
+  }
+  .fig-head {
+    display: flex;
+    align-items: baseline;
+    gap: 14px;
+    margin-bottom: 26px;
+    flex-wrap: wrap;
+  }
+  .scn-tabs { margin-left: auto; display: flex; gap: 18px; flex-wrap: wrap; }
+  .scn-tab {
+    font-family: var(--font-mono);
+    font-size: 11px;
+    letter-spacing: 0.06em;
+    color: var(--fg-3);
+    background: none;
+    border: none;
+    border-bottom: 1.5px solid transparent;
+    padding: 0 0 3px;
+    cursor: pointer;
+    display: inline-flex;
+    align-items: center;
+    gap: 7px;
+  }
+  .scn-tab::before { content: attr(data-ix); font-weight: 600; color: var(--diagram-line); }
+  .scn-tab.on { color: var(--fg-1); border-bottom-color: var(--quantica-pink); }
+  .scn-tab.on::before { color: var(--quantica-pink); }
+  .scn-tab:hover { color: var(--fg-1); }
+  .scn-tab:focus-visible { outline: 2px solid var(--quantica-pink); outline-offset: 3px; }
+
+  .flowz {
+    display: grid;
+    grid-template-columns: 1fr 58px 1.15fr 58px 1.15fr;
+    align-items: center;
+  }
+  .flowz-wide { grid-template-columns: 1fr 58px 1fr 58px 1.3fr; }
+  .flow-node {
+    border: 1.5px solid var(--diagram-line);
+    border-radius: var(--radius-md);
+    padding: 18px 18px 16px;
+    background: var(--white);
+    transition: border-color 400ms, opacity 400ms;
+  }
+  .flow-node .step-no {
+    font-family: var(--font-mono);
+    font-size: 11px;
+    font-weight: 600;
+    letter-spacing: 0.1em;
+    color: var(--fg-3);
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    transition: color 400ms;
+  }
+  .flow-node .step-no::after {
+    content: "";
+    width: 26px;
+    height: 1.5px;
+    background: var(--diagram-line);
+    transition: background 400ms;
+  }
+  .flow-node h3 {
+    font-family: var(--font-display);
+    font-weight: 700;
+    font-size: 15.5px;
+    line-height: 1.25;
+    letter-spacing: -0.01em;
+    color: var(--fg-1);
+    margin: 10px 0 6px;
+    display: flex;
+    align-items: center;
+    gap: 9px;
+  }
+  .flow-node h3 .icon { width: 18px; height: 18px; color: var(--diagram-line); flex: none; transition: color 400ms; }
+  .flow-node.on { border-color: var(--diagram-line-on); }
+  .flow-node.on .step-no { color: var(--quantica-pink); }
+  .flow-node.on .step-no::after { background: var(--quantica-pink); }
+  .flow-node.on h3 .icon { color: var(--quantica-pink); }
+  .flow-node.faded { opacity: 0.38; }
+  .flow-node.blocked { border-style: dashed; opacity: 0.55; }
+
+  .flow-sub {
+    font-family: var(--font-mono);
+    font-size: 10px;
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+    color: var(--fg-3);
+    margin: -2px 0 6px;
+  }
+
+  .flow-query {
+    font-size: 12.5px;
+    line-height: 1.55;
+    color: var(--fg-3);
+    min-height: 4.6em;
+    max-width: none;
+    margin: 0;
+  }
+  .flow-query::before { content: "\201E"; }
+  .flow-query::after { content: "\201D"; }
+
+  .flow-checks { display: flex; flex-direction: column; gap: 7px; margin-top: 4px; }
+  .flow-check {
+    display: flex;
+    align-items: flex-start;
+    gap: 8px;
+    font-family: var(--font-mono);
+    font-size: 10.5px;
+    letter-spacing: 0.02em;
+    line-height: 1.5;
+    color: var(--fg-3);
+    opacity: 0.5;
+    transition: opacity 350ms, color 350ms;
+  }
+  .flow-check .icon { width: 13px; height: 13px; flex: none; margin-top: 1px; color: var(--diagram-line); transition: color 350ms; }
+  .flow-check.on { opacity: 1; color: var(--fg-1); }
+  .flow-check.on .icon { color: var(--quantica-pink); }
+
+  .flow-link { width: 100%; height: 14px; }
+  .flow-link line { stroke: var(--diagram-line); stroke-width: 1.5; stroke-dasharray: 4 5; }
+  .flow-link path { fill: var(--diagram-line); }
+  .flow-link.on line { stroke: var(--diagram-line-on); animation: dashMove 700ms linear infinite; }
+  .flow-link.on path { fill: var(--diagram-line-on); }
+  .flow-link.faded { opacity: 0.35; }
+  @keyframes dashMove { to { stroke-dashoffset: -9; } }
+
+  .vlink { width: 14px; height: 30px; margin: 4px auto; display: block; }
+  .vlink line { stroke: var(--diagram-line); stroke-width: 1.5; stroke-dasharray: 4 5; }
+  .vlink path { fill: var(--diagram-line); }
+  .vlink.on line { stroke: var(--diagram-line-on); animation: dashMove 700ms linear infinite; }
+  .vlink.on path { fill: var(--diagram-line-on); }
+
+  .branch-links {
+    display: flex;
+    flex-direction: column;
+    align-self: stretch;
+    justify-content: space-around;
+    gap: 18px;
+  }
+  .branch-targets { display: flex; flex-direction: column; gap: 18px; }
+
+  .cite-list { display: flex; flex-direction: column; gap: 6px; margin-top: 10px; }
+  .cite-list.tall { min-height: 62px; }
+  .cite {
+    font-family: var(--font-mono);
+    font-size: 10.5px;
+    letter-spacing: 0.02em;
+    color: var(--fg-1);
+    background: var(--bg-2);
+    border: 1px solid var(--border-1);
+    border-radius: var(--radius-sm);
+    padding: 6px 9px;
+    display: flex;
+    align-items: center;
+    gap: 7px;
+    opacity: 0;
+    transition: opacity 350ms;
+  }
+  .cite.show { opacity: 1; }
+  .cite .icon { width: 13px; height: 13px; flex: none; color: var(--quantica-pink); }
+  .cite.gap { color: var(--fg-3); }
+  .cite.gap .icon { color: var(--fg-3); }
+
+  .flow-badge {
+    margin-top: 10px;
+    font-family: var(--font-mono);
+    font-size: 10.5px;
+    letter-spacing: 0.02em;
+    line-height: 1.5;
+    padding: 6px 10px;
+    border-radius: var(--radius-sm);
+    display: inline-flex;
+    align-items: flex-start;
+    gap: 7px;
+    background: var(--magenta-tint);
+    color: var(--deep-berry);
+    opacity: 0;
+    transition: opacity 350ms;
+  }
+  .flow-badge.show { opacity: 1; }
+  .flow-badge.muted { background: var(--bg-2); color: var(--fg-3); }
+  .flow-badge .icon { width: 13px; height: 13px; flex: none; margin-top: 1px; }
+
+  .genre-chip {
+    display: inline-block;
+    font-family: var(--font-mono);
+    font-size: 10px;
+    font-weight: 600;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: var(--quantica-pink);
+    border: 1.5px solid var(--quantica-pink);
+    border-radius: 999px;
+    padding: 3px 10px;
+    margin-bottom: 8px;
+  }
+
+  .model-row {
+    display: grid;
+    grid-template-columns: 150px 1fr 40px;
+    align-items: center;
+    gap: 10px;
+    margin-top: 12px;
+  }
+  .model-row .model-name {
+    display: flex;
+    align-items: center;
+    gap: 7px;
+    font-family: var(--font-display);
+    font-weight: 700;
+    font-size: 13px;
+    color: var(--fg-1);
+  }
+  .model-name .icon { width: 15px; height: 15px; flex: none; color: var(--diagram-line); transition: color 350ms; }
+  .model-name em {
+    font-style: normal;
+    font-family: var(--font-mono);
+    font-weight: 400;
+    font-size: 9px;
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+    color: var(--fg-3);
+  }
+  .score-track { height: 6px; background: var(--border-1); border-radius: 3px; overflow: hidden; }
+  .score-fill { display: block; height: 100%; width: 0; background: var(--diagram-line); border-radius: 3px; transition: width 900ms ease, background 350ms; }
+  .score-val { font-family: var(--font-mono); font-size: 11px; text-align: right; color: var(--fg-3); }
+  .model-row.best .score-fill { background: var(--quantica-pink); }
+  .model-row.best .score-val { color: var(--quantica-pink); font-weight: 600; }
+  .model-row.best .model-name .icon { color: var(--quantica-pink); }
+
+  .sync-row {
+    display: grid;
+    grid-template-columns: 1fr 58px 1.15fr 58px 1.15fr;
+  }
+  .sync-cell {
+    grid-column: 3;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+  .sync-link { width: 14px; height: 36px; }
+  .sync-link line { stroke: var(--diagram-line); stroke-width: 1.5; stroke-dasharray: 4 5; }
+  .sync-link path { fill: var(--diagram-line); }
+  .sync-box {
+    border: 1.5px dashed var(--diagram-line);
+    border-radius: var(--radius-md);
+    padding: 12px 16px;
+    text-align: center;
+    max-width: 420px;
+  }
+  .sync-box .sync-tag {
+    font-family: var(--font-mono);
+    font-size: 10px;
+    font-weight: 600;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: var(--fg-3);
+    display: block;
+    margin-bottom: 5px;
+  }
+  .sync-box .sync-src {
+    font-family: var(--font-mono);
+    font-size: 10.5px;
+    letter-spacing: 0.02em;
+    color: var(--fg-1);
+    display: block;
+  }
+  .sync-box .sync-note {
+    font-size: 11.5px;
+    line-height: 1.5;
+    color: var(--fg-3);
+    display: block;
+    margin-top: 4px;
+  }
+
+  .scn-status {
+    margin-top: 22px;
+    padding-top: 14px;
+    border-top: 1px dashed var(--border-2);
+    font-family: var(--font-mono);
+    font-size: 11px;
+    letter-spacing: 0.06em;
+    color: var(--fg-3);
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    flex-wrap: wrap;
+  }
+  .scn-status b { color: var(--quantica-pink); font-weight: 600; }
+
+  .sim-caption {
+    margin-top: 16px;
+    font-size: 12.5px;
+    color: var(--fg-3);
+    max-width: 780px;
+  }
+
+  /* ─── CAPABILITIES (flexbox, incomplete rows center) ─── */
+  .cap-grid { display: flex; flex-wrap: wrap; gap: 22px; justify-content: center; margin-top: 40px; }
+  .cap-panel {
+    flex: 1 1 calc(50% - 11px);
+    min-width: 300px;
+    background: var(--bg-1);
+    border: 1px solid var(--border-1);
+    border-radius: var(--radius-lg);
+    padding: 12px;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    box-shadow: var(--shadow-card);
+  }
+  .cap-head {
+    background: var(--violet-primary);
+    color: var(--white);
+    border-radius: var(--radius-md);
+    padding: 15px 18px;
+    font-family: var(--font-display);
+    font-weight: 700;
+    font-size: 16.5px;
+    line-height: 1.25;
+    letter-spacing: -0.01em;
+    display: flex;
+    align-items: center;
+    gap: 12px;
+  }
+  .cap-head .icon { width: 21px; height: 21px; flex: none; }
+  .cap-item {
+    background: var(--bg-2);
+    border-radius: var(--radius-sm);
+    padding: 12px 15px;
+    font-size: 13.5px;
+    line-height: 1.6;
+    color: var(--fg-1);
+    display: flex;
+    gap: 11px;
+    align-items: flex-start;
+  }
+  .cap-item .icon { width: 16px; height: 16px; flex: none; color: var(--quantica-pink); margin-top: 3px; }
+
+  /* ─── BENEFITS ─── */
+  .benefit-grid { display: flex; flex-wrap: wrap; gap: 22px; justify-content: center; margin-top: 40px; }
+  .benefit {
+    flex: 1 1 calc(50% - 11px);
+    min-width: 300px;
+    background: var(--bg-1);
+    border: 1px solid var(--border-1);
+    border-radius: var(--radius-lg);
+    padding: 28px;
+    display: grid;
+    grid-template-columns: 72px 1fr;
+    gap: 20px;
+    align-items: start;
+    box-shadow: var(--shadow-card);
+  }
+  .benefit .digit {
+    font-family: var(--font-display);
+    font-weight: 700;
+    font-size: 64px;
+    line-height: 0.9;
+    color: var(--quantica-pink);
+    letter-spacing: -0.04em;
+  }
+  .benefit h3 {
+    font-family: var(--font-display);
+    font-weight: 700;
+    color: var(--fg-1);
+    font-size: 18px;
+    margin-bottom: 10px;
+    line-height: 1.25;
+    letter-spacing: -0.01em;
+  }
+  .benefit p { font-size: 14px; line-height: 1.7; margin: 0; }
+
+  /* ─── CONTACT ─── */
+  .contact {
+    background:
+      radial-gradient(ellipse 70% 60% at 80% 50%, rgba(112, 48, 160, 0.28) 0%, transparent 65%),
+      radial-gradient(ellipse 50% 70% at 0% 0%, rgba(210, 7, 87, 0.30) 0%, transparent 65%),
+      linear-gradient(135deg, #0A1F2C 0%, #0d2538 100%);
+    color: var(--white);
+    padding: 52px 56px;
+    border-radius: var(--radius-lg);
+    position: relative;
+    overflow: hidden;
+  }
+  .contact-q {
+    position: absolute;
+    right: -50px;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 280px;
+    opacity: 0.14;
+    pointer-events: none;
+  }
+  .contact-q img { width: 100%; display: block; }
+  .contact  .contact  .contact h2 {
+    color: var(--white);
+    font-family: var(--font-display);
+    font-size: clamp(26px, 3.4vw, 36px);
+    font-weight: 700;
+    margin-bottom: 14px;
+    letter-spacing: -0.025em;
+    line-height: 1.1;
+  }
+  .contact p { color: rgba(255, 255, 255, 0.92); font-size: 15px; margin-bottom: 26px; max-width: 560px; position: relative; z-index: 1; }
+  .contact-pills { display: flex; flex-wrap: wrap; gap: 12px; margin-bottom: 30px; position: relative; z-index: 1; }
+  .contact .pill-solid { background: var(--white); color: var(--quantica-pink); }
+  .contact .pill-solid:hover { background: var(--magenta-tint); }
+  .contact-info {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 24px;
+    align-items: center;
+    border-top: 1px solid rgba(255, 255, 255, 0.16);
+    padding-top: 22px;
+    position: relative;
+    z-index: 1;
+  }
+  .contact-meta { font-size: 13px; color: var(--white); }
+  .contact-meta strong { font-weight: 600; }
+  .contact-logo img { height: 40px; width: auto; display: block; }
+
+  /* ─── FOOTER ─── */
+  .footer {
+    padding: 26px 0;
+    border-top: 1px solid var(--border-1);
+    font-family: var(--font-mono);
+    font-size: 11.5px;
+    letter-spacing: 0.04em;
+    color: var(--fg-3);
+  }
+  .footer .wrap { display: flex; justify-content: space-between; flex-wrap: wrap; gap: 10px; }
+
+  /* ─── CONTENT SECTIONS: full width + justified ─── */
+  #wprowadzenie .wrap > .reveal > p,
+  #wlasne-dane .wrap > .reveal > p { max-width: none; text-align: justify; }
+  .note-violet { max-width: none; }
+  .note-violet p { text-align: justify; }
+
+  /* ─── RESPONSIVE ─── */
+  @media (max-width: 768px) {
+    .nav-links a:not(.nav-cta) { display: none; }
+    .hero { min-height: auto; padding: calc(var(--nav-h) + 56px) 0 96px; }
+    .hero-q { width: 70vw; right: -18%; opacity: 0.12; }
+    .section { padding: 60px 0; }
+    .wrap { padding: 0 20px; }
+    .nav-inner { padding: 0 20px; }
+    .fig { padding: 22px 18px; }
+    .flowz, .flowz-wide { grid-template-columns: 1fr; gap: 0; }
+    .flow-link { height: 34px; width: 14px; margin: 0 auto; transform: rotate(90deg); }
+    .branch-links { flex-direction: row; justify-content: center; gap: 60px; }
+    .flow-query { min-height: 0; }
+    .cite-list.tall { min-height: 0; }
+    .scn-tabs { margin-left: 0; }
+    .sync-row { grid-template-columns: 1fr; margin-top: 18px; }
+    .sync-cell { grid-column: 1; }
+    .sync-link { display: none; }
+    .model-row { grid-template-columns: 120px 1fr 36px; }
+    .route-cards { flex-direction: column; }
+    .cap-panel, .benefit { flex-basis: 100%; min-width: 0; }
+    .benefit { padding: 22px; grid-template-columns: 54px 1fr; gap: 14px; }
+    .benefit .digit { font-size: 48px; }
+    .contact { padding: 34px 24px; }
+  }
+</style>
+</head>
+<body>
+
+<!-- ════════════════ NAV ════════════════ -->
+<nav class="nav" aria-label="Nawigacja">
+  <div class="nav-inner">
+    <a class="nav-logo" href="#top" aria-label="Quantica Lab">
+      <img src="quantica-logo-color.png" alt="Quantica Lab">
+    </a>
+    <div class="nav-links">
+      <a href="#symulacja">Symulacja</a>
+      <a href="#wlasne-dane">Własne dane</a>
+      <a class="nav-cta" href="#kontakt">Kontakt</a>
+    </div>
+  </div>
+</nav>
+
+<!-- ════════════════ HERO ════════════════ -->
+<header class="hero" id="top">
+  <canvas id="dots" aria-hidden="true"></canvas>
+  <div class="hero-q" aria-hidden="true"><img src="quantica-q-mark-white.png" alt=""></div>
+  <div class="wrap hero-inner">
+    <h1 class="hero-title">Ocena modeli<br>i systemów <em>AI</em></h1>
+    <p class="hero-tagline">Największym wyzwaniem nie jest dziś dostępność modeli AI, ale rzetelna ocena i wybór rozwiązania najlepiej dopasowanego do potrzeb organizacji.</p>
+    <div class="hero-actions">
+      <a class="pill pill-solid" href="#kontakt"><i data-lucide="messages-square" class="icon"></i>Porozmawiajmy o współpracy</a>
+      <a class="pill pill-outline" href="#symulacja"><i data-lucide="play" class="icon"></i>Zobacz symulację</a>
+    </div>
+  </div>
+  <div class="hero-footer wrap">
+    <div>quanticalab.ai</div>
+    <div>Ocena modeli i systemów AI</div>
+  </div>
+</header>
+
+<main>
+
+<!-- ════════════════ WPROWADZENIE ════════════════ -->
+<section class="section" id="wprowadzenie">
+  <div class="wrap">
+    <div class="reveal">
+      <p>W ostatnich latach pojawiły się setki modeli AI (m.in. GPT, Claude, LLaMA, Gemini, Mistral) od różnych dostawców technologii, takich jak Google, IBM, Microsoft czy polscy integratorzy. Rozwijają się one niezwykle szybko, a nowe wersje publikowane są co kilka miesięcy.</p>
+    </div>
+
+    <div class="reveal">
+      <p>W tak dynamicznym środowisku wybór właściwego rozwiązania AI dla organizacji staje się coraz trudniejszy. Nie powinien on opierać się wyłącznie na popularności modelu ani na wynikach testów prezentowanych w materiałach marketingowych producentów. Kluczowe jest dopasowanie rozwiązania do konkretnych zastosowań, danych oraz sposobu działania organizacji.</p>
+    </div>
+
+    <div class="reveal">
+      <p>Oznacza to konieczność oceny jakości odpowiedzi generowanych przez model AI pod kątem scenariuszy użycia w organizacji, a także uwzględnienia takich aspektów jak: bezpieczeństwo danych, koszty wykorzystania modelu, stabilność działania i skalowalność, możliwość integracji z istniejącymi systemami, dostępność modeli w infrastrukturze lokalnej lub chmurowej.</p>
+    </div>
+
+    <div class="reveal">
+      <p>W przypadku scenariuszy związanych z tworzeniem treści szczególne znaczenie ma również jakość języka polskiego. Większość modeli AI trenowana była głównie na danych anglojęzycznych, co przekłada się na ograniczoną znajomość polskiej normy językowej oraz polskiego kontekstu kulturowego i prawnego. W efekcie w odpowiedziach generowanych po polsku mogą pojawiać się kalki językowe, nienaturalne konstrukcje lub uproszczenia wynikające z przenoszenia anglosaskich wzorców komunikacji.</p>
+    </div>
+
+    <div class="reveal">
+      <p>Właściwie zaprojektowane testy pozwalają sprawdzić, czy model rzeczywiście nadaje się do pracy w środowisku polskojęzycznym, zwłaszcza w zastosowaniach wymagających precyzji językowej i znajomości lokalnego kontekstu. Podobne podejście stosuje się także do oceny innych aspektów działania rozwiązań AI.</p>
+    </div>
+
+    <div class="note-violet reveal">
+      <div class="note-icon"><i data-lucide="scale" class="icon"></i></div>
+      <p>Najlepszym sposobem takiej oceny jest uporządkowane porównanie wyników różnych modeli na tych samych zadaniach i danych. Takie podejście określa się mianem <strong style="color:var(--violet-primary);">benchmarku modeli AI</strong>.</p>
+    </div>
+
+  </div>
+</section>
+
+<!-- ════════════════ SYMULACJA ════════════════ -->
+<section class="section section-alt" id="symulacja">
+  <div class="wrap">
+    <div class="reveal">
+      <h2 class="h-section">Zobacz, jak działa <span class="h-pink">benchmark modeli AI</span></h2>
+      <p>Wybierz przykładowy scenariusz testowy i obserwuj, jak modele są porównywane na tych samych zadaniach i danych, według jednolitych kryteriów oceny.</p>
+    </div>
+
+    <div class="fig reveal" id="figOcena">
+      <div class="fig-head">
+        <div class="scn-tabs" role="group" aria-label="Przykładowe scenariusze testowe">
+          <button class="scn-tab" type="button" data-scn="0" data-ix="1 ">klasyfikacja</button>
+          <button class="scn-tab" type="button" data-scn="1" data-ix="2 ">wydobycie informacji</button>
+          <button class="scn-tab" type="button" data-scn="2" data-ix="3 ">streszczanie</button>
+        </div>
+      </div>
+
+      <div class="flowz flowz-wide">
+        <div class="flow-node" id="ocTasks">
+          <span class="step-no">01</span>
+          <h3><i data-lucide="files" class="icon"></i>Zestaw zadań</h3>
+          <div class="flow-sub">te same zadania i dane dla każdego modelu</div>
+          <p class="flow-query" id="ocQueryText">Przypisz każde ze 120 pism przychodzących do właściwej kategorii spraw</p>
+        </div>
+        <svg class="flow-link" id="ocLink1" viewBox="0 0 58 14" preserveAspectRatio="none" aria-hidden="true"><line x1="0" y1="7" x2="47" y2="7"/><path d="M47 2 L57 7 L47 12 Z"/></svg>
+        <div class="flow-node" id="ocCriteria">
+          <span class="step-no">02</span>
+          <h3><i data-lucide="scan-search" class="icon"></i>Ocena wg jednolitych kryteriów</h3>
+          <div class="flow-checks">
+            <div class="flow-check" id="ocCheck0"><i data-lucide="target" class="icon"></i><span>zgodność z zadaniem</span></div>
+            <div class="flow-check" id="ocCheck1"><i data-lucide="badge-check" class="icon"></i><span>poprawność informacji</span></div>
+            <div class="flow-check" id="ocCheck2"><i data-lucide="languages" class="icon"></i><span>jakość języka polskiego</span></div>
+          </div>
+        </div>
+        <svg class="flow-link" id="ocLink2" viewBox="0 0 58 14" preserveAspectRatio="none" aria-hidden="true"><line x1="0" y1="7" x2="47" y2="7"/><path d="M47 2 L57 7 L47 12 Z"/></svg>
+        <div class="flow-node" id="ocResults">
+          <span class="step-no">03</span>
+          <h3><i data-lucide="bar-chart-3" class="icon"></i>Porównanie wyników</h3>
+          <div class="model-row" id="ocRowA">
+            <span class="model-name"><i data-lucide="server" class="icon"></i>Model A <em>lokalny</em></span>
+            <span class="score-track"><span class="score-fill" id="ocFillA"></span></span>
+            <span class="score-val" id="ocValA"></span>
+          </div>
+          <div class="model-row" id="ocRowB">
+            <span class="model-name"><i data-lucide="cloud" class="icon"></i>Model B <em>komercyjny</em></span>
+            <span class="score-track"><span class="score-fill" id="ocFillB"></span></span>
+            <span class="score-val" id="ocValB"></span>
+          </div>
+          <div class="model-row" id="ocRowC">
+            <span class="model-name"><i data-lucide="cloud" class="icon"></i>Model C <em>komercyjny</em></span>
+            <span class="score-track"><span class="score-fill" id="ocFillC"></span></span>
+            <span class="score-val" id="ocValC"></span>
+          </div>
+          <span class="flow-badge" id="ocBadge"><i data-lucide="award" class="icon"></i><span id="ocBadgeText"></span></span>
+        </div>
+      </div>
+
+      <div class="scn-status" aria-live="polite"><b id="ocScnNo">SCENARIUSZ 1/3</b><span id="ocStatus">system gotowy - wybierz scenariusz testowy</span></div>
+    </div>
+    <p class="sim-caption reveal">Symulacja poglądowa. Przykładowe zadania, kryteria i wyniki ilustrują sposób działania benchmarku modeli AI.</p>
+  </div>
+</section>
+
+<!-- ════════════════ BENCHMARK NA WŁASNYCH DANYCH ════════════════ -->
+<section class="section" id="wlasne-dane">
+  <div class="wrap">
+    <div class="reveal">
+      <h2 class="h-section h-pink">Dlaczego warto stworzyć benchmark na własnych danych?</h2>
+    </div>
+
+    <div class="reveal">
+      <p>Choć publiczne benchmarki są bardzo przydatne w badaniach nad AI, w praktyce wdrożeń organizacyjnych często okazują się niewystarczające. Mierzą one ogólne zdolności modeli, ale rzadko odzwierciedlają rzeczywiste scenariusze zastosowań w organizacjach.</p>
+    </div>
+
+    <div class="reveal">
+      <p>Benchmark przygotowany na realnych danych organizacji pozwala sprawdzić działanie modeli w kontekście rzeczywistych zadań, takich jak analiza dokumentów, zarządzanie wiedzą, obsługa zapytań użytkowników czy wsparcie procesów decyzyjnych.</p>
+    </div>
+
+    <div class="reveal">
+      <p>Najważniejszą zaletą takiego podejścia jest możliwość podejmowania racjonalnych decyzji technologicznych. W wielu przypadkach okazuje się, że modele dostępne na rynku są już wystarczająco dobre do realizacji danego zadania i nie wymagają kosztownego trenowania ani dostrajania. Benchmark pozwala to sprawdzić w sposób obiektywny oraz wskazać obszary, w których douczenie modelu AI na nowych danych może znacząco poprawić jego skuteczność.</p>
+    </div>
+
+  </div>
+</section>
+
+<!-- ════════════════ KONTAKT ════════════════ -->
+<section class="section" id="kontakt">
+  <div class="wrap">
+    <div class="contact reveal">
+      <div class="contact-q" aria-hidden="true"><img src="quantica-q-mark-white.png" alt=""></div>
+      <h2>Porozmawiajmy o współpracy</h2>
+      <p>Napisz do nas – pokażemy nasze podejście w działaniu i omówimy scenariusz współpracy dopasowany do Twojej organizacji.</p>
+      <div class="contact-pills">
+        <a class="pill pill-solid" href="mailto:kontakt@quanticalab.ai">kontakt@quanticalab.ai</a>
+        <a class="pill pill-outline" href="https://www.quanticalab.ai" target="_blank" rel="noopener">www.quanticalab.ai</a>
+      </div>
+      <div class="contact-info">
+        <div class="contact-logo"><img src="quantica-logo-white.png" alt="Quantica Lab"></div>
+        <div class="contact-meta"><strong>Quanticalab Sp. z o.o.</strong></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+</main>
+
+<footer class="footer">
+  <div class="wrap">
+    <div>quanticalab.ai</div>
+    <div>Ocena modeli i systemów AI</div>
+  </div>
+</footer>
+
+<script src="https://unpkg.com/lucide@latest"></script>
+<script>
+(function () {
+  "use strict";
+
+  // ─── Constants ───
+  var PHASE_MS = 950;
+  var HOLD_MS = 3200;
+  var REDUCED_MOTION = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+
+  // ─── Helpers (diagram player) ───
+  function el(id) { return document.getElementById(id); }
+
+  function setLink(link, cls) {
+    link.classList.remove("on", "faded");
+    if (cls) { link.classList.add(cls); }
+  }
+
+  function setNode(node, cls) {
+    node.classList.remove("on", "faded", "blocked");
+    if (cls) { node.classList.add(cls); }
+  }
+
+  function addRow(container, icon, text, cls) {
+    var row = document.createElement("div");
+    row.className = "cite" + (cls ? " " + cls : "");
+    row.innerHTML = '<i data-lucide="' + icon + '" class="icon"></i>';
+    var span = document.createElement("span");
+    span.textContent = text;
+    row.appendChild(span);
+    container.appendChild(row);
+    if (window.lucide) { window.lucide.createIcons(); }
+    window.requestAnimationFrame(function () { row.classList.add("show"); });
+  }
+
+  function setCheck(checkEl) { checkEl.classList.add("on"); }
+
+  // Generic scenario player: tabs, timers, auto-advance loop, autoplay on view.
+  function makePlayer(cfg) {
+    var timers = [];
+    var ix = 0;
+    var tabs = Array.prototype.slice.call(cfg.fig.querySelectorAll(".scn-tab"));
+
+    function clearTimers() {
+      timers.forEach(window.clearTimeout);
+      timers = [];
+    }
+
+    function apply(i, animate) {
+      clearTimers();
+      ix = i;
+      var s = cfg.scenarios[i];
+      tabs.forEach(function (tab, tabIx) { tab.classList.toggle("on", tabIx === i); });
+      cfg.nameEl.textContent = "SCENARIUSZ " + (i + 1) + "/" + cfg.scenarios.length;
+      cfg.reset(s);
+      var phases = cfg.phases(s);
+      if (!animate) {
+        phases.forEach(function (p) { p[1](); });
+        return;
+      }
+      phases.forEach(function (p) {
+        timers.push(window.setTimeout(p[1], p[0]));
+      });
+      var last = phases[phases.length - 1][0];
+      timers.push(window.setTimeout(function () {
+        apply((ix + 1) % cfg.scenarios.length, true);
+      }, last + HOLD_MS));
+    }
+
+    tabs.forEach(function (tab) {
+      tab.addEventListener("click", function () {
+        apply(parseInt(tab.getAttribute("data-scn"), 10), !REDUCED_MOTION);
+      });
+    });
+
+    if (REDUCED_MOTION) {
+      apply(0, false);
+    } else if ("IntersectionObserver" in window) {
+      var started = false;
+      var io = new IntersectionObserver(function (entries) {
+        entries.forEach(function (entry) {
+          if (entry.isIntersecting && !started) {
+            started = true;
+            apply(0, true);
+            io.disconnect();
+          }
+        });
+      }, { threshold: 0.35 });
+      io.observe(cfg.fig);
+    } else {
+      apply(0, true);
+    }
+
+    return { select: function (i) { apply(i, !REDUCED_MOTION); } };
+  }
+
+  var SCENARIOS = [
+    {
+      query: "Przypisz każde ze 120 pism przychodzących do właściwej kategorii spraw",
+      taskStatus: "przygotowano zestaw zadań: klasyfikacja dokumentów",
+      scores: { A: 94, B: 93, C: 91 },
+      best: "A",
+      badge: "najwyższa skuteczność w tym zadaniu: Model A",
+      resultStatus: "wyniki zbliżone - zadanie może skutecznie realizować model lokalny, bez kosztownego dostrajania"
+    },
+    {
+      query: "Wskaż strony umowy, terminy realizacji oraz kwoty we wskazanych dokumentach",
+      taskStatus: "przygotowano zestaw zadań: wydobycie informacji",
+      scores: { A: 78, B: 93, C: 88 },
+      best: "B",
+      badge: "najwyższa skuteczność w tym zadaniu: Model B",
+      resultStatus: "wyraźna przewaga modelu B - w tym zadaniu warto wykorzystać model komercyjny"
+    },
+    {
+      query: "Przygotuj streszczenie 40-stronicowego raportu na potrzeby zarządu",
+      taskStatus: "przygotowano zestaw zadań: streszczanie dokumentów",
+      scores: { A: 72, B: 89, C: 92 },
+      best: "C",
+      badge: "najwyższa skuteczność w tym zadaniu: Model C",
+      resultStatus: "wskazany obszar, w którym douczenie modelu lokalnego może znacząco poprawić jego skuteczność"
+    }
+  ];
+
+  // ─── DOM refs ───
+  var refs = {
+    tasks: el("ocTasks"), queryText: el("ocQueryText"),
+    criteria: el("ocCriteria"), results: el("ocResults"),
+    link1: el("ocLink1"), link2: el("ocLink2"),
+    checks: [el("ocCheck0"), el("ocCheck1"), el("ocCheck2")],
+    rows: { A: el("ocRowA"), B: el("ocRowB"), C: el("ocRowC") },
+    fills: { A: el("ocFillA"), B: el("ocFillB"), C: el("ocFillC") },
+    vals: { A: el("ocValA"), B: el("ocValB"), C: el("ocValC") },
+    badge: el("ocBadge"), badgeText: el("ocBadgeText"),
+    status: el("ocStatus")
+  };
+  var MODELS = ["A", "B", "C"];
+
+  // ─── Render (scenario playback) ───
+  var player = makePlayer({
+    fig: el("figOcena"),
+    nameEl: el("ocScnNo"),
+    scenarios: SCENARIOS,
+    reset: function (s) {
+      [refs.tasks, refs.criteria, refs.results].forEach(function (n) { setNode(n, null); });
+      [refs.link1, refs.link2].forEach(function (l) { setLink(l, null); });
+      refs.checks.forEach(function (c) { c.classList.remove("on"); });
+      MODELS.forEach(function (m) {
+        refs.rows[m].classList.remove("best");
+        refs.fills[m].style.width = "0";
+        refs.vals[m].textContent = "";
+      });
+      refs.badge.classList.remove("show");
+      refs.queryText.textContent = s.query;
+    },
+    phases: function (s) {
+      return [
+        [0, function () { refs.tasks.classList.add("on"); refs.status.textContent = s.taskStatus; }],
+        [PHASE_MS, function () { refs.link1.classList.add("on"); refs.criteria.classList.add("on"); refs.status.textContent = "odpowiedzi wszystkich modeli ocenione wg jednolitych kryteriów"; }],
+        [PHASE_MS * 1.6, function () { setCheck(refs.checks[0]); }],
+        [PHASE_MS * 2.2, function () { setCheck(refs.checks[1]); }],
+        [PHASE_MS * 2.8, function () { setCheck(refs.checks[2]); }],
+        [PHASE_MS * 3.8, function () {
+          refs.link1.classList.remove("on");
+          refs.link2.classList.add("on");
+          refs.results.classList.add("on");
+          MODELS.forEach(function (m) {
+            refs.fills[m].style.width = s.scores[m] + "%";
+            refs.vals[m].textContent = s.scores[m] + "/100";
+          });
+          refs.status.textContent = "zebrano wyniki wszystkich modeli";
+        }],
+        [PHASE_MS * 5.0, function () {
+          refs.rows[s.best].classList.add("best");
+          refs.badgeText.textContent = s.badge;
+          refs.badge.classList.add("show");
+          refs.status.textContent = s.resultStatus;
+        }]
+      ];
+    }
+  });
+
+  // ─── Hero dot particles ───
+  function initDots() {
+    var canvas = document.getElementById("dots");
+    if (!canvas) { return; }
+    var ctx = canvas.getContext("2d");
+    var dots = [];
+    function resize() {
+      canvas.width = canvas.offsetWidth;
+      canvas.height = canvas.offsetHeight;
+    }
+    resize();
+    window.addEventListener("resize", resize);
+    for (var i = 0; i < 70; i++) {
+      dots.push({
+        x: Math.random(), y: Math.random(),
+        r: 1 + Math.random() * 2.2,
+        vx: (Math.random() - 0.5) * 0.0004,
+        vy: (Math.random() - 0.5) * 0.0004,
+        o: 0.12 + Math.random() * 0.5
+      });
+    }
+    var reduced = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+    function frame() {
+      ctx.clearRect(0, 0, canvas.width, canvas.height);
+      dots.forEach(function (d) {
+        d.x = (d.x + d.vx + 1) % 1;
+        d.y = (d.y + d.vy + 1) % 1;
+        ctx.beginPath();
+        ctx.arc(d.x * canvas.width, d.y * canvas.height, d.r, 0, Math.PI * 2);
+        ctx.fillStyle = "rgba(210, 7, 87, " + d.o + ")";
+        ctx.fill();
+      });
+      if (!reduced) { requestAnimationFrame(frame); }
+    }
+    frame();
+  }
+
+  // ─── Scroll reveal ───
+  function initReveal() {
+    var revealed = document.querySelectorAll(".reveal");
+    if (window.matchMedia("(prefers-reduced-motion: reduce)").matches || !("IntersectionObserver" in window)) {
+      revealed.forEach(function (el) { el.classList.add("visible"); });
+      return;
+    }
+    var observer = new IntersectionObserver(function (entries) {
+      entries.forEach(function (entry) {
+        if (entry.isIntersecting) {
+          entry.target.classList.add("visible");
+          observer.unobserve(entry.target);
+        }
+      });
+    }, { threshold: 0.12 });
+    revealed.forEach(function (el) { observer.observe(el); });
+  }
+
+  // ─── Listeners ───
+  // Keyboard shortcuts 1-3 select scenarios when the simulation is on screen
+  document.addEventListener("keydown", function (event) {
+    if (event.key !== "1" && event.key !== "2" && event.key !== "3") { return; }
+    if (event.target.tagName === "INPUT" || event.target.tagName === "TEXTAREA") { return; }
+    var rect = document.getElementById("figOcena").getBoundingClientRect();
+    if (rect.bottom < 0 || rect.top > window.innerHeight) { return; }
+    player.select(parseInt(event.key, 10) - 1);
+  });
+
+  // ─── Init ───
+  if (window.lucide) { window.lucide.createIcons(); }
+  initDots();
+  initReveal();
+
+})();
+</script>
+
+</body>
+</html>

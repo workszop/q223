@@ -1,0 +1,1309 @@
+<!DOCTYPE html>
+<!--
+  QUANTICA LAB - strona produktowa: Gerwazy, inteligentny straznik zgodnosci
+  Standalone marketing website built from the gerwazy_inteligentny_straznik_zgodnosci.html flyer.
+  All marketing copy verbatim from the flyer; simulation labels are UI demo data.
+-->
+<html lang="pl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="Gerwazy: inteligentny strażnik zgodności. Automatyczna ocena zgodności dokumentacji z wymogami, identyfikacja luk i rekomendacje działań naprawczych.">
+<title>Gerwazy: inteligentny strażnik zgodności | Quantica Lab</title>
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='7' fill='%23d20757'/%3E%3Ctext x='16' y='23' font-family='sans-serif' font-size='20' font-weight='700' fill='%23fff' text-anchor='middle'%3EG%3C/text%3E%3C/svg%3E">
+
+<link rel="preconnect" href="https://api.fontshare.com">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://api.fontshare.com/v2/css?f[]=satoshi@300,400,500,700,900&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Geist+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+
+<style>
+  :root {
+    /* ─── Brand tokens (mirror of design-system colors_and_type.css) ─── */
+    --quantica-pink:    #d20757;
+    --rose-pink:        #d20757;
+    --deep-berry:       #8A004C;
+    --magenta-tint:     #FFE6F1;
+
+    --violet-primary:   #7030A0;
+    --violet-deep:      #4F1F75;
+    --ink:              #0A1F2C;
+    --mist:             #F4EEFA;
+
+    --near-black:       #111111;
+    --white:            #FFFFFF;
+
+    --fg-1:             #111111;
+    --fg-2:             #111111;
+    --fg-3:             #4B5563;
+
+    --bg-1:             #FFFFFF;
+    --bg-2:             #F5F6F8;
+
+    --border-1:         #E6E8EC;
+    --border-2:         #D1D5DB;
+
+    --font-display:     "Satoshi", system-ui, -apple-system, sans-serif;
+    --font-sans:        "Satoshi", system-ui, -apple-system, sans-serif;
+    --font-mono:        "Geist Mono", ui-monospace, "SF Mono", Menlo, monospace;
+
+    --radius-sm:        6px;
+    --radius-md:        10px;
+    --radius-lg:        16px;
+
+    --shadow-pink-soft: 0 6px 18px rgba(210, 7, 87, 0.10);
+    --shadow-card:      0 10px 30px -12px rgba(10, 20, 40, 0.12);
+
+    --nav-h: 64px;
+    --content-w: 1120px;
+
+    --diagram-line:     #B9BFC9;
+    --diagram-line-on:  var(--quantica-pink);
+    --diagram-paper:    #FDFCFB;
+  }
+
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  html { scroll-behavior: smooth; scroll-padding-top: calc(var(--nav-h) + 12px); }
+  body {
+    font-family: var(--font-sans);
+    color: var(--fg-2);
+    background: var(--bg-1);
+    line-height: 1.6;
+    -webkit-font-smoothing: antialiased;
+    text-rendering: optimizeLegibility;
+  }
+  img { max-width: 100%; }
+  a { color: var(--quantica-pink); }
+
+  .wrap {
+    max-width: var(--content-w);
+    margin: 0 auto;
+    padding: 0 28px;
+  }
+
+  /* ─── Scroll reveal ─── */
+  .reveal { opacity: 0; transform: translateY(22px); transition: opacity 600ms ease, transform 600ms ease; }
+  .reveal.visible { opacity: 1; transform: none; }
+  @media (prefers-reduced-motion: reduce) {
+    html { scroll-behavior: auto; }
+    .reveal { opacity: 1; transform: none; transition: none; }
+    * { transition-duration: 0.01ms !important; animation-duration: 0.01ms !important; }
+  }
+
+  /* ─── NAV ─── */
+  .nav {
+    position: fixed;
+    top: 0; left: 0; right: 0;
+    height: var(--nav-h);
+    z-index: 40;
+    background: rgba(255, 255, 255, 0.88);
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+    border-bottom: 1px solid var(--border-1);
+  }
+  .nav-inner {
+    max-width: var(--content-w);
+    margin: 0 auto;
+    padding: 0 28px;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 20px;
+  }
+  .nav-logo img { height: 30px; width: auto; display: block; }
+  .nav-links { display: flex; align-items: center; gap: 26px; }
+  .nav-links a {
+    font-size: 13.5px;
+    font-weight: 500;
+    color: var(--fg-1);
+    text-decoration: none;
+    letter-spacing: 0.01em;
+  }
+  .nav-links a:hover { color: var(--quantica-pink); }
+  .nav-cta {
+    background: var(--quantica-pink);
+    color: var(--white) !important;
+    font-weight: 700;
+    padding: 9px 20px;
+    border-radius: 999px;
+    box-shadow: var(--shadow-pink-soft);
+    transition: background 200ms;
+  }
+  .nav-cta:hover { background: var(--deep-berry); color: var(--white); }
+
+  /* ─── HERO ─── */
+  .hero {
+    position: relative;
+    min-height: 100svh;
+    display: flex;
+    align-items: center;
+    color: var(--white);
+    padding: calc(var(--nav-h) + 48px) 0 72px;
+    background: var(--ink);
+    overflow: hidden;
+  }
+  #dots {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    pointer-events: none;
+  }
+  .hero-q {
+    position: absolute;
+    right: -6%;
+    top: 50%;
+    transform: translateY(-50%);
+    width: min(46vw, 640px);
+    opacity: 0.16;
+    pointer-events: none;
+  }
+  .hero-q img { width: 100%; display: block; }
+  .hero-inner { position: relative; z-index: 2; }
+  .hero-title {
+    font-family: var(--font-display);
+    font-weight: 700;
+    font-size: clamp(56px, 9vw, 112px);
+    line-height: 0.98;
+    letter-spacing: -0.03em;
+    color: var(--white);
+  }
+  .hero-subtitle {
+    font-family: var(--font-display);
+    font-size: clamp(23px, 3.2vw, 38px);
+    font-weight: 400;
+    color: var(--white);
+    margin-top: 10px;
+    letter-spacing: -0.015em;
+    line-height: 1.15;
+  }
+  .hero-subtitle em { font-style: normal; color: var(--rose-pink); }
+  .hero-tagline {
+    font-size: clamp(15px, 1.6vw, 18px);
+    line-height: 1.6;
+    color: rgba(255, 255, 255, 0.92);
+    max-width: 560px;
+    margin-top: 24px;
+    font-weight: 400;
+  }
+  .hero-actions { display: flex; flex-wrap: wrap; gap: 14px; margin-top: 36px; }
+  .pill {
+    font-family: var(--font-sans);
+    font-weight: 700;
+    font-size: 14px;
+    text-decoration: none;
+    padding: 13px 28px;
+    border-radius: 999px;
+    display: inline-flex;
+    align-items: center;
+    gap: 9px;
+    transition: transform 200ms, background 200ms, color 200ms;
+  }
+  .pill:hover { transform: translateY(-1px); }
+  .pill-solid { background: var(--quantica-pink); color: var(--white); box-shadow: var(--shadow-pink-soft); }
+  .pill-solid:hover { background: var(--deep-berry); }
+  .pill-outline { border: 1.5px solid var(--white); color: var(--white); }
+  .pill-outline:hover { background: rgba(255, 255, 255, 0.1); }
+  .pill .icon { width: 17px; height: 17px; }
+  .hero-footer {
+    position: absolute;
+    bottom: 22px;
+    left: 0; right: 0;
+    z-index: 2;
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    gap: 6px 18px;
+    font-family: var(--font-mono);
+    font-size: 11px;
+    letter-spacing: 0.04em;
+    color: rgba(255, 255, 255, 0.85);
+  }
+
+  /* ─── SECTION SCAFFOLD ─── */
+  .section { padding: 88px 0; }
+  .section-alt { background: var(--bg-2); }
+  .h-section {
+    font-family: var(--font-display);
+    font-weight: 700;
+    font-size: clamp(28px, 4vw, 42px);
+    line-height: 1.08;
+    letter-spacing: -0.025em;
+    color: var(--fg-1);
+    margin-bottom: 22px;
+  }
+  .h-pink { color: var(--quantica-pink); }
+  .section p { font-size: 15.5px; line-height: 1.75; margin-bottom: 14px; max-width: 780px; }
+  .section p strong { color: var(--quantica-pink); font-weight: 700; }
+
+  /* ─── VIOLET NOTE ─── */
+  .note-violet {
+    background: var(--mist);
+    border: 1.5px solid var(--violet-primary);
+    border-radius: var(--radius-md);
+    padding: 22px 26px;
+    margin: 22px 0;
+    max-width: 860px;
+  }
+  .note-violet p { margin: 0; font-size: 16px; line-height: 1.7; color: var(--fg-1); font-weight: 500; max-width: none; }
+  .note-violet { display: flex; gap: 18px; align-items: flex-start; }
+  .note-violet .note-icon {
+    flex: none;
+    width: 46px;
+    height: 46px;
+    border-radius: var(--radius-md);
+    background: rgba(112, 48, 160, 0.12);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  .note-violet .note-icon .icon { width: 23px; height: 23px; color: var(--violet-primary); }
+
+  /* ─── ICON CARDS (paragraphs split into smaller visual parts) ─── */
+  .split-grid { display: flex; flex-wrap: wrap; gap: 18px; margin: 26px 0; }
+  .icon-card {
+    flex: 1 1 280px;
+    min-width: 260px;
+    background: var(--bg-1);
+    border: 1px solid var(--border-1);
+    border-radius: var(--radius-lg);
+    padding: 24px;
+    box-shadow: var(--shadow-card);
+  }
+  .icon-chip {
+    width: 44px;
+    height: 44px;
+    border-radius: var(--radius-md);
+    background: var(--magenta-tint);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 15px;
+  }
+  .icon-chip .icon { width: 22px; height: 22px; color: var(--quantica-pink); }
+  .icon-card p { margin: 0; max-width: none; font-size: 14.5px; line-height: 1.7; }
+
+  /* ─── SIMULATION (diagram) ─── */
+  .fig {
+    background: var(--diagram-paper);
+    border: 1px solid var(--border-1);
+    border-radius: var(--radius-lg);
+    padding: 30px 32px 26px;
+    margin-top: 36px;
+  }
+  .fig-head {
+    display: flex;
+    align-items: baseline;
+    gap: 14px;
+    margin-bottom: 26px;
+    flex-wrap: wrap;
+  }
+  .scn-tabs { margin-left: auto; display: flex; gap: 18px; flex-wrap: wrap; }
+  .scn-tab {
+    font-family: var(--font-mono);
+    font-size: 11px;
+    letter-spacing: 0.06em;
+    color: var(--fg-3);
+    background: none;
+    border: none;
+    border-bottom: 1.5px solid transparent;
+    padding: 0 0 3px;
+    cursor: pointer;
+    display: inline-flex;
+    align-items: center;
+    gap: 7px;
+  }
+  .scn-tab::before { content: attr(data-ix); font-weight: 600; color: var(--diagram-line); }
+  .scn-tab.on { color: var(--fg-1); border-bottom-color: var(--quantica-pink); }
+  .scn-tab.on::before { color: var(--quantica-pink); }
+  .scn-tab:hover { color: var(--fg-1); }
+  .scn-tab:focus-visible { outline: 2px solid var(--quantica-pink); outline-offset: 3px; }
+
+  .flowz {
+    display: grid;
+    grid-template-columns: 1fr 58px 1.15fr 58px 1.15fr;
+    align-items: center;
+  }
+  .flowz-wide { grid-template-columns: 1fr 58px 1fr 58px 1.3fr; }
+  .flow-node {
+    border: 1.5px solid var(--diagram-line);
+    border-radius: var(--radius-md);
+    padding: 18px 18px 16px;
+    background: var(--white);
+    transition: border-color 400ms, opacity 400ms;
+  }
+  .flow-node .step-no {
+    font-family: var(--font-mono);
+    font-size: 11px;
+    font-weight: 600;
+    letter-spacing: 0.1em;
+    color: var(--fg-3);
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    transition: color 400ms;
+  }
+  .flow-node .step-no::after {
+    content: "";
+    width: 26px;
+    height: 1.5px;
+    background: var(--diagram-line);
+    transition: background 400ms;
+  }
+  .flow-node h3 {
+    font-family: var(--font-display);
+    font-weight: 700;
+    font-size: 15.5px;
+    line-height: 1.25;
+    letter-spacing: -0.01em;
+    color: var(--fg-1);
+    margin: 10px 0 6px;
+    display: flex;
+    align-items: center;
+    gap: 9px;
+  }
+  .flow-node h3 .icon { width: 18px; height: 18px; color: var(--diagram-line); flex: none; transition: color 400ms; }
+  .flow-node.on { border-color: var(--diagram-line-on); }
+  .flow-node.on .step-no { color: var(--quantica-pink); }
+  .flow-node.on .step-no::after { background: var(--quantica-pink); }
+  .flow-node.on h3 .icon { color: var(--quantica-pink); }
+  .flow-node.faded { opacity: 0.38; }
+  .flow-node.blocked { border-style: dashed; opacity: 0.55; }
+
+  .flow-sub {
+    font-family: var(--font-mono);
+    font-size: 10px;
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+    color: var(--fg-3);
+    margin: -2px 0 6px;
+  }
+
+  .flow-query {
+    font-size: 12.5px;
+    line-height: 1.55;
+    color: var(--fg-3);
+    min-height: 4.6em;
+    max-width: none;
+    margin: 0;
+  }
+  .flow-query::before { content: "\201E"; }
+  .flow-query::after { content: "\201D"; }
+
+  .flow-checks { display: flex; flex-direction: column; gap: 7px; margin-top: 4px; }
+  .flow-check {
+    display: flex;
+    align-items: flex-start;
+    gap: 8px;
+    font-family: var(--font-mono);
+    font-size: 10.5px;
+    letter-spacing: 0.02em;
+    line-height: 1.5;
+    color: var(--fg-3);
+    opacity: 0.5;
+    transition: opacity 350ms, color 350ms;
+  }
+  .flow-check .icon { width: 13px; height: 13px; flex: none; margin-top: 1px; color: var(--diagram-line); transition: color 350ms; }
+  .flow-check.on { opacity: 1; color: var(--fg-1); }
+  .flow-check.on .icon { color: var(--quantica-pink); }
+
+  .flow-link { width: 100%; height: 14px; }
+  .flow-link line { stroke: var(--diagram-line); stroke-width: 1.5; stroke-dasharray: 4 5; }
+  .flow-link path { fill: var(--diagram-line); }
+  .flow-link.on line { stroke: var(--diagram-line-on); animation: dashMove 700ms linear infinite; }
+  .flow-link.on path { fill: var(--diagram-line-on); }
+  .flow-link.faded { opacity: 0.35; }
+  @keyframes dashMove { to { stroke-dashoffset: -9; } }
+
+  .vlink { width: 14px; height: 30px; margin: 4px auto; display: block; }
+  .vlink line { stroke: var(--diagram-line); stroke-width: 1.5; stroke-dasharray: 4 5; }
+  .vlink path { fill: var(--diagram-line); }
+  .vlink.on line { stroke: var(--diagram-line-on); animation: dashMove 700ms linear infinite; }
+  .vlink.on path { fill: var(--diagram-line-on); }
+
+  .branch-links {
+    display: flex;
+    flex-direction: column;
+    align-self: stretch;
+    justify-content: space-around;
+    gap: 18px;
+  }
+  .branch-targets { display: flex; flex-direction: column; gap: 18px; }
+
+  .cite-list { display: flex; flex-direction: column; gap: 6px; margin-top: 10px; }
+  .cite-list.tall { min-height: 62px; }
+  .cite {
+    font-family: var(--font-mono);
+    font-size: 10.5px;
+    letter-spacing: 0.02em;
+    color: var(--fg-1);
+    background: var(--bg-2);
+    border: 1px solid var(--border-1);
+    border-radius: var(--radius-sm);
+    padding: 6px 9px;
+    display: flex;
+    align-items: center;
+    gap: 7px;
+    opacity: 0;
+    transition: opacity 350ms;
+  }
+  .cite.show { opacity: 1; }
+  .cite .icon { width: 13px; height: 13px; flex: none; color: var(--quantica-pink); }
+  .cite.gap { color: var(--fg-3); }
+  .cite.gap .icon { color: var(--fg-3); }
+
+  .flow-badge {
+    margin-top: 10px;
+    font-family: var(--font-mono);
+    font-size: 10.5px;
+    letter-spacing: 0.02em;
+    line-height: 1.5;
+    padding: 6px 10px;
+    border-radius: var(--radius-sm);
+    display: inline-flex;
+    align-items: flex-start;
+    gap: 7px;
+    background: var(--magenta-tint);
+    color: var(--deep-berry);
+    opacity: 0;
+    transition: opacity 350ms;
+  }
+  .flow-badge.show { opacity: 1; }
+  .flow-badge.muted { background: var(--bg-2); color: var(--fg-3); }
+  .flow-badge .icon { width: 13px; height: 13px; flex: none; margin-top: 1px; }
+
+  .genre-chip {
+    display: inline-block;
+    font-family: var(--font-mono);
+    font-size: 10px;
+    font-weight: 600;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: var(--quantica-pink);
+    border: 1.5px solid var(--quantica-pink);
+    border-radius: 999px;
+    padding: 3px 10px;
+    margin-bottom: 8px;
+  }
+
+  .model-row {
+    display: grid;
+    grid-template-columns: 150px 1fr 40px;
+    align-items: center;
+    gap: 10px;
+    margin-top: 12px;
+  }
+  .model-row .model-name {
+    display: flex;
+    align-items: center;
+    gap: 7px;
+    font-family: var(--font-display);
+    font-weight: 700;
+    font-size: 13px;
+    color: var(--fg-1);
+  }
+  .model-name .icon { width: 15px; height: 15px; flex: none; color: var(--diagram-line); transition: color 350ms; }
+  .model-name em {
+    font-style: normal;
+    font-family: var(--font-mono);
+    font-weight: 400;
+    font-size: 9px;
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+    color: var(--fg-3);
+  }
+  .score-track { height: 6px; background: var(--border-1); border-radius: 3px; overflow: hidden; }
+  .score-fill { display: block; height: 100%; width: 0; background: var(--diagram-line); border-radius: 3px; transition: width 900ms ease, background 350ms; }
+  .score-val { font-family: var(--font-mono); font-size: 11px; text-align: right; color: var(--fg-3); }
+  .model-row.best .score-fill { background: var(--quantica-pink); }
+  .model-row.best .score-val { color: var(--quantica-pink); font-weight: 600; }
+  .model-row.best .model-name .icon { color: var(--quantica-pink); }
+
+  .sync-row {
+    display: grid;
+    grid-template-columns: 1fr 58px 1.15fr 58px 1.15fr;
+  }
+  .sync-cell {
+    grid-column: 3;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+  .sync-link { width: 14px; height: 36px; }
+  .sync-link line { stroke: var(--diagram-line); stroke-width: 1.5; stroke-dasharray: 4 5; }
+  .sync-link path { fill: var(--diagram-line); }
+  .sync-box {
+    border: 1.5px dashed var(--diagram-line);
+    border-radius: var(--radius-md);
+    padding: 12px 16px;
+    text-align: center;
+    max-width: 420px;
+  }
+  .sync-box .sync-tag {
+    font-family: var(--font-mono);
+    font-size: 10px;
+    font-weight: 600;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: var(--fg-3);
+    display: block;
+    margin-bottom: 5px;
+  }
+  .sync-box .sync-src {
+    font-family: var(--font-mono);
+    font-size: 10.5px;
+    letter-spacing: 0.02em;
+    color: var(--fg-1);
+    display: block;
+  }
+  .sync-box .sync-note {
+    font-size: 11.5px;
+    line-height: 1.5;
+    color: var(--fg-3);
+    display: block;
+    margin-top: 4px;
+  }
+
+  .scn-status {
+    margin-top: 22px;
+    padding-top: 14px;
+    border-top: 1px dashed var(--border-2);
+    font-family: var(--font-mono);
+    font-size: 11px;
+    letter-spacing: 0.06em;
+    color: var(--fg-3);
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    flex-wrap: wrap;
+  }
+  .scn-status b { color: var(--quantica-pink); font-weight: 600; }
+
+  .sim-caption {
+    margin-top: 16px;
+    font-size: 12.5px;
+    color: var(--fg-3);
+    max-width: 780px;
+  }
+
+  /* ─── ROUTE CALLOUT (flyer copy block) ─── */
+  .route-callout {
+    background: var(--magenta-tint);
+    color: var(--quantica-pink);
+    font-size: 14.5px;
+    line-height: 1.65;
+    font-weight: 500;
+    padding: 18px 24px 18px 42px;
+    margin: 16px 0 0;
+    border-radius: 0 var(--radius-md) var(--radius-md) 0;
+    clip-path: polygon(0 50%, 20px 0, 100% 0, 100% 100%, 20px 100%);
+    max-width: 860px;
+    display: flex;
+    gap: 14px;
+    align-items: flex-start;
+  }
+  .route-callout .icon { width: 20px; height: 20px; flex: none; margin-top: 2px; }
+
+  /* ─── CAPABILITIES (flexbox, incomplete rows center) ─── */
+  .cap-grid { display: flex; flex-wrap: wrap; gap: 22px; justify-content: center; margin-top: 40px; }
+  .cap-panel {
+    flex: 1 1 calc(50% - 11px);
+    min-width: 300px;
+    background: var(--bg-1);
+    border: 1px solid var(--border-1);
+    border-radius: var(--radius-lg);
+    padding: 12px;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    box-shadow: var(--shadow-card);
+  }
+  .cap-head {
+    background: var(--violet-primary);
+    color: var(--white);
+    border-radius: var(--radius-md);
+    padding: 15px 18px;
+    font-family: var(--font-display);
+    font-weight: 700;
+    font-size: 16.5px;
+    line-height: 1.25;
+    letter-spacing: -0.01em;
+    display: flex;
+    align-items: center;
+    gap: 12px;
+  }
+  .cap-head .icon { width: 21px; height: 21px; flex: none; }
+  .cap-item {
+    background: var(--bg-2);
+    border-radius: var(--radius-sm);
+    padding: 12px 15px;
+    font-size: 13.5px;
+    line-height: 1.6;
+    color: var(--fg-1);
+    display: flex;
+    gap: 11px;
+    align-items: flex-start;
+  }
+  .cap-item .icon { width: 16px; height: 16px; flex: none; color: var(--quantica-pink); margin-top: 3px; }
+
+  /* ─── BENEFITS ─── */
+  .benefit-grid { display: flex; flex-wrap: wrap; gap: 22px; justify-content: center; margin-top: 40px; }
+  .benefit {
+    flex: 1 1 calc(50% - 11px);
+    min-width: 300px;
+    background: var(--bg-1);
+    border: 1px solid var(--border-1);
+    border-radius: var(--radius-lg);
+    padding: 28px;
+    display: grid;
+    grid-template-columns: 72px 1fr;
+    gap: 20px;
+    align-items: start;
+    box-shadow: var(--shadow-card);
+  }
+  .benefit .digit {
+    font-family: var(--font-display);
+    font-weight: 700;
+    font-size: 64px;
+    line-height: 0.9;
+    color: var(--quantica-pink);
+    letter-spacing: -0.04em;
+  }
+  .benefit h3 {
+    font-family: var(--font-display);
+    font-weight: 700;
+    color: var(--fg-1);
+    font-size: 18px;
+    margin-bottom: 10px;
+    line-height: 1.25;
+    letter-spacing: -0.01em;
+  }
+  .benefit p { font-size: 14px; line-height: 1.7; margin: 0; }
+
+  /* ─── CONTACT ─── */
+  .contact {
+    background:
+      radial-gradient(ellipse 70% 60% at 80% 50%, rgba(112, 48, 160, 0.28) 0%, transparent 65%),
+      radial-gradient(ellipse 50% 70% at 0% 0%, rgba(210, 7, 87, 0.30) 0%, transparent 65%),
+      linear-gradient(135deg, #0A1F2C 0%, #0d2538 100%);
+    color: var(--white);
+    padding: 52px 56px;
+    border-radius: var(--radius-lg);
+    position: relative;
+    overflow: hidden;
+  }
+  .contact-q {
+    position: absolute;
+    right: -50px;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 280px;
+    opacity: 0.14;
+    pointer-events: none;
+  }
+  .contact-q img { width: 100%; display: block; }
+  .contact  .contact  .contact h2 {
+    color: var(--white);
+    font-family: var(--font-display);
+    font-size: clamp(26px, 3.4vw, 36px);
+    font-weight: 700;
+    margin-bottom: 14px;
+    letter-spacing: -0.025em;
+    line-height: 1.1;
+  }
+  .contact p { color: rgba(255, 255, 255, 0.92); font-size: 15px; margin-bottom: 26px; max-width: 560px; position: relative; z-index: 1; }
+  .contact-pills { display: flex; flex-wrap: wrap; gap: 12px; margin-bottom: 30px; position: relative; z-index: 1; }
+  .contact .pill-solid { background: var(--white); color: var(--quantica-pink); }
+  .contact .pill-solid:hover { background: var(--magenta-tint); }
+  .contact-info {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 24px;
+    align-items: center;
+    border-top: 1px solid rgba(255, 255, 255, 0.16);
+    padding-top: 22px;
+    position: relative;
+    z-index: 1;
+  }
+  .contact-meta { font-size: 13px; color: var(--white); }
+  .contact-meta strong { font-weight: 600; }
+  .contact-logo img { height: 40px; width: auto; display: block; }
+
+  /* ─── FOOTER ─── */
+  .footer {
+    padding: 26px 0;
+    border-top: 1px solid var(--border-1);
+    font-family: var(--font-mono);
+    font-size: 11.5px;
+    letter-spacing: 0.04em;
+    color: var(--fg-3);
+  }
+  .footer .wrap { display: flex; justify-content: space-between; flex-wrap: wrap; gap: 10px; }
+
+  /* ─── INTRO: full title width + justified ─── */
+  #jak-dziala .wrap > .reveal > p { max-width: none; text-align: justify; }
+  #jak-dziala .note-violet { max-width: none; }
+  #jak-dziala .note-violet p { text-align: justify; }
+
+  /* ─── BELOW SIMULATION: full title width + justified ─── */
+  #symulacja .sim-caption,
+  #symulacja .route-callout,
+  #symulacja .route-branch,
+  #symulacja .route-cards { max-width: none; }
+  #symulacja .sim-caption,
+  #symulacja .route-callout span,
+  #symulacja .route-card p { text-align: justify; }
+
+  /* ─── RESPONSIVE ─── */
+  @media (max-width: 768px) {
+    .nav-links a:not(.nav-cta) { display: none; }
+    .hero { min-height: auto; padding: calc(var(--nav-h) + 56px) 0 96px; }
+    .hero-q { width: 70vw; right: -18%; opacity: 0.12; }
+    .section { padding: 60px 0; }
+    .wrap { padding: 0 20px; }
+    .nav-inner { padding: 0 20px; }
+    .fig { padding: 22px 18px; }
+    .flowz, .flowz-wide { grid-template-columns: 1fr; gap: 0; }
+    .flow-link { height: 34px; width: 14px; margin: 0 auto; transform: rotate(90deg); }
+    .branch-links { flex-direction: row; justify-content: center; gap: 60px; }
+    .flow-query { min-height: 0; }
+    .cite-list.tall { min-height: 0; }
+    .scn-tabs { margin-left: 0; }
+    .sync-row { grid-template-columns: 1fr; margin-top: 18px; }
+    .sync-cell { grid-column: 1; }
+    .sync-link { display: none; }
+    .model-row { grid-template-columns: 120px 1fr 36px; }
+    .cap-panel, .benefit { flex-basis: 100%; min-width: 0; }
+    .benefit { padding: 22px; grid-template-columns: 54px 1fr; gap: 14px; }
+    .benefit .digit { font-size: 48px; }
+    .contact { padding: 34px 24px; }
+  }
+</style>
+</head>
+<body>
+
+<!-- ════════════════ NAV ════════════════ -->
+<nav class="nav" aria-label="Nawigacja">
+  <div class="nav-inner">
+    <a class="nav-logo" href="#top" aria-label="Quantica Lab">
+      <img src="quantica-logo-color.png" alt="Quantica Lab">
+    </a>
+    <div class="nav-links">
+      <a href="#jak-dziala">Jak działa</a>
+      <a href="#symulacja">Symulacja</a>
+      <a href="#korzysci">Korzyści</a>
+      <a class="nav-cta" href="#kontakt">Kontakt</a>
+    </div>
+  </div>
+</nav>
+
+<!-- ════════════════ HERO ════════════════ -->
+<header class="hero" id="top">
+  <canvas id="dots" aria-hidden="true"></canvas>
+  <div class="hero-q" aria-hidden="true"><img src="quantica-q-mark-white.png" alt=""></div>
+  <div class="wrap hero-inner">
+    <h1 class="hero-title">Gerwazy</h1>
+    <div class="hero-subtitle">inteligentny <em>strażnik zgodności</em></div>
+    <p class="hero-tagline">Automatyczna ocena zgodności dokumentacji z wymogami, identyfikacja luk i rekomendacje działań naprawczych</p>
+    <div class="hero-actions">
+      <a class="pill pill-solid" href="#kontakt"><i data-lucide="messages-square" class="icon"></i>Porozmawiajmy o wdrożeniu</a>
+      <a class="pill pill-outline" href="#symulacja"><i data-lucide="play" class="icon"></i>Zobacz symulację</a>
+    </div>
+  </div>
+  <div class="hero-footer wrap">
+    <div>quanticalab.ai</div>
+    <div>Gerwazy · inteligentny strażnik zgodności</div>
+  </div>
+</header>
+
+<main>
+
+<!-- ════════════════ JAK DZIAŁA ════════════════ -->
+<section class="section" id="jak-dziala">
+  <div class="wrap">
+    <div class="reveal">
+      <h2 class="h-section">Analiza zgodności dokumentacji <span class="h-pink">zbliżona do pracy zespołu ekspertów</span></h2>
+      </div>
+
+    <div class="reveal">
+      <p>Gerwazy to system AI umożliwiający analizę różnego rodzaju dokumentacji, w tym procedur, polityk, instrukcji, regulaminów, rejestrów, umów oraz innych dokumentów wykorzystywanych w codziennym funkcjonowaniu organizacji, pod kątem zgodności z wymaganiami regulacyjnymi, normami branżowymi oraz politykami wewnętrznymi. Dokumenty są automatycznie porównywane z wymaganiami wynikającymi z regulacji prawnych, standardów branżowych lub indywidualnych kryteriów zdefiniowanych przez użytkownika. System wspiera proces identyfikacji niezgodności i luk oraz przygotowywania rekomendacji działań naprawczych, znacząco skracając czas potrzebny na przeprowadzenie ocen zgodności i analiz regulacyjnych.</p>
+    </div>
+
+    <div class="note-violet reveal">
+      <div class="note-icon"><i data-lucide="scale" class="icon"></i></div>
+      <p>System łączy wymagania regulacyjne z dokumentacją organizacji, wskazuje konkretne luki i uzasadnia każdą ocenę na podstawie analizowanych dokumentów. Następnie rekomenduje działania naprawcze i może proponować zmiany w procedurach, politykach i innych dokumentach potrzebne do osiągnięcia zgodności.</p>
+    </div>
+
+    <div class="reveal">
+      <p>Gerwazy wykorzystuje lokalnie uruchamiane duże modele językowe dostosowane do języka polskiego oraz architekturę wieloagentową. W procesie analizy współpracujący ze sobą agenci AI odpowiadają za interpretację wymagań regulacyjnych, analizę dokumentacji organizacji, identyfikację luk i niespójności, ocenę poziomu zgodności oraz przygotowanie rekomendacji działań naprawczych. Dzięki takiemu podejściu rozwiązanie może analizować złożone wymagania regulacyjne w sposób zbliżony do pracy zespołu ekspertów.</p>
+    </div>
+
+    <div class="reveal">
+      <p>System pozwala wykorzystywać gotowe zestawy wymagań dla regulacji takich jak NIS2 czy AI Act. Rozwiązanie nie jest jednak ograniczone do konkretnych regulacji. Użytkownik może definiować własne listy kontrolne, kryteria oceny i wymagania podlegające analizie. Dzięki temu Gerwazy może być wykorzystywany zarówno do przygotowania organizacji do nowych obowiązków regulacyjnych, jak i do bieżącej weryfikacji zgodności z wewnętrznymi zasadami i procedurami.</p>
+    </div>
+
+    <div class="reveal">
+      <p>Wynikiem działania systemu jest szczegółowy raport przedstawiający poziom spełnienia poszczególnych wymagań, zidentyfikowane niezgodności, braki w dokumentacji oraz rekomendowane działania naprawcze. Każda ocena jest uzasadniona i powiązana z konkretnymi fragmentami analizowanych dokumentów oraz odpowiednimi wymaganiami regulacyjnymi, co zwiększa przejrzystość procesu i ułatwia weryfikację wyników przez ekspertów organizacji.</p>
+    </div>
+
+    <div class="reveal">
+      <p>Gerwazy nie ogranicza się do wskazywania problemów. Na podstawie wyników analizy może również proponować zmiany w dokumentacji, nowe procedury lub dodatkowe działania organizacyjne wspierające osiągnięcie zgodności z wymaganiami. W efekcie organizacja może szybciej przejść od diagnozy do wdrażania działań naprawczych.</p>
+    </div>
+
+    <div class="reveal">
+      <p>Rozwiązanie może zostać wdrożone w różnych modelach infrastrukturalnych, zgodnie z wymaganiami organizacji dotyczącymi bezpieczeństwa i ochrony informacji. W przypadku dokumentacji zawierającej informacje poufne lub wrażliwe możliwe jest wykorzystanie lokalnej infrastruktury i modeli AI działających pod pełną kontrolą organizacji.</p>
+    </div>
+
+  </div>
+</section>
+
+<!-- ════════════════ SYMULACJA ════════════════ -->
+<section class="section section-alt" id="symulacja">
+  <div class="wrap">
+    <div class="reveal">
+      <h2 class="h-section">Zobacz, jak Gerwazy <span class="h-pink">ocenia zgodność dokumentacji</span></h2>
+      <p>Wybierz przykładowy scenariusz i obserwuj, jak system porównuje dokumentację z wymaganiami, identyfikuje luki i niezgodności, a następnie przygotowuje raport z rekomendacjami działań naprawczych.</p>
+    </div>
+
+    <div class="fig reveal" id="figGerwazy">
+      <div class="fig-head">
+        <div class="scn-tabs" role="group" aria-label="Przykładowe scenariusze">
+          <button class="scn-tab" type="button" data-scn="0" data-ix="1 ">NIS2</button>
+          <button class="scn-tab" type="button" data-scn="1" data-ix="2 ">AI Act</button>
+          <button class="scn-tab" type="button" data-scn="2" data-ix="3 ">własna lista kontrolna</button>
+        </div>
+      </div>
+
+      <div class="flowz">
+        <div class="branch-targets">
+          <div class="flow-node" id="geDoc">
+            <span class="step-no">01A</span>
+            <h3><i data-lucide="file-text" class="icon"></i>Dokumentacja organizacji</h3>
+            <p class="flow-query" id="geDocText" style="min-height: 0;">Polityka bezpieczeństwa informacji</p>
+          </div>
+          <div class="flow-node" id="geReq">
+            <span class="step-no">01B</span>
+            <h3><i data-lucide="clipboard-list" class="icon"></i>Zestaw wymagań</h3>
+            <div class="flow-sub" id="geReqText">regulacje, normy, listy kontrolne</div>
+          </div>
+        </div>
+        <div class="branch-links" aria-hidden="true">
+          <svg class="flow-link" id="geLinkA" viewBox="0 0 58 14" preserveAspectRatio="none"><line x1="0" y1="7" x2="47" y2="7"/><path d="M47 2 L57 7 L47 12 Z"/></svg>
+          <svg class="flow-link" id="geLinkB" viewBox="0 0 58 14" preserveAspectRatio="none"><line x1="0" y1="7" x2="47" y2="7"/><path d="M47 2 L57 7 L47 12 Z"/></svg>
+        </div>
+        <div class="flow-node" id="geAgents">
+          <span class="step-no">02</span>
+          <h3><i data-lucide="users" class="icon"></i>Agenci AI</h3>
+          <div class="flow-checks">
+            <div class="flow-check" id="geCheck0"><i data-lucide="book-open" class="icon"></i><span id="geCheck0Text">interpretacja wymagań</span></div>
+            <div class="flow-check" id="geCheck1"><i data-lucide="search" class="icon"></i><span id="geCheck1Text">analiza dokumentacji</span></div>
+            <div class="flow-check" id="geCheck2"><i data-lucide="flag" class="icon"></i><span id="geCheck2Text">identyfikacja luk i niespójności</span></div>
+            <div class="flow-check" id="geCheck3"><i data-lucide="gauge" class="icon"></i><span id="geCheck3Text">ocena poziomu zgodności</span></div>
+          </div>
+        </div>
+        <svg class="flow-link" id="geLink2" viewBox="0 0 58 14" preserveAspectRatio="none" aria-hidden="true"><line x1="0" y1="7" x2="47" y2="7"/><path d="M47 2 L57 7 L47 12 Z"/></svg>
+        <div class="flow-node" id="geReport">
+          <span class="step-no">03</span>
+          <h3><i data-lucide="file-check" class="icon"></i>Raport zgodności</h3>
+          <div class="cite-list tall" id="geFindings"></div>
+          <span class="flow-badge" id="geVerdictBadge"><i data-lucide="wrench" class="icon"></i><span id="geVerdictText"></span></span>
+        </div>
+      </div>
+
+      <div class="scn-status" aria-live="polite"><b id="geScnNo">SCENARIUSZ 1/3</b><span id="geStatus">system gotowy - wybierz przykładowy scenariusz</span></div>
+    </div>
+    <p class="sim-caption reveal">Symulacja poglądowa. Przykładowe scenariusze i komunikaty ilustrują sposób działania mechanizmu oceny zgodności.</p>
+
+    <div class="split-grid reveal">
+      <div class="icon-card">
+        <div class="icon-chip"><i data-lucide="file-check" class="icon"></i></div>
+        <p>Wynikiem działania systemu jest szczegółowy raport przedstawiający poziom spełnienia poszczególnych wymagań, zidentyfikowane niezgodności, braki w dokumentacji oraz rekomendowane działania naprawcze.</p>
+      </div>
+      <div class="icon-card">
+        <div class="icon-chip"><i data-lucide="quote" class="icon"></i></div>
+        <p>Każda ocena jest uzasadniona i powiązana z konkretnymi fragmentami analizowanych dokumentów oraz odpowiednimi wymaganiami regulacyjnymi, co zwiększa przejrzystość procesu i ułatwia weryfikację wyników przez ekspertów organizacji.</p>
+      </div>
+    </div>
+
+    <div class="split-grid reveal">
+      <div class="icon-card">
+        <div class="icon-chip"><i data-lucide="wrench" class="icon"></i></div>
+        <p>Gerwazy nie ogranicza się do wskazywania problemów. Na podstawie wyników analizy może również proponować zmiany w dokumentacji, nowe procedury lub dodatkowe działania organizacyjne wspierające osiągnięcie zgodności z wymaganiami.</p>
+      </div>
+      <div class="icon-card">
+        <div class="icon-chip"><i data-lucide="route" class="icon"></i></div>
+        <p>W efekcie organizacja może szybciej przejść od diagnozy do wdrażania działań naprawczych.</p>
+      </div>
+    </div>
+
+    <div class="reveal">
+      <p>Rozwiązanie może zostać wdrożone w różnych modelach infrastrukturalnych, zgodnie z wymaganiami organizacji dotyczącymi bezpieczeństwa i ochrony informacji.</p>
+    </div>
+    <div class="route-callout reveal"><i data-lucide="lock" class="icon"></i><span>W przypadku dokumentacji zawierającej informacje poufne lub wrażliwe możliwe jest wykorzystanie lokalnej infrastruktury i modeli AI działających pod pełną kontrolą organizacji.</span></div>
+  </div>
+</section>
+
+<!-- ════════════════ KORZYŚCI ════════════════ -->
+<section class="section section-alt" id="korzysci">
+  <div class="wrap">
+    <div class="reveal">
+      <h2 class="h-section h-pink">Co zyskuje organizacja?</h2>
+    </div>
+
+    <div class="benefit-grid">
+      <div class="benefit reveal">
+        <span class="digit">1</span>
+        <div>
+          <h3>Skrócenie czasu oceny zgodności</h3>
+          <p>Gerwazy automatyzuje analizę dużych zbiorów dokumentacji, znacząco ograniczając czas potrzebny na ręczne przeglądanie procedur, polityk i regulaminów oraz przygotowywanie ocen zgodności.</p>
+        </div>
+      </div>
+      <div class="benefit reveal">
+        <span class="digit">2</span>
+        <div>
+          <h3>Szybsza identyfikacja niezgodności i skuteczniejsze działania naprawcze</h3>
+          <p>System automatycznie wykrywa luki, niespójności i brakujące elementy dokumentacji, a następnie rekomenduje działania prowadzące do osiągnięcia zgodności z wymaganiami.</p>
+        </div>
+      </div>
+      <div class="benefit reveal">
+        <span class="digit">3</span>
+        <div>
+          <h3>Lepsze przygotowanie do zmian regulacyjnych</h3>
+          <p>Rozwiązanie wspiera analizę wpływu nowych regulacji na organizację oraz ułatwia planowanie i wdrażanie niezbędnych działań dostosowawczych.</p>
+        </div>
+      </div>
+      <div class="benefit reveal">
+        <span class="digit">4</span>
+        <div>
+          <h3>Przejrzysty i spójny proces oceny zgodności</h3>
+          <p>Wykorzystanie jednolitych kryteriów, list kontrolnych oraz uzasadnień opartych na konkretnych fragmentach dokumentacji zapewnia powtarzalność analiz i ułatwia weryfikację wyników.</p>
+        </div>
+      </div>
+      <div class="benefit reveal">
+        <span class="digit">5</span>
+        <div>
+          <h3>Bezpieczna i skalowalna analiza dokumentacji</h3>
+          <p>Lokalne przetwarzanie dokumentów oraz architektura wieloagentowa pozwalają realizować większą liczbę analiz zgodności bez proporcjonalnego zwiększania obciążenia zespołów i bez utraty kontroli nad danymi.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ════════════════ KONTAKT ════════════════ -->
+<section class="section" id="kontakt">
+  <div class="wrap">
+    <div class="contact reveal">
+      <div class="contact-q" aria-hidden="true"><img src="quantica-q-mark-white.png" alt=""></div>
+      <h2>Porozmawiajmy o wdrożeniu</h2>
+      <p>Napisz do nas – pokażemy Gerwazego w działaniu i omówimy scenariusz wdrożenia dopasowany do Twojej organizacji.</p>
+      <div class="contact-pills">
+        <a class="pill pill-solid" href="mailto:kontakt@quanticalab.ai">kontakt@quanticalab.ai</a>
+        <a class="pill pill-outline" href="https://www.quanticalab.ai" target="_blank" rel="noopener">www.quanticalab.ai</a>
+      </div>
+      <div class="contact-info">
+        <div class="contact-logo"><img src="quantica-logo-white.png" alt="Quantica Lab"></div>
+        <div class="contact-meta"><strong>Quanticalab Sp. z o.o.</strong></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+</main>
+
+<footer class="footer">
+  <div class="wrap">
+    <div>quanticalab.ai</div>
+    <div>Gerwazy · inteligentny strażnik zgodności</div>
+  </div>
+</footer>
+
+<script src="https://unpkg.com/lucide@latest"></script>
+<script>
+(function () {
+  "use strict";
+
+  // ─── Constants ───
+  var PHASE_MS = 950;
+  var HOLD_MS = 3200;
+  var REDUCED_MOTION = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+
+  var CHECK_LOG_PREFIXES = [
+    "agenci AI: interpretacja wymagań regulacyjnych",
+    "agenci AI: analiza dokumentacji organizacji"
+  ];
+
+  // ─── Helpers (diagram player) ───
+  function el(id) { return document.getElementById(id); }
+
+  function setLink(link, cls) {
+    link.classList.remove("on", "faded");
+    if (cls) { link.classList.add(cls); }
+  }
+
+  function setNode(node, cls) {
+    node.classList.remove("on", "faded", "blocked");
+    if (cls) { node.classList.add(cls); }
+  }
+
+  function addRow(container, icon, text, cls) {
+    var row = document.createElement("div");
+    row.className = "cite" + (cls ? " " + cls : "");
+    row.innerHTML = '<i data-lucide="' + icon + '" class="icon"></i>';
+    var span = document.createElement("span");
+    span.textContent = text;
+    row.appendChild(span);
+    container.appendChild(row);
+    if (window.lucide) { window.lucide.createIcons(); }
+    window.requestAnimationFrame(function () { row.classList.add("show"); });
+  }
+
+  function setCheck(checkEl) { checkEl.classList.add("on"); }
+
+  // Generic scenario player: tabs, timers, auto-advance loop, autoplay on view.
+  function makePlayer(cfg) {
+    var timers = [];
+    var ix = 0;
+    var tabs = Array.prototype.slice.call(cfg.fig.querySelectorAll(".scn-tab"));
+
+    function clearTimers() {
+      timers.forEach(window.clearTimeout);
+      timers = [];
+    }
+
+    function apply(i, animate) {
+      clearTimers();
+      ix = i;
+      var s = cfg.scenarios[i];
+      tabs.forEach(function (tab, tabIx) { tab.classList.toggle("on", tabIx === i); });
+      cfg.nameEl.textContent = "SCENARIUSZ " + (i + 1) + "/" + cfg.scenarios.length;
+      cfg.reset(s);
+      var phases = cfg.phases(s);
+      if (!animate) {
+        phases.forEach(function (p) { p[1](); });
+        return;
+      }
+      phases.forEach(function (p) {
+        timers.push(window.setTimeout(p[1], p[0]));
+      });
+      var last = phases[phases.length - 1][0];
+      timers.push(window.setTimeout(function () {
+        apply((ix + 1) % cfg.scenarios.length, true);
+      }, last + HOLD_MS));
+    }
+
+    tabs.forEach(function (tab) {
+      tab.addEventListener("click", function () {
+        apply(parseInt(tab.getAttribute("data-scn"), 10), !REDUCED_MOTION);
+      });
+    });
+
+    if (REDUCED_MOTION) {
+      apply(0, false);
+    } else if ("IntersectionObserver" in window) {
+      var started = false;
+      var io = new IntersectionObserver(function (entries) {
+        entries.forEach(function (entry) {
+          if (entry.isIntersecting && !started) {
+            started = true;
+            apply(0, true);
+            io.disconnect();
+          }
+        });
+      }, { threshold: 0.35 });
+      io.observe(cfg.fig);
+    } else {
+      apply(0, true);
+    }
+
+    return { select: function (i) { apply(i, !REDUCED_MOTION); } };
+  }
+
+  var SCENARIOS = [
+    {
+      doc: "Polityka bezpieczeństwa informacji",
+      req: "gotowy zestaw wymagań: NIS2",
+      checks: [
+        "interpretacja wymagań NIS2",
+        "analiza dokumentacji organizacji",
+        "identyfikacja luk: wykryto braki w dokumentacji",
+        "ocena poziomu zgodności: częściowa"
+      ],
+      findings: [
+        ["check", "wymaganie 01 - spełnione", ""],
+        ["flag", "wymaganie 02 - zidentyfikowana niezgodność", "gap"],
+        ["flag", "wymaganie 03 - brak w dokumentacji", "gap"]
+      ],
+      verdict: "rekomendacje działań naprawczych",
+      reportStatus: "raport: 1 wymaganie spełnione, 1 niezgodność, 1 brak w dokumentacji",
+      statusFinal: "każda ocena uzasadniona i powiązana z fragmentami analizowanych dokumentów"
+    },
+    {
+      doc: "Procedury wewnętrzne organizacji",
+      req: "gotowy zestaw wymagań: AI Act",
+      checks: [
+        "interpretacja wymagań AI Act",
+        "analiza dokumentacji organizacji",
+        "identyfikacja luk: obszar wymaga uzupełnienia",
+        "ocena poziomu zgodności: częściowa"
+      ],
+      findings: [
+        ["check", "wymaganie 01 - spełnione", ""],
+        ["check", "wymaganie 02 - spełnione", ""],
+        ["flag", "wymaganie 03 - wymaga uzupełnienia", "gap"]
+      ],
+      verdict: "zaproponowano zmiany w dokumentacji",
+      reportStatus: "raport: 2 wymagania spełnione, 1 obszar wymaga uzupełnienia",
+      statusFinal: "zaproponowane zmiany wspierają osiągnięcie zgodności z wymaganiami"
+    },
+    {
+      doc: "Regulaminy i rejestry organizacji",
+      req: "własna lista kontrolna użytkownika",
+      checks: [
+        "interpretacja wymagań z listy kontrolnej",
+        "analiza dokumentacji organizacji",
+        "identyfikacja luk: nie wykryto niezgodności",
+        "ocena poziomu zgodności: wymagania spełnione"
+      ],
+      findings: [
+        ["check", "wymaganie 01 - spełnione", ""],
+        ["check", "wymaganie 02 - spełnione", ""],
+        ["check", "wymaganie 03 - spełnione", ""]
+      ],
+      verdict: "zgodność z wewnętrznymi zasadami potwierdzona",
+      reportStatus: "raport: wszystkie wymagania spełnione, brak niezgodności",
+      statusFinal: "bieżąca weryfikacja zgodności z wewnętrznymi zasadami i procedurami"
+    }
+  ];
+
+  // ─── DOM refs ───
+  var refs = {
+    doc: el("geDoc"), docText: el("geDocText"),
+    req: el("geReq"), reqText: el("geReqText"),
+    agents: el("geAgents"), report: el("geReport"),
+    linkA: el("geLinkA"), linkB: el("geLinkB"), link2: el("geLink2"),
+    checks: [el("geCheck0"), el("geCheck1"), el("geCheck2"), el("geCheck3")],
+    checkTexts: [el("geCheck0Text"), el("geCheck1Text"), el("geCheck2Text"), el("geCheck3Text")],
+    findings: el("geFindings"),
+    verdictBadge: el("geVerdictBadge"), verdictText: el("geVerdictText"),
+    status: el("geStatus")
+  };
+
+  // ─── Render (scenario playback) ───
+  var player = makePlayer({
+    fig: el("figGerwazy"),
+    nameEl: el("geScnNo"),
+    scenarios: SCENARIOS,
+    reset: function (s) {
+      [refs.doc, refs.req, refs.agents, refs.report].forEach(function (n) { setNode(n, null); });
+      [refs.linkA, refs.linkB, refs.link2].forEach(function (l) { setLink(l, null); });
+      refs.checks.forEach(function (c) { c.classList.remove("on"); });
+      refs.findings.innerHTML = "";
+      refs.verdictBadge.classList.remove("show");
+      refs.docText.textContent = s.doc;
+      refs.reqText.textContent = s.req;
+      for (var i = 0; i < 4; i += 1) { refs.checkTexts[i].textContent = s.checks[i]; }
+    },
+    phases: function (s) {
+      return [
+        [0, function () { refs.doc.classList.add("on"); refs.status.textContent = "wczytano dokumentację: " + s.doc; }],
+        [PHASE_MS * 0.8, function () { refs.req.classList.add("on"); refs.status.textContent = s.req; }],
+        [PHASE_MS * 1.6, function () { refs.linkA.classList.add("on"); refs.linkB.classList.add("on"); refs.agents.classList.add("on"); }],
+        [PHASE_MS * 2.2, function () { setCheck(refs.checks[0]); refs.status.textContent = s.checks[0]; }],
+        [PHASE_MS * 2.9, function () { setCheck(refs.checks[1]); refs.status.textContent = s.checks[1]; }],
+        [PHASE_MS * 3.6, function () { setCheck(refs.checks[2]); refs.status.textContent = s.checks[2]; }],
+        [PHASE_MS * 4.3, function () { setCheck(refs.checks[3]); refs.status.textContent = s.checks[3]; }],
+        [PHASE_MS * 5.2, function () {
+          refs.linkA.classList.remove("on");
+          refs.linkB.classList.remove("on");
+          refs.link2.classList.add("on");
+          refs.report.classList.add("on");
+          s.findings.forEach(function (f) { addRow(refs.findings, f[0], f[1], f[2]); });
+          refs.status.textContent = s.reportStatus;
+        }],
+        [PHASE_MS * 6.2, function () {
+          refs.verdictText.textContent = s.verdict;
+          refs.verdictBadge.classList.add("show");
+          refs.status.textContent = s.statusFinal;
+        }]
+      ];
+    }
+  });
+
+  // ─── Hero dot particles ───
+  function initDots() {
+    var canvas = document.getElementById("dots");
+    if (!canvas) { return; }
+    var ctx = canvas.getContext("2d");
+    var dots = [];
+    function resize() {
+      canvas.width = canvas.offsetWidth;
+      canvas.height = canvas.offsetHeight;
+    }
+    resize();
+    window.addEventListener("resize", resize);
+    for (var i = 0; i < 70; i++) {
+      dots.push({
+        x: Math.random(), y: Math.random(),
+        r: 1 + Math.random() * 2.2,
+        vx: (Math.random() - 0.5) * 0.0004,
+        vy: (Math.random() - 0.5) * 0.0004,
+        o: 0.12 + Math.random() * 0.5
+      });
+    }
+    var reduced = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+    function frame() {
+      ctx.clearRect(0, 0, canvas.width, canvas.height);
+      dots.forEach(function (d) {
+        d.x = (d.x + d.vx + 1) % 1;
+        d.y = (d.y + d.vy + 1) % 1;
+        ctx.beginPath();
+        ctx.arc(d.x * canvas.width, d.y * canvas.height, d.r, 0, Math.PI * 2);
+        ctx.fillStyle = "rgba(210, 7, 87, " + d.o + ")";
+        ctx.fill();
+      });
+      if (!reduced) { requestAnimationFrame(frame); }
+    }
+    frame();
+  }
+
+  // ─── Scroll reveal ───
+  function initReveal() {
+    var revealed = document.querySelectorAll(".reveal");
+    if (REDUCED_MOTION || !("IntersectionObserver" in window)) {
+      revealed.forEach(function (el) { el.classList.add("visible"); });
+      return;
+    }
+    var observer = new IntersectionObserver(function (entries) {
+      entries.forEach(function (entry) {
+        if (entry.isIntersecting) {
+          entry.target.classList.add("visible");
+          observer.unobserve(entry.target);
+        }
+      });
+    }, { threshold: 0.12 });
+    revealed.forEach(function (el) { observer.observe(el); });
+  }
+
+  // ─── Listeners ───
+  // Keyboard shortcuts 1-3 select scenarios when the simulation is on screen
+  document.addEventListener("keydown", function (event) {
+    if (event.key !== "1" && event.key !== "2" && event.key !== "3") { return; }
+    if (event.target.tagName === "INPUT" || event.target.tagName === "TEXTAREA") { return; }
+    var rect = document.getElementById("figGerwazy").getBoundingClientRect();
+    if (rect.bottom < 0 || rect.top > window.innerHeight) { return; }
+    player.select(parseInt(event.key, 10) - 1);
+  });
+
+  // ─── Init ───
+  if (window.lucide) { window.lucide.createIcons(); }
+  initDots();
+  initReveal();
+
+})();
+</script>
+
+</body>
+</html>

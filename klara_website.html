@@ -1,0 +1,1322 @@
+<!DOCTYPE html>
+<!--
+  QUANTICA LAB – strona produktowa: Klara, bezpieczny chat AI
+  Standalone marketing website built from the klara_bezpieczny_chat_AI.html flyer.
+  All marketing copy verbatim from the flyer; simulation labels are UI demo data.
+-->
+<html lang="pl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="Klara: bezpieczny chat AI. Kontrolowane wykorzystanie generatywnej AI z inteligentnym doborem modeli i optymalizacją kosztów.">
+<title>Klara: bezpieczny chat AI | Quantica Lab</title>
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='7' fill='%23d20757'/%3E%3Ctext x='16' y='23' font-family='sans-serif' font-size='20' font-weight='700' fill='%23fff' text-anchor='middle'%3EK%3C/text%3E%3C/svg%3E">
+
+<link rel="preconnect" href="https://api.fontshare.com">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://api.fontshare.com/v2/css?f[]=satoshi@300,400,500,700,900&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Geist+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+
+<style>
+  :root {
+    /* ─── Brand tokens (mirror of design-system colors_and_type.css) ─── */
+    --quantica-pink:    #d20757;
+    --rose-pink:        #d20757;
+    --deep-berry:       #8A004C;
+    --magenta-tint:     #FFE6F1;
+
+    --violet-primary:   #7030A0;
+    --violet-deep:      #4F1F75;
+    --ink:              #0A1F2C;
+    --mist:             #F4EEFA;
+
+    --near-black:       #111111;
+    --white:            #FFFFFF;
+
+    --fg-1:             #111111;
+    --fg-2:             #111111;
+    --fg-3:             #4B5563;
+
+    --bg-1:             #FFFFFF;
+    --bg-2:             #F5F6F8;
+
+    --border-1:         #E6E8EC;
+    --border-2:         #D1D5DB;
+
+    --font-display:     "Satoshi", system-ui, -apple-system, sans-serif;
+    --font-sans:        "Satoshi", system-ui, -apple-system, sans-serif;
+    --font-mono:        "Geist Mono", ui-monospace, "SF Mono", Menlo, monospace;
+
+    --radius-sm:        6px;
+    --radius-md:        10px;
+    --radius-lg:        16px;
+
+    --shadow-pink-soft: 0 6px 18px rgba(210, 7, 87, 0.10);
+    --shadow-card:      0 10px 30px -12px rgba(10, 20, 40, 0.12);
+
+    --nav-h: 64px;
+    --content-w: 1120px;
+
+    --diagram-line:     #B9BFC9;
+    --diagram-line-on:  var(--quantica-pink);
+    --diagram-paper:    #FDFCFB;
+  }
+
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  html { scroll-behavior: smooth; scroll-padding-top: calc(var(--nav-h) + 12px); }
+  body {
+    font-family: var(--font-sans);
+    color: var(--fg-2);
+    background: var(--bg-1);
+    line-height: 1.6;
+    -webkit-font-smoothing: antialiased;
+    text-rendering: optimizeLegibility;
+  }
+  img { max-width: 100%; }
+  a { color: var(--quantica-pink); }
+
+  .wrap {
+    max-width: var(--content-w);
+    margin: 0 auto;
+    padding: 0 28px;
+  }
+
+  /* ─── Scroll reveal ─── */
+  .reveal { opacity: 0; transform: translateY(22px); transition: opacity 600ms ease, transform 600ms ease; }
+  .reveal.visible { opacity: 1; transform: none; }
+  @media (prefers-reduced-motion: reduce) {
+    html { scroll-behavior: auto; }
+    .reveal { opacity: 1; transform: none; transition: none; }
+    * { transition-duration: 0.01ms !important; animation-duration: 0.01ms !important; }
+  }
+
+  /* ─── NAV ─── */
+  .nav {
+    position: fixed;
+    top: 0; left: 0; right: 0;
+    height: var(--nav-h);
+    z-index: 40;
+    background: rgba(255, 255, 255, 0.88);
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+    border-bottom: 1px solid var(--border-1);
+  }
+  .nav-inner {
+    max-width: var(--content-w);
+    margin: 0 auto;
+    padding: 0 28px;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 20px;
+  }
+  .nav-logo img { height: 30px; width: auto; display: block; }
+  .nav-links { display: flex; align-items: center; gap: 26px; }
+  .nav-links a {
+    font-size: 13.5px;
+    font-weight: 500;
+    color: var(--fg-1);
+    text-decoration: none;
+    letter-spacing: 0.01em;
+  }
+  .nav-links a:hover { color: var(--quantica-pink); }
+  .nav-cta {
+    background: var(--quantica-pink);
+    color: var(--white) !important;
+    font-weight: 700;
+    padding: 9px 20px;
+    border-radius: 999px;
+    box-shadow: var(--shadow-pink-soft);
+    transition: background 200ms;
+  }
+  .nav-cta:hover { background: var(--deep-berry); color: var(--white); }
+
+  /* ─── HERO ─── */
+  .hero {
+    position: relative;
+    min-height: 100svh;
+    display: flex;
+    align-items: center;
+    color: var(--white);
+    padding: calc(var(--nav-h) + 48px) 0 72px;
+    background: var(--ink);
+    overflow: hidden;
+  }
+  #dots {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    pointer-events: none;
+  }
+  .hero-q {
+    position: absolute;
+    right: -6%;
+    top: 50%;
+    transform: translateY(-50%);
+    width: min(46vw, 640px);
+    opacity: 0.16;
+    pointer-events: none;
+  }
+  .hero-q img { width: 100%; display: block; }
+  .hero-inner { position: relative; z-index: 2; }
+  .hero-title {
+    font-family: var(--font-display);
+    font-weight: 700;
+    font-size: clamp(64px, 10vw, 120px);
+    line-height: 0.98;
+    letter-spacing: -0.03em;
+    color: var(--white);
+  }
+  .hero-subtitle {
+    font-family: var(--font-display);
+    font-size: clamp(24px, 3.4vw, 40px);
+    font-weight: 400;
+    color: var(--white);
+    margin-top: 10px;
+    letter-spacing: -0.015em;
+    line-height: 1.15;
+  }
+  .hero-subtitle em { font-style: normal; color: var(--rose-pink); }
+  .hero-tagline {
+    font-size: clamp(15px, 1.6vw, 18px);
+    line-height: 1.6;
+    color: rgba(255, 255, 255, 0.92);
+    max-width: 560px;
+    margin-top: 24px;
+    font-weight: 400;
+  }
+  .hero-actions { display: flex; flex-wrap: wrap; gap: 14px; margin-top: 36px; }
+  .pill {
+    font-family: var(--font-sans);
+    font-weight: 700;
+    font-size: 14px;
+    text-decoration: none;
+    padding: 13px 28px;
+    border-radius: 999px;
+    display: inline-flex;
+    align-items: center;
+    gap: 9px;
+    transition: transform 200ms, background 200ms, color 200ms;
+  }
+  .pill:hover { transform: translateY(-1px); }
+  .pill-solid { background: var(--quantica-pink); color: var(--white); box-shadow: var(--shadow-pink-soft); }
+  .pill-solid:hover { background: var(--deep-berry); }
+  .pill-outline { border: 1.5px solid var(--white); color: var(--white); }
+  .pill-outline:hover { background: rgba(255, 255, 255, 0.1); }
+  .pill .icon { width: 17px; height: 17px; }
+  .hero-footer {
+    position: absolute;
+    bottom: 22px;
+    left: 0; right: 0;
+    z-index: 2;
+    display: flex;
+    justify-content: space-between;
+    font-family: var(--font-mono);
+    font-size: 11px;
+    letter-spacing: 0.04em;
+    color: rgba(255, 255, 255, 0.85);
+  }
+
+  /* ─── SECTION SCAFFOLD ─── */
+  .section { padding: 88px 0; }
+  .section-alt { background: var(--bg-2); }
+  .h-section {
+    font-family: var(--font-display);
+    font-weight: 700;
+    font-size: clamp(28px, 4vw, 42px);
+    line-height: 1.08;
+    letter-spacing: -0.025em;
+    color: var(--fg-1);
+    margin-bottom: 22px;
+  }
+  .h-pink { color: var(--quantica-pink); }
+  .section p { font-size: 15.5px; line-height: 1.75; margin-bottom: 14px; max-width: 780px; }
+  .section p strong { color: var(--quantica-pink); font-weight: 700; }
+
+  /* ─── VIOLET NOTE ─── */
+  .note-violet {
+    background: var(--mist);
+    border: 1.5px solid var(--violet-primary);
+    border-radius: var(--radius-md);
+    padding: 22px 26px;
+    margin: 22px 0;
+    max-width: 860px;
+  }
+  .note-violet p { margin: 0; font-size: 16px; line-height: 1.7; color: var(--fg-1); font-weight: 500; max-width: none; }
+  .note-violet { display: flex; gap: 18px; align-items: flex-start; }
+  .note-violet .note-icon {
+    flex: none;
+    width: 46px;
+    height: 46px;
+    border-radius: var(--radius-md);
+    background: rgba(112, 48, 160, 0.12);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  .note-violet .note-icon .icon { width: 23px; height: 23px; color: var(--violet-primary); }
+
+  /* ─── ICON CARDS (paragraphs split into smaller visual parts) ─── */
+  .split-grid { display: flex; flex-wrap: wrap; gap: 18px; margin: 26px 0; }
+  .icon-card {
+    flex: 1 1 280px;
+    min-width: 260px;
+    background: var(--bg-1);
+    border: 1px solid var(--border-1);
+    border-radius: var(--radius-lg);
+    padding: 24px;
+    box-shadow: var(--shadow-card);
+  }
+  .icon-chip {
+    width: 44px;
+    height: 44px;
+    border-radius: var(--radius-md);
+    background: var(--magenta-tint);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 15px;
+  }
+  .icon-chip .icon { width: 22px; height: 22px; color: var(--quantica-pink); }
+  .icon-card p { margin: 0; max-width: none; font-size: 14.5px; line-height: 1.7; }
+
+  /* ─── SIMULATION (diagram) ─── */
+  .fig {
+    background: var(--diagram-paper);
+    border: 1px solid var(--border-1);
+    border-radius: var(--radius-lg);
+    padding: 30px 32px 26px;
+    margin-top: 36px;
+  }
+  .fig-head {
+    display: flex;
+    align-items: baseline;
+    gap: 14px;
+    margin-bottom: 26px;
+    flex-wrap: wrap;
+  }
+  .scn-tabs { margin-left: auto; display: flex; gap: 18px; flex-wrap: wrap; }
+  .scn-tab {
+    font-family: var(--font-mono);
+    font-size: 11px;
+    letter-spacing: 0.06em;
+    color: var(--fg-3);
+    background: none;
+    border: none;
+    border-bottom: 1.5px solid transparent;
+    padding: 0 0 3px;
+    cursor: pointer;
+    display: inline-flex;
+    align-items: center;
+    gap: 7px;
+  }
+  .scn-tab::before { content: attr(data-ix); font-weight: 600; color: var(--diagram-line); }
+  .scn-tab.on { color: var(--fg-1); border-bottom-color: var(--quantica-pink); }
+  .scn-tab.on::before { color: var(--quantica-pink); }
+  .scn-tab:hover { color: var(--fg-1); }
+  .scn-tab:focus-visible { outline: 2px solid var(--quantica-pink); outline-offset: 3px; }
+
+  .flowz {
+    display: grid;
+    grid-template-columns: 1fr 58px 1.15fr 58px 1.15fr;
+    align-items: center;
+  }
+  .flowz-wide { grid-template-columns: 1fr 58px 1fr 58px 1.3fr; }
+  .flow-node {
+    border: 1.5px solid var(--diagram-line);
+    border-radius: var(--radius-md);
+    padding: 18px 18px 16px;
+    background: var(--white);
+    transition: border-color 400ms, opacity 400ms;
+  }
+  .flow-node .step-no {
+    font-family: var(--font-mono);
+    font-size: 11px;
+    font-weight: 600;
+    letter-spacing: 0.1em;
+    color: var(--fg-3);
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    transition: color 400ms;
+  }
+  .flow-node .step-no::after {
+    content: "";
+    width: 26px;
+    height: 1.5px;
+    background: var(--diagram-line);
+    transition: background 400ms;
+  }
+  .flow-node h3 {
+    font-family: var(--font-display);
+    font-weight: 700;
+    font-size: 15.5px;
+    line-height: 1.25;
+    letter-spacing: -0.01em;
+    color: var(--fg-1);
+    margin: 10px 0 6px;
+    display: flex;
+    align-items: center;
+    gap: 9px;
+  }
+  .flow-node h3 .icon { width: 18px; height: 18px; color: var(--diagram-line); flex: none; transition: color 400ms; }
+  .flow-node.on { border-color: var(--diagram-line-on); }
+  .flow-node.on .step-no { color: var(--quantica-pink); }
+  .flow-node.on .step-no::after { background: var(--quantica-pink); }
+  .flow-node.on h3 .icon { color: var(--quantica-pink); }
+  .flow-node.faded { opacity: 0.38; }
+  .flow-node.blocked { border-style: dashed; opacity: 0.55; }
+
+  .flow-sub {
+    font-family: var(--font-mono);
+    font-size: 10px;
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+    color: var(--fg-3);
+    margin: -2px 0 6px;
+  }
+
+  .flow-query {
+    font-size: 12.5px;
+    line-height: 1.55;
+    color: var(--fg-3);
+    min-height: 4.6em;
+    max-width: none;
+    margin: 0;
+  }
+  .flow-query::before { content: "\201E"; }
+  .flow-query::after { content: "\201D"; }
+
+  .flow-checks { display: flex; flex-direction: column; gap: 7px; margin-top: 4px; }
+  .flow-check {
+    display: flex;
+    align-items: flex-start;
+    gap: 8px;
+    font-family: var(--font-mono);
+    font-size: 10.5px;
+    letter-spacing: 0.02em;
+    line-height: 1.5;
+    color: var(--fg-3);
+    opacity: 0.5;
+    transition: opacity 350ms, color 350ms;
+  }
+  .flow-check .icon { width: 13px; height: 13px; flex: none; margin-top: 1px; color: var(--diagram-line); transition: color 350ms; }
+  .flow-check.on { opacity: 1; color: var(--fg-1); }
+  .flow-check.on .icon { color: var(--quantica-pink); }
+
+  .flow-link { width: 100%; height: 14px; }
+  .flow-link line { stroke: var(--diagram-line); stroke-width: 1.5; stroke-dasharray: 4 5; }
+  .flow-link path { fill: var(--diagram-line); }
+  .flow-link.on line { stroke: var(--diagram-line-on); animation: dashMove 700ms linear infinite; }
+  .flow-link.on path { fill: var(--diagram-line-on); }
+  .flow-link.faded { opacity: 0.35; }
+  @keyframes dashMove { to { stroke-dashoffset: -9; } }
+
+  .vlink { width: 14px; height: 30px; margin: 4px auto; display: block; }
+  .vlink line { stroke: var(--diagram-line); stroke-width: 1.5; stroke-dasharray: 4 5; }
+  .vlink path { fill: var(--diagram-line); }
+  .vlink.on line { stroke: var(--diagram-line-on); animation: dashMove 700ms linear infinite; }
+  .vlink.on path { fill: var(--diagram-line-on); }
+
+  .branch-links {
+    display: flex;
+    flex-direction: column;
+    align-self: stretch;
+    justify-content: space-around;
+    gap: 18px;
+  }
+  .branch-targets { display: flex; flex-direction: column; gap: 18px; }
+
+  .cite-list { display: flex; flex-direction: column; gap: 6px; margin-top: 10px; }
+  .cite-list.tall { min-height: 62px; }
+  .cite {
+    font-family: var(--font-mono);
+    font-size: 10.5px;
+    letter-spacing: 0.02em;
+    color: var(--fg-1);
+    background: var(--bg-2);
+    border: 1px solid var(--border-1);
+    border-radius: var(--radius-sm);
+    padding: 6px 9px;
+    display: flex;
+    align-items: center;
+    gap: 7px;
+    opacity: 0;
+    transition: opacity 350ms;
+  }
+  .cite.show { opacity: 1; }
+  .cite .icon { width: 13px; height: 13px; flex: none; color: var(--quantica-pink); }
+  .cite.gap { color: var(--fg-3); }
+  .cite.gap .icon { color: var(--fg-3); }
+
+  .flow-badge {
+    margin-top: 10px;
+    font-family: var(--font-mono);
+    font-size: 10.5px;
+    letter-spacing: 0.02em;
+    line-height: 1.5;
+    padding: 6px 10px;
+    border-radius: var(--radius-sm);
+    display: inline-flex;
+    align-items: flex-start;
+    gap: 7px;
+    background: var(--magenta-tint);
+    color: var(--deep-berry);
+    opacity: 0;
+    transition: opacity 350ms;
+  }
+  .flow-badge.show { opacity: 1; }
+  .flow-badge.muted { background: var(--bg-2); color: var(--fg-3); }
+  .flow-badge .icon { width: 13px; height: 13px; flex: none; margin-top: 1px; }
+
+  .genre-chip {
+    display: inline-block;
+    font-family: var(--font-mono);
+    font-size: 10px;
+    font-weight: 600;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: var(--quantica-pink);
+    border: 1.5px solid var(--quantica-pink);
+    border-radius: 999px;
+    padding: 3px 10px;
+    margin-bottom: 8px;
+  }
+
+  .model-row {
+    display: grid;
+    grid-template-columns: 150px 1fr 40px;
+    align-items: center;
+    gap: 10px;
+    margin-top: 12px;
+  }
+  .model-row .model-name {
+    display: flex;
+    align-items: center;
+    gap: 7px;
+    font-family: var(--font-display);
+    font-weight: 700;
+    font-size: 13px;
+    color: var(--fg-1);
+  }
+  .model-name .icon { width: 15px; height: 15px; flex: none; color: var(--diagram-line); transition: color 350ms; }
+  .model-name em {
+    font-style: normal;
+    font-family: var(--font-mono);
+    font-weight: 400;
+    font-size: 9px;
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+    color: var(--fg-3);
+  }
+  .score-track { height: 6px; background: var(--border-1); border-radius: 3px; overflow: hidden; }
+  .score-fill { display: block; height: 100%; width: 0; background: var(--diagram-line); border-radius: 3px; transition: width 900ms ease, background 350ms; }
+  .score-val { font-family: var(--font-mono); font-size: 11px; text-align: right; color: var(--fg-3); }
+  .model-row.best .score-fill { background: var(--quantica-pink); }
+  .model-row.best .score-val { color: var(--quantica-pink); font-weight: 600; }
+  .model-row.best .model-name .icon { color: var(--quantica-pink); }
+
+  .sync-row {
+    display: grid;
+    grid-template-columns: 1fr 58px 1.15fr 58px 1.15fr;
+  }
+  .sync-cell {
+    grid-column: 3;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+  .sync-link { width: 14px; height: 36px; }
+  .sync-link line { stroke: var(--diagram-line); stroke-width: 1.5; stroke-dasharray: 4 5; }
+  .sync-link path { fill: var(--diagram-line); }
+  .sync-box {
+    border: 1.5px dashed var(--diagram-line);
+    border-radius: var(--radius-md);
+    padding: 12px 16px;
+    text-align: center;
+    max-width: 420px;
+  }
+  .sync-box .sync-tag {
+    font-family: var(--font-mono);
+    font-size: 10px;
+    font-weight: 600;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: var(--fg-3);
+    display: block;
+    margin-bottom: 5px;
+  }
+  .sync-box .sync-src {
+    font-family: var(--font-mono);
+    font-size: 10.5px;
+    letter-spacing: 0.02em;
+    color: var(--fg-1);
+    display: block;
+  }
+  .sync-box .sync-note {
+    font-size: 11.5px;
+    line-height: 1.5;
+    color: var(--fg-3);
+    display: block;
+    margin-top: 4px;
+  }
+
+  .scn-status {
+    margin-top: 22px;
+    padding-top: 14px;
+    border-top: 1px dashed var(--border-2);
+    font-family: var(--font-mono);
+    font-size: 11px;
+    letter-spacing: 0.06em;
+    color: var(--fg-3);
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    flex-wrap: wrap;
+  }
+  .scn-status b { color: var(--quantica-pink); font-weight: 600; }
+
+  .sim-caption {
+    margin-top: 16px;
+    font-size: 12.5px;
+    color: var(--fg-3);
+    max-width: 780px;
+  }
+
+  /* ─── ROUTE CALLOUTS (flyer copy blocks) ─── */
+  .route-callout {
+    background: var(--magenta-tint);
+    color: var(--quantica-pink);
+    font-size: 14.5px;
+    line-height: 1.65;
+    font-weight: 500;
+    padding: 18px 24px 18px 42px;
+    margin: 16px 0 0;
+    border-radius: 0 var(--radius-md) var(--radius-md) 0;
+    clip-path: polygon(0 50%, 20px 0, 100% 0, 100% 100%, 20px 100%);
+    max-width: 860px;
+    display: flex;
+    gap: 14px;
+    align-items: flex-start;
+  }
+  .route-callout .icon { width: 20px; height: 20px; flex: none; margin-top: 2px; }
+  .route-cards { display: flex; gap: 18px; margin-top: 18px; max-width: 860px; }
+  .route-card {
+    flex: 1;
+    background: var(--bg-1);
+    border: 1.5px solid var(--quantica-pink);
+    border-radius: var(--radius-md);
+    padding: 18px 20px;
+  }
+  .route-card .icon { width: 20px; height: 20px; color: var(--quantica-pink); margin-bottom: 10px; }
+  .route-card p { margin: 0; font-size: 13.5px; line-height: 1.65; color: var(--fg-1); }
+
+  /* ─── CAPABILITIES (flexbox, incomplete rows center) ─── */
+  .cap-grid { display: flex; flex-wrap: wrap; gap: 22px; justify-content: center; margin-top: 40px; }
+  .cap-panel {
+    flex: 1 1 calc(50% - 11px);
+    min-width: 300px;
+    background: var(--bg-1);
+    border: 1px solid var(--border-1);
+    border-radius: var(--radius-lg);
+    padding: 12px;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    box-shadow: var(--shadow-card);
+  }
+  .cap-head {
+    background: var(--violet-primary);
+    color: var(--white);
+    border-radius: var(--radius-md);
+    padding: 15px 18px;
+    font-family: var(--font-display);
+    font-weight: 700;
+    font-size: 16.5px;
+    line-height: 1.25;
+    letter-spacing: -0.01em;
+    display: flex;
+    align-items: center;
+    gap: 12px;
+  }
+  .cap-head .icon { width: 21px; height: 21px; flex: none; }
+  .cap-item {
+    background: var(--bg-2);
+    border-radius: var(--radius-sm);
+    padding: 12px 15px;
+    font-size: 13.5px;
+    line-height: 1.6;
+    color: var(--fg-1);
+    display: flex;
+    gap: 11px;
+    align-items: flex-start;
+  }
+  .cap-item .icon { width: 16px; height: 16px; flex: none; color: var(--quantica-pink); margin-top: 3px; }
+
+  /* ─── BENEFITS ─── */
+  .benefit-grid { display: flex; flex-wrap: wrap; gap: 22px; justify-content: center; margin-top: 40px; }
+  .benefit {
+    flex: 1 1 calc(50% - 11px);
+    min-width: 300px;
+    background: var(--bg-1);
+    border: 1px solid var(--border-1);
+    border-radius: var(--radius-lg);
+    padding: 28px;
+    display: grid;
+    grid-template-columns: 72px 1fr;
+    gap: 20px;
+    align-items: start;
+    box-shadow: var(--shadow-card);
+  }
+  .benefit .digit {
+    font-family: var(--font-display);
+    font-weight: 700;
+    font-size: 64px;
+    line-height: 0.9;
+    color: var(--quantica-pink);
+    letter-spacing: -0.04em;
+  }
+  .benefit h3 {
+    font-family: var(--font-display);
+    font-weight: 700;
+    color: var(--fg-1);
+    font-size: 18px;
+    margin-bottom: 10px;
+    line-height: 1.25;
+    letter-spacing: -0.01em;
+  }
+  .benefit p { font-size: 14px; line-height: 1.7; margin: 0; }
+
+  /* ─── CONTACT ─── */
+  .contact {
+    background:
+      radial-gradient(ellipse 70% 60% at 80% 50%, rgba(112, 48, 160, 0.28) 0%, transparent 65%),
+      radial-gradient(ellipse 50% 70% at 0% 0%, rgba(210, 7, 87, 0.30) 0%, transparent 65%),
+      linear-gradient(135deg, #0A1F2C 0%, #0d2538 100%);
+    color: var(--white);
+    padding: 52px 56px;
+    border-radius: var(--radius-lg);
+    position: relative;
+    overflow: hidden;
+  }
+  .contact-q {
+    position: absolute;
+    right: -50px;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 280px;
+    opacity: 0.14;
+    pointer-events: none;
+  }
+  .contact-q img { width: 100%; display: block; }
+  .contact  .contact  .contact h2 {
+    color: var(--white);
+    font-family: var(--font-display);
+    font-size: clamp(26px, 3.4vw, 36px);
+    font-weight: 700;
+    margin-bottom: 14px;
+    letter-spacing: -0.025em;
+    line-height: 1.1;
+  }
+  .contact p { color: rgba(255, 255, 255, 0.92); font-size: 15px; margin-bottom: 26px; max-width: 560px; position: relative; z-index: 1; }
+  .contact-pills { display: flex; flex-wrap: wrap; gap: 12px; margin-bottom: 30px; position: relative; z-index: 1; }
+  .contact .pill-solid { background: var(--white); color: var(--quantica-pink); }
+  .contact .pill-solid:hover { background: var(--magenta-tint); }
+  .contact-info {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 24px;
+    align-items: center;
+    border-top: 1px solid rgba(255, 255, 255, 0.16);
+    padding-top: 22px;
+    position: relative;
+    z-index: 1;
+  }
+  .contact-meta { font-size: 13px; color: var(--white); }
+  .contact-meta strong { font-weight: 600; }
+  .contact-logo img { height: 40px; width: auto; display: block; }
+
+  /* ─── FOOTER ─── */
+  .footer {
+    padding: 26px 0;
+    border-top: 1px solid var(--border-1);
+    font-family: var(--font-mono);
+    font-size: 11.5px;
+    letter-spacing: 0.04em;
+    color: var(--fg-3);
+  }
+  .footer .wrap { display: flex; justify-content: space-between; flex-wrap: wrap; gap: 10px; }
+
+  /* ─── INTRO: full title width + justified ─── */
+  #jak-dziala .wrap > .reveal > p { max-width: none; text-align: justify; }
+  #jak-dziala .note-violet { max-width: none; }
+  #jak-dziala .note-violet p { text-align: justify; }
+
+  /* ─── BELOW SIMULATION: full title width + justified ─── */
+  #symulacja .sim-caption,
+  #symulacja .route-callout,
+  #symulacja .route-branch,
+  #symulacja .route-cards { max-width: none; }
+  #symulacja .sim-caption,
+  #symulacja .route-callout span,
+  #symulacja .route-card p { text-align: justify; }
+
+  /* ─── RESPONSIVE ─── */
+  @media (max-width: 768px) {
+    .nav-links a:not(.nav-cta) { display: none; }
+    .hero { min-height: auto; padding: calc(var(--nav-h) + 56px) 0 96px; }
+    .hero-q { width: 70vw; right: -18%; opacity: 0.12; }
+    .section { padding: 60px 0; }
+    .wrap { padding: 0 20px; }
+    .nav-inner { padding: 0 20px; }
+    .fig { padding: 22px 18px; }
+    .flowz, .flowz-wide { grid-template-columns: 1fr; gap: 0; }
+    .flow-link { height: 34px; width: 14px; margin: 0 auto; transform: rotate(90deg); }
+    .branch-links { flex-direction: row; justify-content: center; gap: 60px; }
+    .flow-query { min-height: 0; }
+    .cite-list.tall { min-height: 0; }
+    .scn-tabs { margin-left: 0; }
+    .sync-row { grid-template-columns: 1fr; margin-top: 18px; }
+    .sync-cell { grid-column: 1; }
+    .sync-link { display: none; }
+    .model-row { grid-template-columns: 120px 1fr 36px; }
+    .route-cards { flex-direction: column; }
+    .cap-panel, .benefit { flex-basis: 100%; min-width: 0; }
+    .benefit { padding: 22px; grid-template-columns: 54px 1fr; gap: 14px; }
+    .benefit .digit { font-size: 48px; }
+    .contact { padding: 34px 24px; }
+  }
+</style>
+</head>
+<body>
+
+<!-- ════════════════ NAV ════════════════ -->
+<nav class="nav" aria-label="Nawigacja">
+  <div class="nav-inner">
+    <a class="nav-logo" href="#top" aria-label="Quantica Lab">
+      <img src="quantica-logo-color.png" alt="Quantica Lab">
+    </a>
+    <div class="nav-links">
+      <a href="#jak-dziala">Jak działa</a>
+      <a href="#symulacja">Symulacja</a>
+      <a href="#korzysci">Korzyści</a>
+      <a class="nav-cta" href="#kontakt">Kontakt</a>
+    </div>
+  </div>
+</nav>
+
+<!-- ════════════════ HERO ════════════════ -->
+<header class="hero" id="top">
+  <canvas id="dots" aria-hidden="true"></canvas>
+  <div class="hero-q" aria-hidden="true"><img src="quantica-q-mark-white.png" alt=""></div>
+  <div class="wrap hero-inner">
+    <h1 class="hero-title">Klara</h1>
+    <div class="hero-subtitle">bezpieczny <em>chat AI</em></div>
+    <p class="hero-tagline">Kontrolowane wykorzystanie generatywnej AI z inteligentnym doborem modeli i optymalizacją kosztów</p>
+    <div class="hero-actions">
+      <a class="pill pill-solid" href="#kontakt"><i data-lucide="messages-square" class="icon"></i>Porozmawiajmy o wdrożeniu</a>
+      <a class="pill pill-outline" href="#symulacja"><i data-lucide="play" class="icon"></i>Zobacz symulację</a>
+    </div>
+  </div>
+  <div class="hero-footer wrap">
+    <div>quanticalab.ai</div>
+    <div>Klara · bezpieczny chat AI</div>
+  </div>
+</header>
+
+<main>
+
+<!-- ════════════════ JAK DZIAŁA ════════════════ -->
+<section class="section" id="jak-dziala">
+  <div class="wrap">
+    <div class="reveal">
+      <h2 class="h-section">Wygodny dostęp do AI, <span class="h-pink">pełna kontrola</span> po stronie organizacji</h2>
+      </div>
+
+    <div class="reveal">
+      <p>Klara to bezpieczny chat AI, który zapewnia pracownikom wygodny dostęp do modeli językowych, a organizacji pozwala zachować kontrolę nad przepływem danych, wykorzystywanymi modelami i kosztami korzystania z AI.</p>
+    </div>
+
+    <div class="reveal">
+      <p>Coraz więcej pracowników wykorzystuje narzędzia AI w codziennej pracy, ponieważ pozwalają szybciej analizować informacje, przygotowywać treści i realizować wiele rutynowych zadań. Jednocześnie organizacje często ograniczają dostęp do publicznych modeli językowych ze względu na ryzyko ujawnienia danych, brak kontroli nad sposobem ich przetwarzania oraz wymagania dotyczące bezpieczeństwa i zgodności. Zakazy nie eliminują jednak potrzeby korzystania z AI i mogą prowadzić do rozwoju shadow AI – wykorzystywania nieautoryzowanych narzędzi poza wiedzą i kontrolą organizacji.</p>
+    </div>
+
+    <div class="note-violet reveal">
+      <div class="note-icon"><i data-lucide="shield-check" class="icon"></i></div>
+      <p>Klara ogranicza zjawisko shadow AI, zapewniając pracownikom bezpieczną i wygodną alternatywę dla publicznych chatów. Automatycznie chroni dane organizacji, dobiera model odpowiedni do rodzaju i złożoności zadania oraz ogranicza koszty, wykorzystując modele zewnętrzne tylko wtedy, gdy ich możliwości są rzeczywiście potrzebne.</p>
+    </div>
+
+    <div class="reveal">
+      <p>Pracownicy korzystają z Klary tak samo jak z popularnych chatów AI: wpisują polecenia, zadają pytania, analizują dokumenty i przygotowują teksty. W tle system automatycznie analizuje każde zapytanie, ocenia jego bezpieczeństwo i stopień złożoności, a następnie kieruje je do modelu najlepiej dopasowanego do danego zadania.</p>
+    </div>
+
+    <div class="reveal">
+      <p>Jeżeli polecenie zawiera dane, które zgodnie z polityką organizacji nie powinny być przetwarzane poza jej infrastrukturą, zadanie jest realizowane przez lokalny model językowy działający w kontrolowanym środowisku.</p>
+    </div>
+
+    <div class="reveal">
+      <p>Do realizacji pozostałych poleceń Klara wybiera model zapewniający odpowiednią jakość odpowiedzi przy możliwie efektywnym wykorzystaniu zasobów.</p>
+    </div>
+
+    <div class="reveal">
+      <p>Proste i rutynowe zadania są obsługiwane przez modele lokalne, co ogranicza koszty korzystania z zewnętrznych usług AI.</p>
+    </div>
+
+    <div class="reveal">
+      <p>Zadania szczególnie złożone i wymagające są kierowane do wybranego modelu zewnętrznego, takiego jak GPT czy Gemini.</p>
+    </div>
+
+    <div class="reveal">
+      <p>Pozwala to ograniczyć liczbę wywołań płatnych usług zewnętrznych i wykorzystać modele komercyjne wyłącznie tam, gdzie ich możliwości przynoszą rzeczywistą wartość.</p>
+    </div>
+
+    <div class="reveal">
+      <p>Użytkownik nie musi wiedzieć, który model najlepiej nadaje się do danego zadania ani samodzielnie wybierać między dostępnymi rozwiązaniami. Korzysta z jednego interfejsu, a Klara automatycznie wybiera odpowiednią ścieżkę realizacji zadania.</p>
+    </div>
+
+    <div class="reveal">
+      <p>Organizacja zachowuje kontrolę nad dostępnymi modelami, regułami kierowania zapytań oraz zasadami przetwarzania informacji. Rozwiązanie może być dostosowane do wewnętrznych polityk bezpieczeństwa, struktury organizacyjnej i uprawnień poszczególnych użytkowników.</p>
+    </div>
+
+    <div class="reveal">
+      <p>System został opracowany przez zespół specjalizujący się w bezpieczeństwie dużych modeli językowych. Twórcy rozwiązania pracowali m.in. nad zabezpieczeniem polskich modeli PLLuM, mechanizmami guardrails dostosowanymi do języka polskiego oraz narzędziami służącymi do wykrywania treści szkodliwych.</p>
+    </div>
+
+  </div>
+</section>
+
+<!-- ════════════════ SYMULACJA ════════════════ -->
+<section class="section section-alt" id="symulacja">
+  <div class="wrap">
+    <div class="reveal">
+      <h2 class="h-section">Zobacz, jak Klara <span class="h-pink">kieruje zapytania</span></h2>
+      <p>Wybierz przykładowe polecenie i obserwuj, jak system analizuje je pod kątem bezpieczeństwa i złożoności, a następnie kieruje do odpowiedniego modelu.</p>
+    </div>
+
+    <div class="fig reveal" id="figKlara">
+      <div class="fig-head">
+        <div class="scn-tabs" role="group" aria-label="Przykładowe polecenia">
+          <button class="scn-tab" type="button" data-scn="0" data-ix="1 ">dane poufne</button>
+          <button class="scn-tab" type="button" data-scn="1" data-ix="2 ">zadanie rutynowe</button>
+          <button class="scn-tab" type="button" data-scn="2" data-ix="3 ">zadanie złożone</button>
+        </div>
+      </div>
+
+      <div class="flowz">
+        <div class="flow-node" id="klQuery">
+          <span class="step-no">01</span>
+          <h3><i data-lucide="message-square-text" class="icon"></i>Zapytanie pracownika</h3>
+          <p class="flow-query" id="klQueryText">Przygotuj podsumowanie notatki zawierającej dane wynagrodzeń pracowników</p>
+        </div>
+        <svg class="flow-link" id="klLink1" viewBox="0 0 58 14" preserveAspectRatio="none" aria-hidden="true"><line x1="0" y1="7" x2="47" y2="7"/><path d="M47 2 L57 7 L47 12 Z"/></svg>
+        <div class="flow-node" id="klAnalysis">
+          <span class="step-no">02</span>
+          <h3><i data-lucide="scan-search" class="icon"></i>Analiza zapytania</h3>
+          <div class="flow-checks">
+            <div class="flow-check" id="klCheck0"><i data-lucide="shield" class="icon"></i><span id="klCheck0Text">bezpieczeństwo danych</span></div>
+            <div class="flow-check" id="klCheck1"><i data-lucide="gauge" class="icon"></i><span id="klCheck1Text">stopień złożoności</span></div>
+            <div class="flow-check" id="klCheck2"><i data-lucide="route" class="icon"></i><span id="klCheck2Text">decyzja o wyborze modelu</span></div>
+          </div>
+        </div>
+        <div class="branch-links" aria-hidden="true">
+          <svg class="flow-link" id="klLinkA" viewBox="0 0 58 14" preserveAspectRatio="none"><line x1="0" y1="7" x2="47" y2="7"/><path d="M47 2 L57 7 L47 12 Z"/></svg>
+          <svg class="flow-link" id="klLinkB" viewBox="0 0 58 14" preserveAspectRatio="none"><line x1="0" y1="7" x2="47" y2="7"/><path d="M47 2 L57 7 L47 12 Z"/></svg>
+        </div>
+        <div class="branch-targets">
+          <div class="flow-node" id="klLocal">
+            <span class="step-no">03A</span>
+            <h3><i data-lucide="server" class="icon"></i>Model lokalny</h3>
+            <div class="flow-sub">infrastruktura organizacji</div>
+            <span class="flow-badge" id="klLocalBadge"><i data-lucide="shield-check" class="icon"></i><span id="klLocalBadgeText"></span></span>
+          </div>
+          <div class="flow-node" id="klExternal">
+            <span class="step-no">03B</span>
+            <h3><i data-lucide="cloud" class="icon"></i>Model zewnętrzny</h3>
+            <div class="flow-sub">Quantica APIQ</div>
+            <div class="flow-sub">GPT, Gemini, Claude</div>
+            <span class="flow-badge" id="klExternalBadge"><i data-lucide="award" class="icon"></i><span id="klExternalBadgeText"></span></span>
+            <span class="flow-badge muted" id="klBlockedBadge"><i data-lucide="ban" class="icon"></i><span>polecenie nie jest przekazywane poza organizację</span></span>
+          </div>
+        </div>
+      </div>
+
+      <div class="sync-row">
+        <div class="sync-cell">
+          <svg class="sync-link" viewBox="0 0 14 36" aria-hidden="true"><line x1="7" y1="36" x2="7" y2="10"/><path d="M2 11 L7 1 L12 11 Z"/></svg>
+          <div class="sync-box">
+            <span class="sync-tag">Decyzja w infrastrukturze organizacji</span>
+            <span class="sync-note">analiza i wybór modelu odbywają się lokalnie - na zewnątrz trafia wyłącznie treść zadań, które mogą być przetwarzane poza organizacją</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="scn-status" aria-live="polite"><b id="klScnNo">SCENARIUSZ 1/3</b><span id="klStatus">system gotowy - wybierz przykładowe polecenie</span></div>
+    </div>
+    <p class="sim-caption reveal">Symulacja poglądowa. Przykładowe polecenia i komunikaty ilustrują sposób działania mechanizmu kierowania zapytań.</p>
+
+    <div class="route-callout reveal"><i data-lucide="lock" class="icon"></i><span>Jeżeli polecenie zawiera informacje wewnętrzne, poufne lub inne dane, które zgodnie z polityką organizacji nie powinny być przetwarzane poza jej infrastrukturą, zadanie jest realizowane przez lokalny model językowy działający w kontrolowanym środowisku.</span></div>
+    <div class="route-callout reveal"><i data-lucide="route" class="icon"></i><span>Do realizacji pozostałych poleceń Klara wybiera model zapewniający odpowiednią jakość odpowiedzi przy możliwie efektywnym wykorzystaniu zasobów.</span></div>
+
+    <div class="split-grid reveal">
+      <div class="icon-card">
+        <div class="icon-chip"><i data-lucide="server" class="icon"></i></div>
+        <p>Proste i rutynowe zadania są obsługiwane przez modele lokalne, co ogranicza koszty korzystania z zewnętrznych usług AI.</p>
+      </div>
+      <div class="icon-card">
+        <div class="icon-chip"><i data-lucide="cloud" class="icon"></i></div>
+        <p>Zadania wymagające możliwości najbardziej zaawansowanych modeli są kierowane do wybranego modelu zewnętrznego, takiego jak GPT czy Gemini.</p>
+      </div>
+    </div>
+
+    <div class="reveal">
+      <p>Pozwala to ograniczyć liczbę wywołań płatnych usług zewnętrznych i wykorzystać modele komercyjne wyłącznie tam, gdzie ich możliwości przynoszą rzeczywistą wartość.</p>
+    </div>
+  </div>
+</section>
+
+<!-- ════════════════ KORZYŚCI ════════════════ -->
+<section class="section section-alt" id="korzysci">
+  <div class="wrap">
+    <div class="reveal">
+      <h2 class="h-section h-pink">Co zyskuje organizacja?</h2>
+    </div>
+
+    <div class="benefit-grid">
+      <div class="benefit reveal">
+        <span class="digit">1</span>
+        <div>
+          <h3>Ograniczenie zjawiska shadow AI</h3>
+          <p>Pracownicy otrzymują wygodne narzędzie odpowiadające na rzeczywistą potrzebę korzystania z generatywnej AI. Organizacja ogranicza użycie nieautoryzowanych usług i odzyskuje kontrolę nad sposobem korzystania z modeli językowych.</p>
+        </div>
+      </div>
+      <div class="benefit reveal">
+        <span class="digit">2</span>
+        <div>
+          <h3>Ochrona danych organizacji</h3>
+          <p>Zapytania zawierające informacje wewnętrzne lub poufne są automatycznie kierowane do modeli działających w kontrolowanym środowisku. Dane wymagające ochrony nie są przekazywane do zewnętrznych dostawców modeli AI.</p>
+        </div>
+      </div>
+      <div class="benefit reveal">
+        <span class="digit">3</span>
+        <div>
+          <h3>Niższe i bardziej przewidywalne koszty korzystania z AI</h3>
+          <p>Proste i rutynowe zadania są obsługiwane przez modele lokalne, a płatne modele zewnętrzne wykorzystywane tylko wtedy, gdy ich możliwości są rzeczywiście potrzebne. Pozwala to ograniczyć koszty API i lepiej wykorzystać własną infrastrukturę.</p>
+        </div>
+      </div>
+      <div class="benefit reveal">
+        <span class="digit">4</span>
+        <div>
+          <h3>Lepsze zarządzanie wykorzystaniem AI</h3>
+          <p>Centralne środowisko pozwala monitorować sposób korzystania z modeli, zarządzać dostępem oraz rozwijać polityki wykorzystania AI na podstawie rzeczywistych potrzeb pracowników i organizacji.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ════════════════ KONTAKT ════════════════ -->
+<section class="section" id="kontakt">
+  <div class="wrap">
+    <div class="contact reveal">
+      <div class="contact-q" aria-hidden="true"><img src="quantica-q-mark-white.png" alt=""></div>
+      <h2>Porozmawiajmy o wdrożeniu</h2>
+      <p>Napisz do nas – pokażemy Klarę w działaniu i omówimy scenariusz wdrożenia dopasowany do Twojej organizacji.</p>
+      <div class="contact-pills">
+        <a class="pill pill-solid" href="mailto:kontakt@quanticalab.ai">kontakt@quanticalab.ai</a>
+        <a class="pill pill-outline" href="https://www.quanticalab.ai" target="_blank" rel="noopener">www.quanticalab.ai</a>
+      </div>
+      <div class="contact-info">
+        <div class="contact-logo"><img src="quantica-logo-white.png" alt="Quantica Lab"></div>
+        <div class="contact-meta"><strong>Quanticalab Sp. z o.o.</strong></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+</main>
+
+<footer class="footer">
+  <div class="wrap">
+    <div>quanticalab.ai</div>
+    <div>Klara · bezpieczny chat AI</div>
+  </div>
+</footer>
+
+<script src="https://unpkg.com/lucide@latest"></script>
+<script>
+(function () {
+  "use strict";
+
+  // ─── Constants ───
+  var PHASE_MS = 950;
+  var HOLD_MS = 3200;
+  var REDUCED_MOTION = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+
+  // ─── Helpers (diagram player) ───
+  function el(id) { return document.getElementById(id); }
+
+  function setLink(link, cls) {
+    link.classList.remove("on", "faded");
+    if (cls) { link.classList.add(cls); }
+  }
+
+  function setNode(node, cls) {
+    node.classList.remove("on", "faded", "blocked");
+    if (cls) { node.classList.add(cls); }
+  }
+
+  function addRow(container, icon, text, cls) {
+    var row = document.createElement("div");
+    row.className = "cite" + (cls ? " " + cls : "");
+    row.innerHTML = '<i data-lucide="' + icon + '" class="icon"></i>';
+    var span = document.createElement("span");
+    span.textContent = text;
+    row.appendChild(span);
+    container.appendChild(row);
+    if (window.lucide) { window.lucide.createIcons(); }
+    window.requestAnimationFrame(function () { row.classList.add("show"); });
+  }
+
+  function setCheck(checkEl) { checkEl.classList.add("on"); }
+
+  // Generic scenario player: tabs, timers, auto-advance loop, autoplay on view.
+  function makePlayer(cfg) {
+    var timers = [];
+    var ix = 0;
+    var tabs = Array.prototype.slice.call(cfg.fig.querySelectorAll(".scn-tab"));
+
+    function clearTimers() {
+      timers.forEach(window.clearTimeout);
+      timers = [];
+    }
+
+    function apply(i, animate) {
+      clearTimers();
+      ix = i;
+      var s = cfg.scenarios[i];
+      tabs.forEach(function (tab, tabIx) { tab.classList.toggle("on", tabIx === i); });
+      cfg.nameEl.textContent = "SCENARIUSZ " + (i + 1) + "/" + cfg.scenarios.length;
+      cfg.reset(s);
+      var phases = cfg.phases(s);
+      if (!animate) {
+        phases.forEach(function (p) { p[1](); });
+        return;
+      }
+      phases.forEach(function (p) {
+        timers.push(window.setTimeout(p[1], p[0]));
+      });
+      var last = phases[phases.length - 1][0];
+      timers.push(window.setTimeout(function () {
+        apply((ix + 1) % cfg.scenarios.length, true);
+      }, last + HOLD_MS));
+    }
+
+    tabs.forEach(function (tab) {
+      tab.addEventListener("click", function () {
+        apply(parseInt(tab.getAttribute("data-scn"), 10), !REDUCED_MOTION);
+      });
+    });
+
+    if (REDUCED_MOTION) {
+      apply(0, false);
+    } else if ("IntersectionObserver" in window) {
+      var started = false;
+      var io = new IntersectionObserver(function (entries) {
+        entries.forEach(function (entry) {
+          if (entry.isIntersecting && !started) {
+            started = true;
+            apply(0, true);
+            io.disconnect();
+          }
+        });
+      }, { threshold: 0.35 });
+      io.observe(cfg.fig);
+    } else {
+      apply(0, true);
+    }
+
+    return { select: function (i) { apply(i, !REDUCED_MOTION); } };
+  }
+
+  var SCENARIOS = [
+    {
+      query: "Przygotuj podsumowanie notatki zawierającej dane wynagrodzeń pracowników",
+      checks: [
+        "analiza bezpieczeństwa: wykryto dane wymagające ochrony",
+        "analiza złożoności: zadanie standardowe",
+        "decyzja: model lokalny - dane nie mogą opuścić organizacji"
+      ],
+      target: "local",
+      blocked: true,
+      localBadge: "dane pozostają w infrastrukturze organizacji",
+      statusRoute: "zadanie realizowane przez lokalny model językowy w kontrolowanym środowisku",
+      statusFinal: "dane wymagające ochrony nie są przekazywane do zewnętrznych dostawców modeli AI"
+    },
+    {
+      query: "Popraw styl krótkiej wiadomości do zespołu",
+      checks: [
+        "analiza bezpieczeństwa: brak danych wymagających ochrony",
+        "analiza złożoności: zadanie proste i rutynowe",
+        "decyzja: model lokalny - wystarczająca jakość przy niższym koszcie"
+      ],
+      target: "local",
+      blocked: false,
+      localBadge: "efektywne wykorzystanie własnej infrastruktury",
+      statusRoute: "zadanie skierowane do modelu lokalnego",
+      statusFinal: "ograniczenie kosztów korzystania z zewnętrznych usług AI"
+    },
+    {
+      query: "Przygotuj pogłębioną analizę dokumentu strategii na podstawie danych publicznych",
+      checks: [
+        "analiza bezpieczeństwa: brak danych wymagających ochrony",
+        "analiza złożoności: zadanie wymaga najbardziej zaawansowanego modelu",
+        "decyzja: wybrany model zewnętrzny (GPT, Gemini, Claude)"
+      ],
+      target: "external",
+      blocked: false,
+      externalBadge: "odpowiednia jakość odpowiedzi dla złożonego zadania",
+      statusRoute: "zadanie skierowane do wybranego modelu zewnętrznego (GPT, Gemini, Claude)",
+      statusFinal: "model komercyjny wykorzystany tam, gdzie jego możliwości przynoszą rzeczywistą wartość"
+    }
+  ];
+
+  // ─── DOM refs ───
+  var refs = {
+    query: el("klQuery"), queryText: el("klQueryText"), analysis: el("klAnalysis"),
+    local: el("klLocal"), external: el("klExternal"),
+    link1: el("klLink1"), linkA: el("klLinkA"), linkB: el("klLinkB"),
+    checks: [el("klCheck0"), el("klCheck1"), el("klCheck2")],
+    checkTexts: [el("klCheck0Text"), el("klCheck1Text"), el("klCheck2Text")],
+    localBadge: el("klLocalBadge"), localBadgeText: el("klLocalBadgeText"),
+    externalBadge: el("klExternalBadge"), externalBadgeText: el("klExternalBadgeText"),
+    blockedBadge: el("klBlockedBadge"),
+    status: el("klStatus")
+  };
+
+  // ─── Render (scenario playback) ───
+  var player = makePlayer({
+    fig: el("figKlara"),
+    nameEl: el("klScnNo"),
+    scenarios: SCENARIOS,
+    reset: function (s) {
+      [refs.query, refs.analysis, refs.local, refs.external].forEach(function (n) { setNode(n, null); });
+      [refs.link1, refs.linkA, refs.linkB].forEach(function (l) { setLink(l, null); });
+      refs.checks.forEach(function (c) { c.classList.remove("on"); });
+      refs.localBadge.classList.remove("show");
+      refs.externalBadge.classList.remove("show");
+      refs.blockedBadge.classList.remove("show");
+      refs.queryText.textContent = s.query;
+      for (var i = 0; i < 3; i += 1) { refs.checkTexts[i].textContent = s.checks[i]; }
+    },
+    phases: function (s) {
+      return [
+        [0, function () { refs.query.classList.add("on"); refs.status.textContent = "odebrano zapytanie pracownika"; }],
+        [PHASE_MS, function () { refs.link1.classList.add("on"); refs.analysis.classList.add("on"); }],
+        [PHASE_MS * 1.6, function () { setCheck(refs.checks[0]); refs.status.textContent = s.checks[0]; }],
+        [PHASE_MS * 2.4, function () { setCheck(refs.checks[1]); refs.status.textContent = s.checks[1]; }],
+        [PHASE_MS * 3.2, function () { setCheck(refs.checks[2]); refs.status.textContent = s.checks[2]; }],
+        [PHASE_MS * 4.4, function () {
+          refs.link1.classList.remove("on");
+          if (s.target === "local") {
+            setLink(refs.linkA, "on"); setLink(refs.linkB, "faded");
+            setNode(refs.local, "on");
+            setNode(refs.external, s.blocked ? "blocked" : "faded");
+          } else {
+            setLink(refs.linkB, "on"); setLink(refs.linkA, "faded");
+            setNode(refs.external, "on"); setNode(refs.local, "faded");
+          }
+          refs.status.textContent = s.statusRoute;
+        }],
+        [PHASE_MS * 5.4, function () {
+          if (s.target === "local") {
+            refs.localBadgeText.textContent = s.localBadge;
+            refs.localBadge.classList.add("show");
+            if (s.blocked) { refs.blockedBadge.classList.add("show"); }
+          } else {
+            refs.externalBadgeText.textContent = s.externalBadge;
+            refs.externalBadge.classList.add("show");
+          }
+          refs.status.textContent = s.statusFinal;
+        }]
+      ];
+    }
+  });
+
+  // ─── Hero dot particles ───
+  function initDots() {
+    var canvas = document.getElementById("dots");
+    if (!canvas) { return; }
+    var ctx = canvas.getContext("2d");
+    var dots = [];
+    function resize() {
+      canvas.width = canvas.offsetWidth;
+      canvas.height = canvas.offsetHeight;
+    }
+    resize();
+    window.addEventListener("resize", resize);
+    for (var i = 0; i < 70; i++) {
+      dots.push({
+        x: Math.random(), y: Math.random(),
+        r: 1 + Math.random() * 2.2,
+        vx: (Math.random() - 0.5) * 0.0004,
+        vy: (Math.random() - 0.5) * 0.0004,
+        o: 0.12 + Math.random() * 0.5
+      });
+    }
+    var reduced = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+    function frame() {
+      ctx.clearRect(0, 0, canvas.width, canvas.height);
+      dots.forEach(function (d) {
+        d.x = (d.x + d.vx + 1) % 1;
+        d.y = (d.y + d.vy + 1) % 1;
+        ctx.beginPath();
+        ctx.arc(d.x * canvas.width, d.y * canvas.height, d.r, 0, Math.PI * 2);
+        ctx.fillStyle = "rgba(210, 7, 87, " + d.o + ")";
+        ctx.fill();
+      });
+      if (!reduced) { requestAnimationFrame(frame); }
+    }
+    frame();
+  }
+
+  // ─── Scroll reveal ───
+  function initReveal() {
+    var revealed = document.querySelectorAll(".reveal");
+    if (REDUCED_MOTION || !("IntersectionObserver" in window)) {
+      revealed.forEach(function (el) { el.classList.add("visible"); });
+      return;
+    }
+    var observer = new IntersectionObserver(function (entries) {
+      entries.forEach(function (entry) {
+        if (entry.isIntersecting) {
+          entry.target.classList.add("visible");
+          observer.unobserve(entry.target);
+        }
+      });
+    }, { threshold: 0.12 });
+    revealed.forEach(function (el) { observer.observe(el); });
+  }
+
+  // ─── Listeners ───
+  // Keyboard shortcuts 1-3 select scenarios when the simulation is on screen
+  document.addEventListener("keydown", function (event) {
+    if (event.key !== "1" && event.key !== "2" && event.key !== "3") { return; }
+    if (event.target.tagName === "INPUT" || event.target.tagName === "TEXTAREA") { return; }
+    var rect = document.getElementById("figKlara").getBoundingClientRect();
+    if (rect.bottom < 0 || rect.top > window.innerHeight) { return; }
+    player.select(parseInt(event.key, 10) - 1);
+  });
+
+  // ─── Init ───
+  if (window.lucide) { window.lucide.createIcons(); }
+  initDots();
+  initReveal();
+
+})();
+</script>
+
+</body>
+</html>

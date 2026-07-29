@@ -1,0 +1,1305 @@
+<!DOCTYPE html>
+<!--
+  QUANTICA LAB - strona produktowa: Papkin, inteligentny protokolant AI
+  Standalone marketing website built from the papkin_inteligentny_protokolant_AI.html flyer.
+  All marketing copy verbatim from the flyer; simulation labels are UI demo data.
+-->
+<html lang="pl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="Papkin: inteligentny protokolant AI. Automatyczna dokumentacja spotkań, identyfikacja ustaleń i zadań oraz bezpieczne przetwarzanie danych.">
+<title>Papkin: inteligentny protokolant AI | Quantica Lab</title>
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='7' fill='%23d20757'/%3E%3Ctext x='16' y='23' font-family='sans-serif' font-size='20' font-weight='700' fill='%23fff' text-anchor='middle'%3EP%3C/text%3E%3C/svg%3E">
+
+<link rel="preconnect" href="https://api.fontshare.com">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://api.fontshare.com/v2/css?f[]=satoshi@300,400,500,700,900&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Geist+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+
+<style>
+  :root {
+    /* ─── Brand tokens (mirror of design-system colors_and_type.css) ─── */
+    --quantica-pink:    #d20757;
+    --rose-pink:        #d20757;
+    --deep-berry:       #8A004C;
+    --magenta-tint:     #FFE6F1;
+
+    --violet-primary:   #7030A0;
+    --violet-deep:      #4F1F75;
+    --ink:              #0A1F2C;
+    --mist:             #F4EEFA;
+
+    --near-black:       #111111;
+    --white:            #FFFFFF;
+
+    --fg-1:             #111111;
+    --fg-2:             #111111;
+    --fg-3:             #4B5563;
+
+    --bg-1:             #FFFFFF;
+    --bg-2:             #F5F6F8;
+
+    --border-1:         #E6E8EC;
+    --border-2:         #D1D5DB;
+
+    --font-display:     "Satoshi", system-ui, -apple-system, sans-serif;
+    --font-sans:        "Satoshi", system-ui, -apple-system, sans-serif;
+    --font-mono:        "Geist Mono", ui-monospace, "SF Mono", Menlo, monospace;
+
+    --radius-sm:        6px;
+    --radius-md:        10px;
+    --radius-lg:        16px;
+
+    --shadow-pink-soft: 0 6px 18px rgba(210, 7, 87, 0.10);
+    --shadow-card:      0 10px 30px -12px rgba(10, 20, 40, 0.12);
+
+    --nav-h: 64px;
+    --content-w: 1120px;
+
+    --diagram-line:     #B9BFC9;
+    --diagram-line-on:  var(--quantica-pink);
+    --diagram-paper:    #FDFCFB;
+  }
+
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  html { scroll-behavior: smooth; scroll-padding-top: calc(var(--nav-h) + 12px); }
+  body {
+    font-family: var(--font-sans);
+    color: var(--fg-2);
+    background: var(--bg-1);
+    line-height: 1.6;
+    -webkit-font-smoothing: antialiased;
+    text-rendering: optimizeLegibility;
+  }
+  img { max-width: 100%; }
+  a { color: var(--quantica-pink); }
+
+  .wrap {
+    max-width: var(--content-w);
+    margin: 0 auto;
+    padding: 0 28px;
+  }
+
+  /* ─── Scroll reveal ─── */
+  .reveal { opacity: 0; transform: translateY(22px); transition: opacity 600ms ease, transform 600ms ease; }
+  .reveal.visible { opacity: 1; transform: none; }
+  @media (prefers-reduced-motion: reduce) {
+    html { scroll-behavior: auto; }
+    .reveal { opacity: 1; transform: none; transition: none; }
+    * { transition-duration: 0.01ms !important; animation-duration: 0.01ms !important; }
+  }
+
+  /* ─── NAV ─── */
+  .nav {
+    position: fixed;
+    top: 0; left: 0; right: 0;
+    height: var(--nav-h);
+    z-index: 40;
+    background: rgba(255, 255, 255, 0.88);
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+    border-bottom: 1px solid var(--border-1);
+  }
+  .nav-inner {
+    max-width: var(--content-w);
+    margin: 0 auto;
+    padding: 0 28px;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 20px;
+  }
+  .nav-logo img { height: 30px; width: auto; display: block; }
+  .nav-links { display: flex; align-items: center; gap: 26px; }
+  .nav-links a {
+    font-size: 13.5px;
+    font-weight: 500;
+    color: var(--fg-1);
+    text-decoration: none;
+    letter-spacing: 0.01em;
+  }
+  .nav-links a:hover { color: var(--quantica-pink); }
+  .nav-cta {
+    background: var(--quantica-pink);
+    color: var(--white) !important;
+    font-weight: 700;
+    padding: 9px 20px;
+    border-radius: 999px;
+    box-shadow: var(--shadow-pink-soft);
+    transition: background 200ms;
+  }
+  .nav-cta:hover { background: var(--deep-berry); color: var(--white); }
+
+  /* ─── HERO ─── */
+  .hero {
+    position: relative;
+    min-height: 100svh;
+    display: flex;
+    align-items: center;
+    color: var(--white);
+    padding: calc(var(--nav-h) + 48px) 0 72px;
+    background: var(--ink);
+    overflow: hidden;
+  }
+  #dots {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    pointer-events: none;
+  }
+  .hero-q {
+    position: absolute;
+    right: -6%;
+    top: 50%;
+    transform: translateY(-50%);
+    width: min(46vw, 640px);
+    opacity: 0.16;
+    pointer-events: none;
+  }
+  .hero-q img { width: 100%; display: block; }
+  .hero-inner { position: relative; z-index: 2; }
+  .hero-title {
+    font-family: var(--font-display);
+    font-weight: 700;
+    font-size: clamp(64px, 10vw, 120px);
+    line-height: 0.98;
+    letter-spacing: -0.03em;
+    color: var(--white);
+  }
+  .hero-subtitle {
+    font-family: var(--font-display);
+    font-size: clamp(24px, 3.4vw, 40px);
+    font-weight: 400;
+    color: var(--white);
+    margin-top: 10px;
+    letter-spacing: -0.015em;
+    line-height: 1.15;
+  }
+  .hero-subtitle em { font-style: normal; color: var(--rose-pink); }
+  .hero-tagline {
+    font-size: clamp(15px, 1.6vw, 18px);
+    line-height: 1.6;
+    color: rgba(255, 255, 255, 0.92);
+    max-width: 560px;
+    margin-top: 24px;
+    font-weight: 400;
+  }
+  .hero-actions { display: flex; flex-wrap: wrap; gap: 14px; margin-top: 36px; }
+  .pill {
+    font-family: var(--font-sans);
+    font-weight: 700;
+    font-size: 14px;
+    text-decoration: none;
+    padding: 13px 28px;
+    border-radius: 999px;
+    display: inline-flex;
+    align-items: center;
+    gap: 9px;
+    transition: transform 200ms, background 200ms, color 200ms;
+  }
+  .pill:hover { transform: translateY(-1px); }
+  .pill-solid { background: var(--quantica-pink); color: var(--white); box-shadow: var(--shadow-pink-soft); }
+  .pill-solid:hover { background: var(--deep-berry); }
+  .pill-outline { border: 1.5px solid var(--white); color: var(--white); }
+  .pill-outline:hover { background: rgba(255, 255, 255, 0.1); }
+  .pill .icon { width: 17px; height: 17px; }
+  .hero-footer {
+    position: absolute;
+    bottom: 22px;
+    left: 0; right: 0;
+    z-index: 2;
+    display: flex;
+    justify-content: space-between;
+    font-family: var(--font-mono);
+    font-size: 11px;
+    letter-spacing: 0.04em;
+    color: rgba(255, 255, 255, 0.85);
+  }
+
+  /* ─── SECTION SCAFFOLD ─── */
+  .section { padding: 88px 0; }
+  .section-alt { background: var(--bg-2); }
+  .h-section {
+    font-family: var(--font-display);
+    font-weight: 700;
+    font-size: clamp(28px, 4vw, 42px);
+    line-height: 1.08;
+    letter-spacing: -0.025em;
+    color: var(--fg-1);
+    margin-bottom: 22px;
+  }
+  .h-pink { color: var(--quantica-pink); }
+  .section p { font-size: 15.5px; line-height: 1.75; margin-bottom: 14px; max-width: 780px; }
+  .section p strong { color: var(--quantica-pink); font-weight: 700; }
+
+  /* ─── VIOLET NOTE ─── */
+  .note-violet {
+    background: var(--mist);
+    border: 1.5px solid var(--violet-primary);
+    border-radius: var(--radius-md);
+    padding: 22px 26px;
+    margin: 22px 0;
+    max-width: 860px;
+  }
+  .note-violet p { margin: 0; font-size: 16px; line-height: 1.7; color: var(--fg-1); font-weight: 500; max-width: none; }
+  .note-violet { display: flex; gap: 18px; align-items: flex-start; }
+  .note-violet .note-icon {
+    flex: none;
+    width: 46px;
+    height: 46px;
+    border-radius: var(--radius-md);
+    background: rgba(112, 48, 160, 0.12);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  .note-violet .note-icon .icon { width: 23px; height: 23px; color: var(--violet-primary); }
+
+  /* ─── ICON CARDS (paragraphs split into smaller visual parts) ─── */
+  .split-grid { display: flex; flex-wrap: wrap; gap: 18px; margin: 26px 0; }
+  .icon-card {
+    flex: 1 1 280px;
+    min-width: 260px;
+    background: var(--bg-1);
+    border: 1px solid var(--border-1);
+    border-radius: var(--radius-lg);
+    padding: 24px;
+    box-shadow: var(--shadow-card);
+  }
+  .icon-chip {
+    width: 44px;
+    height: 44px;
+    border-radius: var(--radius-md);
+    background: var(--magenta-tint);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 15px;
+  }
+  .icon-chip .icon { width: 22px; height: 22px; color: var(--quantica-pink); }
+  .icon-card p { margin: 0; max-width: none; font-size: 14.5px; line-height: 1.7; }
+
+  /* ─── SIMULATION (diagram) ─── */
+  .fig {
+    background: var(--diagram-paper);
+    border: 1px solid var(--border-1);
+    border-radius: var(--radius-lg);
+    padding: 30px 32px 26px;
+    margin-top: 36px;
+  }
+  .fig-head {
+    display: flex;
+    align-items: baseline;
+    gap: 14px;
+    margin-bottom: 26px;
+    flex-wrap: wrap;
+  }
+  .scn-tabs { margin-left: auto; display: flex; gap: 18px; flex-wrap: wrap; }
+  .scn-tab {
+    font-family: var(--font-mono);
+    font-size: 11px;
+    letter-spacing: 0.06em;
+    color: var(--fg-3);
+    background: none;
+    border: none;
+    border-bottom: 1.5px solid transparent;
+    padding: 0 0 3px;
+    cursor: pointer;
+    display: inline-flex;
+    align-items: center;
+    gap: 7px;
+  }
+  .scn-tab::before { content: attr(data-ix); font-weight: 600; color: var(--diagram-line); }
+  .scn-tab.on { color: var(--fg-1); border-bottom-color: var(--quantica-pink); }
+  .scn-tab.on::before { color: var(--quantica-pink); }
+  .scn-tab:hover { color: var(--fg-1); }
+  .scn-tab:focus-visible { outline: 2px solid var(--quantica-pink); outline-offset: 3px; }
+
+  .flowz {
+    display: grid;
+    grid-template-columns: 1fr 58px 1.15fr 58px 1.15fr;
+    align-items: center;
+  }
+  .flowz-wide { grid-template-columns: 1fr 58px 1fr 58px 1.3fr; }
+  .flow-node {
+    border: 1.5px solid var(--diagram-line);
+    border-radius: var(--radius-md);
+    padding: 18px 18px 16px;
+    background: var(--white);
+    transition: border-color 400ms, opacity 400ms;
+  }
+  .flow-node .step-no {
+    font-family: var(--font-mono);
+    font-size: 11px;
+    font-weight: 600;
+    letter-spacing: 0.1em;
+    color: var(--fg-3);
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    transition: color 400ms;
+  }
+  .flow-node .step-no::after {
+    content: "";
+    width: 26px;
+    height: 1.5px;
+    background: var(--diagram-line);
+    transition: background 400ms;
+  }
+  .flow-node h3 {
+    font-family: var(--font-display);
+    font-weight: 700;
+    font-size: 15.5px;
+    line-height: 1.25;
+    letter-spacing: -0.01em;
+    color: var(--fg-1);
+    margin: 10px 0 6px;
+    display: flex;
+    align-items: center;
+    gap: 9px;
+  }
+  .flow-node h3 .icon { width: 18px; height: 18px; color: var(--diagram-line); flex: none; transition: color 400ms; }
+  .flow-node.on { border-color: var(--diagram-line-on); }
+  .flow-node.on .step-no { color: var(--quantica-pink); }
+  .flow-node.on .step-no::after { background: var(--quantica-pink); }
+  .flow-node.on h3 .icon { color: var(--quantica-pink); }
+  .flow-node.faded { opacity: 0.38; }
+  .flow-node.blocked { border-style: dashed; opacity: 0.55; }
+
+  .flow-sub {
+    font-family: var(--font-mono);
+    font-size: 10px;
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+    color: var(--fg-3);
+    margin: -2px 0 6px;
+  }
+
+  .flow-query {
+    font-size: 12.5px;
+    line-height: 1.55;
+    color: var(--fg-3);
+    min-height: 4.6em;
+    max-width: none;
+    margin: 0;
+  }
+  .flow-query::before { content: "\201E"; }
+  .flow-query::after { content: "\201D"; }
+
+  .flow-checks { display: flex; flex-direction: column; gap: 7px; margin-top: 4px; }
+  .flow-check {
+    display: flex;
+    align-items: flex-start;
+    gap: 8px;
+    font-family: var(--font-mono);
+    font-size: 10.5px;
+    letter-spacing: 0.02em;
+    line-height: 1.5;
+    color: var(--fg-3);
+    opacity: 0.5;
+    transition: opacity 350ms, color 350ms;
+  }
+  .flow-check .icon { width: 13px; height: 13px; flex: none; margin-top: 1px; color: var(--diagram-line); transition: color 350ms; }
+  .flow-check.on { opacity: 1; color: var(--fg-1); }
+  .flow-check.on .icon { color: var(--quantica-pink); }
+
+  .flow-link { width: 100%; height: 14px; }
+  .flow-link line { stroke: var(--diagram-line); stroke-width: 1.5; stroke-dasharray: 4 5; }
+  .flow-link path { fill: var(--diagram-line); }
+  .flow-link.on line { stroke: var(--diagram-line-on); animation: dashMove 700ms linear infinite; }
+  .flow-link.on path { fill: var(--diagram-line-on); }
+  .flow-link.faded { opacity: 0.35; }
+  @keyframes dashMove { to { stroke-dashoffset: -9; } }
+
+  .vlink { width: 14px; height: 30px; margin: 4px auto; display: block; }
+  .vlink line { stroke: var(--diagram-line); stroke-width: 1.5; stroke-dasharray: 4 5; }
+  .vlink path { fill: var(--diagram-line); }
+  .vlink.on line { stroke: var(--diagram-line-on); animation: dashMove 700ms linear infinite; }
+  .vlink.on path { fill: var(--diagram-line-on); }
+
+  .branch-links {
+    display: flex;
+    flex-direction: column;
+    align-self: stretch;
+    justify-content: space-around;
+    gap: 18px;
+  }
+  .branch-targets { display: flex; flex-direction: column; gap: 18px; }
+
+  .cite-list { display: flex; flex-direction: column; gap: 6px; margin-top: 10px; }
+  .cite-list.tall { min-height: 62px; }
+  .cite {
+    font-family: var(--font-mono);
+    font-size: 10.5px;
+    letter-spacing: 0.02em;
+    color: var(--fg-1);
+    background: var(--bg-2);
+    border: 1px solid var(--border-1);
+    border-radius: var(--radius-sm);
+    padding: 6px 9px;
+    display: flex;
+    align-items: center;
+    gap: 7px;
+    opacity: 0;
+    transition: opacity 350ms;
+  }
+  .cite.show { opacity: 1; }
+  .cite .icon { width: 13px; height: 13px; flex: none; color: var(--quantica-pink); }
+  .cite.gap { color: var(--fg-3); }
+  .cite.gap .icon { color: var(--fg-3); }
+
+  .flow-badge {
+    margin-top: 10px;
+    font-family: var(--font-mono);
+    font-size: 10.5px;
+    letter-spacing: 0.02em;
+    line-height: 1.5;
+    padding: 6px 10px;
+    border-radius: var(--radius-sm);
+    display: inline-flex;
+    align-items: flex-start;
+    gap: 7px;
+    background: var(--magenta-tint);
+    color: var(--deep-berry);
+    opacity: 0;
+    transition: opacity 350ms;
+  }
+  .flow-badge.show { opacity: 1; }
+  .flow-badge.muted { background: var(--bg-2); color: var(--fg-3); }
+  .flow-badge .icon { width: 13px; height: 13px; flex: none; margin-top: 1px; }
+
+  .genre-chip {
+    display: inline-block;
+    font-family: var(--font-mono);
+    font-size: 10px;
+    font-weight: 600;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: var(--quantica-pink);
+    border: 1.5px solid var(--quantica-pink);
+    border-radius: 999px;
+    padding: 3px 10px;
+    margin-bottom: 8px;
+  }
+
+  .model-row {
+    display: grid;
+    grid-template-columns: 150px 1fr 40px;
+    align-items: center;
+    gap: 10px;
+    margin-top: 12px;
+  }
+  .model-row .model-name {
+    display: flex;
+    align-items: center;
+    gap: 7px;
+    font-family: var(--font-display);
+    font-weight: 700;
+    font-size: 13px;
+    color: var(--fg-1);
+  }
+  .model-name .icon { width: 15px; height: 15px; flex: none; color: var(--diagram-line); transition: color 350ms; }
+  .model-name em {
+    font-style: normal;
+    font-family: var(--font-mono);
+    font-weight: 400;
+    font-size: 9px;
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+    color: var(--fg-3);
+  }
+  .score-track { height: 6px; background: var(--border-1); border-radius: 3px; overflow: hidden; }
+  .score-fill { display: block; height: 100%; width: 0; background: var(--diagram-line); border-radius: 3px; transition: width 900ms ease, background 350ms; }
+  .score-val { font-family: var(--font-mono); font-size: 11px; text-align: right; color: var(--fg-3); }
+  .model-row.best .score-fill { background: var(--quantica-pink); }
+  .model-row.best .score-val { color: var(--quantica-pink); font-weight: 600; }
+  .model-row.best .model-name .icon { color: var(--quantica-pink); }
+
+  .sync-row {
+    display: grid;
+    grid-template-columns: 1fr 58px 1.15fr 58px 1.15fr;
+  }
+  .sync-cell {
+    grid-column: 3;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+  .sync-link { width: 14px; height: 36px; }
+  .sync-link line { stroke: var(--diagram-line); stroke-width: 1.5; stroke-dasharray: 4 5; }
+  .sync-link path { fill: var(--diagram-line); }
+  .sync-box {
+    border: 1.5px dashed var(--diagram-line);
+    border-radius: var(--radius-md);
+    padding: 12px 16px;
+    text-align: center;
+    max-width: 420px;
+  }
+  .sync-box .sync-tag {
+    font-family: var(--font-mono);
+    font-size: 10px;
+    font-weight: 600;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: var(--fg-3);
+    display: block;
+    margin-bottom: 5px;
+  }
+  .sync-box .sync-src {
+    font-family: var(--font-mono);
+    font-size: 10.5px;
+    letter-spacing: 0.02em;
+    color: var(--fg-1);
+    display: block;
+  }
+  .sync-box .sync-note {
+    font-size: 11.5px;
+    line-height: 1.5;
+    color: var(--fg-3);
+    display: block;
+    margin-top: 4px;
+  }
+
+  .scn-status {
+    margin-top: 22px;
+    padding-top: 14px;
+    border-top: 1px dashed var(--border-2);
+    font-family: var(--font-mono);
+    font-size: 11px;
+    letter-spacing: 0.06em;
+    color: var(--fg-3);
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    flex-wrap: wrap;
+  }
+  .scn-status b { color: var(--quantica-pink); font-weight: 600; }
+
+  .sim-caption {
+    margin-top: 16px;
+    font-size: 12.5px;
+    color: var(--fg-3);
+    max-width: 780px;
+  }
+
+  /* ─── ROUTE CALLOUT (flyer copy block) ─── */
+  .route-callout {
+    background: var(--magenta-tint);
+    color: var(--quantica-pink);
+    font-size: 14.5px;
+    line-height: 1.65;
+    font-weight: 500;
+    padding: 18px 24px 18px 42px;
+    margin: 26px 0 0;
+    border-radius: 0 var(--radius-md) var(--radius-md) 0;
+    clip-path: polygon(0 50%, 20px 0, 100% 0, 100% 100%, 20px 100%);
+    max-width: 860px;
+    display: flex;
+    gap: 14px;
+    align-items: flex-start;
+  }
+  .route-callout .icon { width: 20px; height: 20px; flex: none; margin-top: 2px; }
+
+  /* ─── CAPABILITIES (flexbox, incomplete rows center) ─── */
+  .cap-grid { display: flex; flex-wrap: wrap; gap: 22px; justify-content: center; margin-top: 40px; }
+  .cap-panel {
+    flex: 1 1 calc(50% - 11px);
+    min-width: 300px;
+    background: var(--bg-1);
+    border: 1px solid var(--border-1);
+    border-radius: var(--radius-lg);
+    padding: 12px;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    box-shadow: var(--shadow-card);
+  }
+  .cap-head {
+    background: var(--violet-primary);
+    color: var(--white);
+    border-radius: var(--radius-md);
+    padding: 15px 18px;
+    font-family: var(--font-display);
+    font-weight: 700;
+    font-size: 16.5px;
+    line-height: 1.25;
+    letter-spacing: -0.01em;
+    display: flex;
+    align-items: center;
+    gap: 12px;
+  }
+  .cap-head .icon { width: 21px; height: 21px; flex: none; }
+  .cap-item {
+    background: var(--bg-2);
+    border-radius: var(--radius-sm);
+    padding: 12px 15px;
+    font-size: 13.5px;
+    line-height: 1.6;
+    color: var(--fg-1);
+    display: flex;
+    gap: 11px;
+    align-items: flex-start;
+  }
+  .cap-item .icon { width: 16px; height: 16px; flex: none; color: var(--quantica-pink); margin-top: 3px; }
+
+  /* ─── BENEFITS ─── */
+  .benefit-grid { display: flex; flex-wrap: wrap; gap: 22px; justify-content: center; margin-top: 40px; }
+  .benefit {
+    flex: 1 1 calc(50% - 11px);
+    min-width: 300px;
+    background: var(--bg-1);
+    border: 1px solid var(--border-1);
+    border-radius: var(--radius-lg);
+    padding: 28px;
+    display: grid;
+    grid-template-columns: 72px 1fr;
+    gap: 20px;
+    align-items: start;
+    box-shadow: var(--shadow-card);
+  }
+  .benefit .digit {
+    font-family: var(--font-display);
+    font-weight: 700;
+    font-size: 64px;
+    line-height: 0.9;
+    color: var(--quantica-pink);
+    letter-spacing: -0.04em;
+  }
+  .benefit h3 {
+    font-family: var(--font-display);
+    font-weight: 700;
+    color: var(--fg-1);
+    font-size: 18px;
+    margin-bottom: 10px;
+    line-height: 1.25;
+    letter-spacing: -0.01em;
+  }
+  .benefit p { font-size: 14px; line-height: 1.7; margin: 0; }
+
+  /* ─── CONTACT ─── */
+  .contact {
+    background:
+      radial-gradient(ellipse 70% 60% at 80% 50%, rgba(112, 48, 160, 0.28) 0%, transparent 65%),
+      radial-gradient(ellipse 50% 70% at 0% 0%, rgba(210, 7, 87, 0.30) 0%, transparent 65%),
+      linear-gradient(135deg, #0A1F2C 0%, #0d2538 100%);
+    color: var(--white);
+    padding: 52px 56px;
+    border-radius: var(--radius-lg);
+    position: relative;
+    overflow: hidden;
+  }
+  .contact-q {
+    position: absolute;
+    right: -50px;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 280px;
+    opacity: 0.14;
+    pointer-events: none;
+  }
+  .contact-q img { width: 100%; display: block; }
+  .contact  .contact  .contact h2 {
+    color: var(--white);
+    font-family: var(--font-display);
+    font-size: clamp(26px, 3.4vw, 36px);
+    font-weight: 700;
+    margin-bottom: 14px;
+    letter-spacing: -0.025em;
+    line-height: 1.1;
+  }
+  .contact p { color: rgba(255, 255, 255, 0.92); font-size: 15px; margin-bottom: 26px; max-width: 560px; position: relative; z-index: 1; }
+  .contact-pills { display: flex; flex-wrap: wrap; gap: 12px; margin-bottom: 30px; position: relative; z-index: 1; }
+  .contact .pill-solid { background: var(--white); color: var(--quantica-pink); }
+  .contact .pill-solid:hover { background: var(--magenta-tint); }
+  .contact-info {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 24px;
+    align-items: center;
+    border-top: 1px solid rgba(255, 255, 255, 0.16);
+    padding-top: 22px;
+    position: relative;
+    z-index: 1;
+  }
+  .contact-meta { font-size: 13px; color: var(--white); }
+  .contact-meta strong { font-weight: 600; }
+  .contact-logo img { height: 40px; width: auto; display: block; }
+
+  /* ─── FOOTER ─── */
+  .footer {
+    padding: 26px 0;
+    border-top: 1px solid var(--border-1);
+    font-family: var(--font-mono);
+    font-size: 11.5px;
+    letter-spacing: 0.04em;
+    color: var(--fg-3);
+  }
+  .footer .wrap { display: flex; justify-content: space-between; flex-wrap: wrap; gap: 10px; }
+
+  /* ─── INTRO: full title width + justified ─── */
+  #jak-dziala .wrap > .reveal > p { max-width: none; text-align: justify; }
+  #jak-dziala .note-violet { max-width: none; }
+  #jak-dziala .note-violet p { text-align: justify; }
+
+  /* ─── BELOW SIMULATION: full title width + justified ─── */
+  #symulacja .sim-caption,
+  #symulacja .route-callout,
+  #symulacja .route-branch,
+  #symulacja .route-cards { max-width: none; }
+  #symulacja .sim-caption,
+  #symulacja .route-callout span,
+  #symulacja .route-card p { text-align: justify; }
+
+  /* ─── RESPONSIVE ─── */
+  @media (max-width: 768px) {
+    .nav-links a:not(.nav-cta) { display: none; }
+    .hero { min-height: auto; padding: calc(var(--nav-h) + 56px) 0 96px; }
+    .hero-q { width: 70vw; right: -18%; opacity: 0.12; }
+    .section { padding: 60px 0; }
+    .wrap { padding: 0 20px; }
+    .nav-inner { padding: 0 20px; }
+    .fig { padding: 22px 18px; }
+    .flowz, .flowz-wide { grid-template-columns: 1fr; gap: 0; }
+    .flow-link { height: 34px; width: 14px; margin: 0 auto; transform: rotate(90deg); }
+    .branch-links { flex-direction: row; justify-content: center; gap: 60px; }
+    .flow-query { min-height: 0; }
+    .cite-list.tall { min-height: 0; }
+    .scn-tabs { margin-left: 0; }
+    .sync-row { grid-template-columns: 1fr; margin-top: 18px; }
+    .sync-cell { grid-column: 1; }
+    .sync-link { display: none; }
+    .model-row { grid-template-columns: 120px 1fr 36px; }
+    .cap-panel, .benefit { flex-basis: 100%; min-width: 0; }
+    .benefit { padding: 22px; grid-template-columns: 54px 1fr; gap: 14px; }
+    .benefit .digit { font-size: 48px; }
+    .contact { padding: 34px 24px; }
+  }
+</style>
+</head>
+<body>
+
+<!-- ════════════════ NAV ════════════════ -->
+<nav class="nav" aria-label="Nawigacja">
+  <div class="nav-inner">
+    <a class="nav-logo" href="#top" aria-label="Quantica Lab">
+      <img src="quantica-logo-color.png" alt="Quantica Lab">
+    </a>
+    <div class="nav-links">
+      <a href="#jak-dziala">Jak działa</a>
+      <a href="#symulacja">Symulacja</a>
+      <a href="#korzysci">Korzyści</a>
+      <a class="nav-cta" href="#kontakt">Kontakt</a>
+    </div>
+  </div>
+</nav>
+
+<!-- ════════════════ HERO ════════════════ -->
+<header class="hero" id="top">
+  <canvas id="dots" aria-hidden="true"></canvas>
+  <div class="hero-q" aria-hidden="true"><img src="quantica-q-mark-white.png" alt=""></div>
+  <div class="wrap hero-inner">
+    <h1 class="hero-title">Papkin</h1>
+    <div class="hero-subtitle">inteligentny <em>protokolant AI</em></div>
+    <p class="hero-tagline">Automatyczna dokumentacja spotkań, identyfikacja ustaleń i zadań oraz bezpieczne przetwarzanie danych</p>
+    <div class="hero-actions">
+      <a class="pill pill-solid" href="#kontakt"><i data-lucide="messages-square" class="icon"></i>Porozmawiajmy o wdrożeniu</a>
+      <a class="pill pill-outline" href="#symulacja"><i data-lucide="play" class="icon"></i>Zobacz symulację</a>
+    </div>
+  </div>
+  <div class="hero-footer wrap">
+    <div>quanticalab.ai</div>
+    <div>Papkin · inteligentny protokolant AI</div>
+  </div>
+</header>
+
+<main>
+
+<!-- ════════════════ JAK DZIAŁA ════════════════ -->
+<section class="section" id="jak-dziala">
+  <div class="wrap">
+    <div class="reveal">
+      <h2 class="h-section">Automatyczna dokumentacja spotkań, <span class="h-pink">identyfikacja ustaleń i zadań</span> oraz bezpieczne przetwarzanie danych</h2>
+      </div>
+
+    <div class="reveal">
+      <p>Papkin to system sztucznej inteligencji, który przetwarza dźwięk pochodzący z różnych źródeł, a następnie przekształca przebieg spotkania w uporządkowaną dokumentację obejmującą m.in. transkrypcję, podsumowanie, protokół oraz listę zadań, znacząco ograniczając czas poświęcany na ręczne opracowywanie materiałów po spotkaniu. Papkin działa zarówno w czasie rzeczywistym, generując transkrypcję na żywo, jak i na podstawie wcześniej przygotowanych nagrań audio.</p>
+    </div>
+
+    <div class="note-violet reveal">
+      <div class="note-icon"><i data-lucide="shield-check" class="icon"></i></div>
+      <p>System został zaprojektowany z myślą o organizacjach, dla których kluczowe znaczenie ma bezpieczeństwo informacji. Całość przetwarzania odbywa się lokalnie, bez konieczności przekazywania nagrań, transkrypcji ani innych danych do zewnętrznych usług chmurowych.</p>
+    </div>
+
+    <div class="reveal">
+      <p>Rozwiązanie może zostać uruchomione w infrastrukturze klienta, zapewniając pełną kontrolę nad przetwarzanymi informacjami.</p>
+    </div>
+
+    <div class="reveal">
+      <p>Papkin nie kończy pracy na przygotowaniu transkrypcji. Automatycznie przekształca przebieg spotkania w uporządkowaną dokumentację: podsumowania, protokoły, ustalenia i listy zadań. Materiały mogą być dostosowane do standardów organizacji i automatycznie przekazywane uczestnikom, osobom odpowiedzialnym za realizację zadań lub kierownictwu.</p>
+    </div>
+
+    <div class="reveal">
+      <p>Rozwiązanie wykorzystuje lokalnie uruchamiany system automatycznego rozpoznawania mowy (ASR) oraz duże modele językowe dostosowane do języka polskiego. Dzięki temu potrafi rozpoznawać i porządkować przebieg dyskusji, identyfikować najważniejsze informacje oraz automatycznie przygotowywać dokumentację dostosowaną do potrzeb organizacji.</p>
+    </div>
+
+    <div class="reveal">
+      <p>W przeciwieństwie do standardowych funkcji transkrypcji dostępnych w popularnych narzędziach do komunikacji i wideokonferencji Papkin został zoptymalizowany pod kątem języka polskiego oraz potrzeb organizacji przetwarzających duże ilości informacji. Rozwiązanie nie ogranicza się do tworzenia surowego zapisu rozmowy – wykorzystuje modele językowe do poprawy jakości transkrypcji, porządkowania wypowiedzi oraz przygotowywania gotowych dokumentów.</p>
+    </div>
+
+    <div class="reveal">
+      <p>Na podstawie transkrypcji system może generować różne rodzaje materiałów, w zależności od potrzeb użytkowników i charakteru spotkania. Mogą to być protokoły, notatki służbowe, podsumowania kierownicze, zestawienia ustaleń czy listy zadań. Zakres, struktura oraz poziom szczegółowości generowanych materiałów są dostosowywane do wymagań klienta.</p>
+    </div>
+
+    <div class="reveal">
+      <p>Papkin może rozróżniać poszczególnych uczestników spotkania, oznaczając ich jako kolejnych mówców lub – po wcześniejszym przygotowaniu profili głosowych – identyfikować konkretne osoby. Pozwala to na tworzenie bardziej szczegółowych i przejrzystych zapisów przebiegu spotkań oraz przypisywanie ustaleń i zadań do właściwych uczestników.</p>
+    </div>
+
+    <div class="reveal">
+      <p>Po zakończeniu spotkania uczestnicy lub wskazane osoby mogą automatycznie otrzymać opracowane materiały, co usprawnia przepływ informacji i pozwala kierownictwu na bieżące śledzenie ustaleń nawet w przypadku braku bezpośredniego udziału w spotkaniu.</p>
+    </div>
+
+  </div>
+</section>
+
+<!-- ════════════════ SYMULACJA ════════════════ -->
+<section class="section section-alt" id="symulacja">
+  <div class="wrap">
+    <div class="reveal">
+      <h2 class="h-section">Zobacz, jak Papkin <span class="h-pink">dokumentuje spotkanie</span></h2>
+      <p>Wybierz przykładowy scenariusz i obserwuj, jak system przekształca dźwięk ze spotkania w transkrypcję, a następnie w uporządkowaną dokumentację przekazywaną właściwym osobom.</p>
+    </div>
+
+    <div class="fig reveal" id="figPapkin">
+      <div class="fig-head">
+        <div class="scn-tabs" role="group" aria-label="Przykładowe scenariusze">
+          <button class="scn-tab" type="button" data-scn="0" data-ix="1 ">spotkanie na żywo</button>
+          <button class="scn-tab" type="button" data-scn="1" data-ix="2 ">nagranie audio</button>
+          <button class="scn-tab" type="button" data-scn="2" data-ix="3 ">spotkanie dwujęzyczne</button>
+        </div>
+      </div>
+
+      <div class="flowz">
+        <div class="flow-node" id="paSource">
+          <span class="step-no">01</span>
+          <h3><i data-lucide="audio-lines" class="icon"></i>Dźwięk ze spotkania</h3>
+          <div class="flow-sub" id="paSourceSub">różne źródła dźwięku</div>
+          <p class="flow-query" id="paQuote">Ustalamy termin wdrożenia na koniec kwartału. Zespół projektowy przygotuje harmonogram prac.</p>
+        </div>
+        <svg class="flow-link" id="paLink1" viewBox="0 0 58 14" preserveAspectRatio="none" aria-hidden="true"><line x1="0" y1="7" x2="47" y2="7"/><path d="M47 2 L57 7 L47 12 Z"/></svg>
+        <div class="flow-node" id="paTranscribe">
+          <span class="step-no">02</span>
+          <h3><i data-lucide="mic" class="icon"></i>Transkrypcja i analiza</h3>
+          <div class="flow-checks">
+            <div class="flow-check" id="paCheck0"><i data-lucide="audio-waveform" class="icon"></i><span>rozpoznawanie mowy (ASR)</span></div>
+            <div class="flow-check" id="paCheck1"><i data-lucide="users" class="icon"></i><span>identyfikacja mówców</span></div>
+            <div class="flow-check" id="paCheck2"><i data-lucide="spell-check" class="icon"></i><span>poprawa jakości zapisu</span></div>
+          </div>
+        </div>
+        <svg class="flow-link" id="paLink2" viewBox="0 0 58 14" preserveAspectRatio="none" aria-hidden="true"><line x1="0" y1="7" x2="47" y2="7"/><path d="M47 2 L57 7 L47 12 Z"/></svg>
+        <div class="branch-targets">
+          <div class="flow-node" id="paDocs">
+            <span class="step-no">03</span>
+            <h3><i data-lucide="file-text" class="icon"></i>Dokumentacja spotkania</h3>
+            <div class="cite-list" id="paDocRows"></div>
+          </div>
+          <svg class="vlink" id="paVlink" viewBox="0 0 14 30" aria-hidden="true"><line x1="7" y1="0" x2="7" y2="20"/><path d="M2 19 L7 29 L12 19 Z"/></svg>
+          <div class="flow-node" id="paSend">
+            <span class="step-no">04</span>
+            <h3><i data-lucide="send" class="icon"></i>Dystrybucja materiałów</h3>
+            <div class="flow-sub">uczestnicy, wskazane osoby, kierownictwo</div>
+            <span class="flow-badge" id="paSendBadge"><i data-lucide="check" class="icon"></i><span id="paSendBadgeText"></span></span>
+          </div>
+        </div>
+      </div>
+
+      <div class="sync-row">
+        <div class="sync-cell">
+          <svg class="sync-link" viewBox="0 0 14 36" aria-hidden="true"><line x1="7" y1="36" x2="7" y2="10"/><path d="M2 11 L7 1 L12 11 Z"/></svg>
+          <div class="sync-box">
+            <span class="sync-tag">Przetwarzanie lokalne</span>
+            <span class="sync-note">transkrypcja i analiza odbywają się w infrastrukturze organizacji - nagrania i transkrypcje nie są przekazywane na zewnątrz</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="scn-status" aria-live="polite"><b id="paScnNo">SCENARIUSZ 1/3</b><span id="paStatus">system gotowy - wybierz przykładowy scenariusz</span></div>
+    </div>
+    <p class="sim-caption reveal">Symulacja poglądowa. Przykładowe scenariusze i komunikaty ilustrują sposób działania mechanizmu dokumentowania spotkań.</p>
+
+    <div class="split-grid reveal">
+      <div class="icon-card">
+        <div class="icon-chip"><i data-lucide="files" class="icon"></i></div>
+        <p>Na podstawie transkrypcji system może generować różne rodzaje materiałów, w zależności od potrzeb użytkowników i charakteru spotkania.</p>
+      </div>
+      <div class="icon-card">
+        <div class="icon-chip"><i data-lucide="clipboard-list" class="icon"></i></div>
+        <p>Mogą to być protokoły, notatki służbowe, podsumowania kierownicze, zestawienia ustaleń czy listy zadań.</p>
+      </div>
+      <div class="icon-card">
+        <div class="icon-chip"><i data-lucide="sliders-horizontal" class="icon"></i></div>
+        <p>Zakres, struktura oraz poziom szczegółowości generowanych materiałów są dostosowywane do wymagań klienta.</p>
+      </div>
+    </div>
+
+    <div class="split-grid reveal">
+      <div class="icon-card">
+        <div class="icon-chip"><i data-lucide="users" class="icon"></i></div>
+        <p>Papkin może rozróżniać poszczególnych uczestników spotkania, oznaczając ich jako kolejnych mówców lub – po wcześniejszym przygotowaniu profili głosowych – identyfikować konkretne osoby.</p>
+      </div>
+      <div class="icon-card">
+        <div class="icon-chip"><i data-lucide="user-check" class="icon"></i></div>
+        <p>Pozwala to na tworzenie bardziej szczegółowych i przejrzystych zapisów przebiegu spotkań oraz przypisywanie ustaleń i zadań do właściwych uczestników.</p>
+      </div>
+    </div>
+
+    <div class="route-callout reveal"><i data-lucide="send" class="icon"></i><span>Po zakończeniu spotkania uczestnicy lub wskazane osoby mogą automatycznie otrzymać opracowane materiały, co usprawnia przepływ informacji i pozwala kierownictwu na bieżące śledzenie ustaleń nawet w przypadku braku bezpośredniego udziału w spotkaniu.</span></div>
+  </div>
+</section>
+
+<!-- ════════════════ KORZYŚCI ════════════════ -->
+<section class="section section-alt" id="korzysci">
+  <div class="wrap">
+    <div class="reveal">
+      <h2 class="h-section h-pink">Co zyskuje organizacja?</h2>
+    </div>
+
+    <div class="benefit-grid">
+      <div class="benefit reveal">
+        <span class="digit">1</span>
+        <div>
+          <h3>Zachowanie pełnej wiedzy o przebiegu spotkań</h3>
+          <p>Wszystkie ustalenia, decyzje i zadania są automatycznie dokumentowane, dzięki czemu organizacja nie traci istotnych informacji i może łatwo wrócić do wcześniejszych ustaleń. Osoby zarządzające nie muszą uczestniczyć we wszystkich spotkaniach, aby znać ich przebieg i rezultaty. Mogą otrzymywać uporządkowane podsumowania zawierające najważniejsze informacje, decyzje i zadania.</p>
+        </div>
+      </div>
+      <div class="benefit reveal">
+        <span class="digit">2</span>
+        <div>
+          <h3>Lepsza komunikacja i skuteczniejsza realizacja ustaleń</h3>
+          <p>System może automatycznie przygotowywać różne rodzaje dokumentów i raportów zgodnie z wymaganiami organizacji, wspierając istniejące procesy i standardy pracy. Automatyczne tworzenie list zadań i podsumowań pomaga uczestnikom szybko przejść od rozmowy do działania oraz ogranicza ryzyko nieporozumień dotyczących zakresu ustaleń.</p>
+        </div>
+      </div>
+      <div class="benefit reveal">
+        <span class="digit">3</span>
+        <div>
+          <h3>Standaryzacja dokumentacji</h3>
+          <p>Wszystkie spotkania mogą być dokumentowane według jednolitych zasad i formatów, co ułatwia zarządzanie wiedzą oraz zapewnia spójność dokumentacji w całej organizacji.</p>
+        </div>
+      </div>
+      <div class="benefit reveal">
+        <span class="digit">4</span>
+        <div>
+          <h3>Wsparcie współpracy w środowiskach wielojęzycznych</h3>
+          <p>Możliwość transkrypcji i tłumaczenia treści w języku polskim i angielskim ułatwia współpracę zespołów międzynarodowych oraz organizację spotkań z partnerami zagranicznymi.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ════════════════ KONTAKT ════════════════ -->
+<section class="section" id="kontakt">
+  <div class="wrap">
+    <div class="contact reveal">
+      <div class="contact-q" aria-hidden="true"><img src="quantica-q-mark-white.png" alt=""></div>
+      <h2>Porozmawiajmy o wdrożeniu</h2>
+      <p>Napisz do nas – pokażemy Papkina w działaniu i omówimy scenariusz wdrożenia dopasowany do Twojej organizacji.</p>
+      <div class="contact-pills">
+        <a class="pill pill-solid" href="mailto:kontakt@quanticalab.ai">kontakt@quanticalab.ai</a>
+        <a class="pill pill-outline" href="https://www.quanticalab.ai" target="_blank" rel="noopener">www.quanticalab.ai</a>
+      </div>
+      <div class="contact-info">
+        <div class="contact-logo"><img src="quantica-logo-white.png" alt="Quantica Lab"></div>
+        <div class="contact-meta"><strong>Quanticalab Sp. z o.o.</strong></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+</main>
+
+<footer class="footer">
+  <div class="wrap">
+    <div>quanticalab.ai</div>
+    <div>Papkin · inteligentny protokolant AI</div>
+  </div>
+</footer>
+
+<script src="https://unpkg.com/lucide@latest"></script>
+<script>
+(function () {
+  "use strict";
+
+  // ─── Constants ───
+  var PHASE_MS = 950;
+  var HOLD_MS = 3200;
+  var REDUCED_MOTION = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+
+  // ─── Helpers (diagram player) ───
+  function el(id) { return document.getElementById(id); }
+
+  function setLink(link, cls) {
+    link.classList.remove("on", "faded");
+    if (cls) { link.classList.add(cls); }
+  }
+
+  function setNode(node, cls) {
+    node.classList.remove("on", "faded", "blocked");
+    if (cls) { node.classList.add(cls); }
+  }
+
+  function addRow(container, icon, text, cls) {
+    var row = document.createElement("div");
+    row.className = "cite" + (cls ? " " + cls : "");
+    row.innerHTML = '<i data-lucide="' + icon + '" class="icon"></i>';
+    var span = document.createElement("span");
+    span.textContent = text;
+    row.appendChild(span);
+    container.appendChild(row);
+    if (window.lucide) { window.lucide.createIcons(); }
+    window.requestAnimationFrame(function () { row.classList.add("show"); });
+  }
+
+  function setCheck(checkEl) { checkEl.classList.add("on"); }
+
+  // Generic scenario player: tabs, timers, auto-advance loop, autoplay on view.
+  function makePlayer(cfg) {
+    var timers = [];
+    var ix = 0;
+    var tabs = Array.prototype.slice.call(cfg.fig.querySelectorAll(".scn-tab"));
+
+    function clearTimers() {
+      timers.forEach(window.clearTimeout);
+      timers = [];
+    }
+
+    function apply(i, animate) {
+      clearTimers();
+      ix = i;
+      var s = cfg.scenarios[i];
+      tabs.forEach(function (tab, tabIx) { tab.classList.toggle("on", tabIx === i); });
+      cfg.nameEl.textContent = "SCENARIUSZ " + (i + 1) + "/" + cfg.scenarios.length;
+      cfg.reset(s);
+      var phases = cfg.phases(s);
+      if (!animate) {
+        phases.forEach(function (p) { p[1](); });
+        return;
+      }
+      phases.forEach(function (p) {
+        timers.push(window.setTimeout(p[1], p[0]));
+      });
+      var last = phases[phases.length - 1][0];
+      timers.push(window.setTimeout(function () {
+        apply((ix + 1) % cfg.scenarios.length, true);
+      }, last + HOLD_MS));
+    }
+
+    tabs.forEach(function (tab) {
+      tab.addEventListener("click", function () {
+        apply(parseInt(tab.getAttribute("data-scn"), 10), !REDUCED_MOTION);
+      });
+    });
+
+    if (REDUCED_MOTION) {
+      apply(0, false);
+    } else if ("IntersectionObserver" in window) {
+      var started = false;
+      var io = new IntersectionObserver(function (entries) {
+        entries.forEach(function (entry) {
+          if (entry.isIntersecting && !started) {
+            started = true;
+            apply(0, true);
+            io.disconnect();
+          }
+        });
+      }, { threshold: 0.35 });
+      io.observe(cfg.fig);
+    } else {
+      apply(0, true);
+    }
+
+    return { select: function (i) { apply(i, !REDUCED_MOTION); } };
+  }
+
+  var SCENARIOS = [
+    {
+      sub: "transkrypcja w czasie rzeczywistym",
+      quote: "Ustalamy termin wdrożenia na koniec kwartału. Zespół projektowy przygotuje harmonogram prac.",
+      receive: "odebrano dźwięk ze spotkania - transkrypcja w czasie rzeczywistym",
+      checks: [
+        ["audio-waveform", "rozpoznawanie mowy (ASR) uruchomione lokalnie"],
+        ["users", "rozróżniono mówców - wypowiedzi oznaczone według uczestników"],
+        ["spell-check", "poprawa jakości transkrypcji i porządkowanie wypowiedzi"]
+      ],
+      docs: ["protokół spotkania", "zestawienie ustaleń", "lista zadań"],
+      docsStatus: "zidentyfikowano kluczowe ustalenia, decyzje i zadania",
+      sendBadge: "materiały przesłane uczestnikom",
+      statusFinal: "opracowane materiały przesłane uczestnikom spotkania"
+    },
+    {
+      sub: "wcześniej przygotowane nagranie",
+      quote: "Przyjmujemy wariant drugi budżetu. Notatkę służbową przygotuje dział organizacyjny.",
+      receive: "wczytano wcześniej przygotowane nagranie audio",
+      checks: [
+        ["audio-waveform", "transkrypcja nagrania audio - przetwarzanie lokalne"],
+        ["users", "profile głosowe - zidentyfikowano konkretne osoby"],
+        ["spell-check", "korekta błędów rozpoznawania mowy i ujednolicenie zapisu"]
+      ],
+      docs: ["notatka służbowa", "podsumowanie kierownicze", "lista zadań"],
+      docsStatus: "zidentyfikowano kluczowe ustalenia i decyzje",
+      sendBadge: "podsumowanie przekazane kierownictwu",
+      statusFinal: "podsumowanie przekazane wskazanym osobom i kierownictwu"
+    },
+    {
+      sub: "język polski i angielski",
+      quote: "Let's confirm the scope for phase two. Zespół po stronie polskiej przygotuje specyfikację.",
+      receive: "odebrano dźwięk - wypowiedzi w języku polskim i angielskim",
+      checks: [
+        ["audio-waveform", "rozpoznawanie mowy (ASR) dla wypowiedzi w obu językach"],
+        ["users", "rozróżniono mówców - wypowiedzi oznaczone według uczestników"],
+        ["languages", "tłumaczenie treści pomiędzy językiem polskim i angielskim"]
+      ],
+      docs: ["protokół spotkania (PL i EN)", "zestawienie ustaleń", "lista zadań"],
+      docsStatus: "zidentyfikowano kluczowe ustalenia, decyzje i zadania",
+      sendBadge: "materiały przesłane uczestnikom",
+      statusFinal: "opracowane materiały przesłane uczestnikom spotkania"
+    }
+  ];
+
+  // ─── DOM refs ───
+  var refs = {
+    source: el("paSource"), sourceSub: el("paSourceSub"), quote: el("paQuote"),
+    transcribe: el("paTranscribe"),
+    docs: el("paDocs"), docRows: el("paDocRows"),
+    send: el("paSend"), sendBadge: el("paSendBadge"), sendBadgeText: el("paSendBadgeText"),
+    link1: el("paLink1"), link2: el("paLink2"), vlink: el("paVlink"),
+    checks: [el("paCheck0"), el("paCheck1"), el("paCheck2")],
+    status: el("paStatus")
+  };
+
+  // ─── Render (scenario playback) ───
+  var player = makePlayer({
+    fig: el("figPapkin"),
+    nameEl: el("paScnNo"),
+    scenarios: SCENARIOS,
+    reset: function (s) {
+      [refs.source, refs.transcribe, refs.docs, refs.send].forEach(function (n) { setNode(n, null); });
+      [refs.link1, refs.link2].forEach(function (l) { setLink(l, null); });
+      refs.vlink.classList.remove("on");
+      refs.checks.forEach(function (c) { c.classList.remove("on"); });
+      refs.docRows.innerHTML = "";
+      refs.sendBadge.classList.remove("show");
+      refs.sourceSub.textContent = s.sub;
+      refs.quote.textContent = s.quote;
+      for (var i = 0; i < 3; i += 1) {
+        refs.checks[i].innerHTML = '<i data-lucide="' + s.checks[i][0] + '" class="icon"></i><span>' + s.checks[i][1] + '</span>';
+      }
+      if (window.lucide) { window.lucide.createIcons(); }
+    },
+    phases: function (s) {
+      return [
+        [0, function () { refs.source.classList.add("on"); refs.status.textContent = s.receive; }],
+        [PHASE_MS, function () { refs.link1.classList.add("on"); refs.transcribe.classList.add("on"); }],
+        [PHASE_MS * 1.6, function () { setCheck(refs.checks[0]); refs.status.textContent = s.checks[0][1]; }],
+        [PHASE_MS * 2.4, function () { setCheck(refs.checks[1]); refs.status.textContent = s.checks[1][1]; }],
+        [PHASE_MS * 3.2, function () { setCheck(refs.checks[2]); refs.status.textContent = s.checks[2][1]; }],
+        [PHASE_MS * 4.4, function () {
+          refs.link1.classList.remove("on");
+          refs.link2.classList.add("on");
+          refs.docs.classList.add("on");
+          s.docs.forEach(function (d) { addRow(refs.docRows, "file-check", d); });
+          refs.status.textContent = s.docsStatus;
+        }],
+        [PHASE_MS * 5.4, function () {
+          refs.link2.classList.remove("on");
+          refs.vlink.classList.add("on");
+          refs.send.classList.add("on");
+          refs.sendBadgeText.textContent = s.sendBadge;
+          refs.sendBadge.classList.add("show");
+          refs.status.textContent = s.statusFinal;
+        }],
+        [PHASE_MS * 6.2, function () {
+          refs.status.textContent = "nagrania i transkrypcje pozostały w infrastrukturze organizacji";
+        }]
+      ];
+    }
+  });
+
+  // ─── Hero dot particles ───
+  function initDots() {
+    var canvas = document.getElementById("dots");
+    if (!canvas) { return; }
+    var ctx = canvas.getContext("2d");
+    var dots = [];
+    function resize() {
+      canvas.width = canvas.offsetWidth;
+      canvas.height = canvas.offsetHeight;
+    }
+    resize();
+    window.addEventListener("resize", resize);
+    for (var i = 0; i < 70; i++) {
+      dots.push({
+        x: Math.random(), y: Math.random(),
+        r: 1 + Math.random() * 2.2,
+        vx: (Math.random() - 0.5) * 0.0004,
+        vy: (Math.random() - 0.5) * 0.0004,
+        o: 0.12 + Math.random() * 0.5
+      });
+    }
+    var reduced = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+    function frame() {
+      ctx.clearRect(0, 0, canvas.width, canvas.height);
+      dots.forEach(function (d) {
+        d.x = (d.x + d.vx + 1) % 1;
+        d.y = (d.y + d.vy + 1) % 1;
+        ctx.beginPath();
+        ctx.arc(d.x * canvas.width, d.y * canvas.height, d.r, 0, Math.PI * 2);
+        ctx.fillStyle = "rgba(210, 7, 87, " + d.o + ")";
+        ctx.fill();
+      });
+      if (!reduced) { requestAnimationFrame(frame); }
+    }
+    frame();
+  }
+
+  // ─── Scroll reveal ───
+  function initReveal() {
+    var revealed = document.querySelectorAll(".reveal");
+    if (REDUCED_MOTION || !("IntersectionObserver" in window)) {
+      revealed.forEach(function (el) { el.classList.add("visible"); });
+      return;
+    }
+    var observer = new IntersectionObserver(function (entries) {
+      entries.forEach(function (entry) {
+        if (entry.isIntersecting) {
+          entry.target.classList.add("visible");
+          observer.unobserve(entry.target);
+        }
+      });
+    }, { threshold: 0.12 });
+    revealed.forEach(function (el) { observer.observe(el); });
+  }
+
+  // ─── Listeners ───
+  // Keyboard shortcuts 1-3 select scenarios when the simulation is on screen
+  document.addEventListener("keydown", function (event) {
+    if (event.key !== "1" && event.key !== "2" && event.key !== "3") { return; }
+    if (event.target.tagName === "INPUT" || event.target.tagName === "TEXTAREA") { return; }
+    var rect = document.getElementById("figPapkin").getBoundingClientRect();
+    if (rect.bottom < 0 || rect.top > window.innerHeight) { return; }
+    player.select(parseInt(event.key, 10) - 1);
+  });
+
+  // ─── Init ───
+  if (window.lucide) { window.lucide.createIcons(); }
+  initDots();
+  initReveal();
+
+})();
+</script>
+
+</body>
+</html>

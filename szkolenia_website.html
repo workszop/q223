@@ -1,0 +1,919 @@
+<!DOCTYPE html>
+<!--
+  QUANTICA LAB – strona produktowa: Szkolenia AI dla organizacji
+  Standalone marketing website built from the szkolenia_AI.html flyer.
+  All marketing copy verbatim from the flyer; nav labels are UI chrome.
+  Fonts: local woff2 first (fonts/ beside this file), CDN fallback.
+-->
+<html lang="pl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="Szkolenia AI dla organizacji. Od podstaw dla pracowników po warsztaty strategiczne dla zarządu.">
+<title>Szkolenia AI dla organizacji | Quantica Lab</title>
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='7' fill='%23d20757'/%3E%3Ctext x='16' y='23' font-family='sans-serif' font-size='20' font-weight='700' fill='%23fff' text-anchor='middle'%3ES%3C/text%3E%3C/svg%3E">
+
+<link rel="preconnect" href="https://cdn.fontshare.com" crossorigin>
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<style>
+@font-face {
+  font-family: 'Satoshi';
+  font-style: normal;
+  font-weight: 300;
+  font-display: swap;
+  src: url('fonts/satoshi-300.woff2') format('woff2'), url('https://cdn.fontshare.com/wf/D7WD5OXZFWQ5T76HSPWAC7MNKAJXE2YG/LUGNSPO5YC34ABNB2O6K7AFDSOJZT56V/WNDVG7O66ENLOD43GS7FBUCC4KMT5OM2.woff2') format('woff2');
+}
+@font-face {
+  font-family: 'Satoshi';
+  font-style: normal;
+  font-weight: 400;
+  font-display: swap;
+  src: url('fonts/satoshi-400.woff2') format('woff2'), url('https://cdn.fontshare.com/wf/TTX2Z3BF3P6Y5BQT3IV2VNOK6FL22KUT/7QYRJOI3JIMYHGY6CH7SOIFRQLZOLNJ6/KFIAZD4RUMEZIYV6FQ3T3GP5PDBDB6JY.woff2') format('woff2');
+}
+@font-face {
+  font-family: 'Satoshi';
+  font-style: normal;
+  font-weight: 500;
+  font-display: swap;
+  src: url('fonts/satoshi-500.woff2') format('woff2'), url('https://cdn.fontshare.com/wf/P2LQKHE6KA6ZP4AAGN72KDWMHH6ZH3TA/ZC32TK2P7FPS5GFTL46EU6KQJA24ZYDB/7AHDUZ4A7LFLVFUIFSARGIWCRQJHISQP.woff2') format('woff2');
+}
+@font-face {
+  font-family: 'Satoshi';
+  font-style: normal;
+  font-weight: 700;
+  font-display: swap;
+  src: url('fonts/satoshi-700.woff2') format('woff2'), url('https://cdn.fontshare.com/wf/LAFFD4SDUCDVQEXFPDC7C53EQ4ZELWQI/PXCT3G6LO6ICM5I3NTYENYPWJAECAWDD/GHM6WVH6MILNYOOCXHXB5GTSGNTMGXZR.woff2') format('woff2');
+}
+@font-face {
+  font-family: 'Satoshi';
+  font-style: normal;
+  font-weight: 900;
+  font-display: swap;
+  src: url('fonts/satoshi-900.woff2') format('woff2'), url('https://cdn.fontshare.com/wf/NHPGVFYUXYXE33DZ75OIT4JFGHITX5PE/PSUTMASCDJTVPERDYJZPN23BVUFUCQIF/J64QX5IPOHK56I2KYUNBQ5M2XWZEYKYX.woff2') format('woff2');
+}
+@font-face {
+  font-family: 'Geist Mono';
+  font-style: normal;
+  font-weight: 400;
+  font-display: swap;
+  src: url('fonts/geistmono-400-latin-ext.woff2') format('woff2'), url('https://fonts.gstatic.com/s/geistmono/v6/or3nQ6H-1_WfwkMZI_qYFrkdmgPn.woff2') format('woff2');
+  unicode-range: U+0100-02BA, U+02BD-02C5, U+02C7-02CC, U+02CE-02D7, U+02DD-02FF, U+0304, U+0308, U+0329, U+1D00-1DBF, U+1E00-1E9F, U+1EF2-1EFF, U+2020, U+20A0-20AB, U+20AD-20C0, U+2113, U+2C60-2C7F, U+A720-A7FF;
+}
+@font-face {
+  font-family: 'Geist Mono';
+  font-style: normal;
+  font-weight: 400;
+  font-display: swap;
+  src: url('fonts/geistmono-400-latin.woff2') format('woff2'), url('https://fonts.gstatic.com/s/geistmono/v6/or3nQ6H-1_WfwkMZI_qYFrcdmg.woff2') format('woff2');
+  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+}
+@font-face {
+  font-family: 'Geist Mono';
+  font-style: normal;
+  font-weight: 500;
+  font-display: swap;
+  src: url('fonts/geistmono-500-latin-ext.woff2') format('woff2'), url('https://fonts.gstatic.com/s/geistmono/v6/or3nQ6H-1_WfwkMZI_qYFrkdmgPn.woff2') format('woff2');
+  unicode-range: U+0100-02BA, U+02BD-02C5, U+02C7-02CC, U+02CE-02D7, U+02DD-02FF, U+0304, U+0308, U+0329, U+1D00-1DBF, U+1E00-1E9F, U+1EF2-1EFF, U+2020, U+20A0-20AB, U+20AD-20C0, U+2113, U+2C60-2C7F, U+A720-A7FF;
+}
+@font-face {
+  font-family: 'Geist Mono';
+  font-style: normal;
+  font-weight: 500;
+  font-display: swap;
+  src: url('fonts/geistmono-500-latin.woff2') format('woff2'), url('https://fonts.gstatic.com/s/geistmono/v6/or3nQ6H-1_WfwkMZI_qYFrcdmg.woff2') format('woff2');
+  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+}
+@font-face {
+  font-family: 'Geist Mono';
+  font-style: normal;
+  font-weight: 600;
+  font-display: swap;
+  src: url('fonts/geistmono-600-latin-ext.woff2') format('woff2'), url('https://fonts.gstatic.com/s/geistmono/v6/or3nQ6H-1_WfwkMZI_qYFrkdmgPn.woff2') format('woff2');
+  unicode-range: U+0100-02BA, U+02BD-02C5, U+02C7-02CC, U+02CE-02D7, U+02DD-02FF, U+0304, U+0308, U+0329, U+1D00-1DBF, U+1E00-1E9F, U+1EF2-1EFF, U+2020, U+20A0-20AB, U+20AD-20C0, U+2113, U+2C60-2C7F, U+A720-A7FF;
+}
+@font-face {
+  font-family: 'Geist Mono';
+  font-style: normal;
+  font-weight: 600;
+  font-display: swap;
+  src: url('fonts/geistmono-600-latin.woff2') format('woff2'), url('https://fonts.gstatic.com/s/geistmono/v6/or3nQ6H-1_WfwkMZI_qYFrcdmg.woff2') format('woff2');
+  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+}
+</style>
+
+<style>
+  :root {
+    /* ─── Brand tokens (mirror of design-system colors_and_type.css) ─── */
+    --quantica-pink:    #d20757;
+    --rose-pink:        #d20757;
+    --deep-berry:       #8A004C;
+    --magenta-tint:     #FFE6F1;
+
+    --violet-primary:   #7030A0;
+    --violet-deep:      #4F1F75;
+    --ink:              #0A1F2C;
+    --mist:             #F4EEFA;
+
+    --near-black:       #111111;
+    --white:            #FFFFFF;
+
+    --fg-1:             #111111;
+    --fg-2:             #111111;
+    --fg-3:             #4B5563;
+
+    --bg-1:             #FFFFFF;
+    --bg-2:             #F5F6F8;
+
+    --border-1:         #E6E8EC;
+    --border-2:         #D1D5DB;
+
+    --font-display:     "Satoshi", system-ui, -apple-system, sans-serif;
+    --font-sans:        "Satoshi", system-ui, -apple-system, sans-serif;
+    --font-mono:        "Geist Mono", ui-monospace, "SF Mono", Menlo, monospace;
+
+    --radius-sm:        6px;
+    --radius-md:        10px;
+    --radius-lg:        16px;
+
+    --shadow-pink-soft: 0 6px 18px rgba(210, 7, 87, 0.10);
+    --shadow-card:      0 10px 30px -12px rgba(10, 20, 40, 0.12);
+
+    --nav-h: 64px;
+    --content-w: 1120px;
+  }
+
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  html { scroll-behavior: smooth; scroll-padding-top: calc(var(--nav-h) + 12px); }
+  body {
+    font-family: var(--font-sans);
+    color: var(--fg-2);
+    background: var(--bg-1);
+    line-height: 1.6;
+    -webkit-font-smoothing: antialiased;
+    text-rendering: optimizeLegibility;
+  }
+  img { max-width: 100%; }
+  a { color: var(--quantica-pink); }
+
+  .wrap {
+    max-width: var(--content-w);
+    margin: 0 auto;
+    padding: 0 28px;
+  }
+
+  /* ─── Scroll reveal ─── */
+  .reveal { opacity: 0; transform: translateY(22px); transition: opacity 600ms ease, transform 600ms ease; }
+  .reveal.visible { opacity: 1; transform: none; }
+  @media (prefers-reduced-motion: reduce) {
+    html { scroll-behavior: auto; }
+    .reveal { opacity: 1; transform: none; transition: none; }
+    * { transition-duration: 0.01ms !important; animation-duration: 0.01ms !important; }
+  }
+
+  /* ─── NAV ─── */
+  .nav {
+    position: fixed;
+    top: 0; left: 0; right: 0;
+    height: var(--nav-h);
+    z-index: 40;
+    background: rgba(255, 255, 255, 0.88);
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+    border-bottom: 1px solid var(--border-1);
+  }
+  .nav-inner {
+    max-width: var(--content-w);
+    margin: 0 auto;
+    padding: 0 28px;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 20px;
+  }
+  .nav-logo img { height: 30px; width: auto; display: block; }
+  .nav-links { display: flex; align-items: center; gap: 26px; }
+  .nav-links a {
+    font-size: 13.5px;
+    font-weight: 500;
+    color: var(--fg-1);
+    text-decoration: none;
+    letter-spacing: 0.01em;
+  }
+  .nav-links a:hover { color: var(--quantica-pink); }
+  .nav-cta {
+    background: var(--quantica-pink);
+    color: var(--white) !important;
+    font-weight: 700;
+    padding: 9px 20px;
+    border-radius: 999px;
+    box-shadow: var(--shadow-pink-soft);
+    transition: background 200ms;
+  }
+  .nav-cta:hover { background: var(--deep-berry); color: var(--white); }
+
+  /* ─── HERO ─── */
+  .hero {
+    position: relative;
+    min-height: 100svh;
+    display: flex;
+    align-items: center;
+    color: var(--white);
+    padding: calc(var(--nav-h) + 48px) 0 72px;
+    background: var(--ink);
+    overflow: hidden;
+  }
+  #dots {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    pointer-events: none;
+  }
+  .hero-q {
+    position: absolute;
+    right: -6%;
+    top: 50%;
+    transform: translateY(-50%);
+    width: min(46vw, 640px);
+    opacity: 0.16;
+    pointer-events: none;
+  }
+  .hero-q img { width: 100%; display: block; }
+  .hero-inner { position: relative; z-index: 2; }
+  .hero-eyebrow {
+    font-family: var(--font-mono);
+    font-weight: 500;
+    font-size: 12px;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    color: var(--rose-pink);
+    margin-bottom: 20px;
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+  }
+  .hero-eyebrow::before {
+    content: "";
+    display: block;
+    width: 28px;
+    height: 1px;
+    background: var(--rose-pink);
+  }
+  .hero-title {
+    font-family: var(--font-display);
+    font-weight: 700;
+    font-size: clamp(56px, 8.6vw, 104px);
+    line-height: 0.98;
+    letter-spacing: -0.03em;
+    color: var(--white);
+  }
+  .hero-subtitle {
+    font-family: var(--font-display);
+    font-size: clamp(24px, 3.4vw, 40px);
+    font-weight: 400;
+    color: var(--white);
+    margin-top: 10px;
+    letter-spacing: -0.015em;
+    line-height: 1.15;
+  }
+  .hero-subtitle em { font-style: normal; color: var(--rose-pink); }
+  .hero-tagline {
+    font-size: clamp(15px, 1.6vw, 18px);
+    line-height: 1.6;
+    color: rgba(255, 255, 255, 0.92);
+    max-width: 560px;
+    margin-top: 24px;
+    font-weight: 400;
+  }
+  .hero-actions { display: flex; flex-wrap: wrap; gap: 14px; margin-top: 36px; }
+  .pill {
+    font-family: var(--font-sans);
+    font-weight: 700;
+    font-size: 14px;
+    text-decoration: none;
+    padding: 13px 28px;
+    border-radius: 999px;
+    display: inline-flex;
+    align-items: center;
+    gap: 9px;
+    transition: transform 200ms, background 200ms, color 200ms;
+  }
+  .pill:hover { transform: translateY(-1px); }
+  .pill-solid { background: var(--quantica-pink); color: var(--white); box-shadow: var(--shadow-pink-soft); }
+  .pill-solid:hover { background: var(--deep-berry); }
+  .pill-outline { border: 1.5px solid var(--white); color: var(--white); }
+  .pill-outline:hover { background: rgba(255, 255, 255, 0.1); }
+  .pill .icon { width: 17px; height: 17px; }
+  .hero-footer {
+    position: absolute;
+    bottom: 22px;
+    left: 0; right: 0;
+    z-index: 2;
+    display: flex;
+    justify-content: space-between;
+    font-family: var(--font-mono);
+    font-size: 11px;
+    letter-spacing: 0.04em;
+    color: rgba(255, 255, 255, 0.85);
+  }
+
+  /* ─── SECTION SCAFFOLD ─── */
+  .section { padding: 88px 0; }
+  .section-alt { background: var(--bg-2); }
+  .eyebrow {
+    font-family: var(--font-mono);
+    font-weight: 500;
+    font-size: 12px;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    color: var(--quantica-pink);
+    margin-bottom: 14px;
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+  }
+  .eyebrow::before {
+    content: "";
+    display: block;
+    width: 28px;
+    height: 1px;
+    background: var(--quantica-pink);
+  }
+  .h-section {
+    font-family: var(--font-display);
+    font-weight: 700;
+    font-size: clamp(28px, 4vw, 42px);
+    line-height: 1.08;
+    letter-spacing: -0.025em;
+    color: var(--fg-1);
+    margin-bottom: 22px;
+  }
+  .h-pink { color: var(--quantica-pink); }
+  .section p { font-size: 15.5px; line-height: 1.75; margin-bottom: 14px; max-width: 780px; }
+  .section p strong { color: var(--quantica-pink); font-weight: 700; }
+
+  /* ─── ICONS (Lucide) ─── */
+  .icon { width: 18px; height: 18px; stroke-width: 2; }
+
+  /* ─── ICON CARDS (paragraphs split into smaller visual parts) ─── */
+  .split-grid { display: flex; flex-wrap: wrap; gap: 18px; margin: 26px 0; }
+  .icon-card {
+    flex: 1 1 280px;
+    min-width: 260px;
+    background: var(--bg-1);
+    border: 1px solid var(--border-1);
+    border-radius: var(--radius-lg);
+    padding: 24px;
+    box-shadow: var(--shadow-card);
+  }
+  .icon-chip {
+    width: 44px;
+    height: 44px;
+    border-radius: var(--radius-md);
+    background: var(--magenta-tint);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 15px;
+    flex: none;
+  }
+  .icon-chip .icon { width: 22px; height: 22px; color: var(--quantica-pink); }
+  .icon-card p { margin: 0; max-width: none; font-size: 14.5px; line-height: 1.7; }
+
+  /* ─── LEAD ROWS (icon chip + paragraph) ─── */
+  .lead-row {
+    display: flex;
+    gap: 18px;
+    align-items: flex-start;
+    margin: 0 0 18px;
+    max-width: 860px;
+  }
+  .lead-row .icon-chip { margin-bottom: 0; }
+  .lead-row p { margin: 0; max-width: none; }
+
+  /* ─── ROUTE CALLOUT (icon variant) ─── */
+  .route-callout {
+    background: var(--magenta-tint);
+    color: var(--quantica-pink);
+    font-size: 14.5px;
+    line-height: 1.65;
+    font-weight: 500;
+    padding: 18px 24px 18px 42px;
+    margin: 16px 0 0;
+    border-radius: 0 var(--radius-md) var(--radius-md) 0;
+    clip-path: polygon(0 50%, 20px 0, 100% 0, 100% 100%, 20px 100%);
+    max-width: 860px;
+    display: flex;
+    gap: 14px;
+    align-items: flex-start;
+  }
+  .route-callout .icon { width: 20px; height: 20px; flex: none; margin-top: 2px; }
+  .route-callout strong { font-weight: 700; }
+
+  /* ─── CAPABILITY PANELS (icon header bar + check items) ───
+     flexbox, not grid, so an incomplete row centers */
+  .cap-grid { display: flex; flex-wrap: wrap; gap: 22px; justify-content: center; margin-top: 40px; }
+  .cap-panel {
+    flex: 1 1 calc(50% - 11px);
+    min-width: 300px;
+    background: var(--bg-1);
+    border: 1px solid var(--border-1);
+    border-radius: var(--radius-lg);
+    padding: 12px;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    box-shadow: var(--shadow-card);
+  }
+  .cap-head {
+    background: var(--violet-primary);
+    color: var(--white);
+    border-radius: var(--radius-md);
+    padding: 15px 18px;
+    font-family: var(--font-display);
+    font-weight: 700;
+    font-size: 16.5px;
+    line-height: 1.25;
+    letter-spacing: -0.01em;
+    display: flex;
+    align-items: center;
+    gap: 12px;
+  }
+  .cap-head .icon { width: 21px; height: 21px; flex: none; }
+  .cap-head-text { display: flex; flex-direction: column; }
+  .cap-mod {
+    font-family: var(--font-mono);
+    font-weight: 500;
+    font-size: 10px;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    opacity: 0.85;
+    margin-bottom: 3px;
+  }
+  .cap-item {
+    background: var(--bg-2);
+    border-radius: var(--radius-sm);
+    padding: 12px 15px;
+    font-size: 13.5px;
+    line-height: 1.6;
+    color: var(--fg-1);
+    display: flex;
+    gap: 11px;
+    align-items: flex-start;
+  }
+  .cap-item .icon { width: 16px; height: 16px; flex: none; color: var(--quantica-pink); margin-top: 3px; }
+  .section-alt .cap-panel { background: var(--bg-1); }
+  .section-alt .cap-item { background: var(--bg-2); }
+
+  /* ─── CONTACT ─── */
+  .contact {
+    background:
+      radial-gradient(ellipse 70% 60% at 80% 50%, rgba(112, 48, 160, 0.28) 0%, transparent 65%),
+      radial-gradient(ellipse 50% 70% at 0% 0%, rgba(210, 7, 87, 0.30) 0%, transparent 65%),
+      linear-gradient(135deg, #0A1F2C 0%, #0d2538 100%);
+    color: var(--white);
+    padding: 52px 56px;
+    border-radius: var(--radius-lg);
+    position: relative;
+    overflow: hidden;
+  }
+  .contact-q {
+    position: absolute;
+    right: -50px;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 280px;
+    opacity: 0.14;
+    pointer-events: none;
+  }
+  .contact-q img { width: 100%; display: block; }
+  .contact .eyebrow { color: var(--rose-pink); }
+  .contact .eyebrow::before { background: var(--rose-pink); }
+  .contact h2 {
+    color: var(--white);
+    font-family: var(--font-display);
+    font-size: clamp(26px, 3.4vw, 36px);
+    font-weight: 700;
+    margin-bottom: 14px;
+    letter-spacing: -0.025em;
+    line-height: 1.1;
+  }
+  .contact p { color: rgba(255, 255, 255, 0.92); font-size: 15px; margin-bottom: 26px; max-width: 560px; position: relative; z-index: 1; }
+  .contact-pills { display: flex; flex-wrap: wrap; gap: 12px; margin-bottom: 30px; position: relative; z-index: 1; }
+  .contact .pill-solid { background: var(--white); color: var(--quantica-pink); }
+  .contact .pill-solid:hover { background: var(--magenta-tint); }
+  .contact-info {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 24px;
+    align-items: center;
+    border-top: 1px solid rgba(255, 255, 255, 0.16);
+    padding-top: 22px;
+    position: relative;
+    z-index: 1;
+  }
+  .contact-meta { font-size: 13px; color: var(--white); }
+  .contact-meta strong { font-weight: 600; }
+  .contact-logo img { height: 40px; width: auto; display: block; }
+
+  /* ─── FOOTER ─── */
+  .footer {
+    padding: 26px 0;
+    border-top: 1px solid var(--border-1);
+    font-family: var(--font-mono);
+    font-size: 11.5px;
+    letter-spacing: 0.04em;
+    color: var(--fg-3);
+  }
+  .footer .wrap { display: flex; justify-content: space-between; flex-wrap: wrap; gap: 10px; }
+
+  /* ─── RESPONSIVE ─── */
+  @media (max-width: 768px) {
+    .nav-links a:not(.nav-cta) { display: none; }
+    .hero { min-height: auto; padding: calc(var(--nav-h) + 56px) 0 96px; }
+    .hero-q { width: 70vw; right: -18%; opacity: 0.12; }
+    .section { padding: 60px 0; }
+    .wrap { padding: 0 20px; }
+    .nav-inner { padding: 0 20px; }
+    .split-grid { flex-direction: column; }
+    .icon-card { min-width: 0; }
+    .lead-row { gap: 14px; }
+    .cap-panel { flex-basis: 100%; min-width: 0; }
+    .contact { padding: 34px 24px; }
+  }
+</style>
+</head>
+<body>
+
+<!-- ════════════════ NAV ════════════════ -->
+<nav class="nav" aria-label="Nawigacja">
+  <div class="nav-inner">
+    <a class="nav-logo" href="#top" aria-label="Quantica Lab">
+      <img src="quantica-logo-color.png" alt="Quantica Lab">
+    </a>
+    <div class="nav-links">
+      <a href="#oferta">Oferta</a>
+      <a href="#ai-literacy">AI Literacy</a>
+      <a href="#kadra-projekty">Dla kadry kierowniczej</a>
+      <a href="#supermoce">Supermoce z AI</a>
+      <a class="nav-cta" href="#kontakt">Kontakt</a>
+    </div>
+  </div>
+</nav>
+
+<!-- ════════════════ HERO ════════════════ -->
+<header class="hero" id="top">
+  <canvas id="dots" aria-hidden="true"></canvas>
+  <div class="hero-q" aria-hidden="true"><img src="quantica-q-mark-white.png" alt=""></div>
+  <div class="wrap hero-inner">
+    <div class="hero-eyebrow">Oferta szkoleń</div>
+    <h1 class="hero-title">Szkolenia AI</h1>
+    <div class="hero-subtitle">dla <em>organizacji</em>.</div>
+    <p class="hero-tagline">Od podstaw dla pracowników po warsztaty strategiczne dla zarządu.</p>
+    <div class="hero-actions">
+      <a class="pill pill-solid" href="#kontakt"><i data-lucide="messages-square" class="icon"></i>Porozmawiajmy o szkoleniach</a>
+      <a class="pill pill-outline" href="#oferta"><i data-lucide="arrow-down" class="icon"></i>Poznaj programy</a>
+    </div>
+  </div>
+  <div class="hero-footer wrap">
+    <div>quanticalab.ai</div>
+    <div>Oferta szkoleń AI</div>
+  </div>
+</header>
+
+<main>
+
+<!-- ════════════════ OFERTA (intro) ════════════════ -->
+<section class="section" id="oferta">
+  <div class="wrap">
+    <div class="reveal">
+      <div class="eyebrow">Quantica Lab</div>
+      <h2 class="h-section">Quantica Lab <span class="h-pink">oferta szkoleń AI</span></h2>
+    </div>
+
+    <p class="reveal">Rozwój kompetencji w obszarze AI staje się elementem odpowiedzialnego zarządzania organizacją. Decyduje on nie tylko o efektywności operacyjnej, ale także o zdolności organizacji do podejmowania trafnych decyzji i budowania przewagi konkurencyjnej.</p>
+
+    <div class="split-grid">
+      <div class="icon-card reveal">
+        <div class="icon-chip"><i data-lucide="graduation-cap" class="icon"></i></div>
+        <p>Zgodnie z AI Act organizacje wykorzystujące systemy AI są zobowiązane do zapewnienia odpowiedniego poziomu wiedzy i świadomości pracowników (tzw. AI literacy). Obejmuje to zarówno rozumienie możliwości technologii, jak i jej ograniczeń, ryzyk oraz zasad bezpiecznego wykorzystania.</p>
+      </div>
+      <div class="icon-card reveal">
+        <div class="icon-chip"><i data-lucide="eye-off" class="icon"></i></div>
+        <p>Jednocześnie w wielu organizacjach AI jest już wykorzystywana oddolnie – poza formalnymi procesami i politykami (tzw. „shadow AI"). Pracownicy korzystają z zewnętrznych narzędzi, często bez jasnych wytycznych dotyczących bezpieczeństwa danych czy odpowiedzialności za wyniki. W praktyce oznacza to realne ryzyko, zarówno operacyjne, jak i prawne.</p>
+      </div>
+    </div>
+
+    <p class="reveal">Oferujemy praktyczne szkolenia, które budują kompetencje AI w Twojej organizacji – od podstaw dla wszystkich pracowników po zaawansowane warsztaty dla kadry zarządzającej.</p>
+
+    <div class="lead-row reveal">
+      <div class="icon-chip"><i data-lucide="target" class="icon"></i></div>
+      <p>Szkolenia mają charakter warsztatowy i prowadzą do konkretnych rezultatów – od uporządkowania wiedzy i zasad korzystania z AI po zdefiniowanie inicjatyw i pierwszych kroków wdrożeniowych. Szczególny nacisk kładziemy na bezpieczeństwo, zgodność z regulacjami oraz podejmowanie świadomych decyzji technologicznych.</p>
+    </div>
+  </div>
+</section>
+
+<!-- ════════════════ AI LITERACY ════════════════ -->
+<section class="section section-alt" id="ai-literacy">
+  <div class="wrap">
+    <div class="reveal">
+      <div class="eyebrow">Program szkoleniowy</div>
+      <h2 class="h-section h-pink">AI Literacy</h2>
+    </div>
+
+    <p class="reveal">Szkolenie wprowadzające, które buduje wspólny język i zrozumienie AI w ramach organizacji. Uczestnicy zdobywają nie tylko wiedzę o tym, czym jest AI i jak działa, ale przede wszystkim uczą się rozpoznawać realne możliwości jej zastosowania w codziennej pracy oraz świadomie oceniać jej ograniczenia. Program ma charakter praktyczny i koncentruje się na odpowiedzialnym, bezpiecznym i efektywnym wykorzystaniu narzędzi AI w środowisku zawodowym.</p>
+
+    <div class="cap-grid">
+      <div class="cap-panel reveal">
+        <div class="cap-head"><i data-lucide="lightbulb" class="icon"></i><span class="cap-head-text"><span class="cap-mod">Moduł 1</span>Podstawy AI – demystyfikacja technologii</span></div>
+        <div class="cap-item"><i data-lucide="check" class="icon"></i>Czym jest AI, ML, generatywna AI – wyjaśnienie bez żargonu</div>
+        <div class="cap-item"><i data-lucide="check" class="icon"></i>Jak działają modele językowe (intuicyjnie, bez matematyki)</div>
+        <div class="cap-item"><i data-lucide="check" class="icon"></i>Możliwości i ograniczenia – co AI potrafi, a czego nie</div>
+        <div class="cap-item"><i data-lucide="check" class="icon"></i>Praktyczne zastosowania w codziennej pracy (teksty, analiza, automatyzacja)</div>
+      </div>
+      <div class="cap-panel reveal">
+        <div class="cap-head"><i data-lucide="shield-check" class="icon"></i><span class="cap-head-text"><span class="cap-mod">Moduł 2</span>Bezpieczne korzystanie z AI</span></div>
+        <div class="cap-item"><i data-lucide="check" class="icon"></i>Zasady bezpieczeństwa danych przy pracy z AI</div>
+        <div class="cap-item"><i data-lucide="check" class="icon"></i>Co można, a czego nie można wprowadzać do narzędzi AI</div>
+        <div class="cap-item"><i data-lucide="check" class="icon"></i>Rozpoznawanie halucynacji i weryfikacja wyników</div>
+        <div class="cap-item"><i data-lucide="check" class="icon"></i>Polityka firmy dotycząca AI – dozwolone narzędzia i praktyki</div>
+        <div class="cap-item"><i data-lucide="check" class="icon"></i>Ochrona danych osobowych i poufnych informacji biznesowych</div>
+      </div>
+      <div class="cap-panel reveal">
+        <div class="cap-head"><i data-lucide="scale" class="icon"></i><span class="cap-head-text"><span class="cap-mod">Moduł 3</span>Regulacje i etyka AI</span></div>
+        <div class="cap-item"><i data-lucide="check" class="icon"></i>AI Act – kluczowe wymagania i co oznaczają dla pracowników</div>
+        <div class="cap-item"><i data-lucide="check" class="icon"></i>Klasyfikacja ryzyka systemów AI</div>
+        <div class="cap-item"><i data-lucide="check" class="icon"></i>Etyka AI: stronniczość, transparentność, odpowiedzialność</div>
+        <div class="cap-item"><i data-lucide="check" class="icon"></i>Human-in-the-loop – dlaczego decyzja zawsze należy do człowieka</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ════════════════ KADRA: PROJEKTY ════════════════ -->
+<section class="section" id="kadra-projekty">
+  <div class="wrap">
+    <div class="reveal">
+      <div class="eyebrow">Program szkoleniowy</div>
+      <h2 class="h-section">AI dla kadry kierowniczej <span class="h-pink">– projekty</span></h2>
+    </div>
+
+    <p class="reveal">Warsztaty operacyjne, których celem jest przełożenie kierunku działań w obszarze AI na konkretne inicjatywy. Pracujemy na realnych procesach organizacji, identyfikując projekty o największym sensie biznesowym i najwyższej wykonalności. Efektem jest uporządkowana lista inicjatyw wraz z oceną ich opłacalności, wymagań w zakresie danych oraz gotowości organizacyjnej.</p>
+
+    <div class="route-callout reveal"><i data-lucide="mic" class="icon"></i><span><strong>Przygotowanie do szkolenia:</strong> dwa 30-minutowe wywiady indywidualne z kierownictwem lub wybranymi pracownikami firmy (rekomendujemy udział pracowników wykorzystujących AI dzisiaj) w celu zrozumienia obecnej strategii AI firmy oraz stopnia wykorzystania AI.</span></div>
+
+    <div class="cap-grid">
+      <div class="cap-panel reveal">
+        <div class="cap-head"><i data-lucide="lightbulb" class="icon"></i><span class="cap-head-text"><span class="cap-mod">Moduł 1</span>Podstawy AI</span></div>
+        <div class="cap-item"><i data-lucide="check" class="icon"></i>Czym jest AI, ML, generatywna AI – wyjaśnienie bez żargonu</div>
+        <div class="cap-item"><i data-lucide="check" class="icon"></i>Jak działają modele językowe (intuicyjnie, bez matematyki)</div>
+        <div class="cap-item"><i data-lucide="check" class="icon"></i>Przegląd aktualnego stanu technologii AI (generatywna AI, agenci, automatyzacja) pod kątem możliwości i ograniczeń – co AI potrafi, a czego nie</div>
+        <div class="cap-item"><i data-lucide="check" class="icon"></i>Przykłady wdrożeń AI w różnych branżach</div>
+        <div class="cap-item"><i data-lucide="check" class="icon"></i>Przedstawienie trendów technologicznych AI</div>
+      </div>
+      <div class="cap-panel reveal">
+        <div class="cap-head"><i data-lucide="workflow" class="icon"></i><span class="cap-head-text"><span class="cap-mod">Moduł 2</span>Analiza procesów pod kątem AI</span></div>
+        <div class="cap-item"><i data-lucide="check" class="icon"></i>Kryteria oceny potencjału automatyzacji procesów (powtarzalność, złożoność, dane)</div>
+        <div class="cap-item"><i data-lucide="check" class="icon"></i>Warsztat: mapowanie procesów realizowanych w danym dziale</div>
+        <div class="cap-item"><i data-lucide="check" class="icon"></i>Identyfikacja „quick wins"</div>
+      </div>
+      <div class="cap-panel reveal">
+        <div class="cap-head"><i data-lucide="clipboard-check" class="icon"></i><span class="cap-head-text"><span class="cap-mod">Moduł 3</span>Przygotowanie do projektów AI</span></div>
+        <div class="cap-item"><i data-lucide="check" class="icon"></i>Ocena dostępności i jakości danych</div>
+        <div class="cap-item"><i data-lucide="check" class="icon"></i>Ocena kompetencji zespołu i luk do uzupełnienia</div>
+        <div class="cap-item"><i data-lucide="check" class="icon"></i>Analiza scenariuszy integracji z istniejącymi narzędziami (ERP, CRM, workflow)</div>
+        <div class="cap-item"><i data-lucide="check" class="icon"></i>Dyskusja warsztatowa – priorytetyzacja projektów</div>
+      </div>
+      <div class="cap-panel reveal">
+        <div class="cap-head"><i data-lucide="trending-up" class="icon"></i><span class="cap-head-text"><span class="cap-mod">Moduł 4</span>Planowanie wdrożenia i ROI</span></div>
+        <div class="cap-item"><i data-lucide="check" class="icon"></i>Definiowanie mierników sukcesu (KPI przed/po)</div>
+        <div class="cap-item"><i data-lucide="check" class="icon"></i>Tworzenie scenariuszy użycia i planu pilotażowego</div>
+        <div class="cap-item"><i data-lucide="check" class="icon"></i>Zarządzanie zmianą – przygotowanie zespołów</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ════════════════ KADRA: STRATEGIA ════════════════ -->
+<section class="section section-alt" id="kadra-strategia">
+  <div class="wrap">
+    <div class="reveal">
+      <div class="eyebrow">Program szkoleniowy</div>
+      <h2 class="h-section">AI dla kadry kierowniczej <span class="h-pink">– strategia</span></h2>
+    </div>
+
+    <p class="reveal">Warsztaty strategiczne dla zarządów, dyrektorów i menedżerów odpowiedzialnych za rozwój organizacji. Celem jest określenie realnej roli AI w modelu biznesowym firmy oraz wypracowanie spójnych zasad podejmowania decyzji w obszarze inwestycji technologicznych. Pracujemy na danych i procesach organizacji, oddzielając rzeczywiste możliwości od marketingowych narracji i krótkoterminowych trendów.</p>
+
+    <div class="route-callout reveal"><i data-lucide="mic" class="icon"></i><span><strong>Przygotowanie do szkolenia:</strong> dwa 30-minutowe wywiady indywidualne z kierownictwem lub wybranymi pracownikami firmy (rekomendujemy udział pracowników wykorzystujących AI dzisiaj) w celu zrozumienia obecnej strategii AI firmy oraz stopnia wykorzystania AI.</span></div>
+
+    <div class="cap-grid">
+      <div class="cap-panel reveal">
+        <div class="cap-head"><i data-lucide="lightbulb" class="icon"></i><span class="cap-head-text"><span class="cap-mod">Moduł 1</span>Podstawy AI</span></div>
+        <div class="cap-item"><i data-lucide="check" class="icon"></i>Czym jest AI, ML, generatywna AI – wyjaśnienie bez żargonu</div>
+        <div class="cap-item"><i data-lucide="check" class="icon"></i>Jak działają modele językowe (intuicyjnie, bez matematyki)</div>
+        <div class="cap-item"><i data-lucide="check" class="icon"></i>Przegląd aktualnego stanu technologii AI (generatywna AI, agenci, automatyzacja) pod kątem możliwości i ograniczeń – co AI potrafi, a czego nie</div>
+        <div class="cap-item"><i data-lucide="check" class="icon"></i>Przykłady wdrożeń AI w różnych branżach</div>
+        <div class="cap-item"><i data-lucide="check" class="icon"></i>Przedstawienie trendów technologicznych AI</div>
+      </div>
+      <div class="cap-panel reveal">
+        <div class="cap-head"><i data-lucide="compass" class="icon"></i><span class="cap-head-text"><span class="cap-mod">Moduł 2</span>Strategia AI – warsztaty</span></div>
+        <div class="cap-item"><i data-lucide="check" class="icon"></i>Definiowanie wizji AI dla organizacji</div>
+        <div class="cap-item"><i data-lucide="check" class="icon"></i>Strategia firmy i priorytetyzacja projektów AI</div>
+        <div class="cap-item"><i data-lucide="check" class="icon"></i>Wybór obszarów wdrożenia (matryca wpływ/wykonalność)</div>
+      </div>
+      <div class="cap-panel reveal">
+        <div class="cap-head"><i data-lucide="gauge" class="icon"></i><span class="cap-head-text"><span class="cap-mod">Moduł 3</span>Analiza gotowości cyfrowej organizacji</span></div>
+        <div class="cap-item"><i data-lucide="check" class="icon"></i>Dane: jakość, dostępność, integracja źródeł</div>
+        <div class="cap-item"><i data-lucide="check" class="icon"></i>Platforma i technologia: infrastruktura (chmura, środowisko lokalne), narzędzia (analityka, platformy ML), integracja (API, middleware)</div>
+        <div class="cap-item"><i data-lucide="check" class="icon"></i>Kompetencje: inżynieria danych, analityka, kompetencje związane z AI</div>
+        <div class="cap-item"><i data-lucide="check" class="icon"></i>Procesy: podejmowanie decyzji w oparciu o dane, kultura eksperymentowania, podatność procesów na automatyzację</div>
+        <div class="cap-item"><i data-lucide="check" class="icon"></i>Governance: odpowiedzialność za dane, bezpieczeństwo i zgodność z przepisami</div>
+      </div>
+      <div class="cap-panel reveal">
+        <div class="cap-head"><i data-lucide="map" class="icon"></i><span class="cap-head-text"><span class="cap-mod">Moduł 4</span>Przygotowanie do projektów AI</span></div>
+        <div class="cap-item"><i data-lucide="check" class="icon"></i>Jak zaprojektować AI governance</div>
+        <div class="cap-item"><i data-lucide="check" class="icon"></i>Kluczowe działania na podstawie oceny gotowości cyfrowej</div>
+        <div class="cap-item"><i data-lucide="check" class="icon"></i>Zarządzanie zmianą – organizacja i pracownicy</div>
+        <div class="cap-item"><i data-lucide="check" class="icon"></i>Budowa roadmapy w perspektywie krótko- i długoterminowej</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ════════════════ SUPERMOCE Z AI ════════════════ -->
+<section class="section" id="supermoce">
+  <div class="wrap">
+    <div class="reveal">
+      <div class="eyebrow">Program szkoleniowy</div>
+      <h2 class="h-section h-pink">Supermoce z AI</h2>
+    </div>
+
+    <div class="lead-row reveal">
+      <div class="icon-chip"><i data-lucide="wrench" class="icon"></i></div>
+      <p>Supermoce z AI to praktyczne warsztaty typu hands-on, podczas których uczestnicy samodzielnie pracują z szerokim zestawem narzędzi generatywnej sztucznej inteligencji ucząc się je wykorzystywać w realnych zadaniach zawodowych.</p>
+    </div>
+    <div class="lead-row reveal">
+      <div class="icon-chip"><i data-lucide="rocket" class="icon"></i></div>
+      <p>Osoby biorące udział w szkoleniu nie tylko poznają możliwości AI, ale od razu tworzą własne materiały, analizy, prezentacje, prototypy aplikacji i asystentów.</p>
+    </div>
+    <div class="lead-row reveal">
+      <div class="icon-chip"><i data-lucide="users" class="icon"></i></div>
+      <p>Celem warsztatów jest pokazanie, jak AI może wykonywać lub wspierać zadania, które wcześniej wymagały zaangażowania grafika, analityka, researchera, copywritera, programisty czy konsultanta.</p>
+    </div>
+
+    <div class="cap-grid">
+      <div class="cap-panel reveal">
+        <div class="cap-head"><i data-lucide="messages-square" class="icon"></i><span class="cap-head-text"><span class="cap-mod">Moduł 1</span>Fundamenty pracy z czatami AI</span></div>
+        <div class="cap-item"><i data-lucide="check" class="icon"></i>Cztery zasady pracy z AI na podstawie książki „Co-Intelligence" Ethana Mollicka</div>
+        <div class="cap-item"><i data-lucide="check" class="icon"></i>Jak naprawdę działa czat AI: data odcięcia wiedzy, halucynacje, multimodalność narzędzia i dostęp do danych</div>
+        <div class="cap-item"><i data-lucide="check" class="icon"></i>Przegląd i porównanie popularnych chatów (ChatGPT, Claude, Gemini, Grok, Qwen/DeepSeek, Mistral)</div>
+        <div class="cap-item"><i data-lucide="check" class="icon"></i>Praktyczne ustawienia czata: style odpowiedzi, instrukcje systemowe, personalizacja</div>
+      </div>
+      <div class="cap-panel reveal">
+        <div class="cap-head"><i data-lucide="terminal" class="icon"></i><span class="cap-head-text"><span class="cap-mod">Moduł 2</span>Prompting – sztuka skutecznych zapytań</span></div>
+        <div class="cap-item"><i data-lucide="check" class="icon"></i>Anatomia dobrego promptu</div>
+        <div class="cap-item"><i data-lucide="check" class="icon"></i>Trzy poziomy promptowania na realnym przykładzie biznesowym</div>
+        <div class="cap-item"><i data-lucide="check" class="icon"></i>Meta-prompting, czyli wykorzystanie AI do tworzenia lepszych promptów</div>
+        <div class="cap-item"><i data-lucide="check" class="icon"></i>Budowanie własnego profilu zawodowego do pracy z AI</div>
+        <div class="cap-item"><i data-lucide="check" class="icon"></i>Ćwiczenia na danych, dokumentach i procesach biznesowych</div>
+      </div>
+      <div class="cap-panel reveal">
+        <div class="cap-head"><i data-lucide="bar-chart-3" class="icon"></i><span class="cap-head-text"><span class="cap-mod">Moduł 3</span>Praca z danymi</span></div>
+        <div class="cap-item"><i data-lucide="check" class="icon"></i>Analiza plików, dokumentów, tabel i wykresów</div>
+        <div class="cap-item"><i data-lucide="check" class="icon"></i>Przekształcanie wykresów w tabele i interaktywne wizualizacje</div>
+        <div class="cap-item"><i data-lucide="check" class="icon"></i>Generowanie prezentacji i artykułów z pomocą AI</div>
+        <div class="cap-item"><i data-lucide="check" class="icon"></i>Narzędzia: Deep Research, Stanford STORM, Perplexity, NotebookLM</div>
+        <div class="cap-item"><i data-lucide="check" class="icon"></i>Ćwiczenia: analiza umowy lub regulaminu, prezentacja</div>
+      </div>
+      <div class="cap-panel reveal">
+        <div class="cap-head"><i data-lucide="image" class="icon"></i><span class="cap-head-text"><span class="cap-mod">Moduł 4</span>Generowanie multimediów: grafika, wideo i dźwięk</span></div>
+        <div class="cap-item"><i data-lucide="check" class="icon"></i>Generowanie obrazów i grafik</div>
+        <div class="cap-item"><i data-lucide="check" class="icon"></i>Infografiki, sketchnotes i visual thinking z wykorzystaniem narzędzi AI</div>
+        <div class="cap-item"><i data-lucide="check" class="icon"></i>Ożywianie obrazów i tworzenie krótkich klipów wideo</div>
+        <div class="cap-item"><i data-lucide="check" class="icon"></i>Generowanie muzyki</div>
+      </div>
+      <div class="cap-panel reveal">
+        <div class="cap-head"><i data-lucide="code-2" class="icon"></i><span class="cap-head-text"><span class="cap-mod">Moduł 5</span>Tworzenie własnych aplikacji – vibe coding</span></div>
+        <div class="cap-item"><i data-lucide="check" class="icon"></i>Budowanie aplikacji webowych z AI</div>
+        <div class="cap-item"><i data-lucide="check" class="icon"></i>Praca z PRD, czyli Product Requirement Document, jako podstawą aplikacji</div>
+        <div class="cap-item"><i data-lucide="check" class="icon"></i>Trzy sposoby uruchamiania aplikacji: (bezpośrednio w czacie, lokalnie na laptopie oraz publicznie, np. przez Netlify lub GitHub Pages)</div>
+        <div class="cap-item"><i data-lucide="check" class="icon"></i>Ćwiczenia: aplikacja do alokacji budżetu, własny analizator danych</div>
+      </div>
+      <div class="cap-panel reveal">
+        <div class="cap-head"><i data-lucide="database" class="icon"></i><span class="cap-head-text"><span class="cap-mod">Moduł 6</span>Własny asystent AI, RAG i Copilot</span></div>
+        <div class="cap-item"><i data-lucide="check" class="icon"></i>Asystenci na własnych danych (GPTs, Gemini Gems, Claude Projects)</div>
+        <div class="cap-item"><i data-lucide="check" class="icon"></i>Trzy sposoby wykorzystania danych: dane w prompcie, RAG i fine-tuning</div>
+        <div class="cap-item"><i data-lucide="check" class="icon"></i>Jak działa RAG (baza wektorowa, wyszukiwanie i generacja odpowiedzi)</div>
+        <div class="cap-item"><i data-lucide="check" class="icon"></i>Microsoft Copilot: integracja z danymi organizacji, zastosowania i ograniczenia</div>
+        <div class="cap-item"><i data-lucide="check" class="icon"></i>Ćwiczenia: budowa asystenta AI</div>
+      </div>
+      <div class="cap-panel reveal">
+        <div class="cap-head"><i data-lucide="bot" class="icon"></i><span class="cap-head-text"><span class="cap-mod">Moduł 7</span>Agenci AI</span></div>
+        <div class="cap-item"><i data-lucide="check" class="icon"></i>Czym jest Agentic AI i czym różni się od klasycznego czatu</div>
+        <div class="cap-item"><i data-lucide="check" class="icon"></i>Cykl działania agenta: planowanie, użycie narzędzia, wykonanie, refleksja</div>
+        <div class="cap-item"><i data-lucide="check" class="icon"></i>Modele generatywne a agenci na przykładach: obsługa klienta, programowanie</div>
+        <div class="cap-item"><i data-lucide="check" class="icon"></i>Projekt końcowy: budowa agenta AI</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ════════════════ KONTAKT ════════════════ -->
+<section class="section" id="kontakt">
+  <div class="wrap">
+    <div class="contact reveal">
+      <div class="contact-q" aria-hidden="true"><img src="quantica-q-mark-white.png" alt=""></div>
+      <div class="eyebrow">Kontakt</div>
+      <h2>Porozmawiajmy o szkoleniach</h2>
+      <p>Napisz do nas – omówimy program szkoleń dopasowany do Twojej organizacji.</p>
+      <div class="contact-pills">
+        <a class="pill pill-solid" href="mailto:kontakt@quanticalab.ai"><i data-lucide="mail" class="icon"></i>kontakt@quanticalab.ai</a>
+        <a class="pill pill-outline" href="https://www.quanticalab.ai" target="_blank" rel="noopener"><i data-lucide="globe" class="icon"></i>www.quanticalab.ai</a>
+      </div>
+      <div class="contact-info">
+        <div class="contact-logo"><img src="quantica-logo-white.png" alt="Quantica Lab"></div>
+        <div class="contact-meta"><strong>Quanticalab Sp. z o.o.</strong></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+</main>
+
+<footer class="footer">
+  <div class="wrap">
+    <div>quanticalab.ai</div>
+    <div>Szkolenia AI dla organizacji</div>
+  </div>
+</footer>
+
+<script src="https://unpkg.com/lucide@latest"></script>
+<script>
+(function () {
+  "use strict";
+
+  // ─── Hero dot particles ───
+  function initDots() {
+    var canvas = document.getElementById("dots");
+    if (!canvas) { return; }
+    var ctx = canvas.getContext("2d");
+    var dots = [];
+    function resize() {
+      canvas.width = canvas.offsetWidth;
+      canvas.height = canvas.offsetHeight;
+    }
+    resize();
+    window.addEventListener("resize", resize);
+    for (var i = 0; i < 70; i++) {
+      dots.push({
+        x: Math.random(), y: Math.random(),
+        r: 1 + Math.random() * 2.2,
+        vx: (Math.random() - 0.5) * 0.0004,
+        vy: (Math.random() - 0.5) * 0.0004,
+        o: 0.12 + Math.random() * 0.5
+      });
+    }
+    var reduced = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+    function frame() {
+      ctx.clearRect(0, 0, canvas.width, canvas.height);
+      dots.forEach(function (d) {
+        d.x = (d.x + d.vx + 1) % 1;
+        d.y = (d.y + d.vy + 1) % 1;
+        ctx.beginPath();
+        ctx.arc(d.x * canvas.width, d.y * canvas.height, d.r, 0, Math.PI * 2);
+        ctx.fillStyle = "rgba(210, 7, 87, " + d.o + ")";
+        ctx.fill();
+      });
+      if (!reduced) { requestAnimationFrame(frame); }
+    }
+    frame();
+  }
+
+  // ─── Scroll reveal ───
+  function initReveal() {
+    var revealed = document.querySelectorAll(".reveal");
+    if (!("IntersectionObserver" in window)) {
+      revealed.forEach(function (el) { el.classList.add("visible"); });
+      return;
+    }
+    var observer = new IntersectionObserver(function (entries) {
+      entries.forEach(function (entry) {
+        if (entry.isIntersecting) {
+          entry.target.classList.add("visible");
+          observer.unobserve(entry.target);
+        }
+      });
+    }, { threshold: 0.12 });
+    revealed.forEach(function (el) { observer.observe(el); });
+  }
+
+  // ─── Init ───
+  if (window.lucide) { window.lucide.createIcons(); }
+  initDots();
+  initReveal();
+})();
+</script>
+
+</body>
+</html>
