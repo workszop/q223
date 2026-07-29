@@ -2,22 +2,62 @@ name: Deploy Website to dhosting
 
 on:
   push:
-    branches:
-      - main
+    branches: [main]
+    paths-ignore:
+      - '**.md'
+      - '.gitignore'
+      - '.github/**'
+  workflow_dispatch:
+    inputs:
+      dry-run:
+        description: 'Podgląd zmian bez wysyłki na serwer'
+        type: boolean
+        default: false
+
+permissions:
+  contents: read
+
+concurrency:
+  group: deploy-dhosting
+  cancel-in-progress: false
 
 jobs:
   web-deploy:
     name: Deploy
     runs-on: ubuntu-latest
+    timeout-minutes: 10
     steps:
-    - name: Get latest code
-      uses: actions/checkout@v4
-    
-    - name: Sync files to dhosting
-      uses: SamKirkland/FTP-Deploy-Action@v4.3.5
-      with:
-        server: ${{ secrets.FTP_SERVER }}
-        username: ${{ secrets.FTP_USERNAME }}
-        password: ${{ secrets.FTP_PASSWORD }}
-        local-dir: ./ # Folder w repozytorium do wysłania (./ oznacza całość)
-        server-dir: /public_html/ # Ścieżka docelowa na dhosting
+      - name: Get latest code
+        uses: actions/checkout@v5
+
+      - name: Sync files to dhosting
+        uses: SamKirkland/FTP-Deploy-Action@v4.3.5
+        with:
+          # --- poświadczenia ---
+          server: ${{ secrets.FTP_SERVER }}        # login.ftp.dhosting.pl
+          username: ${{ secrets.FTP_USERNAME }}
+          password: ${{ secrets.FTP_PASSWORD }}
+
+          # --- połączenie ---
+          protocol: ftps                           # explicit FTPS (AUTH TLS na porcie 21)
+          security: loose                          # cert *.dhosting.pl, bez ścisłej walidacji
+          port: 21
+
+          # --- ścieżki ---
+          local-dir: ./
+          server-dir: /public_html/
+          state-name: ../.ftp-deploy-sync-state.json
+
+          # --- zachowanie ---
+          dry-run: ${{ inputs.dry-run == true }}
+          log-level: standard
+
+          # UWAGA: własna lista NADPISUJE domyślne wykluczenia akcji,
+          # dlatego wzorce .git muszą tu zostać wypisane jawnie.
+          exclude: |
+            **/.git*
+            **/.git*/**
+            **/.github/**
+            **/node_modules/**
+            **/*.md
+            .gitignore
