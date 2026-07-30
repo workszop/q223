@@ -17,90 +17,16 @@
 
 <link rel="preconnect" href="https://cdn.fontshare.com" crossorigin>
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="theme.css">
 <style>
-@font-face {
-  font-family: 'Satoshi';
-  font-style: normal;
   font-weight: 300;
-  font-display: swap;
   src: url('fonts/satoshi-300.woff2') format('woff2'), url('https://cdn.fontshare.com/wf/D7WD5OXZFWQ5T76HSPWAC7MNKAJXE2YG/LUGNSPO5YC34ABNB2O6K7AFDSOJZT56V/WNDVG7O66ENLOD43GS7FBUCC4KMT5OM2.woff2') format('woff2');
-}
-@font-face {
-  font-family: 'Satoshi';
-  font-style: normal;
-  font-weight: 400;
-  font-display: swap;
-  src: url('fonts/satoshi-400.woff2') format('woff2'), url('https://cdn.fontshare.com/wf/TTX2Z3BF3P6Y5BQT3IV2VNOK6FL22KUT/7QYRJOI3JIMYHGY6CH7SOIFRQLZOLNJ6/KFIAZD4RUMEZIYV6FQ3T3GP5PDBDB6JY.woff2') format('woff2');
-}
-@font-face {
-  font-family: 'Satoshi';
-  font-style: normal;
-  font-weight: 500;
-  font-display: swap;
-  src: url('fonts/satoshi-500.woff2') format('woff2'), url('https://cdn.fontshare.com/wf/P2LQKHE6KA6ZP4AAGN72KDWMHH6ZH3TA/ZC32TK2P7FPS5GFTL46EU6KQJA24ZYDB/7AHDUZ4A7LFLVFUIFSARGIWCRQJHISQP.woff2') format('woff2');
-}
-@font-face {
-  font-family: 'Satoshi';
-  font-style: normal;
-  font-weight: 700;
-  font-display: swap;
-  src: url('fonts/satoshi-700.woff2') format('woff2'), url('https://cdn.fontshare.com/wf/LAFFD4SDUCDVQEXFPDC7C53EQ4ZELWQI/PXCT3G6LO6ICM5I3NTYENYPWJAECAWDD/GHM6WVH6MILNYOOCXHXB5GTSGNTMGXZR.woff2') format('woff2');
-}
-@font-face {
-  font-family: 'Satoshi';
-  font-style: normal;
   font-weight: 900;
-  font-display: swap;
   src: url('fonts/satoshi-900.woff2') format('woff2'), url('https://cdn.fontshare.com/wf/NHPGVFYUXYXE33DZ75OIT4JFGHITX5PE/PSUTMASCDJTVPERDYJZPN23BVUFUCQIF/J64QX5IPOHK56I2KYUNBQ5M2XWZEYKYX.woff2') format('woff2');
-}
-@font-face {
-  font-family: 'Geist Mono';
-  font-style: normal;
-  font-weight: 400;
-  font-display: swap;
-  src: url('fonts/geistmono-400-latin-ext.woff2') format('woff2'), url('https://fonts.gstatic.com/s/geistmono/v6/or3nQ6H-1_WfwkMZI_qYFrkdmgPn.woff2') format('woff2');
-  unicode-range: U+0100-02BA, U+02BD-02C5, U+02C7-02CC, U+02CE-02D7, U+02DD-02FF, U+0304, U+0308, U+0329, U+1D00-1DBF, U+1E00-1E9F, U+1EF2-1EFF, U+2020, U+20A0-20AB, U+20AD-20C0, U+2113, U+2C60-2C7F, U+A720-A7FF;
-}
-@font-face {
-  font-family: 'Geist Mono';
-  font-style: normal;
-  font-weight: 400;
-  font-display: swap;
-  src: url('fonts/geistmono-400-latin.woff2') format('woff2'), url('https://fonts.gstatic.com/s/geistmono/v6/or3nQ6H-1_WfwkMZI_qYFrcdmg.woff2') format('woff2');
-  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
-}
-@font-face {
-  font-family: 'Geist Mono';
-  font-style: normal;
-  font-weight: 500;
-  font-display: swap;
-  src: url('fonts/geistmono-500-latin-ext.woff2') format('woff2'), url('https://fonts.gstatic.com/s/geistmono/v6/or3nQ6H-1_WfwkMZI_qYFrkdmgPn.woff2') format('woff2');
-  unicode-range: U+0100-02BA, U+02BD-02C5, U+02C7-02CC, U+02CE-02D7, U+02DD-02FF, U+0304, U+0308, U+0329, U+1D00-1DBF, U+1E00-1E9F, U+1EF2-1EFF, U+2020, U+20A0-20AB, U+20AD-20C0, U+2113, U+2C60-2C7F, U+A720-A7FF;
-}
-@font-face {
-  font-family: 'Geist Mono';
-  font-style: normal;
-  font-weight: 500;
-  font-display: swap;
-  src: url('fonts/geistmono-500-latin.woff2') format('woff2'), url('https://fonts.gstatic.com/s/geistmono/v6/or3nQ6H-1_WfwkMZI_qYFrcdmg.woff2') format('woff2');
-  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
-}
-@font-face {
-  font-family: 'Geist Mono';
-  font-style: normal;
   font-weight: 600;
-  font-display: swap;
   src: url('fonts/geistmono-600-latin-ext.woff2') format('woff2'), url('https://fonts.gstatic.com/s/geistmono/v6/or3nQ6H-1_WfwkMZI_qYFrkdmgPn.woff2') format('woff2');
-  unicode-range: U+0100-02BA, U+02BD-02C5, U+02C7-02CC, U+02CE-02D7, U+02DD-02FF, U+0304, U+0308, U+0329, U+1D00-1DBF, U+1E00-1E9F, U+1EF2-1EFF, U+2020, U+20A0-20AB, U+20AD-20C0, U+2113, U+2C60-2C7F, U+A720-A7FF;
-}
-@font-face {
-  font-family: 'Geist Mono';
-  font-style: normal;
   font-weight: 600;
-  font-display: swap;
   src: url('fonts/geistmono-600-latin.woff2') format('woff2'), url('https://fonts.gstatic.com/s/geistmono/v6/or3nQ6H-1_WfwkMZI_qYFrcdmg.woff2') format('woff2');
-  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
-}
 </style>
 
 <style>
@@ -672,72 +598,8 @@
   </div>
 </footer>
 
-<script src="https://unpkg.com/lucide@latest"></script>
-<script>
-(function () {
-  "use strict";
-
-  // Floating dot particles in hero (from wariant B)
-  function initDots() {
-    var canvas = document.getElementById("dots");
-    if (!canvas) { return; }
-    var ctx = canvas.getContext("2d");
-    var dots = [];
-    function resize() {
-      canvas.width = canvas.offsetWidth;
-      canvas.height = canvas.offsetHeight;
-    }
-    resize();
-    window.addEventListener("resize", resize);
-    for (var i = 0; i < 70; i++) {
-      dots.push({
-        x: Math.random(), y: Math.random(),
-        r: 1 + Math.random() * 2.2,
-        vx: (Math.random() - 0.5) * 0.0004,
-        vy: (Math.random() - 0.5) * 0.0004,
-        o: 0.12 + Math.random() * 0.5
-      });
-    }
-    var reduced = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
-    function frame() {
-      ctx.clearRect(0, 0, canvas.width, canvas.height);
-      dots.forEach(function (d) {
-        d.x = (d.x + d.vx + 1) % 1;
-        d.y = (d.y + d.vy + 1) % 1;
-        ctx.beginPath();
-        ctx.arc(d.x * canvas.width, d.y * canvas.height, d.r, 0, Math.PI * 2);
-        ctx.fillStyle = "rgba(210, 7, 87, " + d.o + ")";
-        ctx.fill();
-      });
-      if (!reduced) { requestAnimationFrame(frame); }
-    }
-    frame();
-  }
-
-  // ─── Scroll reveal ───
-  function initReveal() {
-    var revealed = document.querySelectorAll(".reveal");
-    if (!("IntersectionObserver" in window)) {
-      revealed.forEach(function (el) { el.classList.add("visible"); });
-      return;
-    }
-    var observer = new IntersectionObserver(function (entries) {
-      entries.forEach(function (entry) {
-        if (entry.isIntersecting) {
-          entry.target.classList.add("visible");
-          observer.unobserve(entry.target);
-        }
-      });
-    }, { threshold: 0.12 });
-    revealed.forEach(function (el) { observer.observe(el); });
-  }
-
-  // ─── Init ───
-  if (window.lucide) { window.lucide.createIcons(); }
-  initDots();
-  initReveal();
-})();
-</script>
+<script src="https://unpkg.com/lucide@1.27.0/dist/umd/lucide.min.js"></script>
+<script src="shared.js"></script>
 
 </body>
 </html>
