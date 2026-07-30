@@ -17,6 +17,13 @@
 
 <link rel="preconnect" href="https://cdn.fontshare.com" crossorigin>
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<style>
+  /* Anty-FOUC: szkielet widoczny zanim wczytaja sie wspoldzielone arkusze */
+  .nav-logo img { height: 30px; width: auto; }
+  .contact-logo img { height: 40px; width: auto; }
+  .reveal { opacity: 0; }
+  .reveal.visible { opacity: 1; }
+</style>
 <link rel="stylesheet" href="theme.css">
 <style>
   font-weight: 300;
@@ -435,7 +442,7 @@
 <nav class="nav" aria-label="Nawigacja">
   <div class="nav-inner">
     <a class="nav-logo" href="#top" aria-label="Quantica Lab">
-      <img src="quantica-logo-color.png" alt="Quantica Lab">
+      <img src="quantica-logo-color.png" alt="Quantica Lab" width="72" height="30">
     </a>
     <div class="nav-links">
       <a href="quantica_produkty.html">Produkty</a>
