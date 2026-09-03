@@ -22,6 +22,19 @@
   // ─── Helpers (diagram player) ───
   function el(id) { return document.getElementById(id); }
 
+  // Ikony Lucide tylko w podanym poddrzewie (createIcons bez root przebudowuje wszystkie ikony na stronie)
+  function refreshIcons(root) {
+    if (window.lucide) { window.lucide.createIcons({ root: root || document }); }
+  }
+
+  // "#d20757" -> "210, 7, 87" (do rgba() na canvasie; kolor z tokenu CSS, nie z kodu)
+  function hexToRgb(hex) {
+    var m = /^#?([0-9a-f]{3}|[0-9a-f]{6})$/i.exec(String(hex).trim());
+    if (!m) { return null; }
+    var h = m[1].length === 3 ? m[1].replace(/./g, function (c) { return c + c; }) : m[1];
+    return [0, 2, 4].map(function (i) { return parseInt(h.substr(i, 2), 16); }).join(", ");
+  }
+
   function setLink(link, cls) {
     link.classList.remove("on", "faded");
     if (cls) { link.classList.add(cls); }
@@ -46,6 +59,7 @@
     span.textContent = text;
     row.appendChild(span);
     container.appendChild(row);
+    refreshIcons(row);
     showRow(row);
   }
 
@@ -63,6 +77,7 @@
     span.appendChild(small);
     row.appendChild(span);
     container.appendChild(row);
+    refreshIcons(row);
     showRow(row);
   }
 
@@ -136,7 +151,7 @@
     // Skrypty stron pisza "refs.status.textContent = ..." - przechwytujemy setter na tym jednym elemencie
     // (wlasna wlasciwosc przeslania Node.prototype.textContent), zapis trafi do dziennika synchronicznie.
     if (statusText) {
-      statusText.classList.add("scn-status-src");
+      statusText.classList.add("sr-only");
       var nativeText = Object.getOwnPropertyDescriptor(Node.prototype, "textContent");
       if (nativeText && nativeText.set) {
         Object.defineProperty(statusText, "textContent", {
@@ -145,6 +160,8 @@
           set: function (v) { nativeText.set.call(this, v); pushLog(String(v)); }
         });
       }
+      // tekst poczatkowy z HTML ("system gotowy...") trafia do dziennika - stan idle nie jest pusty
+      pushLog(statusText.textContent);
     }
     // .scn-panel: status + dziennik razem (na mobile panel jest przyklejony do dolu ekranu)
     if (statusLine) {
@@ -164,13 +181,15 @@
       b.className = "scn-btn " + cls;
       b.setAttribute("aria-label", label);
       b.title = label;
+      b.setAttribute("data-icon", icon);
       b.innerHTML = '<i data-lucide="' + icon + '" class="icon"></i>';
+      refreshIcons(b);
       ctl.appendChild(b);
       return b;
     }
     var btnPlay = mkBtn("scn-play", "pause", "Zatrzymaj");
-    var btnStep = mkBtn("scn-step", "skip-forward", "Nastepny krok");
-    var btnReplay = mkBtn("scn-replay", "rotate-ccw", "Odtworz od nowa");
+    var btnStep = mkBtn("scn-step", "skip-forward", "Następny krok");
+    var btnReplay = mkBtn("scn-replay", "rotate-ccw", "Odtwórz od nowa");
     var btnAuto = document.createElement("button");
     btnAuto.type = "button";
     btnAuto.className = "scn-btn scn-auto";
@@ -183,22 +202,23 @@
     ctl.appendChild(hint);
     if (statusLine) { statusLine.appendChild(ctl); }
 
-    function refreshIcons() { if (window.lucide) { window.lucide.createIcons(); } }
-
     function setBtnIcon(btn, icon, label) {
-      btn.innerHTML = '<i data-lucide="' + icon + '" class="icon"></i>';
+      if (btn.getAttribute("data-icon") !== icon) {
+        btn.setAttribute("data-icon", icon);
+        btn.innerHTML = '<i data-lucide="' + icon + '" class="icon"></i>';
+        refreshIcons(btn);
+      }
       btn.setAttribute("aria-label", label);
       btn.title = label;
     }
     function updateCtl() {
       var st = fig.getAttribute("data-state");
       if (st === "playing") { setBtnIcon(btnPlay, "pause", "Zatrzymaj"); }
-      else if (st === "paused") { setBtnIcon(btnPlay, "play", "Wznow"); }
-      else { setBtnIcon(btnPlay, "play", "Odtworz"); }
+      else if (st === "paused") { setBtnIcon(btnPlay, "play", "Wznów"); }
+      else { setBtnIcon(btnPlay, "play", "Odtwórz"); }
       btnStep.disabled = !(st === "playing" || st === "paused") || nextPhase >= phases.length;
       btnAuto.setAttribute("aria-pressed", manual ? "false" : "true");
       fig.setAttribute("data-manual", manual ? "true" : "false");
-      refreshIcons();
     }
     function setState(state) { fig.setAttribute("data-state", state); updateCtl(); }
 
@@ -215,29 +235,32 @@
 
     function runPhase(n) {
       phases[n][1]();
-      refreshIcons();
       fig.setAttribute("data-phase", String(n + 1));
       nextPhase = n + 1;
+      updateCtl();
     }
+    // Przy prefers-reduced-motion scenariusze nie przelaczaja sie same (tresc nie zmienia sie bez udzialu uzytkownika)
     function armHold() {
-      if (manual) { return; }
+      if (manual || REDUCED_MOTION) { return; }
       holdTimer = window.setTimeout(function () { apply((ix + 1) % N, !REDUCED_MOTION); }, HOLD_MS);
     }
     function finish() {
       clearTimers();
-      setState(manual ? "done" : "hold");
+      setState(manual || REDUCED_MOTION ? "done" : "hold");
       announce(ix);
       armHold();
     }
     // Planuje pozostale fazy od biezacego "elapsed" (start, wznowienie po pauzie)
     function schedule() {
-      var last = phases[phases.length - 1][0];
+      if (nextPhase >= phases.length) { finish(); return; }
       for (var k = nextPhase; k < phases.length; k += 1) {
         (function (n) {
-          timers.push(window.setTimeout(function () { runPhase(n); }, Math.max(0, phases[n][0] - elapsed)));
+          timers.push(window.setTimeout(function () {
+            runPhase(n);
+            if (n === phases.length - 1) { finish(); }
+          }, Math.max(0, phases[n][0] - elapsed)));
         }(k));
       }
-      timers.push(window.setTimeout(finish, Math.max(0, last - elapsed)));
       startTime = Date.now();
     }
 
@@ -254,7 +277,7 @@
       fig.setAttribute("data-phase", "0");
       clearLog();
       cfg.reset(s);
-      refreshIcons();
+      refreshIcons(fig);
       phases = cfg.phases(s);
       nextPhase = 0;
       elapsed = 0;
@@ -315,7 +338,7 @@
     btnAuto.addEventListener("click", function () {
       var st = fig.getAttribute("data-state");
       if (!manual) {
-        manual = true;
+        stopAuto();
         if (st === "hold") { clearTimers(); setState("done"); } else { updateCtl(); }
         return;
       }
@@ -323,7 +346,7 @@
       started = true;
       if (io) { io.disconnect(); io = null; }
       if (st === "paused") { resume(); }
-      else if (st === "done") { setState("hold"); armHold(); }
+      else if (st === "done" && !REDUCED_MOTION) { setState("hold"); armHold(); }
       else if (st === "idle") { apply(ix, !REDUCED_MOTION); }
       else { updateCtl(); }
     });
@@ -340,7 +363,7 @@
             if (io) { io.disconnect(); io = null; }
           }
         });
-      }, { threshold: 0.35 });
+      }, { threshold: 0, rootMargin: "-30% 0px -30% 0px" });
       io.observe(fig);
     } else {
       apply(0, true);
@@ -378,17 +401,19 @@
   });
 
   // ─── Hero dot particles ───
+  // Petla rAF dziala tylko gdy hero jest na ekranie; canvas skalowany do devicePixelRatio.
   function initDots() {
     var canvas = document.getElementById("dots");
     if (!canvas) { return; }
     var ctx = canvas.getContext("2d");
     var dots = [];
-    function resize() {
-      canvas.width = canvas.offsetWidth;
-      canvas.height = canvas.offsetHeight;
-    }
-    resize();
-    window.addEventListener("resize", resize);
+    var dpr = Math.min(window.devicePixelRatio || 1, 2);
+    var w = 0;
+    var h = 0;
+    var running = false;
+    var raf = 0;
+    var rgb = hexToRgb(getComputedStyle(document.documentElement).getPropertyValue("--quantica-pink")) || "210, 7, 87";
+
     for (var i = 0; i < 70; i++) {
       dots.push({
         x: Math.random(), y: Math.random(),
@@ -398,20 +423,37 @@
         o: 0.12 + Math.random() * 0.5
       });
     }
-    var reduced = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
-    function frame() {
-      ctx.clearRect(0, 0, canvas.width, canvas.height);
+    function draw() {
+      ctx.clearRect(0, 0, w, h);
       dots.forEach(function (d) {
         d.x = (d.x + d.vx + 1) % 1;
         d.y = (d.y + d.vy + 1) % 1;
         ctx.beginPath();
-        ctx.arc(d.x * canvas.width, d.y * canvas.height, d.r, 0, Math.PI * 2);
-        ctx.fillStyle = "rgba(210, 7, 87, " + d.o + ")";
+        ctx.arc(d.x * w, d.y * h, d.r, 0, Math.PI * 2);
+        ctx.fillStyle = "rgba(" + rgb + ", " + d.o + ")";
         ctx.fill();
       });
-      if (!reduced) { requestAnimationFrame(frame); }
     }
-    frame();
+    function frame() {
+      draw();
+      if (running) { raf = window.requestAnimationFrame(frame); }
+    }
+    function start() { if (running || REDUCED_MOTION) { return; } running = true; frame(); }
+    function stop() { running = false; window.cancelAnimationFrame(raf); }
+    function resize() {
+      w = canvas.offsetWidth;
+      h = canvas.offsetHeight;
+      canvas.width = Math.round(w * dpr);
+      canvas.height = Math.round(h * dpr);
+      ctx.setTransform(dpr, 0, 0, dpr, 0, 0);
+      if (!running) { draw(); }
+    }
+    resize();
+    window.addEventListener("resize", resize);
+    if (REDUCED_MOTION || !("IntersectionObserver" in window)) { start(); return; }
+    new IntersectionObserver(function (entries) {
+      entries.forEach(function (entry) { if (entry.isIntersecting) { start(); } else { stop(); } });
+    }).observe(canvas);
   }
 
   // ─── Scroll reveal ───
@@ -457,8 +499,6 @@
   // ─── Init ───
   window.QW = {
     PHASE_MS: PHASE_MS,
-    HOLD_MS: HOLD_MS,
-    REDUCED_MOTION: REDUCED_MOTION,
     el: el,
     setLink: setLink,
     setNode: setNode,
@@ -467,10 +507,9 @@
     showPreview: showPreview,
     hidePreview: hidePreview,
     setCheck: setCheck,
-    makePlayer: makePlayer,
-    players: players
+    makePlayer: makePlayer
   };
-  if (window.lucide) { window.lucide.createIcons(); }
+  refreshIcons(document);
   initNav();
   initDots();
   initReveal();

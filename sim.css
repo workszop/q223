@@ -217,9 +217,10 @@
 /* ─── Model rows (ocena) ─── */
 .model-row {
   display: grid;
-  grid-template-columns: 150px 1fr 40px;
+  grid-template-columns: 1fr 48px;   /* nazwa + wynik w 1. wierszu, .crit-stack pod spodem */
   align-items: center;
-  gap: 10px;
+  column-gap: 10px;
+  row-gap: 5px;
   margin-top: 12px;
 }
 .model-row .model-name {
@@ -241,7 +242,7 @@
   text-transform: uppercase;
   color: var(--fg-3);
 }
-.score-track { height: 6px; background: var(--border-1); border-radius: 3px; overflow: hidden; }
+.score-track { display: block; height: 6px; background: var(--border-1); border-radius: 3px; overflow: hidden; }
 .score-fill { display: block; height: 100%; width: 0; background: var(--diagram-line); border-radius: 3px; transition: width 900ms ease, background 350ms; }
 .score-val { font-family: var(--font-mono); font-size: 11px; text-align: right; color: var(--fg-3); }
 .model-row.best .score-fill { background: var(--quantica-pink); }
@@ -309,18 +310,6 @@
   flex-wrap: wrap;
 }
 .scn-status b { color: var(--quantica-pink); font-weight: 600; }
-.scn-mode {
-  margin-left: auto;
-  font-size: 10px;
-  font-weight: 600;
-  letter-spacing: 0.1em;
-  text-transform: uppercase;
-  color: var(--fg-3);
-  border: 1px solid var(--border-2);
-  border-radius: 999px;
-  padding: 2px 8px;
-}
-.fig[data-manual="true"] .scn-mode { display: none; }
 .sr-only {
   position: absolute;
   width: 1px;
@@ -335,7 +324,6 @@
   font-size: 12.5px;
   color: var(--fg-3);
   max-width: none;
-  text-align: justify;
 }
 
 /* ─── Responsive ─── */
@@ -384,9 +372,6 @@
   .sync-row { grid-template-columns: 1fr; margin-top: 18px; }
   .sync-cell { grid-column: 1; }
   .sync-link { display: none; }
-  .model-row { grid-template-columns: 120px 1fr 36px; }
-  .sim-caption { text-align: left; }
-  #symulacja .route-callout span { text-align: left; }
 }
 
 /* ═══════════════════════════════════════════════════════════════
@@ -397,9 +382,6 @@
 
 /* ─── Player controls (.scn-ctl w .scn-status) ─── */
 .scn-status { row-gap: 8px; }
-.scn-status .scn-status-src {
-  position: absolute; width: 1px; height: 1px; overflow: hidden; clip: rect(0 0 0 0); white-space: nowrap;
-}
 .scn-ctl { margin-left: auto; display: inline-flex; align-items: center; gap: 6px; }
 .scn-btn {
   font-family: var(--font-mono);
@@ -431,7 +413,7 @@
 /* ─── Event log (.scn-log) ─── */
 .scn-log {
   margin-top: 10px;
-  min-height: 92px;                 /* ~4 wiersze: tresc ponizej nie skacze przy pierwszych zdarzeniach */
+  min-height: 122px;                /* LOG_MAX = 6 wierszy (6 x 17px + 5 x 4px): tresc ponizej nie skacze */
   display: flex;
   flex-direction: column;
   gap: 4px;
@@ -493,7 +475,6 @@
 .cite.two b { font-weight: 600; }
 .cite.two small { font-size: 10px; letter-spacing: 0; color: var(--fg-3); line-height: 1.45; }
 .cite-list.rows-3two { min-height: 168px; }
-.cite-list.rows-2 { min-height: 68px; }
 
 /* ─── Badge variants ─── */
 .flow-badge.ask { background: var(--white); border: 1.5px dashed var(--quantica-pink); }
@@ -512,7 +493,6 @@
 
 /* ─── Per-criterion bars (ocena) ─── */
 /* nazwa modelu i wynik w pierwszym wierszu, trzy paski kryteriow pod spodem na calej szerokosci */
-.model-row { grid-template-columns: 1fr 48px; align-items: center; row-gap: 5px; }
 .crit-stack { grid-column: 1 / -1; display: flex; flex-direction: column; gap: 4px; }
 .crit { display: grid; grid-template-columns: 78px 1fr; align-items: center; gap: 8px; }
 .crit-lbl { font-family: var(--font-mono); font-size: 9px; letter-spacing: 0.04em; text-transform: uppercase; color: var(--fg-3); white-space: nowrap; }
