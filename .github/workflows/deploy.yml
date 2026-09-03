@@ -40,7 +40,7 @@ jobs:
 
           # --- połączenie ---
           protocol: ftps                           # explicit FTPS (AUTH TLS na porcie 21)
-          security: strict                         # cert *.ftp.dhosting.pl (Sectigo) weryfikuje się poprawnie
+          security: loose                          # secret FTP_SERVER nie pasuje do certu *.ftp.dhosting.pl (ERR_TLS_CERT_ALTNAME_INVALID przy strict)
           port: 21
 
           # --- ścieżki ---
