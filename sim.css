@@ -1,0 +1,390 @@
+/*
+  Quantica Lab - style symulacji i notatek na stronach produktowych.
+  Ladowany po site.css tylko na *_website.html z diagramem.
+  Tokeny --diagram-* sa w site.css (:root).
+*/
+
+/* ─── Figure + scenario tabs ─── */
+.fig {
+  background: var(--diagram-paper);
+  border: 1px solid var(--border-1);
+  border-radius: var(--radius-lg);
+  padding: 30px 32px 26px;
+  margin-top: 36px;
+}
+.fig-head {
+  display: flex;
+  align-items: baseline;
+  gap: 14px;
+  margin-bottom: 26px;
+  flex-wrap: wrap;
+}
+.scn-tabs { margin-left: auto; display: flex; gap: 18px; flex-wrap: wrap; }
+.scn-tab {
+  font-family: var(--font-mono);
+  font-size: 11px;
+  letter-spacing: 0.06em;
+  color: var(--fg-3);
+  background: none;
+  border: none;
+  border-bottom: 1.5px solid transparent;
+  padding: 0 0 3px;
+  cursor: pointer;
+  display: inline-flex;
+  align-items: center;
+  gap: 7px;
+}
+.scn-tab::before { content: attr(data-ix); font-weight: 600; color: var(--diagram-line); }
+.scn-tab.on { color: var(--fg-1); border-bottom-color: var(--quantica-pink); }
+.scn-tab.on::before { color: var(--quantica-pink); }
+.scn-tab:hover { color: var(--fg-1); }
+.scn-tab:focus-visible { outline: 2px solid var(--quantica-pink); outline-offset: 3px; }
+
+/* ─── Flow nodes ─── */
+.flowz {
+  display: grid;
+  grid-template-columns: 1fr 58px 1.15fr 58px 1.15fr;
+  align-items: center;
+}
+.flowz-wide { grid-template-columns: 1fr 58px 1fr 58px 1.3fr; }
+.flow-node {
+  border: 1.5px solid var(--diagram-line);
+  border-radius: var(--radius-md);
+  padding: 18px 18px 16px;
+  background: var(--white);
+  transition: border-color 400ms, opacity 400ms;
+}
+.flow-node .step-no {
+  font-family: var(--font-mono);
+  font-size: 11px;
+  font-weight: 600;
+  letter-spacing: 0.1em;
+  color: var(--fg-3);
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  transition: color 400ms;
+}
+.flow-node .step-no::after {
+  content: "";
+  width: 26px;
+  height: 1.5px;
+  background: var(--diagram-line);
+  transition: background 400ms;
+}
+.flow-node h3 {
+  font-family: var(--font-display);
+  font-weight: 700;
+  font-size: 15.5px;
+  line-height: 1.25;
+  letter-spacing: -0.01em;
+  color: var(--fg-1);
+  margin: 10px 0 6px;
+  display: flex;
+  align-items: center;
+  gap: 9px;
+}
+.flow-node h3 .icon { width: 18px; height: 18px; color: var(--diagram-line); flex: none; transition: color 400ms; }
+.flow-node.on { border-color: var(--diagram-line-on); }
+.flow-node.on .step-no { color: var(--quantica-pink); }
+.flow-node.on .step-no::after { background: var(--quantica-pink); }
+.flow-node.on h3 .icon { color: var(--quantica-pink); }
+.flow-node.faded { opacity: 0.38; }
+.flow-node.blocked { border-style: dashed; opacity: 0.55; }
+
+.flow-sub {
+  font-family: var(--font-mono);
+  font-size: 10px;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: var(--fg-3);
+  margin: -2px 0 6px;
+}
+
+.flow-query {
+  font-size: 12.5px;
+  line-height: 1.55;
+  color: var(--fg-3);
+  min-height: 4.6em;
+  max-width: none;
+  margin: 0;
+}
+.flow-query::before { content: "\201E"; }
+.flow-query::after { content: "\201D"; }
+.flow-query.short { min-height: 0; }
+
+.flow-checks { display: flex; flex-direction: column; gap: 7px; margin-top: 4px; }
+.flow-check {
+  display: flex;
+  align-items: flex-start;
+  gap: 8px;
+  font-family: var(--font-mono);
+  font-size: 10.5px;
+  letter-spacing: 0.02em;
+  line-height: 1.5;
+  color: var(--fg-3);
+  opacity: 0.5;
+  transition: opacity 350ms, color 350ms;
+}
+.flow-check .icon { width: 13px; height: 13px; flex: none; margin-top: 1px; color: var(--diagram-line); transition: color 350ms; }
+.flow-check.on { opacity: 1; color: var(--fg-1); }
+.flow-check.on .icon { color: var(--quantica-pink); }
+
+/* ─── Links between nodes ─── */
+.flow-link { width: 100%; height: 14px; }
+.flow-link line { stroke: var(--diagram-line); stroke-width: 1.5; stroke-dasharray: 4 5; }
+.flow-link path { fill: var(--diagram-line); }
+.flow-link.on line { stroke: var(--diagram-line-on); animation: dashMove 700ms linear infinite; }
+.flow-link.on path { fill: var(--diagram-line-on); }
+.flow-link.faded { opacity: 0.35; }
+@keyframes dashMove { to { stroke-dashoffset: -9; } }
+
+.vlink { width: 14px; height: 30px; margin: 4px auto; display: block; }
+.vlink line { stroke: var(--diagram-line); stroke-width: 1.5; stroke-dasharray: 4 5; }
+.vlink path { fill: var(--diagram-line); }
+.vlink.on line { stroke: var(--diagram-line-on); animation: dashMove 700ms linear infinite; }
+.vlink.on path { fill: var(--diagram-line-on); }
+
+.branch-links {
+  display: flex;
+  flex-direction: column;
+  align-self: stretch;
+  justify-content: space-around;
+  gap: 18px;
+}
+.branch-targets { display: flex; flex-direction: column; gap: 18px; }
+
+/* ─── Citations and badges ─── */
+.cite-list { display: flex; flex-direction: column; gap: 6px; margin-top: 10px; }
+/* zarezerwowana wysokosc wg najdluzszego scenariusza - wezly nie skacza, gdy pojawiaja sie wiersze */
+.cite-list.rows-2 { min-height: 68px; }
+.cite-list.rows-3 { min-height: 104px; }
+.cite-list.rows-5 { min-height: 176px; }
+.cite {
+  font-family: var(--font-mono);
+  font-size: 10.5px;
+  letter-spacing: 0.02em;
+  color: var(--fg-1);
+  background: var(--bg-2);
+  border: 1px solid var(--border-1);
+  border-radius: var(--radius-sm);
+  padding: 6px 9px;
+  display: flex;
+  align-items: center;
+  gap: 7px;
+  opacity: 0;
+  transition: opacity 350ms;
+}
+.cite.show { opacity: 1; }
+.cite .icon { width: 13px; height: 13px; flex: none; color: var(--quantica-pink); }
+.cite.gap { color: var(--fg-3); }
+.cite.gap .icon { color: var(--fg-3); }
+
+.flow-badge {
+  margin-top: 10px;
+  font-family: var(--font-mono);
+  font-size: 10.5px;
+  letter-spacing: 0.02em;
+  line-height: 1.5;
+  padding: 6px 10px;
+  border-radius: var(--radius-sm);
+  display: inline-flex;
+  align-items: flex-start;
+  gap: 7px;
+  background: var(--magenta-tint);
+  color: var(--deep-berry);
+  opacity: 0;
+  transition: opacity 350ms;
+}
+.flow-badge.show { opacity: 1; }
+.flow-badge.muted { background: var(--bg-2); color: var(--fg-3); }
+.flow-badge .icon { width: 13px; height: 13px; flex: none; margin-top: 1px; }
+
+.genre-chip {
+  display: inline-block;
+  font-family: var(--font-mono);
+  font-size: 10px;
+  font-weight: 600;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--quantica-pink);
+  border: 1.5px solid var(--quantica-pink);
+  border-radius: 999px;
+  padding: 3px 10px;
+  margin-bottom: 8px;
+}
+
+/* ─── Model rows (ocena) ─── */
+.model-row {
+  display: grid;
+  grid-template-columns: 150px 1fr 40px;
+  align-items: center;
+  gap: 10px;
+  margin-top: 12px;
+}
+.model-row .model-name {
+  display: flex;
+  align-items: center;
+  gap: 7px;
+  font-family: var(--font-display);
+  font-weight: 700;
+  font-size: 13px;
+  color: var(--fg-1);
+}
+.model-name .icon { width: 15px; height: 15px; flex: none; color: var(--diagram-line); transition: color 350ms; }
+.model-name em {
+  font-style: normal;
+  font-family: var(--font-mono);
+  font-weight: 400;
+  font-size: 9px;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: var(--fg-3);
+}
+.score-track { height: 6px; background: var(--border-1); border-radius: 3px; overflow: hidden; }
+.score-fill { display: block; height: 100%; width: 0; background: var(--diagram-line); border-radius: 3px; transition: width 900ms ease, background 350ms; }
+.score-val { font-family: var(--font-mono); font-size: 11px; text-align: right; color: var(--fg-3); }
+.model-row.best .score-fill { background: var(--quantica-pink); }
+.model-row.best .score-val { color: var(--quantica-pink); font-weight: 600; }
+.model-row.best .model-name .icon { color: var(--quantica-pink); }
+
+/* ─── Sync row (zagloba) ─── */
+.sync-row {
+  display: grid;
+  grid-template-columns: 1fr 58px 1.15fr 58px 1.15fr;
+}
+.sync-cell {
+  grid-column: 3;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.sync-link { width: 14px; height: 36px; }
+.sync-link line { stroke: var(--diagram-line); stroke-width: 1.5; stroke-dasharray: 4 5; }
+.sync-link path { fill: var(--diagram-line); }
+.sync-box {
+  border: 1.5px dashed var(--diagram-line);
+  border-radius: var(--radius-md);
+  padding: 12px 16px;
+  text-align: center;
+  max-width: 420px;
+}
+.sync-box .sync-tag {
+  font-family: var(--font-mono);
+  font-size: 10px;
+  font-weight: 600;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--fg-3);
+  display: block;
+  margin-bottom: 5px;
+}
+.sync-box .sync-src {
+  font-family: var(--font-mono);
+  font-size: 10.5px;
+  letter-spacing: 0.02em;
+  color: var(--fg-1);
+  display: block;
+}
+.sync-box .sync-note {
+  font-size: 11.5px;
+  line-height: 1.5;
+  color: var(--fg-3);
+  display: block;
+  margin-top: 4px;
+}
+
+/* ─── Status line + caption ─── */
+.scn-status {
+  margin-top: 22px;
+  padding-top: 14px;
+  border-top: 1px dashed var(--border-2);
+  font-family: var(--font-mono);
+  font-size: 11px;
+  letter-spacing: 0.06em;
+  color: var(--fg-3);
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  flex-wrap: wrap;
+}
+.scn-status b { color: var(--quantica-pink); font-weight: 600; }
+.scn-mode {
+  margin-left: auto;
+  font-size: 10px;
+  font-weight: 600;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--fg-3);
+  border: 1px solid var(--border-2);
+  border-radius: 999px;
+  padding: 2px 8px;
+}
+.fig[data-manual="true"] .scn-mode { display: none; }
+.sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  overflow: hidden;
+  clip: rect(0 0 0 0);
+  white-space: nowrap;
+}
+
+.sim-caption {
+  margin-top: 16px;
+  font-size: 12.5px;
+  color: var(--fg-3);
+  max-width: none;
+  text-align: justify;
+}
+
+/* ─── Responsive ─── */
+@media (max-width: 768px) {
+  .fig { padding: 22px 18px; }
+  .flowz, .flowz-wide { grid-template-columns: 1fr; gap: 0; }
+  .flow-link { height: 40px; width: 22px; margin: 0 auto; transform: rotate(90deg); }
+  /* Rozgalezienia: zamiast 2-3 strzalek obok siebie - jedna pionowa strzalka do stosu
+     celow i pionowe laczniki miedzy kolejnymi celami. */
+  .branch-links { display: none; }
+  /* pionowy lacznik (kreska + grot) nad elementem */
+  .branch-links + .branch-targets,
+  .branch-targets > .flow-node + .flow-node,
+  .branch-targets + .branch-links + .flow-node { position: relative; margin-top: 40px; }
+  .branch-links + .branch-targets::before,
+  .branch-targets > .flow-node + .flow-node::before,
+  .branch-targets + .branch-links + .flow-node::before {
+    content: "";
+    position: absolute;
+    left: 50%;
+    top: -34px;
+    height: 24px;
+    border-left: 1.5px dashed var(--diagram-line);
+  }
+  .branch-links + .branch-targets::after,
+  .branch-targets > .flow-node + .flow-node::after,
+  .branch-targets + .branch-links + .flow-node::after {
+    content: "";
+    position: absolute;
+    left: 50%;
+    top: -11px;
+    transform: translateX(-50%);
+    border: 6px solid transparent;
+    border-top: 8px solid var(--diagram-line);
+    border-bottom: 0;
+  }
+  .branch-targets > .flow-node.on::before,
+  .branch-targets + .branch-links + .flow-node.on::before { border-left-color: var(--diagram-line-on); }
+  .branch-targets > .flow-node.on::after,
+  .branch-targets + .branch-links + .flow-node.on::after { border-top-color: var(--diagram-line-on); }
+  .flow-query { min-height: 0; }
+  .cite-list.rows-2, .cite-list.rows-3, .cite-list.rows-5 { min-height: 0; }
+  .fig-head { margin-bottom: 18px; }
+  .scn-tabs { margin-left: 0; flex-wrap: nowrap; overflow-x: auto; gap: 16px; padding-bottom: 4px; max-width: 100%; }
+  .scn-tab { white-space: nowrap; flex: none; }
+  .sync-row { grid-template-columns: 1fr; margin-top: 18px; }
+  .sync-cell { grid-column: 1; }
+  .sync-link { display: none; }
+  .model-row { grid-template-columns: 120px 1fr 36px; }
+  .sim-caption { text-align: left; }
+  #symulacja .route-callout span { text-align: left; }
+}
