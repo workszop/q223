@@ -176,7 +176,7 @@
         <div class="flow-node" id="klExternal">
           <span class="step-no">03B</span>
           <h3><i data-lucide="cloud" class="icon"></i>Model zewnętrzny</h3>
-          <div class="flow-sub">Quantica APIQ (modele hostowane przez Quantica) lub API frontier (OpenAI, Anthropic, Gemini)</div>
+          <div class="flow-sub">Quantica APIQ (modele hostowane przez Quantica) lub frontier API (OpenAI, Anthropic, Gemini)</div>
           <span class="flow-badge" id="klExternalBadge"><i data-lucide="award" class="icon"></i><span id="klExternalBadgeText"></span></span>
           <span class="flow-badge ok" id="klExternalMeta"><i data-lucide="coins" class="icon"></i><span id="klExternalMetaText"></span></span>
           <span class="flow-badge muted" id="klBlockedBadge"><i data-lucide="ban" class="icon"></i><span>polecenie nie jest przekazywane poza organizację</span></span>
@@ -188,7 +188,7 @@
         <svg class="sync-link" viewBox="0 0 14 36" aria-hidden="true"><line x1="7" y1="36" x2="7" y2="10"/><path d="M2 11 L7 1 L12 11 Z"/></svg>
         <div class="sync-box">
           <span class="sync-tag">Decyzja w infrastrukturze organizacji</span>
-          <span class="sync-src">Quantica APIQ (modele hostowane przez Quantica) · API frontier (OpenAI, Anthropic, Gemini)</span>
+          <span class="sync-src">Quantica APIQ (modele hostowane przez Quantica) · frontier API (OpenAI, Anthropic, Gemini)</span>
           <span class="sync-note">analiza i wybór modelu odbywają się lokalnie - na zewnątrz trafia wyłącznie treść zadań, które mogą być przetwarzane poza organizacją</span>
         </div>
       </div>
@@ -358,13 +358,13 @@
       checks: [
         "analiza bezpieczeństwa: brak danych wymagających ochrony",
         "analiza złożoności: zadanie wymaga najbardziej zaawansowanego modelu",
-        "decyzja: model zewnętrzny - Quantica APIQ lub API frontier"
+        "decyzja: model zewnętrzny - Quantica APIQ lub frontier API"
       ],
       target: "external",
       blocked: false,
       externalBadge: "odpowiednia jakość odpowiedzi dla złożonego zadania",
-      meta: "koszt: wg cennika Quantica APIQ lub dostawcy API frontier · na zewnątrz: tylko treść zadania",
-      statusRoute: "zadanie skierowane do modelu zewnętrznego: Quantica APIQ lub API frontier (OpenAI, Anthropic, Gemini)",
+      meta: "koszt: wg cennika Quantica APIQ lub dostawcy frontier API · na zewnątrz: tylko treść zadania",
+      statusRoute: "zadanie skierowane do modelu zewnętrznego: Quantica APIQ lub frontier API (OpenAI, Anthropic, Gemini)",
       statusFinal: "model komercyjny wykorzystany tam, gdzie jego możliwości przynoszą rzeczywistą wartość"
     }
   ];
