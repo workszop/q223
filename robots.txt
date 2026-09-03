@@ -1,0 +1,5 @@
+User-agent: *
+Allow: /
+Disallow: /quantica_wiedza.html
+
+Sitemap: https://www.quanticalab.ai/sitemap.xml

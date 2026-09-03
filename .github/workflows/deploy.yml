@@ -40,7 +40,7 @@ jobs:
 
           # --- połączenie ---
           protocol: ftps                           # explicit FTPS (AUTH TLS na porcie 21)
-          security: loose                          # cert *.dhosting.pl, bez ścisłej walidacji
+          security: strict                         # cert *.ftp.dhosting.pl (Sectigo) weryfikuje się poprawnie
           port: 21
 
           # --- ścieżki ---

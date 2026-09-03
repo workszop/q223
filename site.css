@@ -7,7 +7,6 @@
 /* ─── Tokens ─── */
 :root {
   --quantica-pink:    #d20757;
-  --rose-pink:        #d20757;
   --deep-berry:       #8A004C;
   --magenta-tint:     #FFE6F1;
 
@@ -26,7 +25,6 @@
   --white:            #FFFFFF;
 
   --fg-1:             #111111;
-  --fg-2:             #111111;
   --fg-3:             #4B5563;
 
   --bg-1:             #FFFFFF;
@@ -68,7 +66,7 @@
 html { scroll-behavior: smooth; scroll-padding-top: calc(var(--nav-h) + 12px); }
 body {
   font-family: var(--font-sans);
-  color: var(--fg-2);
+  color: var(--fg-1);
   background: var(--bg-1);
   line-height: 1.6;
   -webkit-font-smoothing: antialiased;
@@ -77,6 +75,21 @@ body {
 img { max-width: 100%; }
 a { color: var(--quantica-pink); }
 a:focus-visible, button:focus-visible { outline: 2px solid var(--quantica-pink); outline-offset: 3px; }
+
+/* Link pomijajacy nawigacje: widoczny tylko po ustawieniu fokusu klawiatura */
+.skip-link {
+  position: absolute;
+  left: 16px;
+  top: -100px;
+  z-index: 50;
+  padding: 10px 18px;
+  border-radius: 999px;
+  background: var(--quantica-pink);
+  color: var(--white);
+  font-weight: 700;
+  text-decoration: none;
+}
+.skip-link:focus { top: 12px; }
 
 .wrap {
   max-width: var(--content-w);
@@ -129,7 +142,8 @@ html.js .reveal.visible { opacity: 1; transform: none; }
   letter-spacing: 0.01em;
 }
 .nav-links a:hover { color: var(--quantica-pink); }
-.nav-links a.active { color: var(--quantica-pink); }
+.nav-links a.active,
+.nav-links a[aria-current="page"] { color: var(--quantica-pink); }
 .nav-cta {
   background: var(--quantica-pink);
   color: var(--white) !important;
@@ -201,7 +215,7 @@ html.js .reveal.visible { opacity: 1; transform: none; }
   font-size: 12px;
   letter-spacing: 0.18em;
   text-transform: uppercase;
-  color: var(--rose-pink);
+  color: var(--quantica-pink);
   margin-bottom: 20px;
   display: inline-flex;
   align-items: center;
@@ -212,7 +226,7 @@ html.js .reveal.visible { opacity: 1; transform: none; }
   display: block;
   width: 28px;
   height: 1px;
-  background: var(--rose-pink);
+  background: var(--quantica-pink);
 }
 .hero-title {
   font-family: var(--font-display);
@@ -223,7 +237,7 @@ html.js .reveal.visible { opacity: 1; transform: none; }
   color: var(--white);
 }
 .hero-compact .hero-title { font-size: clamp(48px, 7vw, 92px); }
-.hero-title em { font-style: normal; color: var(--rose-pink); }
+.hero-title em { font-style: normal; color: var(--quantica-pink); }
 .hero-subtitle {
   font-family: var(--font-display);
   font-size: clamp(24px, 3.4vw, 40px);
@@ -233,7 +247,7 @@ html.js .reveal.visible { opacity: 1; transform: none; }
   letter-spacing: -0.015em;
   line-height: 1.15;
 }
-.hero-subtitle em { font-style: normal; color: var(--rose-pink); }
+.hero-subtitle em { font-style: normal; color: var(--quantica-pink); }
 .hero-tagline {
   font-size: clamp(15px, 1.6vw, 18px);
   line-height: 1.6;
@@ -310,15 +324,6 @@ html.js .reveal.visible { opacity: 1; transform: none; }
   margin-bottom: 22px;
 }
 .h-pink { color: var(--quantica-pink); }
-.h-sub {
-  font-family: var(--font-display);
-  font-weight: 700;
-  font-size: clamp(20px, 2.6vw, 26px);
-  line-height: 1.15;
-  letter-spacing: -0.02em;
-  color: var(--fg-1);
-  margin: 44px 0 14px;
-}
 .section p { font-size: 15.5px; line-height: 1.75; margin-bottom: 14px; max-width: 780px; }
 .section p strong { color: var(--quantica-pink); font-weight: 700; }
 .lead { font-weight: 700; color: var(--fg-1); }
@@ -533,8 +538,8 @@ html.js .reveal.visible { opacity: 1; transform: none; }
   pointer-events: none;
 }
 .contact-q img { width: 100%; display: block; }
-.contact .eyebrow { color: var(--rose-pink); }
-.contact .eyebrow::before { background: var(--rose-pink); }
+.contact .eyebrow { color: var(--quantica-pink); }
+.contact .eyebrow::before { background: var(--quantica-pink); }
 .contact h2 {
   color: var(--white);
   font-family: var(--font-display);
@@ -577,7 +582,7 @@ html.js .reveal.visible { opacity: 1; transform: none; }
 }
 .footer-brand img { height: 26px; width: auto; display: block; margin-bottom: 14px; }
 .footer p { margin: 0; line-height: 1.7; }
-.footer h4 {
+.footer h3 {
   font-family: var(--font-mono);
   font-weight: 500;
   font-size: 11px;
@@ -653,7 +658,7 @@ html.js .reveal.visible { opacity: 1; transform: none; }
   gap: 18px;
   align-items: flex-start;
 }
-.note-violet p { margin: 0; font-size: 16px; line-height: 1.7; color: var(--fg-1); font-weight: 500; max-width: none; text-align: justify; }
+.note-violet p { margin: 0; font-size: 16px; line-height: 1.7; color: var(--fg-1); font-weight: 500; max-width: none; }
 .note-violet .note-icon {
   flex: none;
   width: 46px;
@@ -666,15 +671,8 @@ html.js .reveal.visible { opacity: 1; transform: none; }
 }
 .note-violet .note-icon .icon { width: 23px; height: 23px; color: var(--violet-primary); }
 
-/* ─── Full-width, justified prose on product pages ─── */
+/* ─── Full-width prose on product pages ─── */
 #jak-dziala .wrap > .reveal > p,
 #wprowadzenie .wrap > .reveal > p,
-#wlasne-dane .wrap > .reveal > p { max-width: none; text-align: justify; }
+#wlasne-dane .wrap > .reveal > p { max-width: none; }
 #symulacja .route-callout { max-width: none; }
-#symulacja .route-callout span { text-align: justify; }
-@media (max-width: 768px) {
-  .note-violet p,
-  #jak-dziala .wrap > .reveal > p,
-  #wprowadzenie .wrap > .reveal > p,
-  #wlasne-dane .wrap > .reveal > p { text-align: left; }
-}
