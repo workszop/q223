@@ -144,9 +144,9 @@
   <div class="fig reveal" id="figDyndalski">
     <div class="fig-head">
       <div class="scn-tabs" role="group" aria-label="Przykładowe gatunki dokumentów">
-        <button class="scn-tab" type="button" data-scn="0" data-ix="1">uchwała</button>
-        <button class="scn-tab" type="button" data-scn="1" data-ix="2">zawiadomienie</button>
-        <button class="scn-tab" type="button" data-scn="2" data-ix="3">protokół</button>
+        <button class="scn-tab" type="button">uchwała</button>
+        <button class="scn-tab" type="button">zawiadomienie</button>
+        <button class="scn-tab" type="button">protokół</button>
       </div>
     </div>
     <div class="flowz">
@@ -231,7 +231,7 @@
 <section class="section" id="kontakt">
   <div class="wrap">
     <div class="contact reveal">
-      <div class="contact-q" aria-hidden="true"><img src="quantica-q-mark-white.png" alt=""></div>
+      <div class="contact-q" aria-hidden="true"><img src="quantica-q-mark-white.png" alt="" loading="lazy"></div>
       <h2>Porozmawiajmy o wdrożeniu</h2>
       <p>Napisz do nas – pokażemy Dyndalskiego w działaniu i omówimy scenariusz wdrożenia dopasowany do Twojej organizacji.</p>
       <div class="contact-pills">
@@ -239,7 +239,7 @@
         <a class="pill pill-outline" href="https://www.quanticalab.ai" target="_blank" rel="noopener">www.quanticalab.ai</a>
       </div>
       <div class="contact-info">
-        <div class="contact-logo"><img src="quantica-logo-white.png" alt="Quantica Lab" width="96" height="40"></div>
+        <div class="contact-logo"><img src="quantica-logo-white.png" alt="Quantica Lab" width="96" height="40" loading="lazy"></div>
         <div class="contact-meta"><strong>Quantica Lab Sp. z o.o.</strong></div>
       </div>
     </div>
@@ -251,7 +251,7 @@
 <footer class="footer">
   <div class="wrap footer-grid">
     <div class="footer-brand">
-      <img src="quantica-logo-color.png" alt="Quantica Lab" width="62" height="26">
+      <img src="quantica-logo-color.png" alt="Quantica Lab" width="62" height="26" loading="lazy">
       <p>Quantica Lab Sp. z o.o.<br>ul. Twarda 18, 00-105 Warszawa<br>NIP 5253067706 · KRS 0001204682</p>
     </div>
     <div>
@@ -290,6 +290,7 @@
   var setNode = QW.setNode;
   var addRow = QW.addRow;
   var setCheck = QW.setCheck;
+  var resetAll = QW.resetAll;
   var showPreview = QW.showPreview;
   var hidePreview = QW.hidePreview;
   var makePlayer = QW.makePlayer;
@@ -344,12 +345,11 @@
 
   // ─── Render (scenario playback) ───
   makePlayer({
+    status: refs.status,
     fig: el("figDyndalski"),
     scenarios: SCENARIOS,
     reset: function (s) {
-      [refs.form, refs.generate, refs.doc].forEach(function (n) { setNode(n, null); });
-      [refs.link1, refs.link2].forEach(function (l) { setLink(l, null); });
-      refs.checks.forEach(function (c) { c.classList.remove("on"); });
+      resetAll([refs.form, refs.generate, refs.doc], [refs.link1, refs.link2], refs.checks);
       refs.docRows.innerHTML = "";
       hidePreview(refs.preview);
       refs.ask.classList.remove("show");

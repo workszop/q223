@@ -150,9 +150,9 @@
   <div class="fig reveal" id="figKlara">
     <div class="fig-head">
       <div class="scn-tabs" role="group" aria-label="Przykładowe polecenia">
-        <button class="scn-tab" type="button" data-scn="0" data-ix="1">dane poufne</button>
-        <button class="scn-tab" type="button" data-scn="1" data-ix="2">zadanie rutynowe</button>
-        <button class="scn-tab" type="button" data-scn="2" data-ix="3">zadanie złożone</button>
+        <button class="scn-tab" type="button">dane poufne</button>
+        <button class="scn-tab" type="button">zadanie rutynowe</button>
+        <button class="scn-tab" type="button">zadanie złożone</button>
       </div>
     </div>
     <div class="flowz">
@@ -274,7 +274,7 @@
 <section class="section" id="kontakt">
   <div class="wrap">
     <div class="contact reveal">
-      <div class="contact-q" aria-hidden="true"><img src="quantica-q-mark-white.png" alt=""></div>
+      <div class="contact-q" aria-hidden="true"><img src="quantica-q-mark-white.png" alt="" loading="lazy"></div>
       <h2>Porozmawiajmy o wdrożeniu</h2>
       <p>Napisz do nas – pokażemy Klarę w działaniu i omówimy scenariusz wdrożenia dopasowany do Twojej organizacji.</p>
       <div class="contact-pills">
@@ -282,7 +282,7 @@
         <a class="pill pill-outline" href="https://www.quanticalab.ai" target="_blank" rel="noopener">www.quanticalab.ai</a>
       </div>
       <div class="contact-info">
-        <div class="contact-logo"><img src="quantica-logo-white.png" alt="Quantica Lab" width="96" height="40"></div>
+        <div class="contact-logo"><img src="quantica-logo-white.png" alt="Quantica Lab" width="96" height="40" loading="lazy"></div>
         <div class="contact-meta"><strong>Quantica Lab Sp. z o.o.</strong></div>
       </div>
     </div>
@@ -294,7 +294,7 @@
 <footer class="footer">
   <div class="wrap footer-grid">
     <div class="footer-brand">
-      <img src="quantica-logo-color.png" alt="Quantica Lab" width="62" height="26">
+      <img src="quantica-logo-color.png" alt="Quantica Lab" width="62" height="26" loading="lazy">
       <p>Quantica Lab Sp. z o.o.<br>ul. Twarda 18, 00-105 Warszawa<br>NIP 5253067706 · KRS 0001204682</p>
     </div>
     <div>
@@ -332,6 +332,7 @@
   var setLink = QW.setLink;
   var setNode = QW.setNode;
   var setCheck = QW.setCheck;
+  var resetAll = QW.resetAll;
   var makePlayer = QW.makePlayer;
 
   var SCENARIOS = [
@@ -396,12 +397,11 @@
 
   // ─── Render (scenario playback) ───
   makePlayer({
+    status: refs.status,
     fig: el("figKlara"),
     scenarios: SCENARIOS,
     reset: function (s) {
-      [refs.query, refs.analysis, refs.local, refs.external].forEach(function (n) { setNode(n, null); });
-      [refs.link1, refs.linkA, refs.linkB].forEach(function (l) { setLink(l, null); });
-      refs.checks.forEach(function (c) { c.classList.remove("on"); });
+      resetAll([refs.query, refs.analysis, refs.local, refs.external], [refs.link1, refs.linkA, refs.linkB], refs.checks);
       [refs.localBadge, refs.localMeta, refs.externalBadge, refs.externalMeta, refs.blockedBadge]
         .forEach(function (b) { b.classList.remove("show"); });
       refs.queryText.textContent = s.query;

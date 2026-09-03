@@ -5,7 +5,7 @@
     - dziennik zdarzen .scn-log zasilany z linii statusu przez przechwycony setter textContent
       (skrypty stron nie zmieniaja sposobu pisania statusu),
     - stany data-state: idle | playing | paused | hold | done,
-    - podpowiedz klawiszy 1-N,
+    - podpowiedz klawiszy 1-N, etykieta biezacego scenariusza (.scn-now),
     - nowe helpery: addRow2 (wiersz dwuliniowy), showPreview / hidePreview (podglad wyniku).
   Eksportuje QW (helpery + makePlayer symulacji), uruchamia ikony Lucide,
   czasteczki w hero (#dots), animacje .reveal i menu mobilne (.nav-toggle).
@@ -93,6 +93,13 @@
 
   function setCheck(checkEl) { checkEl.classList.add("on"); }
 
+  // Reset wspolny dla wszystkich symulacji: wezly, strzalki i pozycje listy kontrolnej do stanu wyjsciowego
+  function resetAll(nodes, links, checks) {
+    (nodes || []).forEach(function (n) { setNode(n, null); });
+    (links || []).forEach(function (l) { setLink(l, null); });
+    (checks || []).forEach(function (c) { c.classList.remove("on"); });
+  }
+
   // Generic scenario player: tabs, timers, pause/step/replay, auto-advance loop, autoplay on view.
   // Publikuje stan na .fig: data-state (idle|playing|paused|hold|done), data-scn, data-phase, data-manual.
   var players = [];
@@ -112,7 +119,8 @@
     var elapsed = 0;
     var tabs = Array.prototype.slice.call(fig.querySelectorAll(".scn-tab"));
     var statusLine = fig.querySelector(".scn-status");
-    var statusText = statusLine ? statusLine.querySelector("span") : null;
+    // cfg.status: element, do ktorego skrypt strony pisze status (jawnie, nie "pierwszy span w wierszu")
+    var statusText = cfg.status || (statusLine ? statusLine.querySelector("span") : null);
     var N = cfg.scenarios.length;
 
     // Widoczna linia statusu nie jest regionem live (zmienia sie co ~1 s);
@@ -171,6 +179,15 @@
       panel.appendChild(statusLine);
       panel.appendChild(log);
     }
+
+    // ─── Biezacy scenariusz: numer + nazwa z aktywnego przycisku (widoczne tez w przyklejonym panelu na mobile) ───
+    var now = document.createElement("span");
+    now.className = "scn-now";
+    var nowIx = document.createElement("b");
+    var nowName = document.createElement("span");
+    now.appendChild(nowIx);
+    now.appendChild(nowName);
+    if (statusLine) { statusLine.appendChild(now); }
 
     // ─── Sterowanie: pauza / krok / powtorz / auto ───
     var ctl = document.createElement("div");
@@ -269,9 +286,10 @@
       ix = i;
       var s = cfg.scenarios[i];
       tabs.forEach(function (tab, tabIx) {
-        tab.classList.toggle("on", tabIx === i);
         tab.setAttribute("aria-pressed", tabIx === i ? "true" : "false");
       });
+      nowIx.textContent = (i + 1) + "/" + N;
+      nowName.textContent = tabs[i] ? tabs[i].textContent : "";
       fig.setAttribute("data-scn", String(i));
       fig.setAttribute("data-phase", "0");
       clearLog();
@@ -321,9 +339,7 @@
 
     tabs.forEach(function (tab) {
       tab.setAttribute("aria-pressed", "false");
-      tab.addEventListener("click", function () {
-        select(parseInt(tab.getAttribute("data-scn"), 10));
-      });
+      tab.addEventListener("click", function () { select(tabs.indexOf(tab)); });
     });
     btnPlay.addEventListener("click", function () {
       var st = fig.getAttribute("data-state");
@@ -506,6 +522,7 @@
     showPreview: showPreview,
     hidePreview: hidePreview,
     setCheck: setCheck,
+    resetAll: resetAll,
     makePlayer: makePlayer
   };
   refreshIcons(document);

@@ -363,6 +363,7 @@ html.js .reveal.visible { opacity: 1; transform: none; }
   gap: 10px;
 }
 .cell-tag .icon { width: 19px; height: 19px; color: var(--quantica-pink); }
+.cell h2,
 .cell h3 {
   font-family: var(--font-display);
   font-weight: 700;
@@ -435,6 +436,7 @@ html.js .reveal.visible { opacity: 1; transform: none; }
 }
 .start-cell:hover { border-color: var(--quantica-pink); background: var(--pink-a07); }
 .start-text { flex: 1 1 420px; }
+.start-cell h2,
 .start-cell h3 { font-size: clamp(22px, 3vw, 28px); margin-bottom: 8px; }
 .start-cell p { font-size: 15px; }
 
