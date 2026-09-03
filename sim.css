@@ -19,25 +19,29 @@
   margin-bottom: 26px;
   flex-wrap: wrap;
 }
-.scn-tabs { margin-left: auto; display: flex; gap: 18px; flex-wrap: wrap; }
+/* Przyciski scenariuszy: po lewej stronie naglowka figury, aktywny podswietlony jak "auto" */
+.scn-tabs { display: flex; gap: 8px; flex-wrap: wrap; }
 .scn-tab {
   font-family: var(--font-mono);
   font-size: 11px;
+  font-weight: 600;
   letter-spacing: 0.06em;
   color: var(--fg-3);
-  background: none;
-  border: none;
-  border-bottom: 1.5px solid transparent;
-  padding: 0 0 3px;
+  background: var(--white);
+  border: 1px solid var(--border-2);
+  border-radius: 999px;
+  height: 30px;
+  padding: 0 13px;
   cursor: pointer;
   display: inline-flex;
   align-items: center;
-  gap: 7px;
+  gap: 8px;
+  transition: color 200ms, border-color 200ms, background 200ms;
 }
-.scn-tab::before { content: attr(data-ix); font-weight: 600; color: var(--diagram-line); }
-.scn-tab.on { color: var(--fg-1); border-bottom-color: var(--quantica-pink); }
+.scn-tab::before { content: attr(data-ix); color: var(--diagram-line); transition: color 200ms; }
+.scn-tab:hover { color: var(--fg-1); border-color: var(--fg-3); }
+.scn-tab.on { color: var(--quantica-pink); border-color: var(--quantica-pink); background: var(--magenta-tint); }
 .scn-tab.on::before { color: var(--quantica-pink); }
-.scn-tab:hover { color: var(--fg-1); }
 .scn-tab:focus-visible { outline: 2px solid var(--quantica-pink); outline-offset: 3px; }
 
 /* ─── Flow nodes ─── */
@@ -309,7 +313,6 @@
   gap: 10px;
   flex-wrap: wrap;
 }
-.scn-status b { color: var(--quantica-pink); font-weight: 600; }
 .sr-only {
   position: absolute;
   width: 1px;
@@ -367,8 +370,8 @@
   .flow-query { min-height: 0; }
   .cite-list.rows-2, .cite-list.rows-3, .cite-list.rows-5 { min-height: 0; }
   .fig-head { margin-bottom: 18px; }
-  .scn-tabs { margin-left: 0; flex-wrap: nowrap; overflow-x: auto; gap: 16px; padding-bottom: 4px; max-width: 100%; }
-  .scn-tab { white-space: nowrap; flex: none; }
+  .scn-tabs { gap: 6px; }
+  .scn-tab { height: 28px; padding: 0 11px; }
   .sync-row { grid-template-columns: 1fr; margin-top: 18px; }
   .sync-cell { grid-column: 1; }
   .sync-link { display: none; }

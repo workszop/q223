@@ -178,7 +178,7 @@
         <span class="flow-badge ok" id="dyExportBadge"><i data-lucide="download" class="icon"></i><span>edycja w przeglądarce · zapis w wybranym formacie (DOCX, PDF)</span></span>
       </div>
     </div>
-    <div class="scn-status"><b id="dyScnNo">SCENARIUSZ 1/3</b><span id="dyStatus">system gotowy - wybierz gatunek dokumentu</span></div>
+    <div class="scn-status"><span id="dyStatus">system gotowy - wybierz gatunek dokumentu</span></div>
   </div>
   <div class="sim-foot reveal">
     <p class="sim-caption">Symulacja poglądowa. Przykładowe dane, gatunki i komunikaty ilustrują sposób działania generatora dokumentów.</p>
@@ -345,7 +345,6 @@
   // ─── Render (scenario playback) ───
   makePlayer({
     fig: el("figDyndalski"),
-    nameEl: el("dyScnNo"),
     scenarios: SCENARIOS,
     reset: function (s) {
       [refs.form, refs.generate, refs.doc].forEach(function (n) { setNode(n, null); });

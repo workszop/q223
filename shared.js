@@ -272,7 +272,6 @@
         tab.classList.toggle("on", tabIx === i);
         tab.setAttribute("aria-pressed", tabIx === i ? "true" : "false");
       });
-      cfg.nameEl.textContent = "SCENARIUSZ " + (i + 1) + "/" + N;
       fig.setAttribute("data-scn", String(i));
       fig.setAttribute("data-phase", "0");
       clearLog();

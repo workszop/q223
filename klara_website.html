@@ -203,7 +203,7 @@
         </div>
       </div>
     </div>
-    <div class="scn-status"><b id="klScnNo">SCENARIUSZ 1/3</b><span id="klStatus">system gotowy - wybierz przykładowe polecenie</span></div>
+    <div class="scn-status"><span id="klStatus">system gotowy - wybierz przykładowe polecenie</span></div>
   </div>
   <div class="sim-foot reveal">
     <p class="sim-caption">Symulacja poglądowa. Przykładowe polecenia i komunikaty ilustrują sposób działania mechanizmu kierowania zapytań.</p>
@@ -397,7 +397,6 @@
   // ─── Render (scenario playback) ───
   makePlayer({
     fig: el("figKlara"),
-    nameEl: el("klScnNo"),
     scenarios: SCENARIOS,
     reset: function (s) {
       [refs.query, refs.analysis, refs.local, refs.external].forEach(function (n) { setNode(n, null); });
