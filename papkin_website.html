@@ -129,62 +129,64 @@
       <p>Wybierz przykładowy scenariusz i obserwuj, jak system przekształca dźwięk ze spotkania w transkrypcję, a następnie w uporządkowaną dokumentację przekazywaną właściwym osobom.</p>
     </div>
 
-    <div class="fig reveal" id="figPapkin">
-      <div class="fig-head">
-        <div class="scn-tabs" role="group" aria-label="Przykładowe scenariusze">
-          <button class="scn-tab" type="button" data-scn="0" data-ix="1">spotkanie na żywo</button>
-          <button class="scn-tab" type="button" data-scn="1" data-ix="2">nagranie audio</button>
-          <button class="scn-tab" type="button" data-scn="2" data-ix="3">spotkanie dwujęzyczne</button>
-        </div>
+  <div class="fig reveal" id="figPapkin">
+    <div class="fig-head">
+      <div class="scn-tabs" role="group" aria-label="Przykładowe scenariusze">
+        <button class="scn-tab" type="button" data-scn="0" data-ix="1">spotkanie na żywo</button>
+        <button class="scn-tab" type="button" data-scn="1" data-ix="2">nagranie audio</button>
+        <button class="scn-tab" type="button" data-scn="2" data-ix="3">spotkanie dwujęzyczne</button>
       </div>
-
-      <div class="flowz">
-        <div class="flow-node" id="paSource">
-          <span class="step-no">01</span>
-          <h3><i data-lucide="audio-lines" class="icon"></i>Dźwięk ze spotkania</h3>
-          <div class="flow-sub" id="paSourceSub">różne źródła dźwięku</div>
-          <p class="flow-query" id="paQuote">Ustalamy termin wdrożenia na koniec kwartału. Zespół projektowy przygotuje harmonogram prac.</p>
-        </div>
-        <svg class="flow-link" id="paLink1" viewBox="0 0 58 14" preserveAspectRatio="none" aria-hidden="true"><line x1="0" y1="7" x2="47" y2="7"/><path d="M47 2 L57 7 L47 12 Z"/></svg>
-        <div class="flow-node" id="paTranscribe">
-          <span class="step-no">02</span>
-          <h3><i data-lucide="mic" class="icon"></i>Transkrypcja i analiza</h3>
-          <div class="flow-checks">
-            <div class="flow-check" id="paCheck0"><i data-lucide="audio-waveform" class="icon"></i><span>rozpoznawanie mowy (ASR)</span></div>
-            <div class="flow-check" id="paCheck1"><i data-lucide="users" class="icon"></i><span>identyfikacja mówców</span></div>
-            <div class="flow-check" id="paCheck2"><i data-lucide="spell-check" class="icon"></i><span>poprawa jakości zapisu</span></div>
-          </div>
-        </div>
-        <svg class="flow-link" id="paLink2" viewBox="0 0 58 14" preserveAspectRatio="none" aria-hidden="true"><line x1="0" y1="7" x2="47" y2="7"/><path d="M47 2 L57 7 L47 12 Z"/></svg>
-        <div class="branch-targets">
-          <div class="flow-node" id="paDocs">
-            <span class="step-no">03</span>
-            <h3><i data-lucide="file-text" class="icon"></i>Dokumentacja spotkania</h3>
-            <div class="cite-list rows-3" id="paDocRows"></div>
-          </div>
-          <svg class="vlink" id="paVlink" viewBox="0 0 14 30" aria-hidden="true"><line x1="7" y1="0" x2="7" y2="20"/><path d="M2 19 L7 29 L12 19 Z"/></svg>
-          <div class="flow-node" id="paSend">
-            <span class="step-no">04</span>
-            <h3><i data-lucide="send" class="icon"></i>Dystrybucja materiałów</h3>
-            <div class="flow-sub">uczestnicy, wskazane osoby, kierownictwo</div>
-            <span class="flow-badge" id="paSendBadge"><i data-lucide="check" class="icon"></i><span id="paSendBadgeText"></span></span>
-          </div>
-        </div>
-      </div>
-
-      <div class="sync-row">
-        <div class="sync-cell">
-          <svg class="sync-link" viewBox="0 0 14 36" aria-hidden="true"><line x1="7" y1="36" x2="7" y2="10"/><path d="M2 11 L7 1 L12 11 Z"/></svg>
-          <div class="sync-box">
-            <span class="sync-tag">Przetwarzanie lokalne</span>
-            <span class="sync-note">transkrypcja i analiza odbywają się w infrastrukturze organizacji - nagrania i transkrypcje nie są przekazywane na zewnątrz</span>
-          </div>
-        </div>
-      </div>
-
-      <div class="scn-status"><b id="paScnNo">SCENARIUSZ 1/3</b><span id="paStatus">system gotowy - wybierz przykładowy scenariusz</span></div>
     </div>
-    <p class="sim-caption reveal">Symulacja poglądowa. Przykładowe scenariusze i komunikaty ilustrują sposób działania mechanizmu dokumentowania spotkań.</p>
+    <div class="flowz">
+      <div class="flow-node" id="paSource">
+        <span class="step-no">01</span>
+        <h3><i data-lucide="audio-lines" class="icon"></i>Dźwięk ze spotkania</h3>
+        <div class="flow-sub" id="paSourceSub">różne źródła dźwięku</div>
+        <p class="flow-query" id="paQuote">Ustalamy termin wdrożenia na koniec kwartału. Zespół projektowy przygotuje harmonogram prac.</p>
+      </div>
+      <svg class="flow-link" id="paLink1" viewBox="0 0 58 14" preserveAspectRatio="none" aria-hidden="true"><line x1="0" y1="7" x2="47" y2="7"/><path d="M47 2 L57 7 L47 12 Z"/></svg>
+      <div class="flow-node" id="paTranscribe">
+        <span class="step-no">02</span>
+        <h3><i data-lucide="mic" class="icon"></i>Transkrypcja i analiza</h3>
+        <div class="flow-checks">
+          <div class="flow-check" id="paCheck0"><i data-lucide="audio-waveform" class="icon"></i><span>rozpoznawanie mowy (ASR)</span></div>
+          <div class="flow-check" id="paCheck1"><i data-lucide="users" class="icon"></i><span>identyfikacja mówców</span></div>
+          <div class="flow-check" id="paCheck2"><i data-lucide="spell-check" class="icon"></i><span>poprawa jakości zapisu</span></div>
+        </div>
+        <div class="flow-preview lines-4" id="paTranscript"></div>
+      </div>
+      <svg class="flow-link" id="paLink2" viewBox="0 0 58 14" preserveAspectRatio="none" aria-hidden="true"><line x1="0" y1="7" x2="47" y2="7"/><path d="M47 2 L57 7 L47 12 Z"/></svg>
+      <div class="branch-targets">
+        <div class="flow-node" id="paDocs">
+          <span class="step-no">03</span>
+          <h3><i data-lucide="file-text" class="icon"></i>Dokumentacja spotkania</h3>
+          <div class="cite-list rows-3" id="paDocRows"></div>
+          <div class="flow-preview" id="paTask"></div>
+        </div>
+        <svg class="vlink" id="paVlink" viewBox="0 0 14 30" aria-hidden="true"><line x1="7" y1="0" x2="7" y2="20"/><path d="M2 19 L7 29 L12 19 Z"/></svg>
+        <div class="flow-node" id="paSend">
+          <span class="step-no">04</span>
+          <h3><i data-lucide="send" class="icon"></i>Dystrybucja materiałów</h3>
+          <div class="flow-sub">uczestnicy, wskazane osoby, kierownictwo</div>
+          <span class="flow-badge" id="paSendBadge"><i data-lucide="check" class="icon"></i><span id="paSendBadgeText"></span></span>
+        </div>
+      </div>
+    </div>
+    <div class="sync-row">
+      <div class="sync-cell">
+        <svg class="sync-link" viewBox="0 0 14 36" aria-hidden="true"><line x1="7" y1="36" x2="7" y2="10"/><path d="M2 11 L7 1 L12 11 Z"/></svg>
+        <div class="sync-box">
+          <span class="sync-tag">Przetwarzanie lokalne</span>
+          <span class="sync-note">transkrypcja i analiza odbywają się w infrastrukturze organizacji - nagrania i transkrypcje nie są przekazywane na zewnątrz</span>
+        </div>
+      </div>
+    </div>
+    <div class="scn-status"><b id="paScnNo">SCENARIUSZ 1/3</b><span id="paStatus">system gotowy - wybierz przykładowy scenariusz</span></div>
+  </div>
+  <div class="sim-foot reveal">
+    <p class="sim-caption">Symulacja poglądowa. Przykładowe scenariusze, fragmenty transkrypcji i komunikaty ilustrują sposób działania mechanizmu dokumentowania spotkań.</p>
+    <a class="pill pill-solid" href="mailto:kontakt@quanticalab.ai?subject=Prezentacja%3A%20Papkin">Umów prezentację</a>
+  </div>
 
     <div class="split-grid reveal">
       <div class="icon-card">
@@ -312,7 +314,6 @@
 <script>
 (function () {
   "use strict";
-
   // ─── Shared helpers from shared.js (QW) ───
   var PHASE_MS = QW.PHASE_MS;
   var el = QW.el;
@@ -320,8 +321,11 @@
   var setNode = QW.setNode;
   var addRow = QW.addRow;
   var setCheck = QW.setCheck;
+  var showPreview = QW.showPreview;
+  var hidePreview = QW.hidePreview;
   var makePlayer = QW.makePlayer;
 
+  // PRZYKLAD: fragmenty transkrypcji i zadania sa danymi demonstracyjnymi
   var SCENARIOS = [
     {
       sub: "transkrypcja w czasie rzeczywistym",
@@ -332,7 +336,9 @@
         ["users", "rozróżniono mówców - wypowiedzi oznaczone według uczestników"],
         ["spell-check", "poprawa jakości transkrypcji i porządkowanie wypowiedzi"]
       ],
+      transcript: "<span class=\"spk\">Mówca 1</span>Ustalamy termin wdrożenia na koniec kwartału.<br><span class=\"spk\">Mówca 2</span>Zespół projektowy przygotuje harmonogram prac.",
       docs: ["protokół spotkania", "zestawienie ustaleń", "lista zadań"],
+      task: "<b>zadanie:</b> harmonogram prac · <b>odpowiada:</b> zespół projektowy · <b>termin:</b> koniec kwartału",
       docsStatus: "zidentyfikowano kluczowe ustalenia, decyzje i zadania",
       sendBadge: "materiały przesłane uczestnikom",
       statusFinal: "opracowane materiały przesłane uczestnikom spotkania"
@@ -346,7 +352,9 @@
         ["users", "profile głosowe - zidentyfikowano konkretne osoby"],
         ["spell-check", "korekta błędów rozpoznawania mowy i ujednolicenie zapisu"]
       ],
+      transcript: "<span class=\"spk\">A. Nowak</span>Przyjmujemy wariant drugi budżetu.<br><span class=\"spk\">M. Wiśniewska</span>Notatkę służbową przygotuje dział organizacyjny.",
       docs: ["notatka służbowa", "podsumowanie kierownicze", "lista zadań"],
+      task: "<b>decyzja:</b> wariant 2 budżetu · <b>zadanie:</b> notatka służbowa · <b>odpowiada:</b> dział organizacyjny",
       docsStatus: "zidentyfikowano kluczowe ustalenia i decyzje",
       sendBadge: "podsumowanie przekazane kierownictwu",
       statusFinal: "podsumowanie przekazane wskazanym osobom i kierownictwu"
@@ -360,7 +368,9 @@
         ["users", "rozróżniono mówców - wypowiedzi oznaczone według uczestników"],
         ["languages", "tłumaczenie treści pomiędzy językiem polskim i angielskim"]
       ],
+      transcript: "<span class=\"spk\">Speaker 1 · EN</span>Let's confirm the scope for phase two.<br><span class=\"tr\">PL: Potwierdźmy zakres drugiego etapu.</span><br><span class=\"spk\">Mówca 2 · PL</span>Zespół po stronie polskiej przygotuje specyfikację.<br><span class=\"tr\">EN: The Polish team will prepare the specification.</span>",
       docs: ["protokół spotkania (PL i EN)", "zestawienie ustaleń", "lista zadań"],
+      task: "<b>task:</b> specification for phase two · <b>owner:</b> Polish team · <b>zadanie:</b> specyfikacja etapu 2",
       docsStatus: "zidentyfikowano kluczowe ustalenia, decyzje i zadania",
       sendBadge: "materiały przesłane uczestnikom",
       statusFinal: "opracowane materiały przesłane uczestnikom spotkania"
@@ -370,8 +380,8 @@
   // ─── DOM refs ───
   var refs = {
     source: el("paSource"), sourceSub: el("paSourceSub"), quote: el("paQuote"),
-    transcribe: el("paTranscribe"),
-    docs: el("paDocs"), docRows: el("paDocRows"),
+    transcribe: el("paTranscribe"), transcript: el("paTranscript"),
+    docs: el("paDocs"), docRows: el("paDocRows"), task: el("paTask"),
     send: el("paSend"), sendBadge: el("paSendBadge"), sendBadgeText: el("paSendBadgeText"),
     link1: el("paLink1"), link2: el("paLink2"), vlink: el("paVlink"),
     checks: [el("paCheck0"), el("paCheck1"), el("paCheck2")],
@@ -389,6 +399,8 @@
       refs.vlink.classList.remove("on");
       refs.checks.forEach(function (c) { c.classList.remove("on"); });
       refs.docRows.innerHTML = "";
+      hidePreview(refs.transcript);
+      hidePreview(refs.task);
       refs.sendBadge.classList.remove("show");
       refs.sourceSub.textContent = s.sub;
       refs.quote.textContent = s.quote;
@@ -402,7 +414,11 @@
         [0, function () { refs.source.classList.add("on"); refs.status.textContent = s.receive; }],
         [PHASE_MS, function () { refs.link1.classList.add("on"); refs.transcribe.classList.add("on"); }],
         [PHASE_MS * 1.6, function () { setCheck(refs.checks[0]); refs.status.textContent = s.checks[0][1]; }],
-        [PHASE_MS * 2.4, function () { setCheck(refs.checks[1]); refs.status.textContent = s.checks[1][1]; }],
+        [PHASE_MS * 2.4, function () {
+          setCheck(refs.checks[1]);
+          showPreview(refs.transcript, s.transcript);
+          refs.status.textContent = s.checks[1][1];
+        }],
         [PHASE_MS * 3.2, function () { setCheck(refs.checks[2]); refs.status.textContent = s.checks[2][1]; }],
         [PHASE_MS * 4.4, function () {
           refs.link1.classList.remove("on");
@@ -411,7 +427,11 @@
           s.docs.forEach(function (d) { addRow(refs.docRows, "file-check", d); });
           refs.status.textContent = s.docsStatus;
         }],
-        [PHASE_MS * 5.4, function () {
+        [PHASE_MS * 5.2, function () {
+          showPreview(refs.task, s.task);
+          refs.status.textContent = "wyodrębniono zadania z osobami odpowiedzialnymi i terminami";
+        }],
+        [PHASE_MS * 6.2, function () {
           refs.link2.classList.remove("on");
           refs.vlink.classList.add("on");
           refs.send.classList.add("on");
@@ -419,13 +439,12 @@
           refs.sendBadge.classList.add("show");
           refs.status.textContent = s.statusFinal;
         }],
-        [PHASE_MS * 6.2, function () {
+        [PHASE_MS * 7.0, function () {
           refs.status.textContent = "nagrania i transkrypcje pozostały w infrastrukturze organizacji";
         }]
       ];
     }
   });
-
 }());
 </script>
 

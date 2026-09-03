@@ -137,65 +137,68 @@
       <p>Wybierz przykładowe polecenie i obserwuj, jak system analizuje je pod kątem bezpieczeństwa i złożoności, a następnie kieruje do odpowiedniego modelu.</p>
     </div>
 
-    <div class="fig reveal" id="figKlara">
-      <div class="fig-head">
-        <div class="scn-tabs" role="group" aria-label="Przykładowe polecenia">
-          <button class="scn-tab" type="button" data-scn="0" data-ix="1">dane poufne</button>
-          <button class="scn-tab" type="button" data-scn="1" data-ix="2">zadanie rutynowe</button>
-          <button class="scn-tab" type="button" data-scn="2" data-ix="3">zadanie złożone</button>
-        </div>
+  <div class="fig reveal" id="figKlara">
+    <div class="fig-head">
+      <div class="scn-tabs" role="group" aria-label="Przykładowe polecenia">
+        <button class="scn-tab" type="button" data-scn="0" data-ix="1">dane poufne</button>
+        <button class="scn-tab" type="button" data-scn="1" data-ix="2">zadanie rutynowe</button>
+        <button class="scn-tab" type="button" data-scn="2" data-ix="3">zadanie złożone</button>
       </div>
-
-      <div class="flowz">
-        <div class="flow-node" id="klQuery">
-          <span class="step-no">01</span>
-          <h3><i data-lucide="message-square-text" class="icon"></i>Zapytanie pracownika</h3>
-          <p class="flow-query" id="klQueryText">Przygotuj podsumowanie notatki zawierającej dane wynagrodzeń pracowników</p>
-        </div>
-        <svg class="flow-link" id="klLink1" viewBox="0 0 58 14" preserveAspectRatio="none" aria-hidden="true"><line x1="0" y1="7" x2="47" y2="7"/><path d="M47 2 L57 7 L47 12 Z"/></svg>
-        <div class="flow-node" id="klAnalysis">
-          <span class="step-no">02</span>
-          <h3><i data-lucide="scan-search" class="icon"></i>Analiza zapytania</h3>
-          <div class="flow-checks">
-            <div class="flow-check" id="klCheck0"><i data-lucide="shield" class="icon"></i><span id="klCheck0Text">bezpieczeństwo danych</span></div>
-            <div class="flow-check" id="klCheck1"><i data-lucide="gauge" class="icon"></i><span id="klCheck1Text">stopień złożoności</span></div>
-            <div class="flow-check" id="klCheck2"><i data-lucide="route" class="icon"></i><span id="klCheck2Text">decyzja o wyborze modelu</span></div>
-          </div>
-        </div>
-        <div class="branch-links" aria-hidden="true">
-          <svg class="flow-link" id="klLinkA" viewBox="0 0 58 14" preserveAspectRatio="none"><line x1="0" y1="7" x2="47" y2="7"/><path d="M47 2 L57 7 L47 12 Z"/></svg>
-          <svg class="flow-link" id="klLinkB" viewBox="0 0 58 14" preserveAspectRatio="none"><line x1="0" y1="7" x2="47" y2="7"/><path d="M47 2 L57 7 L47 12 Z"/></svg>
-        </div>
-        <div class="branch-targets">
-          <div class="flow-node" id="klLocal">
-            <span class="step-no">03A</span>
-            <h3><i data-lucide="server" class="icon"></i>Model lokalny</h3>
-            <div class="flow-sub">infrastruktura organizacji</div>
-            <span class="flow-badge" id="klLocalBadge"><i data-lucide="shield-check" class="icon"></i><span id="klLocalBadgeText"></span></span>
-          </div>
-          <div class="flow-node" id="klExternal">
-            <span class="step-no">03B</span>
-            <h3><i data-lucide="cloud" class="icon"></i>Model zewnętrzny</h3>
-            <div class="flow-sub">Quantica APIQ · GPT, Gemini, Claude</div>
-            <span class="flow-badge" id="klExternalBadge"><i data-lucide="award" class="icon"></i><span id="klExternalBadgeText"></span></span>
-            <span class="flow-badge muted" id="klBlockedBadge"><i data-lucide="ban" class="icon"></i><span>polecenie nie jest przekazywane poza organizację</span></span>
-          </div>
-        </div>
-      </div>
-
-      <div class="sync-row">
-        <div class="sync-cell">
-          <svg class="sync-link" viewBox="0 0 14 36" aria-hidden="true"><line x1="7" y1="36" x2="7" y2="10"/><path d="M2 11 L7 1 L12 11 Z"/></svg>
-          <div class="sync-box">
-            <span class="sync-tag">Decyzja w infrastrukturze organizacji</span>
-            <span class="sync-note">analiza i wybór modelu odbywają się lokalnie - na zewnątrz trafia wyłącznie treść zadań, które mogą być przetwarzane poza organizacją</span>
-          </div>
-        </div>
-      </div>
-
-      <div class="scn-status"><b id="klScnNo">SCENARIUSZ 1/3</b><span id="klStatus">system gotowy - wybierz przykładowe polecenie</span></div>
     </div>
-    <p class="sim-caption reveal">Symulacja poglądowa. Przykładowe polecenia i komunikaty ilustrują sposób działania mechanizmu kierowania zapytań.</p>
+    <div class="flowz">
+      <div class="flow-node" id="klQuery">
+        <span class="step-no">01</span>
+        <h3><i data-lucide="message-square-text" class="icon"></i>Zapytanie pracownika</h3>
+        <p class="flow-query" id="klQueryText">Przygotuj podsumowanie notatki zawierającej dane wynagrodzeń pracowników</p>
+      </div>
+      <svg class="flow-link" id="klLink1" viewBox="0 0 58 14" preserveAspectRatio="none" aria-hidden="true"><line x1="0" y1="7" x2="47" y2="7"/><path d="M47 2 L57 7 L47 12 Z"/></svg>
+      <div class="flow-node" id="klAnalysis">
+        <span class="step-no">02</span>
+        <h3><i data-lucide="scan-search" class="icon"></i>Analiza zapytania</h3>
+        <div class="flow-checks">
+          <div class="flow-check" id="klCheck0"><i data-lucide="shield" class="icon"></i><span id="klCheck0Text">bezpieczeństwo danych</span></div>
+          <div class="flow-check" id="klCheck1"><i data-lucide="gauge" class="icon"></i><span id="klCheck1Text">stopień złożoności</span></div>
+          <div class="flow-check" id="klCheck2"><i data-lucide="route" class="icon"></i><span id="klCheck2Text">decyzja o wyborze modelu</span></div>
+        </div>
+      </div>
+      <div class="branch-links" aria-hidden="true">
+        <svg class="flow-link" id="klLinkA" viewBox="0 0 58 14" preserveAspectRatio="none"><line x1="0" y1="7" x2="47" y2="7"/><path d="M47 2 L57 7 L47 12 Z"/></svg>
+        <svg class="flow-link" id="klLinkB" viewBox="0 0 58 14" preserveAspectRatio="none"><line x1="0" y1="7" x2="47" y2="7"/><path d="M47 2 L57 7 L47 12 Z"/></svg>
+      </div>
+      <div class="branch-targets">
+        <div class="flow-node" id="klLocal">
+          <span class="step-no">03A</span>
+          <h3><i data-lucide="server" class="icon"></i>Model lokalny</h3>
+          <div class="flow-sub">infrastruktura organizacji</div>
+          <span class="flow-badge" id="klLocalBadge"><i data-lucide="shield-check" class="icon"></i><span id="klLocalBadgeText"></span></span>
+          <span class="flow-badge ok" id="klLocalMeta"><i data-lucide="coins" class="icon"></i><span id="klLocalMetaText"></span></span>
+        </div>
+        <div class="flow-node" id="klExternal">
+          <span class="step-no">03B</span>
+          <h3><i data-lucide="cloud" class="icon"></i>Model zewnętrzny</h3>
+          <div class="flow-sub">Quantica APIQ (modele hostowane przez Quantica) lub frontier API (OpenAI, Anthropic, Gemini)</div>
+          <span class="flow-badge" id="klExternalBadge"><i data-lucide="award" class="icon"></i><span id="klExternalBadgeText"></span></span>
+          <span class="flow-badge ok" id="klExternalMeta"><i data-lucide="coins" class="icon"></i><span id="klExternalMetaText"></span></span>
+          <span class="flow-badge muted" id="klBlockedBadge"><i data-lucide="ban" class="icon"></i><span>polecenie nie jest przekazywane poza organizację</span></span>
+        </div>
+      </div>
+    </div>
+    <div class="sync-row">
+      <div class="sync-cell">
+        <svg class="sync-link" viewBox="0 0 14 36" aria-hidden="true"><line x1="7" y1="36" x2="7" y2="10"/><path d="M2 11 L7 1 L12 11 Z"/></svg>
+        <div class="sync-box">
+          <span class="sync-tag">Decyzja w infrastrukturze organizacji</span>
+          <span class="sync-src">Quantica APIQ (modele hostowane przez Quantica) · frontier API (OpenAI, Anthropic, Gemini)</span>
+          <span class="sync-note">analiza i wybór modelu odbywają się lokalnie - na zewnątrz trafia wyłącznie treść zadań, które mogą być przetwarzane poza organizacją</span>
+        </div>
+      </div>
+    </div>
+    <div class="scn-status"><b id="klScnNo">SCENARIUSZ 1/3</b><span id="klStatus">system gotowy - wybierz przykładowe polecenie</span></div>
+  </div>
+  <div class="sim-foot reveal">
+    <p class="sim-caption">Symulacja poglądowa. Przykładowe polecenia i komunikaty ilustrują sposób działania mechanizmu kierowania zapytań.</p>
+    <a class="pill pill-solid" href="mailto:kontakt@quanticalab.ai?subject=Prezentacja%3A%20Klara">Umów prezentację</a>
+  </div>
 
     <div class="route-callout reveal"><i data-lucide="lock" class="icon"></i><span>Jeżeli polecenie zawiera informacje wewnętrzne, poufne lub inne dane, które zgodnie z polityką organizacji nie powinny być przetwarzane poza jej infrastrukturą, zadanie jest realizowane przez lokalny model językowy działający w kontrolowanym środowisku.</span></div>
     <div class="route-callout reveal"><i data-lucide="route" class="icon"></i><span>Do realizacji pozostałych poleceń Klara wybiera model zapewniający odpowiednią jakość odpowiedzi przy możliwie efektywnym wykorzystaniu zasobów.</span></div>
@@ -313,13 +316,11 @@
 <script>
 (function () {
   "use strict";
-
   // ─── Shared helpers from shared.js (QW) ───
   var PHASE_MS = QW.PHASE_MS;
   var el = QW.el;
   var setLink = QW.setLink;
   var setNode = QW.setNode;
-  var addRow = QW.addRow;
   var setCheck = QW.setCheck;
   var makePlayer = QW.makePlayer;
 
@@ -334,6 +335,7 @@
       target: "local",
       blocked: true,
       localBadge: "dane pozostają w infrastrukturze organizacji",
+      meta: "koszt: bez opłat za API · dane: w organizacji · czas: krótki",
       statusRoute: "zadanie realizowane przez lokalny model językowy w kontrolowanym środowisku",
       statusFinal: "dane wymagające ochrony nie są przekazywane do zewnętrznych dostawców modeli AI"
     },
@@ -347,6 +349,7 @@
       target: "local",
       blocked: false,
       localBadge: "efektywne wykorzystanie własnej infrastruktury",
+      meta: "koszt: bez opłat za API · jakość: wystarczająca dla zadań rutynowych",
       statusRoute: "zadanie skierowane do modelu lokalnego",
       statusFinal: "ograniczenie kosztów korzystania z zewnętrznych usług AI"
     },
@@ -355,12 +358,13 @@
       checks: [
         "analiza bezpieczeństwa: brak danych wymagających ochrony",
         "analiza złożoności: zadanie wymaga najbardziej zaawansowanego modelu",
-        "decyzja: wybrany model zewnętrzny (GPT, Gemini, Claude)"
+        "decyzja: model zewnętrzny - Quantica APIQ lub frontier API"
       ],
       target: "external",
       blocked: false,
       externalBadge: "odpowiednia jakość odpowiedzi dla złożonego zadania",
-      statusRoute: "zadanie skierowane do wybranego modelu zewnętrznego (GPT, Gemini, Claude)",
+      meta: "koszt: wg cennika Quantica APIQ lub dostawcy frontier API · na zewnątrz: tylko treść zadania",
+      statusRoute: "zadanie skierowane do modelu zewnętrznego: Quantica APIQ lub frontier API (OpenAI, Anthropic, Gemini)",
       statusFinal: "model komercyjny wykorzystany tam, gdzie jego możliwości przynoszą rzeczywistą wartość"
     }
   ];
@@ -373,7 +377,9 @@
     checks: [el("klCheck0"), el("klCheck1"), el("klCheck2")],
     checkTexts: [el("klCheck0Text"), el("klCheck1Text"), el("klCheck2Text")],
     localBadge: el("klLocalBadge"), localBadgeText: el("klLocalBadgeText"),
+    localMeta: el("klLocalMeta"), localMetaText: el("klLocalMetaText"),
     externalBadge: el("klExternalBadge"), externalBadgeText: el("klExternalBadgeText"),
+    externalMeta: el("klExternalMeta"), externalMetaText: el("klExternalMetaText"),
     blockedBadge: el("klBlockedBadge"),
     status: el("klStatus")
   };
@@ -387,9 +393,8 @@
       [refs.query, refs.analysis, refs.local, refs.external].forEach(function (n) { setNode(n, null); });
       [refs.link1, refs.linkA, refs.linkB].forEach(function (l) { setLink(l, null); });
       refs.checks.forEach(function (c) { c.classList.remove("on"); });
-      refs.localBadge.classList.remove("show");
-      refs.externalBadge.classList.remove("show");
-      refs.blockedBadge.classList.remove("show");
+      [refs.localBadge, refs.localMeta, refs.externalBadge, refs.externalMeta, refs.blockedBadge]
+        .forEach(function (b) { b.classList.remove("show"); });
       refs.queryText.textContent = s.query;
       for (var i = 0; i < 3; i += 1) { refs.checkTexts[i].textContent = s.checks[i]; }
     },
@@ -422,11 +427,20 @@
             refs.externalBadge.classList.add("show");
           }
           refs.status.textContent = s.statusFinal;
+        }],
+        [PHASE_MS * 6.2, function () {
+          if (s.target === "local") {
+            refs.localMetaText.textContent = s.meta;
+            refs.localMeta.classList.add("show");
+          } else {
+            refs.externalMetaText.textContent = s.meta;
+            refs.externalMeta.classList.add("show");
+          }
+          refs.status.textContent = "bilans trasy: " + s.meta;
         }]
       ];
     }
   });
-
 }());
 </script>
 

@@ -1,5 +1,12 @@
 /*
   Quantica Lab website - shared behavior for all pages.
+  Odtwarzacz symulacji:
+    - odtwarzacz: pauza / krok / powtorz / auto (pasek .scn-ctl w .scn-status),
+    - dziennik zdarzen .scn-log zasilany z linii statusu przez przechwycony setter textContent
+      (skrypty stron nie zmieniaja sposobu pisania statusu),
+    - stany data-state: idle | playing | paused | hold | done,
+    - podpowiedz klawiszy 1-N,
+    - nowe helpery: addRow2 (wiersz dwuliniowy), showPreview / hidePreview (podglad wyniku).
   Eksportuje QW (helpery + makePlayer symulacji), uruchamia ikony Lucide,
   czasteczki w hero (#dots), animacje .reveal i menu mobilne (.nav-toggle).
 */
@@ -9,6 +16,7 @@
   // ─── Constants ───
   var PHASE_MS = 1100;
   var HOLD_MS = 5500;
+  var LOG_MAX = 6;
   var REDUCED_MOTION = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
 
   // ─── Helpers (diagram player) ───
@@ -24,6 +32,12 @@
     if (cls) { node.classList.add(cls); }
   }
 
+  function showRow(row) {
+    // wymuszony reflow zamiast rAF: przejscie odpala sie takze w karcie w tle
+    void row.offsetWidth;
+    row.classList.add("show");
+  }
+
   function addRow(container, icon, text, cls) {
     var row = document.createElement("div");
     row.className = "cite" + (cls ? " " + cls : "");
@@ -32,28 +46,59 @@
     span.textContent = text;
     row.appendChild(span);
     container.appendChild(row);
-    // wymuszony reflow zamiast rAF: przejscie odpala sie takze w karcie w tle
-    void row.offsetWidth;
-    row.classList.add("show");
+    showRow(row);
+  }
+
+  // Wiersz dwuliniowy: tytul + szczegol (cytowany fragment, artykul, zrodlo)
+  function addRow2(container, icon, title, detail, cls) {
+    var row = document.createElement("div");
+    row.className = "cite two" + (cls ? " " + cls : "");
+    row.innerHTML = '<i data-lucide="' + icon + '" class="icon"></i>';
+    var span = document.createElement("span");
+    var b = document.createElement("b");
+    b.textContent = title;
+    var small = document.createElement("small");
+    small.textContent = detail;
+    span.appendChild(b);
+    span.appendChild(small);
+    row.appendChild(span);
+    container.appendChild(row);
+    showRow(row);
+  }
+
+  // Podglad wyniku (.flow-preview): html to stala autorska ze skryptu strony, nie dane uzytkownika
+  function showPreview(box, html) {
+    box.innerHTML = html;
+    showRow(box);
+  }
+  function hidePreview(box) {
+    box.classList.remove("show");
+    box.innerHTML = "";
   }
 
   function setCheck(checkEl) { checkEl.classList.add("on"); }
 
-  // Generic scenario player: tabs, timers, auto-advance loop, autoplay on view.
-  // Publikuje stan na .fig: data-state (idle|playing|hold|done), data-scn, data-phase, data-manual.
+  // Generic scenario player: tabs, timers, pause/step/replay, auto-advance loop, autoplay on view.
+  // Publikuje stan na .fig: data-state (idle|playing|paused|hold|done), data-scn, data-phase, data-manual.
   var players = [];
 
   function makePlayer(cfg) {
     var fig = cfg.fig;
     var timers = [];
+    var holdTimer = null;
     var ix = 0;
     var manual = false;      // po pierwszej interakcji: bez automatycznego przechodzenia dalej
     var started = false;
     var resumeOnVisible = false;
     var io = null;
+    var phases = [];
+    var nextPhase = 0;
+    var startTime = 0;
+    var elapsed = 0;
     var tabs = Array.prototype.slice.call(fig.querySelectorAll(".scn-tab"));
     var statusLine = fig.querySelector(".scn-status");
     var statusText = statusLine ? statusLine.querySelector("span") : null;
+    var N = cfg.scenarios.length;
 
     // Widoczna linia statusu nie jest regionem live (zmienia sie co ~1 s);
     // czytnik ekranu dostaje jeden komunikat na scenariusz.
@@ -63,22 +108,137 @@
     live.setAttribute("aria-live", "polite");
     fig.appendChild(live);
 
-    var mode = document.createElement("span");
-    mode.className = "scn-mode";
-    mode.textContent = "auto";
-    mode.title = "Scenariusze zmieniaja sie automatycznie - kliknij zakladke, aby zatrzymac";
-    if (statusLine) { statusLine.appendChild(mode); }
+    // ─── Dziennik zdarzen: kazda zmiana linii statusu trafia do .scn-log ───
+    var log = document.createElement("div");
+    log.className = "scn-log";
+    var lastLogText = null;
+    var logCount = 0;
+    function pushLog(text) {
+      if (!text || text === lastLogText) { return; }
+      lastLogText = text;
+      logCount += 1;
+      var prev = log.querySelector(".now");
+      if (prev) { prev.classList.remove("now"); }
+      var row = document.createElement("div");
+      row.className = "scn-log-row now";
+      var t = document.createElement("span");
+      t.className = "scn-log-t";
+      t.textContent = (logCount < 10 ? "0" : "") + logCount;
+      var s = document.createElement("span");
+      s.textContent = text;
+      row.appendChild(t);
+      row.appendChild(s);
+      log.appendChild(row);
+      while (log.children.length > LOG_MAX) { log.removeChild(log.firstChild); }
+      showRow(row);
+    }
+    function clearLog() { log.innerHTML = ""; lastLogText = null; logCount = 0; }
+    // Skrypty stron pisza "refs.status.textContent = ..." - przechwytujemy setter na tym jednym elemencie
+    // (wlasna wlasciwosc przeslania Node.prototype.textContent), zapis trafi do dziennika synchronicznie.
+    if (statusText) {
+      statusText.classList.add("scn-status-src");
+      var nativeText = Object.getOwnPropertyDescriptor(Node.prototype, "textContent");
+      if (nativeText && nativeText.set) {
+        Object.defineProperty(statusText, "textContent", {
+          configurable: true,
+          get: function () { return nativeText.get.call(this); },
+          set: function (v) { nativeText.set.call(this, v); pushLog(String(v)); }
+        });
+      }
+    }
+    // .scn-panel: status + dziennik razem (na mobile panel jest przyklejony do dolu ekranu)
+    if (statusLine) {
+      var panel = document.createElement("div");
+      panel.className = "scn-panel";
+      statusLine.parentNode.insertBefore(panel, statusLine);
+      panel.appendChild(statusLine);
+      panel.appendChild(log);
+    }
 
-    function setState(state) { fig.setAttribute("data-state", state); }
+    // ─── Sterowanie: pauza / krok / powtorz / auto ───
+    var ctl = document.createElement("div");
+    ctl.className = "scn-ctl";
+    function mkBtn(cls, icon, label) {
+      var b = document.createElement("button");
+      b.type = "button";
+      b.className = "scn-btn " + cls;
+      b.setAttribute("aria-label", label);
+      b.title = label;
+      b.innerHTML = '<i data-lucide="' + icon + '" class="icon"></i>';
+      ctl.appendChild(b);
+      return b;
+    }
+    var btnPlay = mkBtn("scn-play", "pause", "Zatrzymaj");
+    var btnStep = mkBtn("scn-step", "skip-forward", "Nastepny krok");
+    var btnReplay = mkBtn("scn-replay", "rotate-ccw", "Odtworz od nowa");
+    var btnAuto = document.createElement("button");
+    btnAuto.type = "button";
+    btnAuto.className = "scn-btn scn-auto";
+    btnAuto.textContent = "auto";
+    btnAuto.title = "Automatyczne przechodzenie do kolejnych scenariuszy";
+    ctl.appendChild(btnAuto);
+    var hint = document.createElement("span");
+    hint.className = "scn-hint";
+    hint.textContent = "klawisze 1–" + N;
+    ctl.appendChild(hint);
+    if (statusLine) { statusLine.appendChild(ctl); }
+
+    function refreshIcons() { if (window.lucide) { window.lucide.createIcons(); } }
+
+    function setBtnIcon(btn, icon, label) {
+      btn.innerHTML = '<i data-lucide="' + icon + '" class="icon"></i>';
+      btn.setAttribute("aria-label", label);
+      btn.title = label;
+    }
+    function updateCtl() {
+      var st = fig.getAttribute("data-state");
+      if (st === "playing") { setBtnIcon(btnPlay, "pause", "Zatrzymaj"); }
+      else if (st === "paused") { setBtnIcon(btnPlay, "play", "Wznow"); }
+      else { setBtnIcon(btnPlay, "play", "Odtworz"); }
+      btnStep.disabled = !(st === "playing" || st === "paused") || nextPhase >= phases.length;
+      btnAuto.setAttribute("aria-pressed", manual ? "false" : "true");
+      fig.setAttribute("data-manual", manual ? "true" : "false");
+      refreshIcons();
+    }
+    function setState(state) { fig.setAttribute("data-state", state); updateCtl(); }
+
     function clearTimers() {
       timers.forEach(window.clearTimeout);
       timers = [];
+      if (holdTimer) { window.clearTimeout(holdTimer); holdTimer = null; }
     }
-    function refreshIcons() { if (window.lucide) { window.lucide.createIcons(); } }
 
     function announce(i) {
-      live.textContent = "Scenariusz " + (i + 1) + " z " + cfg.scenarios.length +
+      live.textContent = "Scenariusz " + (i + 1) + " z " + N +
         (statusText ? ": " + statusText.textContent : "");
+    }
+
+    function runPhase(n) {
+      phases[n][1]();
+      refreshIcons();
+      fig.setAttribute("data-phase", String(n + 1));
+      nextPhase = n + 1;
+    }
+    function armHold() {
+      if (manual) { return; }
+      holdTimer = window.setTimeout(function () { apply((ix + 1) % N, !REDUCED_MOTION); }, HOLD_MS);
+    }
+    function finish() {
+      clearTimers();
+      setState(manual ? "done" : "hold");
+      announce(ix);
+      armHold();
+    }
+    // Planuje pozostale fazy od biezacego "elapsed" (start, wznowienie po pauzie)
+    function schedule() {
+      var last = phases[phases.length - 1][0];
+      for (var k = nextPhase; k < phases.length; k += 1) {
+        (function (n) {
+          timers.push(window.setTimeout(function () { runPhase(n); }, Math.max(0, phases[n][0] - elapsed)));
+        }(k));
+      }
+      timers.push(window.setTimeout(finish, Math.max(0, last - elapsed)));
+      startTime = Date.now();
     }
 
     function apply(i, animate) {
@@ -89,45 +249,51 @@
         tab.classList.toggle("on", tabIx === i);
         tab.setAttribute("aria-pressed", tabIx === i ? "true" : "false");
       });
-      cfg.nameEl.textContent = "SCENARIUSZ " + (i + 1) + "/" + cfg.scenarios.length;
+      cfg.nameEl.textContent = "SCENARIUSZ " + (i + 1) + "/" + N;
       fig.setAttribute("data-scn", String(i));
       fig.setAttribute("data-phase", "0");
-      fig.setAttribute("data-manual", manual ? "true" : "false");
+      clearLog();
       cfg.reset(s);
       refreshIcons();
-      var phases = cfg.phases(s);
-
-      function runPhase(p, n) {
-        p[1]();
-        refreshIcons();
-        fig.setAttribute("data-phase", String(n + 1));
-      }
-      function finish() {
-        setState(manual ? "done" : "hold");
-        announce(i);
-        if (!manual) {
-          timers.push(window.setTimeout(function () {
-            apply((ix + 1) % cfg.scenarios.length, true);
-          }, HOLD_MS));
-        }
-      }
+      phases = cfg.phases(s);
+      nextPhase = 0;
+      elapsed = 0;
 
       if (!animate) {
-        phases.forEach(runPhase);
+        while (nextPhase < phases.length) { runPhase(nextPhase); }
         finish();
         return;
       }
       setState("playing");
-      phases.forEach(function (p, n) {
-        timers.push(window.setTimeout(function () { runPhase(p, n); }, p[0]));
-      });
-      timers.push(window.setTimeout(finish, phases[phases.length - 1][0]));
+      schedule();
     }
 
-    function select(i) {
+    function pause() {
+      if (fig.getAttribute("data-state") !== "playing") { return; }
+      clearTimers();
+      elapsed += Date.now() - startTime;
+      setState("paused");
+    }
+    function resume() {
+      if (fig.getAttribute("data-state") !== "paused") { return; }
+      setState("playing");
+      schedule();
+    }
+    function step() {
+      var st = fig.getAttribute("data-state");
+      if (st === "playing") { pause(); }
+      if (fig.getAttribute("data-state") !== "paused" || nextPhase >= phases.length) { return; }
+      runPhase(nextPhase);
+      elapsed = phases[nextPhase - 1][0];
+      if (nextPhase >= phases.length) { finish(); } else { updateCtl(); }
+    }
+    function stopAuto() {
       manual = true;
       started = true;
       if (io) { io.disconnect(); io = null; }
+    }
+    function select(i) {
+      stopAuto();
       apply(i, !REDUCED_MOTION);
     }
 
@@ -136,6 +302,30 @@
       tab.addEventListener("click", function () {
         select(parseInt(tab.getAttribute("data-scn"), 10));
       });
+    });
+    btnPlay.addEventListener("click", function () {
+      var st = fig.getAttribute("data-state");
+      if (st === "playing") { stopAuto(); pause(); return; }
+      if (st === "paused") { resume(); return; }
+      stopAuto();
+      apply(ix, !REDUCED_MOTION);
+    });
+    btnStep.addEventListener("click", function () { stopAuto(); step(); });
+    btnReplay.addEventListener("click", function () { stopAuto(); apply(ix, !REDUCED_MOTION); });
+    btnAuto.addEventListener("click", function () {
+      var st = fig.getAttribute("data-state");
+      if (!manual) {
+        manual = true;
+        if (st === "hold") { clearTimers(); setState("done"); } else { updateCtl(); }
+        return;
+      }
+      manual = false;
+      started = true;
+      if (io) { io.disconnect(); io = null; }
+      if (st === "paused") { resume(); }
+      else if (st === "done") { setState("hold"); armHold(); }
+      else if (st === "idle") { apply(ix, !REDUCED_MOTION); }
+      else { updateCtl(); }
     });
 
     setState("idle");
@@ -156,19 +346,20 @@
       apply(0, true);
     }
 
-    // Ukryta karta: przegladarka dlawi timery, a po powrocie odpala je hurtem.
-    // Zatrzymujemy odtwarzanie i po powrocie odtwarzamy biezacy scenariusz od nowa.
+    // Ukryta karta: przegladarka dlawi timery. Pauzujemy i wznawiamy po powrocie.
     document.addEventListener("visibilitychange", function () {
-      var state = fig.getAttribute("data-state");
+      var st = fig.getAttribute("data-state");
       if (document.hidden) {
-        if (timers.length) { clearTimers(); resumeOnVisible = true; }
+        if (st === "playing") { pause(); resumeOnVisible = true; }
+        else if (st === "hold") { clearTimers(); resumeOnVisible = true; }
       } else if (resumeOnVisible) {
         resumeOnVisible = false;
-        if (state === "playing" || state === "hold") { apply(ix, true); }
+        st = fig.getAttribute("data-state");
+        if (st === "paused") { resume(); } else if (st === "hold") { armHold(); }
       }
     });
 
-    var player = { fig: fig, tabs: tabs, select: select };
+    var player = { fig: fig, tabs: tabs, select: select, pause: pause, resume: resume, step: step };
     players.push(player);
     return player;
   }
@@ -272,6 +463,9 @@
     setLink: setLink,
     setNode: setNode,
     addRow: addRow,
+    addRow2: addRow2,
+    showPreview: showPreview,
+    hidePreview: hidePreview,
     setCheck: setCheck,
     makePlayer: makePlayer,
     players: players

@@ -117,64 +117,66 @@
       <p>Wybierz przykładowe pytanie i obserwuj, jak system przeszukuje bazę wiedzy organizacji, identyfikuje najbardziej trafne informacje i na ich podstawie przygotowuje odpowiedź ze wskazaniem dokumentów źródłowych.</p>
     </div>
 
-    <div class="fig reveal" id="figZagloba">
-      <div class="fig-head">
-        <div class="scn-tabs" role="group" aria-label="Przykładowe pytania">
-          <button class="scn-tab" type="button" data-scn="0" data-ix="1">pytanie o procedurę</button>
-          <button class="scn-tab" type="button" data-scn="1" data-ix="2">ograniczony dostęp</button>
-          <button class="scn-tab" type="button" data-scn="2" data-ix="3">brak pokrycia w bazie</button>
-        </div>
+  <div class="fig reveal" id="figZagloba">
+    <div class="fig-head">
+      <div class="scn-tabs" role="group" aria-label="Przykładowe pytania">
+        <button class="scn-tab" type="button" data-scn="0" data-ix="1">pytanie o procedurę</button>
+        <button class="scn-tab" type="button" data-scn="1" data-ix="2">ograniczony dostęp</button>
+        <button class="scn-tab" type="button" data-scn="2" data-ix="3">brak pokrycia w bazie</button>
       </div>
-
-      <div class="flowz" id="flowz">
-        <div class="flow-node" id="zaQuery">
-          <span class="step-no">01</span>
-          <h3><i data-lucide="message-square-text" class="icon"></i>Pytanie użytkownika</h3>
-          <p class="flow-query" id="zaQueryText">Jaka jest procedura udostępniania informacji publicznej w naszym urzędzie?</p>
-        </div>
-        <svg class="flow-link" id="zaLink1" viewBox="0 0 58 14" preserveAspectRatio="none" aria-hidden="true"><line x1="0" y1="7" x2="47" y2="7"/><path d="M47 2 L57 7 L47 12 Z"/></svg>
-        <div class="flow-node" id="zaSearch">
-          <span class="step-no">02</span>
-          <h3><i data-lucide="scan-search" class="icon"></i>Przeszukiwanie bazy wiedzy</h3>
-          <div class="flow-checks">
-            <div class="flow-check" id="zaCheck0"><i data-lucide="database" class="icon"></i><span id="zaCheck0Text">przeszukiwanie bazy wiedzy organizacji</span></div>
-            <div class="flow-check" id="zaCheck1"><i data-lucide="key-round" class="icon"></i><span id="zaCheck1Text">kontrola uprawnień: użytkownik ma dostęp do wyszukanych dokumentów</span></div>
-            <div class="flow-check" id="zaCheck2"><i data-lucide="list-ordered" class="icon"></i><span id="zaCheck2Text">wyszukiwanie hybrydowe i ponowna ocena trafności wyników</span></div>
-          </div>
-        </div>
-        <div class="branch-links" aria-hidden="true">
-          <svg class="flow-link" id="zaLinkA" viewBox="0 0 58 14" preserveAspectRatio="none"><line x1="0" y1="7" x2="47" y2="7"/><path d="M47 2 L57 7 L47 12 Z"/></svg>
-          <svg class="flow-link" id="zaLinkB" viewBox="0 0 58 14" preserveAspectRatio="none"><line x1="0" y1="7" x2="47" y2="7"/><path d="M47 2 L57 7 L47 12 Z"/></svg>
-        </div>
-        <div class="branch-targets">
-          <div class="flow-node" id="zaAnswer">
-            <span class="step-no">03A</span>
-            <h3><i data-lucide="file-check" class="icon"></i>Odpowiedź ze wskazaniem źródeł</h3>
-            <div class="cite-list rows-3" id="zaCites"></div>
-            <span class="flow-badge" id="zaAnswerBadge"><i data-lucide="quote" class="icon"></i><span id="zaAnswerBadgeText"></span></span>
-          </div>
-          <div class="flow-node" id="zaNoData">
-            <span class="step-no">03B</span>
-            <h3><i data-lucide="info" class="icon"></i>Brak informacji w bazie</h3>
-            <span class="flow-badge" id="zaNoDataBadge"><i data-lucide="signpost" class="icon"></i><span id="zaNoDataBadgeText"></span></span>
-          </div>
-        </div>
-      </div>
-
-      <div class="sync-row">
-        <div class="sync-cell">
-          <svg class="sync-link" viewBox="0 0 14 36" aria-hidden="true"><line x1="7" y1="36" x2="7" y2="10"/><path d="M2 11 L7 1 L12 11 Z"/></svg>
-          <div class="sync-box">
-            <span class="sync-tag">Synchronizacja w tle</span>
-            <span class="sync-src">SharePoint · OneDrive · Amazon S3</span>
-            <span class="sync-note">baza wiedzy automatycznie uwzględnia nowe i zmienione dokumenty ze źródeł organizacji</span>
-          </div>
-        </div>
-      </div>
-
-      <div class="scn-status"><b id="zaScnNo">SCENARIUSZ 1/3</b><span id="zaStatus">system gotowy - wybierz przykładowe pytanie</span></div>
     </div>
-    <p class="sim-caption reveal">Symulacja poglądowa. Przykładowe pytania, dokumenty i komunikaty ilustrują sposób działania mechanizmu wyszukiwania informacji i generowania odpowiedzi.</p>
+    <div class="flowz">
+      <div class="flow-node" id="zaQuery">
+        <span class="step-no">01</span>
+        <h3><i data-lucide="message-square-text" class="icon"></i>Pytanie użytkownika</h3>
+        <p class="flow-query" id="zaQueryText">Jaka jest procedura udostępniania informacji publicznej w naszym urzędzie?</p>
+      </div>
+      <svg class="flow-link" id="zaLink1" viewBox="0 0 58 14" preserveAspectRatio="none" aria-hidden="true"><line x1="0" y1="7" x2="47" y2="7"/><path d="M47 2 L57 7 L47 12 Z"/></svg>
+      <div class="flow-node" id="zaSearch">
+        <span class="step-no">02</span>
+        <h3><i data-lucide="scan-search" class="icon"></i>Przeszukiwanie bazy wiedzy</h3>
+        <div class="flow-checks">
+          <div class="flow-check" id="zaCheck0"><i data-lucide="database" class="icon"></i><span id="zaCheck0Text">przeszukiwanie bazy wiedzy organizacji</span></div>
+          <div class="flow-check" id="zaCheck1"><i data-lucide="key-round" class="icon"></i><span id="zaCheck1Text">kontrola uprawnień: użytkownik ma dostęp do wyszukanych dokumentów</span></div>
+          <div class="flow-check" id="zaCheck2"><i data-lucide="list-ordered" class="icon"></i><span id="zaCheck2Text">wyszukiwanie hybrydowe i ponowna ocena trafności wyników</span></div>
+        </div>
+      </div>
+      <div class="branch-links" aria-hidden="true">
+        <svg class="flow-link" id="zaLinkA" viewBox="0 0 58 14" preserveAspectRatio="none"><line x1="0" y1="7" x2="47" y2="7"/><path d="M47 2 L57 7 L47 12 Z"/></svg>
+        <svg class="flow-link" id="zaLinkB" viewBox="0 0 58 14" preserveAspectRatio="none"><line x1="0" y1="7" x2="47" y2="7"/><path d="M47 2 L57 7 L47 12 Z"/></svg>
+      </div>
+      <div class="branch-targets">
+        <div class="flow-node" id="zaAnswer">
+          <span class="step-no">03A</span>
+          <h3><i data-lucide="file-check" class="icon"></i>Odpowiedź ze wskazaniem źródeł</h3>
+          <div class="flow-preview lines-4" id="zaAnswerPreview"></div>
+          <div class="cite-list rows-3" id="zaCites"></div>
+          <span class="flow-badge" id="zaAnswerBadge"><i data-lucide="quote" class="icon"></i><span id="zaAnswerBadgeText"></span></span>
+        </div>
+        <div class="flow-node" id="zaNoData">
+          <span class="step-no">03B</span>
+          <h3><i data-lucide="info" class="icon"></i>Brak informacji w bazie</h3>
+          <div class="flow-preview" id="zaNoDataPreview"></div>
+          <span class="flow-badge" id="zaNoDataBadge"><i data-lucide="signpost" class="icon"></i><span id="zaNoDataBadgeText"></span></span>
+        </div>
+      </div>
+    </div>
+    <div class="sync-row">
+      <div class="sync-cell">
+        <svg class="sync-link" viewBox="0 0 14 36" aria-hidden="true"><line x1="7" y1="36" x2="7" y2="10"/><path d="M2 11 L7 1 L12 11 Z"/></svg>
+        <div class="sync-box">
+          <span class="sync-tag">Synchronizacja w tle</span>
+          <span class="sync-src">SharePoint · OneDrive · Amazon S3</span>
+          <span class="sync-note">baza wiedzy automatycznie uwzględnia nowe i zmienione dokumenty ze źródeł organizacji</span>
+        </div>
+      </div>
+    </div>
+    <div class="scn-status"><b id="zaScnNo">SCENARIUSZ 1/3</b><span id="zaStatus">system gotowy - wybierz przykładowe pytanie</span></div>
+  </div>
+  <div class="sim-foot reveal">
+    <p class="sim-caption">Symulacja poglądowa. Przykładowe pytania, dokumenty, fragmenty odpowiedzi i komunikaty ilustrują sposób działania mechanizmu wyszukiwania informacji i generowania odpowiedzi.</p>
+    <a class="pill pill-solid" href="mailto:kontakt@quanticalab.ai?subject=Prezentacja%3A%20Zag%C5%82oba">Umów prezentację</a>
+  </div>
 
     <div class="route-callout reveal"><i data-lucide="signpost" class="icon"></i><span>W przypadku braku informacji w bazie Zagłoba nie tworzy odpowiedzi spekulatywnych, lecz informuje o braku danych i może skierować użytkownika do odpowiedniego źródła informacji.</span></div>
   </div>
@@ -283,14 +285,18 @@
 <script>
 (function () {
   "use strict";
-
   // ─── Shared helpers from shared.js (QW) ───
   var PHASE_MS = QW.PHASE_MS;
   var el = QW.el;
   var setLink = QW.setLink;
   var setNode = QW.setNode;
+  var addRow = QW.addRow;
+  var setCheck = QW.setCheck;
+  var showPreview = QW.showPreview;
+  var hidePreview = QW.hidePreview;
   var makePlayer = QW.makePlayer;
 
+  // PRZYKLAD: fragmenty odpowiedzi i nazwy dokumentow sa danymi demonstracyjnymi
   var SCENARIOS = [
     {
       query: "Jaka jest procedura udostępniania informacji publicznej w naszym urzędzie?",
@@ -300,6 +306,7 @@
         "wyszukiwanie hybrydowe i ponowna ocena trafności wyników"
       ],
       target: "answer",
+      preview: "Wniosek można złożyć pisemnie, e-mailem lub przez ePUAP. Odpowiedzi udziela się bez zbędnej zwłoki, nie później niż w terminie 14 dni <span class=\"ref\">[1]</span>. Wniosek rejestruje sekretariat zgodnie z instrukcją obiegu dokumentów <span class=\"ref\">[2]</span>. <span class=\"more\">(…)</span>",
       statusRoute: "przygotowanie odpowiedzi na podstawie najbardziej trafnych informacji",
       statusFinal: "odpowiedź zawiera odwołania do dokumentów źródłowych w formie cytowań",
       answerBadge: "informacje można zweryfikować w materiałach źródłowych",
@@ -316,6 +323,7 @@
         "ponowna ocena trafności wyników w dostępnych zasobach"
       ],
       target: "answer",
+      preview: "Ustalenia: 1) start pilotażu w II kwartale <span class=\"ref\">[1]</span>, 2) odpowiedzialny: zespół wdrożeniowy, kamienie milowe wg harmonogramu <span class=\"ref\">[2]</span>.<br><span class=\"tr\">Jeden dokument pominięto ze względu na brak uprawnień użytkownika.</span>",
       statusRoute: "odpowiedź generowana wyłącznie na podstawie informacji, do których użytkownik ma uprawnienia",
       statusFinal: "zachowane istniejące role i poziomy dostępu",
       answerBadge: "odpowiedź na podstawie zasobów dostępnych użytkownikowi",
@@ -333,6 +341,7 @@
         "ocena trafności: brak wystarczających informacji w bazie wiedzy"
       ],
       target: "nodata",
+      preview: "W bazie wiedzy nie ma informacji o zasadach rozliczania delegacji zagranicznych na przyszły rok. Obowiązujące dziś zasady opisuje <span class=\"ref\">[1]</span>. Właściwym źródłem informacji o zmianach jest <b>dział finansowy</b>.",
       statusRoute: "system nie tworzy odpowiedzi spekulatywnej",
       statusFinal: "informacja o braku danych i wskazanie odpowiedniego źródła informacji",
       noDataBadge: "brak danych - wskazano właściwe źródło: dział finansowy"
@@ -346,8 +355,9 @@
     link1: el("zaLink1"), linkA: el("zaLinkA"), linkB: el("zaLinkB"),
     checks: [el("zaCheck0"), el("zaCheck1"), el("zaCheck2")],
     checkTexts: [el("zaCheck0Text"), el("zaCheck1Text"), el("zaCheck2Text")],
-    cites: el("zaCites"),
+    answerPreview: el("zaAnswerPreview"), cites: el("zaCites"),
     answerBadge: el("zaAnswerBadge"), answerBadgeText: el("zaAnswerBadgeText"),
+    noDataPreview: el("zaNoDataPreview"),
     noDataBadge: el("zaNoDataBadge"), noDataBadgeText: el("zaNoDataBadgeText"),
     status: el("zaStatus")
   };
@@ -362,6 +372,8 @@
       [refs.link1, refs.linkA, refs.linkB].forEach(function (l) { setLink(l, null); });
       refs.checks.forEach(function (c) { c.classList.remove("on"); });
       refs.cites.innerHTML = "";
+      hidePreview(refs.answerPreview);
+      hidePreview(refs.noDataPreview);
       refs.answerBadge.classList.remove("show");
       refs.noDataBadge.classList.remove("show");
       refs.queryText.textContent = s.query;
@@ -371,23 +383,25 @@
       return [
         [0, function () { refs.query.classList.add("on"); refs.status.textContent = "odebrano pytanie użytkownika"; }],
         [PHASE_MS, function () { refs.link1.classList.add("on"); refs.search.classList.add("on"); }],
-        [PHASE_MS * 1.6, function () { QW.setCheck(refs.checks[0]); refs.status.textContent = s.checks[0]; }],
-        [PHASE_MS * 2.4, function () { QW.setCheck(refs.checks[1]); refs.status.textContent = s.checks[1]; }],
-        [PHASE_MS * 3.2, function () { QW.setCheck(refs.checks[2]); refs.status.textContent = s.checks[2]; }],
+        [PHASE_MS * 1.6, function () { setCheck(refs.checks[0]); refs.status.textContent = s.checks[0]; }],
+        [PHASE_MS * 2.4, function () { setCheck(refs.checks[1]); refs.status.textContent = s.checks[1]; }],
+        [PHASE_MS * 3.2, function () { setCheck(refs.checks[2]); refs.status.textContent = s.checks[2]; }],
         [PHASE_MS * 4.4, function () {
           refs.link1.classList.remove("on");
           if (s.target === "answer") {
             setLink(refs.linkA, "on"); setLink(refs.linkB, "faded");
             setNode(refs.answer, "on"); setNode(refs.noData, "faded");
+            showPreview(refs.answerPreview, s.preview);
           } else {
             setLink(refs.linkB, "on"); setLink(refs.linkA, "faded");
             setNode(refs.noData, "on"); setNode(refs.answer, "faded");
+            showPreview(refs.noDataPreview, s.preview);
           }
           refs.status.textContent = s.statusRoute;
         }],
         [PHASE_MS * 5.4, function () {
           if (s.target === "answer") {
-            s.citations.forEach(function (c) { QW.addRow(refs.cites, c[0], c[1], c[2]); });
+            s.citations.forEach(function (c) { addRow(refs.cites, c[0], c[1], c[2]); });
             refs.answerBadgeText.textContent = s.answerBadge;
             refs.answerBadge.classList.add("show");
           } else {

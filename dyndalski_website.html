@@ -131,45 +131,49 @@
       <p>Na podstawie wprowadzonych danych Dyndalski generuje kompletny dokument zgodny ze wzorcem gatunkowym. System automatycznie dobiera właściwą strukturę, styl i sposób przedstawienia informacji. Dba także o poprawność językową i formatowanie. Wygenerowany dokument można edytować oraz zapisać w wybranym formacie.</p>
     </div>
 
-    <div class="fig reveal" id="figDyndalski">
-      <div class="fig-head">
-        <div class="scn-tabs" role="group" aria-label="Przykładowe gatunki dokumentów">
-          <button class="scn-tab" type="button" data-scn="0" data-ix="1">uchwała</button>
-          <button class="scn-tab" type="button" data-scn="1" data-ix="2">zawiadomienie</button>
-          <button class="scn-tab" type="button" data-scn="2" data-ix="3">protokół</button>
-        </div>
+  <div class="fig reveal" id="figDyndalski">
+    <div class="fig-head">
+      <div class="scn-tabs" role="group" aria-label="Przykładowe gatunki dokumentów">
+        <button class="scn-tab" type="button" data-scn="0" data-ix="1">uchwała</button>
+        <button class="scn-tab" type="button" data-scn="1" data-ix="2">zawiadomienie</button>
+        <button class="scn-tab" type="button" data-scn="2" data-ix="3">protokół</button>
       </div>
-
-      <div class="flowz">
-        <div class="flow-node" id="dyForm">
-          <span class="step-no">01</span>
-          <h3><i data-lucide="text-cursor-input" class="icon"></i>Wybór gatunku i formularz</h3>
-          <span class="genre-chip" id="dyGenre">uchwała</span>
-          <p class="flow-query" id="dyInput">rada przyjmuje regulamin korzystania z parku miejskiego, obowiązuje od 1 września, podstawa prawna do uzupełnienia</p>
-        </div>
-        <svg class="flow-link" id="dyLink1" viewBox="0 0 58 14" preserveAspectRatio="none" aria-hidden="true"><line x1="0" y1="7" x2="47" y2="7"/><path d="M47 2 L57 7 L47 12 Z"/></svg>
-        <div class="flow-node" id="dyGenerate">
-          <span class="step-no">02</span>
-          <h3><i data-lucide="settings-2" class="icon"></i>Generowanie dokumentu</h3>
-          <div class="flow-sub">lokalnie uruchamiany model językowy</div>
-          <div class="flow-checks">
-            <div class="flow-check" id="dyCheck0"><i data-lucide="list-checks" class="icon"></i><span>kompletność danych</span></div>
-            <div class="flow-check" id="dyCheck1"><i data-lucide="layout-template" class="icon"></i><span>struktura i styl zgodne ze wzorcem gatunkowym</span></div>
-            <div class="flow-check" id="dyCheck2"><i data-lucide="spell-check" class="icon"></i><span>poprawność językowa i formatowanie</span></div>
-          </div>
-        </div>
-        <svg class="flow-link" id="dyLink2" viewBox="0 0 58 14" preserveAspectRatio="none" aria-hidden="true"><line x1="0" y1="7" x2="47" y2="7"/><path d="M47 2 L57 7 L47 12 Z"/></svg>
-        <div class="flow-node" id="dyDoc">
-          <span class="step-no">03</span>
-          <h3><i data-lucide="file-text" class="icon"></i>Gotowy dokument</h3>
-          <div class="cite-list rows-5" id="dyDocRows"></div>
-          <span class="flow-badge" id="dyDocBadge"><i data-lucide="file-check-2" class="icon"></i><span>do weryfikacji i ewentualnej korekty</span></span>
-        </div>
-      </div>
-
-      <div class="scn-status"><b id="dyScnNo">SCENARIUSZ 1/3</b><span id="dyStatus">system gotowy - wybierz gatunek dokumentu</span></div>
     </div>
-    <p class="sim-caption reveal">Symulacja poglądowa. Przykładowe dane, gatunki i komunikaty ilustrują sposób działania generatora dokumentów.</p>
+    <div class="flowz">
+      <div class="flow-node" id="dyForm">
+        <span class="step-no">01</span>
+        <h3><i data-lucide="text-cursor-input" class="icon"></i>Wybór gatunku i formularz</h3>
+        <span class="genre-chip" id="dyGenre">uchwała</span>
+        <p class="flow-query" id="dyInput">rada przyjmuje regulamin korzystania z parku miejskiego, obowiązuje od 1 września, podstawa prawna do uzupełnienia</p>
+      </div>
+      <svg class="flow-link" id="dyLink1" viewBox="0 0 58 14" preserveAspectRatio="none" aria-hidden="true"><line x1="0" y1="7" x2="47" y2="7"/><path d="M47 2 L57 7 L47 12 Z"/></svg>
+      <div class="flow-node" id="dyGenerate">
+        <span class="step-no">02</span>
+        <h3><i data-lucide="settings-2" class="icon"></i>Generowanie dokumentu</h3>
+        <div class="flow-sub">lokalnie uruchamiany model językowy</div>
+        <div class="flow-checks">
+          <div class="flow-check" id="dyCheck0"><i data-lucide="list-checks" class="icon"></i><span>kompletność danych</span></div>
+          <div class="flow-check" id="dyCheck1"><i data-lucide="layout-template" class="icon"></i><span>struktura i styl zgodne ze wzorcem gatunkowym</span></div>
+          <div class="flow-check" id="dyCheck2"><i data-lucide="spell-check" class="icon"></i><span>poprawność językowa i formatowanie</span></div>
+        </div>
+        <span class="flow-badge ask" id="dyAsk"><i data-lucide="message-circle-question" class="icon"></i><span id="dyAskText"></span></span>
+      </div>
+      <svg class="flow-link" id="dyLink2" viewBox="0 0 58 14" preserveAspectRatio="none" aria-hidden="true"><line x1="0" y1="7" x2="47" y2="7"/><path d="M47 2 L57 7 L47 12 Z"/></svg>
+      <div class="flow-node" id="dyDoc">
+        <span class="step-no">03</span>
+        <h3><i data-lucide="file-text" class="icon"></i>Gotowy dokument</h3>
+        <div class="flow-preview lines-5" id="dyPreview"></div>
+        <div class="cite-list rows-2" id="dyDocRows"></div>
+        <span class="flow-badge" id="dyDocBadge"><i data-lucide="file-check-2" class="icon"></i><span>do weryfikacji i ewentualnej korekty</span></span>
+        <span class="flow-badge ok" id="dyExportBadge"><i data-lucide="download" class="icon"></i><span>edycja w przeglądarce · zapis w wybranym formacie (DOCX, PDF)</span></span>
+      </div>
+    </div>
+    <div class="scn-status"><b id="dyScnNo">SCENARIUSZ 1/3</b><span id="dyStatus">system gotowy - wybierz gatunek dokumentu</span></div>
+  </div>
+  <div class="sim-foot reveal">
+    <p class="sim-caption">Symulacja poglądowa. Przykładowe dane, gatunki i komunikaty ilustrują sposób działania generatora dokumentów.</p>
+    <a class="pill pill-solid" href="mailto:kontakt@quanticalab.ai?subject=Prezentacja%3A%20Dyndalski">Umów prezentację</a>
+  </div>
   </div>
 </section>
 
@@ -269,7 +273,6 @@
 <script>
 (function () {
   "use strict";
-
   // ─── Shared helpers from shared.js (QW) ───
   var PHASE_MS = QW.PHASE_MS;
   var el = QW.el;
@@ -277,43 +280,43 @@
   var setNode = QW.setNode;
   var addRow = QW.addRow;
   var setCheck = QW.setCheck;
+  var showPreview = QW.showPreview;
+  var hidePreview = QW.hidePreview;
   var makePlayer = QW.makePlayer;
 
+  // PRZYKLAD: fragmenty dokumentow sa danymi demonstracyjnymi
   var SCENARIOS = [
     {
       genre: "uchwała",
       input: "rada przyjmuje regulamin korzystania z parku miejskiego, obowiązuje od 1 września, podstawa prawna do uzupełnienia",
-      completeStatus: "weryfikacja kompletności danych: podpowiedziano brakującą podstawę prawną",
+      ask: "brakuje podstawy prawnej - proponuję: art. 40 ust. 2 pkt 4 ustawy o samorządzie gminnym; potwierdź lub wpisz własną",
+      completeStatus: "weryfikacja kompletności danych: brak podstawy prawnej - system zaproponował właściwy przepis",
+      preview: "<b>UCHWAŁA NR …/2026 RADY MIASTA …</b> z dnia … r.<br>w sprawie regulaminu korzystania z parku miejskiego<br>Na podstawie art. 40 ust. 2 pkt 4 ustawy z dnia 8 marca 1990 r. o samorządzie gminnym uchwala się, co następuje:<br>§ 1. Ustala się regulamin korzystania z parku miejskiego, stanowiący załącznik do uchwały. <span class=\"more\">(…)</span><br>§ 4. Uchwała wchodzi w życie z dniem 1 września 2026 r.",
       docLines: [
-        ["file-check", "tytuł i oznaczenie uchwały", ""],
         ["flag", "podstawa prawna - uzupełniona po podpowiedzi systemu", "gap"],
-        ["file-check", "treść uchwały (§ 1 - § 4)", ""],
-        ["file-check", "termin wejścia w życie", ""],
-        ["file-check", "podpis przewodniczącego", ""]
+        ["file-check", "tytuł, treść (§ 1 - § 4), termin wejścia w życie, podpis", ""]
       ]
     },
     {
       genre: "zawiadomienie",
       input: "posiedzenie komisji rewizyjnej przesunięte na 12 maja, godz. 14:00, sala 102, poinformować mieszkańców",
+      ask: "",
       completeStatus: "weryfikacja kompletności danych: komplet informacji o sprawie",
+      preview: "<b>ZAWIADOMIENIE</b><br>Przewodniczący Komisji Rewizyjnej zawiadamia, że posiedzenie Komisji zostaje przesunięte na <b>12 maja 2026 r., godz. 14:00</b>, sala 102.<br>Posiedzenie ma charakter otwarty. Mieszkańcy mogą uczestniczyć w posiedzeniu bez wcześniejszego zgłoszenia. <span class=\"more\">(…)</span>",
       docLines: [
-        ["file-check", "oznaczenie organu i data", ""],
-        ["file-check", "adresaci zawiadomienia", ""],
-        ["file-check", "treść zawiadomienia", ""],
-        ["file-check", "pouczenie", ""],
-        ["file-check", "podpis", ""]
+        ["file-check", "oznaczenie organu, data, adresaci", ""],
+        ["file-check", "treść, pouczenie, podpis", ""]
       ]
     },
     {
       genre: "protokół",
       input: "spotkanie zespołu projektowego 4 czerwca, lista obecności w załączeniu, przyjęto trzy ustalenia, wnioski do realizacji",
+      ask: "",
       completeStatus: "weryfikacja kompletności danych: komplet informacji o sprawie",
+      preview: "<b>PROTOKÓŁ</b> ze spotkania zespołu projektowego z dnia 4 czerwca 2026 r.<br>Obecni: zgodnie z listą obecności (załącznik nr 1).<br>Ustalenia: 1) …; 2) …; 3) ….<br>Wnioski do realizacji: <span class=\"more\">(…)</span> - odpowiedzialni i terminy wg tabeli.",
       docLines: [
-        ["file-check", "nagłówek i data posiedzenia", ""],
-        ["file-check", "lista obecności", ""],
-        ["file-check", "przebieg posiedzenia", ""],
-        ["file-check", "podjęte ustalenia", ""],
-        ["file-check", "podpisy uczestników", ""]
+        ["file-check", "nagłówek, data, lista obecności", ""],
+        ["file-check", "przebieg, ustalenia, podpisy", ""]
       ]
     }
   ];
@@ -321,7 +324,9 @@
   // ─── DOM refs ───
   var refs = {
     form: el("dyForm"), genre: el("dyGenre"), input: el("dyInput"),
-    generate: el("dyGenerate"), doc: el("dyDoc"), docRows: el("dyDocRows"), docBadge: el("dyDocBadge"),
+    generate: el("dyGenerate"), ask: el("dyAsk"), askText: el("dyAskText"),
+    doc: el("dyDoc"), preview: el("dyPreview"), docRows: el("dyDocRows"),
+    docBadge: el("dyDocBadge"), exportBadge: el("dyExportBadge"),
     link1: el("dyLink1"), link2: el("dyLink2"),
     checks: [el("dyCheck0"), el("dyCheck1"), el("dyCheck2")],
     status: el("dyStatus")
@@ -337,7 +342,10 @@
       [refs.link1, refs.link2].forEach(function (l) { setLink(l, null); });
       refs.checks.forEach(function (c) { c.classList.remove("on"); });
       refs.docRows.innerHTML = "";
+      hidePreview(refs.preview);
+      refs.ask.classList.remove("show");
       refs.docBadge.classList.remove("show");
+      refs.exportBadge.classList.remove("show");
       refs.genre.textContent = s.genre;
       refs.input.textContent = s.input;
     },
@@ -345,24 +353,32 @@
       return [
         [0, function () { refs.form.classList.add("on"); refs.status.textContent = "wybrano gatunek: " + s.genre + " - dane z formularza przekazane do systemu"; }],
         [PHASE_MS, function () { refs.link1.classList.add("on"); refs.generate.classList.add("on"); }],
-        [PHASE_MS * 1.6, function () { setCheck(refs.checks[0]); refs.status.textContent = s.completeStatus; }],
-        [PHASE_MS * 2.4, function () { setCheck(refs.checks[1]); refs.status.textContent = "dobrano strukturę i styl zgodne ze wzorcem gatunkowym"; }],
-        [PHASE_MS * 3.2, function () { setCheck(refs.checks[2]); refs.status.textContent = "kontrola poprawności językowej i formatowania"; }],
-        [PHASE_MS * 4.4, function () {
+        [PHASE_MS * 1.6, function () {
+          setCheck(refs.checks[0]);
+          refs.status.textContent = s.completeStatus;
+          if (s.ask) { refs.askText.textContent = s.ask; refs.ask.classList.add("show"); }
+        }],
+        [PHASE_MS * 2.6, function () { setCheck(refs.checks[1]); refs.status.textContent = "dobrano strukturę i styl zgodne ze wzorcem gatunkowym"; }],
+        [PHASE_MS * 3.4, function () { setCheck(refs.checks[2]); refs.status.textContent = "kontrola poprawności językowej i formatowania"; }],
+        [PHASE_MS * 4.6, function () {
           refs.link1.classList.remove("on");
           refs.link2.classList.add("on");
           refs.doc.classList.add("on");
-          s.docLines.forEach(function (d) { addRow(refs.docRows, d[0], d[1], d[2]); });
+          showPreview(refs.preview, s.preview);
           refs.status.textContent = "wygenerowano kompletny dokument zgodny ze wzorcem gatunkowym";
         }],
-        [PHASE_MS * 5.4, function () {
+        [PHASE_MS * 5.6, function () {
+          s.docLines.forEach(function (d) { addRow(refs.docRows, d[0], d[1], d[2]); });
           refs.docBadge.classList.add("show");
-          refs.status.textContent = "dokument gotowy do weryfikacji, edycji i zapisu w wybranym formacie";
+          refs.status.textContent = "dokument gotowy do weryfikacji przez pracownika";
+        }],
+        [PHASE_MS * 6.4, function () {
+          refs.exportBadge.classList.add("show");
+          refs.status.textContent = "edycja w przeglądarce i zapis w wybranym formacie";
         }]
       ];
     }
   });
-
 }());
 </script>
 
