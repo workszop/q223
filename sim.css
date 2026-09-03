@@ -388,3 +388,163 @@
   .sim-caption { text-align: left; }
   #symulacja .route-callout span { text-align: left; }
 }
+
+/* ═══════════════════════════════════════════════════════════════
+   Symulacje v2: sterowanie odtwarzacza, dziennik zdarzen, podglad wyniku.
+   Zawiera: sterowanie odtwarzacza, dziennik zdarzen, podglad wyniku, wiersze dwuliniowe,
+  wskaznik zgodnosci, kryteria w ocenie modeli, CTA pod symulacja, przyklejony panel na mobile.
+*/
+
+/* ─── Player controls (.scn-ctl w .scn-status) ─── */
+.scn-status { row-gap: 8px; }
+.scn-status .scn-status-src {
+  position: absolute; width: 1px; height: 1px; overflow: hidden; clip: rect(0 0 0 0); white-space: nowrap;
+}
+.scn-ctl { margin-left: auto; display: inline-flex; align-items: center; gap: 6px; }
+.scn-btn {
+  font-family: var(--font-mono);
+  font-size: 10px;
+  font-weight: 600;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--fg-3);
+  background: var(--white);
+  border: 1px solid var(--border-2);
+  border-radius: 999px;
+  height: 26px;
+  min-width: 26px;
+  padding: 0 8px;
+  cursor: pointer;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 5px;
+  transition: color 200ms, border-color 200ms, background 200ms;
+}
+.scn-btn .icon { width: 13px; height: 13px; }
+.scn-btn:hover { color: var(--fg-1); border-color: var(--fg-3); }
+.scn-btn:disabled { opacity: 0.35; cursor: default; }
+.scn-btn:disabled:hover { color: var(--fg-3); border-color: var(--border-2); }
+.scn-btn.scn-auto[aria-pressed="true"] { color: var(--quantica-pink); border-color: var(--quantica-pink); background: var(--magenta-tint); }
+.scn-hint { font-size: 10px; letter-spacing: 0.08em; color: var(--fg-3); margin-left: 6px; opacity: 0.8; }
+
+/* ─── Event log (.scn-log) ─── */
+.scn-log {
+  margin-top: 10px;
+  min-height: 92px;                 /* ~4 wiersze: tresc ponizej nie skacze przy pierwszych zdarzeniach */
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+.scn-log-row {
+  font-family: var(--font-mono);
+  font-size: 11px;
+  letter-spacing: 0.02em;
+  line-height: 1.5;
+  color: var(--fg-3);
+  display: flex;
+  gap: 10px;
+  align-items: flex-start;
+  opacity: 0;
+  transition: opacity 300ms, color 300ms;
+}
+.scn-log-row.show { opacity: 0.72; }
+.scn-log-row.now { color: var(--fg-1); }
+.scn-log-row.now.show { opacity: 1; }
+.scn-log-t { flex: none; font-weight: 600; color: var(--diagram-line); width: 2ch; }
+.scn-log-row.now .scn-log-t { color: var(--quantica-pink); }
+
+/* ─── Output preview (.flow-preview) ─── */
+.flow-preview {
+  margin-top: 10px;
+  padding: 9px 11px;
+  border-left: 2px solid var(--quantica-pink);
+  background: var(--bg-2);
+  border-radius: 0 var(--radius-sm) var(--radius-sm) 0;
+  font-size: 12px;
+  line-height: 1.55;
+  color: var(--fg-1);
+  opacity: 0;
+  transition: opacity 350ms;
+  min-height: 0;
+}
+.flow-preview.show { opacity: 1; }
+.flow-preview b { font-weight: 700; }
+.flow-preview .ref { color: var(--quantica-pink); font-family: var(--font-mono); font-size: 10px; font-weight: 600; vertical-align: super; line-height: 0; }
+.flow-preview .spk {
+  font-family: var(--font-mono);
+  font-size: 9.5px;
+  font-weight: 600;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: var(--quantica-pink);
+  margin-right: 5px;
+}
+.flow-preview .tr { color: var(--fg-3); font-size: 11.5px; }
+.flow-preview .more { color: var(--fg-3); }
+/* zarezerwowana wysokosc podgladu - wezel nie skacze */
+.flow-preview.lines-3 { min-height: 4.6em; }
+.flow-preview.lines-4 { min-height: 6.2em; }
+.flow-preview.lines-5 { min-height: 7.8em; }
+
+/* ─── Two-line citation rows (.cite.two) ─── */
+.cite.two { align-items: flex-start; }
+.cite.two > span { display: flex; flex-direction: column; gap: 2px; }
+.cite.two b { font-weight: 600; }
+.cite.two small { font-size: 10px; letter-spacing: 0; color: var(--fg-3); line-height: 1.45; }
+.cite-list.rows-3two { min-height: 168px; }
+.cite-list.rows-2 { min-height: 68px; }
+
+/* ─── Badge variants ─── */
+.flow-badge.ask { background: var(--white); border: 1.5px dashed var(--quantica-pink); }
+.flow-badge.ok { background: var(--bg-2); color: var(--fg-1); }
+.flow-badge.ok .icon { color: var(--quantica-pink); }
+
+/* ─── Compliance gauge (gerwazy) ─── */
+.gauge { margin-top: 12px; }
+.gauge-head {
+  display: flex; justify-content: space-between; align-items: baseline; gap: 8px;
+  font-family: var(--font-mono); font-size: 10.5px; letter-spacing: 0.02em; color: var(--fg-3);
+  margin-bottom: 5px;
+}
+.gauge-head b { color: var(--fg-1); font-weight: 600; }
+.gauge .score-fill { background: var(--quantica-pink); }
+
+/* ─── Per-criterion bars (ocena) ─── */
+/* nazwa modelu i wynik w pierwszym wierszu, trzy paski kryteriow pod spodem na calej szerokosci */
+.model-row { grid-template-columns: 1fr 48px; align-items: center; row-gap: 5px; }
+.crit-stack { grid-column: 1 / -1; display: flex; flex-direction: column; gap: 4px; }
+.crit { display: grid; grid-template-columns: 78px 1fr; align-items: center; gap: 8px; }
+.crit-lbl { font-family: var(--font-mono); font-size: 9px; letter-spacing: 0.04em; text-transform: uppercase; color: var(--fg-3); white-space: nowrap; }
+.crit .score-track { height: 4px; }
+.model-row .score-val { grid-column: 2; grid-row: 1; }
+.sim-note {
+  display: inline-block;
+  font-family: var(--font-mono);
+  font-size: 9.5px;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--fg-3);
+  border: 1px dashed var(--border-2);
+  border-radius: 999px;
+  padding: 2px 8px;
+  margin-top: 10px;
+}
+
+/* ─── Caption + CTA under the figure ─── */
+.sim-foot { display: flex; align-items: center; justify-content: space-between; gap: 18px; flex-wrap: wrap; margin-top: 16px; }
+.sim-foot .sim-caption { margin-top: 0; flex: 1 1 420px; text-align: left; }
+.sim-foot .pill { flex: none; }
+
+/* ─── Responsive ─── */
+@media (max-width: 768px) {
+  /* panel statusu przyklejony do dolu ekranu: na telefonie animacja przebiega poza ekranem */
+  .fig { position: relative; }
+  .scn-panel { position: sticky; bottom: 0; background: var(--diagram-paper); padding-bottom: 8px; z-index: 2; }
+  .scn-log { min-height: 0; max-height: 96px; overflow: hidden; justify-content: flex-end; } /* obcinamy najstarsze wiersze, nie najnowsze */
+  .scn-hint { display: none; }
+  .scn-ctl { margin-left: 0; }
+  .crit { grid-template-columns: 70px 1fr; }
+  .flow-preview.lines-3, .flow-preview.lines-4, .flow-preview.lines-5 { min-height: 0; }
+  .cite-list.rows-3two { min-height: 0; }
+}

@@ -122,54 +122,59 @@
       <p>Wybierz przykładowy scenariusz i obserwuj, jak system porównuje dokumentację z wymaganiami, identyfikuje luki i niezgodności, a następnie przygotowuje raport z rekomendacjami działań naprawczych.</p>
     </div>
 
-    <div class="fig reveal" id="figGerwazy">
-      <div class="fig-head">
-        <div class="scn-tabs" role="group" aria-label="Przykładowe scenariusze">
-          <button class="scn-tab" type="button" data-scn="0" data-ix="1">NIS2</button>
-          <button class="scn-tab" type="button" data-scn="1" data-ix="2">AI Act</button>
-          <button class="scn-tab" type="button" data-scn="2" data-ix="3">własna lista kontrolna</button>
-        </div>
+  <div class="fig reveal" id="figGerwazy">
+    <div class="fig-head">
+      <div class="scn-tabs" role="group" aria-label="Przykładowe scenariusze">
+        <button class="scn-tab" type="button" data-scn="0" data-ix="1">NIS2</button>
+        <button class="scn-tab" type="button" data-scn="1" data-ix="2">AI Act</button>
+        <button class="scn-tab" type="button" data-scn="2" data-ix="3">własna lista kontrolna</button>
       </div>
-
-      <div class="flowz">
-        <div class="branch-targets">
-          <div class="flow-node" id="geDoc">
-            <span class="step-no">01A</span>
-            <h3><i data-lucide="file-text" class="icon"></i>Dokumentacja organizacji</h3>
-            <p class="flow-query short" id="geDocText">Polityka bezpieczeństwa informacji</p>
-          </div>
-          <div class="flow-node" id="geReq">
-            <span class="step-no">01B</span>
-            <h3><i data-lucide="clipboard-list" class="icon"></i>Zestaw wymagań</h3>
-            <div class="flow-sub" id="geReqText">regulacje, normy, listy kontrolne</div>
-          </div>
-        </div>
-        <div class="branch-links" aria-hidden="true">
-          <svg class="flow-link" id="geLinkA" viewBox="0 0 58 14" preserveAspectRatio="none"><line x1="0" y1="7" x2="47" y2="7"/><path d="M47 2 L57 7 L47 12 Z"/></svg>
-          <svg class="flow-link" id="geLinkB" viewBox="0 0 58 14" preserveAspectRatio="none"><line x1="0" y1="7" x2="47" y2="7"/><path d="M47 2 L57 7 L47 12 Z"/></svg>
-        </div>
-        <div class="flow-node" id="geAgents">
-          <span class="step-no">02</span>
-          <h3><i data-lucide="users" class="icon"></i>Agenci AI</h3>
-          <div class="flow-checks">
-            <div class="flow-check" id="geCheck0"><i data-lucide="book-open" class="icon"></i><span id="geCheck0Text">interpretacja wymagań</span></div>
-            <div class="flow-check" id="geCheck1"><i data-lucide="search" class="icon"></i><span id="geCheck1Text">analiza dokumentacji</span></div>
-            <div class="flow-check" id="geCheck2"><i data-lucide="flag" class="icon"></i><span id="geCheck2Text">identyfikacja luk i niespójności</span></div>
-            <div class="flow-check" id="geCheck3"><i data-lucide="gauge" class="icon"></i><span id="geCheck3Text">ocena poziomu zgodności</span></div>
-          </div>
-        </div>
-        <svg class="flow-link" id="geLink2" viewBox="0 0 58 14" preserveAspectRatio="none" aria-hidden="true"><line x1="0" y1="7" x2="47" y2="7"/><path d="M47 2 L57 7 L47 12 Z"/></svg>
-        <div class="flow-node" id="geReport">
-          <span class="step-no">03</span>
-          <h3><i data-lucide="file-check" class="icon"></i>Raport zgodności</h3>
-          <div class="cite-list rows-3" id="geFindings"></div>
-          <span class="flow-badge" id="geVerdictBadge"><i data-lucide="wrench" class="icon"></i><span id="geVerdictText"></span></span>
-        </div>
-      </div>
-
-      <div class="scn-status"><b id="geScnNo">SCENARIUSZ 1/3</b><span id="geStatus">system gotowy - wybierz przykładowy scenariusz</span></div>
     </div>
-    <p class="sim-caption reveal">Symulacja poglądowa. Przykładowe scenariusze i komunikaty ilustrują sposób działania mechanizmu oceny zgodności.</p>
+    <div class="flowz">
+      <div class="branch-targets">
+        <div class="flow-node" id="geDoc">
+          <span class="step-no">01A</span>
+          <h3><i data-lucide="file-text" class="icon"></i>Dokumentacja organizacji</h3>
+          <p class="flow-query short" id="geDocText">Polityka bezpieczeństwa informacji</p>
+        </div>
+        <div class="flow-node" id="geReq">
+          <span class="step-no">01B</span>
+          <h3><i data-lucide="clipboard-list" class="icon"></i>Zestaw wymagań</h3>
+          <div class="flow-sub" id="geReqText">regulacje, normy, listy kontrolne</div>
+        </div>
+      </div>
+      <div class="branch-links" aria-hidden="true">
+        <svg class="flow-link" id="geLinkA" viewBox="0 0 58 14" preserveAspectRatio="none"><line x1="0" y1="7" x2="47" y2="7"/><path d="M47 2 L57 7 L47 12 Z"/></svg>
+        <svg class="flow-link" id="geLinkB" viewBox="0 0 58 14" preserveAspectRatio="none"><line x1="0" y1="7" x2="47" y2="7"/><path d="M47 2 L57 7 L47 12 Z"/></svg>
+      </div>
+      <div class="flow-node" id="geAgents">
+        <span class="step-no">02</span>
+        <h3><i data-lucide="users" class="icon"></i>Agenci AI</h3>
+        <div class="flow-checks">
+          <div class="flow-check" id="geCheck0"><i data-lucide="book-open" class="icon"></i><span id="geCheck0Text">interpretacja wymagań</span></div>
+          <div class="flow-check" id="geCheck1"><i data-lucide="search" class="icon"></i><span id="geCheck1Text">analiza dokumentacji</span></div>
+          <div class="flow-check" id="geCheck2"><i data-lucide="flag" class="icon"></i><span id="geCheck2Text">identyfikacja luk i niespójności</span></div>
+          <div class="flow-check" id="geCheck3"><i data-lucide="gauge" class="icon"></i><span id="geCheck3Text">ocena poziomu zgodności</span></div>
+        </div>
+      </div>
+      <svg class="flow-link" id="geLink2" viewBox="0 0 58 14" preserveAspectRatio="none" aria-hidden="true"><line x1="0" y1="7" x2="47" y2="7"/><path d="M47 2 L57 7 L47 12 Z"/></svg>
+      <div class="flow-node" id="geReport">
+        <span class="step-no">03</span>
+        <h3><i data-lucide="file-check" class="icon"></i>Raport zgodności</h3>
+        <div class="cite-list rows-3two" id="geFindings"></div>
+        <div class="gauge" id="geGauge">
+          <div class="gauge-head"><span>poziom zgodności</span><b id="geGaugeVal"></b></div>
+          <span class="score-track"><span class="score-fill" id="geGaugeFill"></span></span>
+        </div>
+        <span class="flow-badge" id="geVerdictBadge"><i data-lucide="wrench" class="icon"></i><span id="geVerdictText"></span></span>
+      </div>
+    </div>
+    <div class="scn-status"><b id="geScnNo">SCENARIUSZ 1/3</b><span id="geStatus">system gotowy - wybierz przykładowy scenariusz</span></div>
+  </div>
+  <div class="sim-foot reveal">
+    <p class="sim-caption">Symulacja poglądowa. Przykładowe scenariusze, fragmenty dokumentów i komunikaty ilustrują sposób działania mechanizmu oceny zgodności.</p>
+    <a class="pill pill-solid" href="mailto:kontakt@quanticalab.ai?subject=Prezentacja%3A%20Gerwazy">Umów prezentację</a>
+  </div>
 
     <div class="split-grid reveal">
       <div class="icon-card">
@@ -303,16 +308,16 @@
 <script>
 (function () {
   "use strict";
-
   // ─── Shared helpers from shared.js (QW) ───
   var PHASE_MS = QW.PHASE_MS;
   var el = QW.el;
   var setLink = QW.setLink;
   var setNode = QW.setNode;
-  var addRow = QW.addRow;
+  var addRow2 = QW.addRow2;
   var setCheck = QW.setCheck;
   var makePlayer = QW.makePlayer;
 
+  // PRZYKLAD: cytowane fragmenty i odwolania do artykulow sa danymi demonstracyjnymi
   var SCENARIOS = [
     {
       doc: "Polityka bezpieczeństwa informacji",
@@ -324,13 +329,14 @@
         "ocena poziomu zgodności: częściowa"
       ],
       findings: [
-        ["check", "01 polityka bezpieczeństwa - spełnione", ""],
-        ["flag", "02 obsługa incydentów - zidentyfikowana niezgodność", "gap"],
-        ["flag", "03 ciągłość działania - brak w dokumentacji", "gap"]
+        ["check", "01 polityka bezpieczeństwa - spełnione", "„rozdz. 3: przegląd polityki co 12 miesięcy” · NIS2 art. 21 ust. 2 lit. a", ""],
+        ["flag", "02 obsługa incydentów - niezgodność", "„rozdz. 7: zgłoszenie incydentu w terminie 7 dni” · NIS2 art. 23: wczesne ostrzeżenie w 24 h", "gap"],
+        ["flag", "03 ciągłość działania - brak w dokumentacji", "brak zapisów o kopiach zapasowych i przywracaniu · NIS2 art. 21 ust. 2 lit. c", "gap"]
       ],
-      verdict: "rekomendacje działań naprawczych",
+      met: 1, total: 3,
+      verdict: "rekomendacje działań naprawczych: 2 zmiany w dokumentacji",
       reportStatus: "raport: 1 wymaganie spełnione, 1 niezgodność, 1 brak w dokumentacji",
-      statusFinal: "każda ocena uzasadniona i powiązana z fragmentami analizowanych dokumentów"
+      statusFinal: "każda ocena uzasadniona cytowanym fragmentem dokumentu i wskazanym wymaganiem"
     },
     {
       doc: "Procedury wewnętrzne organizacji",
@@ -342,11 +348,12 @@
         "ocena poziomu zgodności: częściowa"
       ],
       findings: [
-        ["check", "01 rejestr systemów AI - spełnione", ""],
-        ["check", "02 nadzór człowieka - spełnione", ""],
-        ["flag", "03 dokumentacja techniczna - wymaga uzupełnienia", "gap"]
+        ["check", "01 rejestr systemów AI - spełnione", "„procedura P-12, pkt 2: rejestr systemów AI” · AI Act art. 49", ""],
+        ["check", "02 nadzór człowieka - spełnione", "„P-12, pkt 5: decyzję zatwierdza pracownik” · AI Act art. 14", ""],
+        ["flag", "03 dokumentacja techniczna - wymaga uzupełnienia", "brak opisu danych treningowych i metryk · AI Act art. 11, załącznik IV", "gap"]
       ],
-      verdict: "zaproponowano zmiany w dokumentacji",
+      met: 2, total: 3,
+      verdict: "zaproponowano zmiany w dokumentacji technicznej",
       reportStatus: "raport: 2 wymagania spełnione, 1 obszar wymaga uzupełnienia",
       statusFinal: "zaproponowane zmiany wspierają osiągnięcie zgodności z wymaganiami"
     },
@@ -356,16 +363,17 @@
       checks: [
         "interpretacja wymagań z listy kontrolnej",
         "analiza dokumentacji organizacji",
-        "identyfikacja luk: nie wykryto niezgodności",
-        "ocena poziomu zgodności: wymagania spełnione"
+        "identyfikacja luk: 1 pozycja listy bez pokrycia",
+        "ocena poziomu zgodności: wysoka"
       ],
       findings: [
-        ["check", "01 regulamin organizacyjny - spełnione", ""],
-        ["check", "02 rejestr upoważnień - spełnione", ""],
-        ["check", "03 procedura obiegu dokumentów - spełnione", ""]
+        ["check", "01 regulamin organizacyjny - spełnione", "„§ 4: zakres odpowiedzialności komórek” · lista kontrolna, pkt 1", ""],
+        ["check", "02 rejestr upoważnień - spełnione", "„rejestr R-3, aktualizacja: 2026” · lista kontrolna, pkt 2", ""],
+        ["flag", "03 procedura obiegu dokumentów - do uzupełnienia", "brak zapisu o obiegu dokumentów elektronicznych · lista kontrolna, pkt 3", "gap"]
       ],
-      verdict: "zgodność z wewnętrznymi zasadami potwierdzona",
-      reportStatus: "raport: wszystkie wymagania spełnione, brak niezgodności",
+      met: 2, total: 3,
+      verdict: "zgodność z wewnętrznymi zasadami: 1 pozycja do uzupełnienia",
+      reportStatus: "raport: 2 pozycje listy spełnione, 1 do uzupełnienia",
       statusFinal: "bieżąca weryfikacja zgodności z wewnętrznymi zasadami i procedurami"
     }
   ];
@@ -379,6 +387,7 @@
     checks: [el("geCheck0"), el("geCheck1"), el("geCheck2"), el("geCheck3")],
     checkTexts: [el("geCheck0Text"), el("geCheck1Text"), el("geCheck2Text"), el("geCheck3Text")],
     findings: el("geFindings"),
+    gaugeFill: el("geGaugeFill"), gaugeVal: el("geGaugeVal"),
     verdictBadge: el("geVerdictBadge"), verdictText: el("geVerdictText"),
     status: el("geStatus")
   };
@@ -393,6 +402,8 @@
       [refs.linkA, refs.linkB, refs.link2].forEach(function (l) { setLink(l, null); });
       refs.checks.forEach(function (c) { c.classList.remove("on"); });
       refs.findings.innerHTML = "";
+      refs.gaugeFill.style.width = "0";
+      refs.gaugeVal.textContent = "";
       refs.verdictBadge.classList.remove("show");
       refs.docText.textContent = s.doc;
       refs.reqText.textContent = s.req;
@@ -412,10 +423,12 @@
           refs.linkB.classList.remove("on");
           refs.link2.classList.add("on");
           refs.report.classList.add("on");
-          s.findings.forEach(function (f) { addRow(refs.findings, f[0], f[1], f[2]); });
+          s.findings.forEach(function (f) { addRow2(refs.findings, f[0], f[1], f[2], f[3]); });
           refs.status.textContent = s.reportStatus;
         }],
         [PHASE_MS * 6.2, function () {
+          refs.gaugeFill.style.width = Math.round(100 * s.met / s.total) + "%";
+          refs.gaugeVal.textContent = s.met + " z " + s.total + " wymagań";
           refs.verdictText.textContent = s.verdict;
           refs.verdictBadge.classList.add("show");
           refs.status.textContent = s.statusFinal;
@@ -423,7 +436,6 @@
       ];
     }
   });
-
 }());
 </script>
 
