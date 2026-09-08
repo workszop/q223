@@ -1,0 +1,413 @@
+# Quantica Lab – AI dla organizacji
+
+> Warszawska spółka technologiczna, która buduje i wdraża systemy AI dla dużych organizacji
+> i administracji publicznej: asystentów wiedzy (RAG), agentów AI, dostrajanie modeli językowych,
+> ocenę modeli oraz szkolenia. Zespół współtworzył polskie modele językowe PLLuM.
+> Quantica Lab sp. z o.o. wchodzi w skład holdingu deep-tech BearLake Group.
+
+Pełna treść serwisu https://www.quanticalab.ai/ w formacie tekstowym.
+Skrócony indeks stron: https://www.quanticalab.ai/llms.txt
+Ostatnia aktualizacja: 2026-09-08. Język: polski.
+
+## O nas
+
+https://www.quanticalab.ai/quantica_o_nas.html
+
+### Kim jesteśmy
+
+Jesteśmy częścią BearLake Group – polskiego holdingu technologicznego realizującego projekty
+z zakresu infrastruktury IT i sztucznej inteligencji. Łączymy doświadczenie badawczo-rozwojowe
+z praktycznym wdrażaniem rozwiązań AI w biznesie i administracji publicznej. Rozwijamy własne
+produkty, realizujemy dedykowane wdrożenia, doradzamy przy wyborze technologii oraz pomagamy
+organizacjom budować kompetencje AI.
+
+### Jakie mamy doświadczenie
+
+Nasi eksperci od lat rozwijają rozwiązania AI, pracują z danymi i realizują wdrożenia dla
+administracji publicznej oraz biznesu. Projektują, dostrajają i oceniają modele AI, budują systemy
+oparte na dużych modelach językowych oraz wspierają organizacje w wyborze technologii i ich
+skutecznym wdrażaniu. Tworzą również programy edukacyjne i prowadzą szkolenia z zakresu sztucznej
+inteligencji. Doświadczenie zdobywali zarówno podczas opracowywania własnych produktów, jak i prac
+badawczo-rozwojowych. Współtworzyli m.in. polskie modele językowe PLLuM, uczestnicząc w ich
+budowie, ocenie i wdrożeniach.
+
+### Jak pracujemy
+
+Patrzymy na systemy AI z perspektywy całego ich cyklu życia – od przygotowania danych i wyboru
+architektury, przez ocenę jakości, aż po wdrożenie i utrzymanie.
+
+Każdy projekt rozpoczynamy od zrozumienia potrzeb organizacji i doboru technologii najlepiej
+odpowiadającej konkretnemu zastosowaniu. Nie jesteśmy związani z jednym dostawcą modeli,
+infrastruktury ani usług chmurowych. Dobieramy rozwiązania z uwzględnieniem wymagań technicznych,
+biznesowych i prawnych. Opracowujemy własne metody i zbiory testowe do oceny modeli AI, które
+pozwalają porównywać rozwiązania w rzeczywistych scenariuszach użycia i podejmować świadome decyzje
+technologiczne.
+
+Stawiamy na szybkie sprawdzanie pomysłów. Dlatego zamiast rozpoczynać współpracę od długich
+prezentacji i raportów, często przygotowujemy demonstrator rozwiązania dla konkretnego problemu.
+Pozwala to już na początku projektu zweryfikować założenia i wspólnie zdecydować o kolejnych etapach
+prac.
+
+Projektując i wdrażając rozwiązania AI, stawiamy na bezpieczeństwo danych, możliwość uruchomienia
+systemów w infrastrukturze klienta oraz pełną kontrolę nad przetwarzaniem informacji.
+
+### Jak wspieramy organizacje
+
+Pomagamy organizacjom rozwijać kompetencje AI poprzez szkolenia, warsztaty i programy edukacyjne dla
+administracji publicznej oraz przedsiębiorstw. Zapewniamy również wsparcie eksperckie – od strategii
+i architektury AI, przez przygotowanie danych i ocenę technologii, po wdrożenia i rozwój rozwiązań.
+
+## Oferta
+
+https://www.quanticalab.ai/
+
+Oferta obejmuje trzy obszary:
+
+- **Produkty AI** – autorskie rozwiązania AI, które rozwiązują realne problemy biznesowe, od
+  inteligentnych asystentów po zaawansowane systemy agentowe.
+- **Eksperci AI** – elastyczny dostęp do ekspertów AI, od strategii i architektury, przez
+  przygotowanie danych i dobór technologii, po wdrożenia i optymalizację rozwiązań.
+- **Szkolenia** – praktyczne programy rozwijające kompetencje AI, od podstaw dla całej organizacji po
+  warsztaty specjalistyczne i strategiczne dla kadry zarządzającej.
+
+### Dlaczego Quantica Lab
+
+- **Od badań do wdrożeń.** Wykorzystujemy doświadczenie badawczo-rozwojowe do projektowania
+  i wdrażania rozwiązań AI dla biznesu i administracji publicznej.
+- **Doświadczenie w budowie modeli AI.** Nasi eksperci współtworzyli polskie modele językowe PLLuM,
+  uczestnicząc w ich projektowaniu, trenowaniu, ewaluacji i wdrożeniach.
+- **Obiektywny dobór technologii.** Tworzymy własne narzędzia do oceny AI i rekomendujemy rozwiązania
+  na podstawie ich jakości, bezpieczeństwa i kosztów, a nie deklaracji producentów.
+- **Bezpieczeństwo i kontrola danych.** Projektujemy rozwiązania zapewniające pełną kontrolę nad
+  danymi i możliwość wdrożenia zarówno w chmurze, jak i on-premise.
+
+## Produkty AI
+
+https://www.quanticalab.ai/quantica_produkty.html
+
+### Zagłoba – inteligentny asystent wiedzy
+
+https://www.quanticalab.ai/zagloba_website.html
+
+Wiedza potrzebna pracownikom do podejmowania decyzji i realizacji codziennych zadań jest często
+rozproszona między wieloma dokumentami, repozytoriami i systemami. Odnalezienie właściwej informacji
+wymaga czasu i przeszukiwania wielu źródeł. Jednocześnie wykorzystanie publicznych modeli językowych
+do pracy z dokumentami organizacji może wiązać się z ryzykiem ujawnienia danych oraz brakiem kontroli
+nad sposobem ich przetwarzania.
+
+Zagłoba to system RAG (Retrieval-Augmented Generation), który zapewnia szybki i bezpieczny dostęp do
+wiedzy organizacji: użytkownik zadaje pytanie, a system przeszukuje dostępne źródła danych,
+identyfikuje najbardziej trafne informacje i na ich podstawie przygotowuje odpowiedź.
+
+Odpowiedzi są generowane na podstawie informacji wyszukanych w zdefiniowanych źródłach, co ogranicza
+ryzyko udzielania odpowiedzi błędnych lub nieaktualnych oraz pozwala zweryfikować informacje
+w materiałach źródłowych. W przypadku braku informacji w bazie system nie tworzy odpowiedzi
+spekulatywnych, lecz informuje o braku danych i może skierować użytkownika do odpowiedniego źródła.
+
+Zagłoba nie wymaga przenoszenia dokumentów do kolejnego, odrębnego repozytorium. Integruje się
+z istniejącymi systemami i źródłami danych organizacji (m.in. SharePoint, OneDrive, Amazon S3),
+automatycznie uwzględniając nowe i zmienione dokumenty. Zachowuje przy tym istniejące role i poziomy
+dostępu – odpowiedzi dla każdego użytkownika są generowane wyłącznie na podstawie informacji, do
+których ma uprawnienia.
+
+System może działać w pełni lokalnie, bez konieczności przekazywania dokumentów i danych do
+zewnętrznych dostawców AI. Pozwala to organizacji zachować pełną kontrolę nad miejscem
+przechowywania i przetwarzania danych oraz uniezależnić koszty działania systemu od liczby zapytań
+kierowanych do komercyjnych modeli językowych.
+
+Zagłoba został opracowany przez zespół współtworzący polskie modele językowe PLLuM, posiadający
+doświadczenie we wdrożeniach w administracji publicznej i sektorze prywatnym, m.in. przy budowie
+Wirtualnego Asystenta w aplikacji mObywatel (ok. 500 tys. zapytań miesięcznie), czatbotów w urzędach
+oraz systemów AI wspierających pracę organizacji posiadających rozbudowane zasoby wiedzy.
+
+### Klara – bezpieczny (i inteligentny) chat AI
+
+https://www.quanticalab.ai/klara_website.html
+
+Klara to bezpieczny chat AI, który zapewnia pracownikom wygodny dostęp do modeli językowych,
+a organizacji pozwala zachować kontrolę nad przepływem danych, wykorzystywanymi modelami i kosztami
+korzystania z AI.
+
+Organizacje często ograniczają dostęp do publicznych modeli językowych ze względu na ryzyko
+ujawnienia danych, brak kontroli nad sposobem ich przetwarzania oraz wymagania dotyczące
+bezpieczeństwa i zgodności. Zakazy nie eliminują jednak potrzeby korzystania z AI i mogą prowadzić do
+rozwoju shadow AI, czyli wykorzystywania nieautoryzowanych narzędzi poza wiedzą i kontrolą
+organizacji.
+
+Klara ogranicza zjawisko shadow AI, zapewniając pracownikom bezpieczną i wygodną alternatywę dla
+publicznych chatów. Pracownicy korzystają z niej tak samo jak z popularnych chatów AI. W tle system
+automatycznie analizuje każde zapytanie, ocenia jego bezpieczeństwo i stopień złożoności, a następnie
+kieruje je do modelu najlepiej dopasowanego do danego zadania.
+
+Jeżeli polecenie zawiera dane, które zgodnie z polityką organizacji nie powinny być przetwarzane poza
+jej infrastrukturą, zadanie jest realizowane przez lokalny model językowy działający w kontrolowanym
+środowisku. Proste i rutynowe zadania są obsługiwane przez modele lokalne, co ogranicza koszty
+korzystania z zewnętrznych usług AI. Zadania szczególnie złożone są kierowane do wybranego modelu
+zewnętrznego, takiego jak GPT czy Gemini.
+
+Organizacja zachowuje kontrolę nad dostępnymi modelami, regułami kierowania zapytań oraz zasadami
+przetwarzania informacji. Rozwiązanie może być dostosowane do wewnętrznych polityk bezpieczeństwa,
+struktury organizacyjnej i uprawnień poszczególnych użytkowników.
+
+System został opracowany przez zespół specjalizujący się w bezpieczeństwie dużych modeli językowych.
+Twórcy rozwiązania pracowali m.in. nad zabezpieczeniem polskich modeli PLLuM, mechanizmami guardrails
+dostosowanymi do języka polskiego oraz narzędziami służącymi do wykrywania treści szkodliwych.
+
+### Kmicic – inteligentny agent e-mail
+
+https://www.quanticalab.ai/kmicic_website.html
+
+Kmicic to system agentowy, który integruje się z firmową lub instytucjonalną skrzynką pocztową
+i automatycznie analizuje napływającą korespondencję wraz z załącznikami. Na podstawie treści
+wiadomości identyfikuje temat i zakres sprawy, określa jej kategorię i priorytet, proponuje treść
+odpowiedzi oraz optymalny sposób dalszej obsługi.
+
+Kmicic działa zgodnie z zasadą Human-in-the-Loop, dzięki czemu pracownicy zachowują pełną kontrolę
+nad procesem obsługi korespondencji. Rutynowe sprawy może obsługiwać automatycznie, a pozostałe
+kieruje do właściwych osób wraz z pełnym kontekstem, propozycją odpowiedzi i rekomendacją dalszych
+działań. Organizacja sama określa, które etapy procesu mogą być automatyzowane, a które wymagają
+zatwierdzenia przez pracownika.
+
+Kmicic wykorzystuje duże modele językowe dostosowane do języka polskiego, mechanizmy
+Retrieval-Augmented Generation (RAG) oraz architekturę agentową. Wyspecjalizowani agenci AI
+odpowiadają za analizę korespondencji, klasyfikację spraw, wyszukiwanie informacji w dokumentach,
+procedurach, regulaminach i innych zasobach wiedzy organizacji, przygotowywanie odpowiedzi oraz
+kierowanie zgłoszeń do właściwych osób i zespołów.
+
+Kmicic może zostać wdrożony w różnych modelach infrastrukturalnych oraz zintegrowany z istniejącymi
+systemami organizacji, zgodnie z wymaganiami dotyczącymi bezpieczeństwa, zgodności regulacyjnej
+i przetwarzania danych.
+
+### Papkin – inteligentny protokolant AI
+
+https://www.quanticalab.ai/papkin_website.html
+
+Papkin to system sztucznej inteligencji, który przetwarza dźwięk pochodzący z różnych źródeł,
+a następnie przekształca przebieg spotkania w uporządkowaną dokumentację obejmującą m.in.
+transkrypcję, podsumowanie, protokół oraz listę zadań. Papkin działa zarówno w czasie rzeczywistym,
+generując transkrypcję na żywo, jak i na podstawie wcześniej przygotowanych nagrań audio.
+
+System został zaprojektowany z myślą o organizacjach, dla których kluczowe znaczenie ma
+bezpieczeństwo informacji. Całość przetwarzania odbywa się lokalnie, bez konieczności przekazywania
+nagrań, transkrypcji ani innych danych do zewnętrznych usług chmurowych. Rozwiązanie może zostać
+uruchomione w infrastrukturze klienta, zapewniając pełną kontrolę nad przetwarzanymi informacjami.
+
+Rozwiązanie wykorzystuje lokalnie uruchamiany system automatycznego rozpoznawania mowy (ASR) oraz
+duże modele językowe dostosowane do języka polskiego. W przeciwieństwie do standardowych funkcji
+transkrypcji dostępnych w popularnych narzędziach do wideokonferencji Papkin został zoptymalizowany
+pod kątem języka polskiego oraz potrzeb organizacji przetwarzających duże ilości informacji.
+
+Na podstawie transkrypcji system może generować protokoły, notatki służbowe, podsumowania
+kierownicze, zestawienia ustaleń czy listy zadań. Papkin może rozróżniać poszczególnych uczestników
+spotkania, oznaczając ich jako kolejnych mówców lub, po wcześniejszym przygotowaniu profili
+głosowych, identyfikować konkretne osoby.
+
+### Dyndalski – inteligentny generator dokumentów
+
+https://www.quanticalab.ai/dyndalski_website.html
+
+W urzędach, instytucjach i firmach każdego dnia powstają różne typy dokumentów, takie jak uchwały,
+zawiadomienia, protokoły, umowy czy regulaminy. Każdy z nich stanowi odrębny gatunek tekstu, ma
+określoną strukturę, charakterystyczny styl i sposób formułowania treści.
+
+Dyndalski to system sztucznej inteligencji umożliwiający automatyczne tworzenie dokumentów zgodnych
+z tymi zasadami. Użytkownik nie musi samodzielnie redagować tekstu ani posługiwać się
+specjalistycznym językiem – wystarczy przekazać najważniejsze informacje dotyczące sprawy, takie jak
+opis sytuacji, podjęta decyzja czy podstawa prawna. Na tej podstawie Dyndalski przygotowuje kompletny
+dokument o odpowiedniej strukturze i stylu, dbając również o poprawność językową i właściwe
+formatowanie.
+
+Podstawą działania systemu są autorskie, lokalnie uruchamiane modele językowe, dostrojone do
+tworzenia dokumentów zgodnych z wzorcami gatunkowymi w języku polskim. Pozwala to uzyskać wysoką
+jakość i powtarzalność rezultatów przy wykorzystaniu modeli znacznie mniejszych niż popularne modele
+ogólnego przeznaczenia. Dyndalski może działać w infrastrukturze organizacji lub w środowisku
+polskich centrów obliczeniowych.
+
+Rozwiązanie zostało opracowane we współpracy z ekspertami z Uniwersytetu Łódzkiego. Jego skuteczność
+została potwierdzona w rygorystycznej ewaluacji, w której wyspecjalizowane modele osiągały wyniki
+wyższe niż znacznie większe, uniwersalne modele językowe. Wzorce wykorzystywane przez system powstały
+na podstawie analizy tysięcy rzeczywistych dokumentów oraz badań nad strukturą, stylem i funkcją
+poszczególnych gatunków tekstu.
+
+### Gerwazy – inteligentny strażnik zgodności
+
+https://www.quanticalab.ai/gerwazy_website.html
+
+Gerwazy to system AI umożliwiający analizę różnego rodzaju dokumentacji, w tym procedur, polityk,
+instrukcji, regulaminów, rejestrów i umów, pod kątem zgodności z wymaganiami regulacyjnymi, normami
+branżowymi oraz politykami wewnętrznymi. Dokumenty są automatycznie porównywane z wymaganiami
+wynikającymi z regulacji prawnych, standardów branżowych lub indywidualnych kryteriów zdefiniowanych
+przez użytkownika.
+
+System łączy wymagania regulacyjne z dokumentacją organizacji, wskazuje konkretne luki i uzasadnia
+każdą ocenę na podstawie analizowanych dokumentów. Następnie rekomenduje działania naprawcze i może
+proponować zmiany w procedurach, politykach i innych dokumentach potrzebne do osiągnięcia zgodności.
+
+Gerwazy wykorzystuje lokalnie uruchamiane duże modele językowe dostosowane do języka polskiego oraz
+architekturę wieloagentową. Współpracujący ze sobą agenci AI odpowiadają za interpretację wymagań
+regulacyjnych, analizę dokumentacji organizacji, identyfikację luk i niespójności, ocenę poziomu
+zgodności oraz przygotowanie rekomendacji działań naprawczych.
+
+System pozwala wykorzystywać gotowe zestawy wymagań dla regulacji takich jak NIS2 czy AI Act.
+Użytkownik może również definiować własne listy kontrolne, kryteria oceny i wymagania podlegające
+analizie.
+
+Wynikiem działania systemu jest szczegółowy raport przedstawiający poziom spełnienia poszczególnych
+wymagań, zidentyfikowane niezgodności, braki w dokumentacji oraz rekomendowane działania naprawcze.
+Każda ocena jest uzasadniona i powiązana z konkretnymi fragmentami analizowanych dokumentów.
+
+W przypadku dokumentacji zawierającej informacje poufne lub wrażliwe możliwe jest wykorzystanie
+lokalnej infrastruktury i modeli AI działających pod pełną kontrolą organizacji.
+
+## Eksperci AI
+
+https://www.quanticalab.ai/quantica_eksperci.html
+
+Zapewniamy organizacjom elastyczny dostęp do ekspertów AI – od strategii i projektowania
+architektury, przez przygotowanie danych i rozwój modeli, po wdrożenia produkcyjne. Dzięki modelowi
+subskrypcyjnemu organizacja zyskuje potrzebne kompetencje bez konieczności budowania i utrzymywania
+własnego zespołu AI.
+
+Specjalistyczne kompetencje często są niezbędne tylko na wybranych etapach projektu: przy
+opracowaniu strategii, wyborze technologii, przygotowaniu danych czy wdrożeniu rozwiązania. Model
+subskrypcyjny pozwala korzystać z doświadczenia ekspertów dokładnie wtedy, kiedy jest to potrzebne,
+zarówno jako stałe wsparcie organizacji, jak i uzupełnienie kompetencji istniejących zespołów.
+
+### Strategia i przygotowanie organizacji
+
+- Identyfikacja procesów i scenariuszy użycia AI
+- Ocena gotowości organizacji w obszarze danych, infrastruktury i kompetencji
+- Opracowanie strategii AI oraz planu wdrożenia
+- Dobór architektury, modeli, infrastruktury i technologii
+
+### Projektowanie i wdrażanie rozwiązań AI
+
+- Przygotowanie i porządkowanie danych
+- Integracja z istniejącymi systemami i źródłami danych
+- Projektowanie oraz wdrażanie rozwiązań wykorzystujących modele językowe, agentów AI, systemy RAG,
+  klasyczne modele uczenia maszynowego i inne technologie AI
+- Testy, ewaluacja oraz optymalizacja jakości działania
+- Wsparcie wdrożeń produkcyjnych i dalszego rozwoju systemów
+
+### Adaptacja i rozwój modeli
+
+- Przygotowanie danych treningowych i anotacja
+- Tworzenie oraz wzbogacanie zbiorów uczących z wykorzystaniem LLM-ów
+- Kontynuacja pretreningu oraz fine-tuning modeli
+- Ewaluacja jakości modeli na zadaniach odpowiadających rzeczywistym zastosowaniom
+- Kwantyzacja i optymalizacja modeli pod docelową infrastrukturę
+
+### Rozwój kompetencji AI
+
+- Mentoring zespołów
+- Warsztaty techniczne
+- Code review
+- Konsultacje architektoniczne
+- Dobre praktyki MLOps i LLMOps
+
+## Ocena modeli i systemów AI
+
+https://www.quanticalab.ai/ocena_website.html
+
+W ostatnich latach pojawiły się setki modeli AI (m.in. GPT, Claude, LLaMA, Gemini, Mistral) od
+różnych dostawców technologii. Rozwijają się one niezwykle szybko, a nowe wersje publikowane są co
+kilka miesięcy. W tak dynamicznym środowisku wybór właściwego rozwiązania AI dla organizacji staje
+się coraz trudniejszy. Nie powinien on opierać się wyłącznie na popularności modelu ani na wynikach
+testów prezentowanych w materiałach marketingowych producentów.
+
+Ocena jakości modelu powinna uwzględniać scenariusze użycia w organizacji, a także takie aspekty jak
+bezpieczeństwo danych, koszty wykorzystania modelu, stabilność działania i skalowalność, możliwość
+integracji z istniejącymi systemami oraz dostępność modeli w infrastrukturze lokalnej lub chmurowej.
+
+W przypadku scenariuszy związanych z tworzeniem treści szczególne znaczenie ma jakość języka
+polskiego. Większość modeli AI trenowana była głównie na danych anglojęzycznych, co przekłada się na
+ograniczoną znajomość polskiej normy językowej oraz polskiego kontekstu kulturowego i prawnego.
+W efekcie w odpowiedziach generowanych po polsku mogą pojawiać się kalki językowe, nienaturalne
+konstrukcje lub uproszczenia wynikające z przenoszenia anglosaskich wzorców komunikacji.
+
+Najlepszym sposobem takiej oceny jest uporządkowane porównanie wyników różnych modeli na tych samych
+zadaniach i danych. Takie podejście określa się mianem benchmarku modeli AI. Benchmarki pozwalają
+w sposób kompleksowy porównywać jakość działania modeli AI w kontekście rzeczywistych zadań
+i podejmować świadome decyzje technologiczne.
+
+## Szkolenia AI
+
+https://www.quanticalab.ai/quantica_szkolenia.html
+
+Nasze szkolenia pomagają uporządkować wiedzę, zbudować wspólny język wokół AI oraz przygotować
+organizację do świadomego i efektywnego wykorzystania sztucznej inteligencji. Prowadzą je eksperci,
+którzy na co dzień projektują, oceniają i wdrażają rozwiązania AI w biznesie i administracji
+publicznej.
+
+Szkolenia mają charakter warsztatowy i prowadzą do konkretnych rezultatów: od rozwinięcia
+umiejętności pracowników po identyfikację scenariuszy użycia AI, ocenę gotowości organizacji
+i przygotowanie planów wdrożenia. Szczególny nacisk kładziemy na bezpieczeństwo, zgodność
+z regulacjami oraz świadome podejmowanie decyzji technologicznych, z uwzględnieniem AI Act i ochrony
+danych.
+
+### AI Literacy (dla wszystkich pracowników)
+
+Warsztaty budujące wspólne rozumienie AI w organizacji. Uczestnicy poznają możliwości i ograniczenia
+sztucznej inteligencji, uczą się bezpiecznie korzystać z narzędzi AI oraz poznają wymagania
+wynikające z AI Act.
+
+Najważniejsze zagadnienia: podstawy AI i generatywnej AI, praktyczne zastosowania AI, bezpieczeństwo
+danych, regulacje i etyka AI, odpowiedzialne korzystanie z AI.
+
+### AI dla kadry kierowniczej – projekty (dla menedżerów i kierowników)
+
+Warsztaty operacyjne, których celem jest przełożenie kierunku działań w obszarze AI na konkretne
+inicjatywy. Pomagają zidentyfikować projekty AI o największym potencjale biznesowym oraz przygotować
+organizację do ich realizacji.
+
+Najważniejsze zagadnienia: identyfikacja scenariuszy użycia AI, analiza procesów, ocena danych,
+priorytetyzacja projektów, plan wdrożenia.
+
+### AI dla kadry kierowniczej – strategia (dla zarządów i dyrektorów)
+
+Warsztaty strategiczne, których celem jest określenie realnej roli AI w modelu biznesowym firmy oraz
+wypracowanie spójnych zasad podejmowania decyzji w obszarze inwestycji technologicznych.
+
+Najważniejsze zagadnienia: strategia AI, AI governance, roadmapa wdrożeń, ocena gotowości
+organizacji, priorytety inwestycyjne.
+
+### Supermoce z AI (warsztaty hands-on)
+
+Praktyczne warsztaty pokazujące, jak AI może wykonywać lub wspierać zadania, które wcześniej wymagały
+zaangażowania grafika, analityka, researchera, copywritera, programisty czy konsultanta. Uczestnicy
+samodzielnie pracują z szerokim zestawem narzędzi generatywnej sztucznej inteligencji.
+
+Najważniejsze zagadnienia: praca z czatami AI, prompting, analiza danych, generowanie grafik
+i prezentacji, RAG i asystenci AI na własnych danych, vibe coding, agenci AI.
+
+## Doświadczenie i wdrożenia
+
+- **PLLuM.** Zespół współtworzył polskie modele językowe PLLuM, uczestnicząc w ich projektowaniu,
+  trenowaniu, ewaluacji i wdrożeniach, a także w pracach nad ich zabezpieczeniem i mechanizmami
+  guardrails dostosowanymi do języka polskiego.
+- **Wirtualny Asystent w aplikacji mObywatel.** Udział w budowie asystenta obsługującego ok. 500 tys.
+  zapytań miesięcznie.
+- **Wirtualny asystent gminy (RAG dla administracji samorządowej).** System oparty na mechanizmie
+  Retrieval-Augmented Generation, odpowiadający na pytania mieszkańców w sprawach lokalnych na
+  podstawie informacji z Biuletynu Informacji Publicznej oraz innych publicznie dostępnych materiałów
+  gminy. Rozwiązanie łączy wyszukiwanie kontekstowe w dokumentach urzędowych z generowaniem
+  odpowiedzi w języku naturalnym, opiera się na zweryfikowanych, publicznie dostępnych źródłach
+  i zostało dostosowane do specyfiki administracji publicznej.
+- **Czatboty w urzędach** oraz systemy AI wspierające pracę organizacji posiadających rozbudowane
+  zasoby wiedzy.
+- **Współpraca naukowa.** Rozwiązanie Dyndalski powstało we współpracy z ekspertami z Uniwersytetu
+  Łódzkiego.
+
+## Kontakt
+
+https://www.quanticalab.ai/quantica_kontakt.html
+
+Quantica Lab Sp. z o.o.
+ul. Twarda 18
+00-105 Warszawa
+
+NIP: 5253067706
+KRS: 0001204682
+
+E-mail: kontakt@quanticalab.ai
+LinkedIn: https://www.linkedin.com/company/quantica-lab

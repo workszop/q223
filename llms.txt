@@ -1,0 +1,33 @@
+# Quantica Lab
+
+> Warszawska spółka technologiczna, która buduje i wdraża systemy AI dla dużych organizacji
+> i administracji publicznej: asystentów wiedzy (RAG), agentów AI, dostrajanie modeli językowych,
+> ocenę modeli oraz szkolenia. Zespół współtworzył polskie modele językowe PLLuM.
+> Quantica Lab sp. z o.o. wchodzi w skład holdingu deep-tech BearLake Group.
+> Strona i wszystkie materiały są w języku polskim.
+
+## Produkty AI
+
+- [Zagłoba – inteligentny asystent wiedzy](https://www.quanticalab.ai/zagloba_website.html): system RAG zapewniający bezpieczny dostęp do wiedzy organizacji, precyzyjne odpowiedzi ze wskazaniem źródeł i integrację z istniejącymi systemami.
+- [Klara – bezpieczny chat AI](https://www.quanticalab.ai/klara_website.html): kontrolowane wykorzystanie generatywnej AI w organizacji, z inteligentnym doborem modeli i optymalizacją kosztów.
+- [Kmicic – inteligentny agent e-mail](https://www.quanticalab.ai/kmicic_website.html): automatyczna analiza i obsługa korespondencji e-mail, wykorzystanie wiedzy organizacji i inteligentne kierowanie spraw.
+- [Papkin – inteligentny protokolant AI](https://www.quanticalab.ai/papkin_website.html): automatyczna dokumentacja spotkań, identyfikacja ustaleń i zadań oraz bezpieczne przetwarzanie danych.
+- [Dyndalski – inteligentny generator dokumentów](https://www.quanticalab.ai/dyndalski_website.html): profesjonalne dokumenty o odpowiedniej strukturze, stylu i formie, zgodne z normą językową i standardami organizacji.
+- [Gerwazy – inteligentny strażnik zgodności](https://www.quanticalab.ai/gerwazy_website.html): automatyczna ocena zgodności dokumentacji z wymogami, identyfikacja luk i rekomendacje działań naprawczych.
+- [Przegląd produktów](https://www.quanticalab.ai/quantica_produkty.html): zestawienie wszystkich sześciu produktów AI Quantica Lab.
+
+## Usługi
+
+- [Eksperci AI](https://www.quanticalab.ai/quantica_eksperci.html): elastyczny, subskrypcyjny dostęp do ekspertów AI – strategia, projektowanie i wdrażanie rozwiązań, adaptacja i dostrajanie modeli oraz rozwój kompetencji zespołów.
+- [Ocena modeli i systemów AI](https://www.quanticalab.ai/ocena_website.html): benchmarki prowadzone na danych i zadaniach organizacji, pozwalające rzetelnie ocenić i wybrać rozwiązanie AI najlepiej dopasowane do jej potrzeb.
+- [Szkolenia AI](https://www.quanticalab.ai/quantica_szkolenia.html): AI Literacy dla całej organizacji, warsztaty strategiczne i projektowe dla kadry kierowniczej oraz praktyczne warsztaty hands-on.
+
+## O firmie
+
+- [Strona główna](https://www.quanticalab.ai/): od pierwszych projektów AI do wdrożeń produkcyjnych – produkty AI, eksperci AI i szkolenia.
+- [O nas](https://www.quanticalab.ai/quantica_o_nas.html): kim jesteśmy, jakie mamy doświadczenie i jak pracujemy.
+- [Kontakt](https://www.quanticalab.ai/quantica_kontakt.html): Quantica Lab sp. z o.o., ul. Twarda 18, 00-105 Warszawa, NIP 5253067706, KRS 0001204682, kontakt@quanticalab.ai, https://www.linkedin.com/company/quantica-lab
+
+## Optional
+
+- [Pełna treść serwisu (llms-full.txt)](https://www.quanticalab.ai/llms-full.txt): wszystkie opisy produktów, usług i szkoleń w jednym pliku tekstowym.
